@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--NotificheVC-->
+        <scene sceneID="VK6-cl-7sG">
+            <objects>
+                <viewController storyboardIdentifier="notificheVC" id="N0A-De-scJ" customClass="NotificheVC" customModule="SFA" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NYC-IH-cUy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8w3-Ml-wRP">
+                                <rect key="frame" x="30" y="170" width="315" height="347"/>
+                                <connections>
+                                    <segue destination="tfr-mp-bjd" kind="embed" id="Vcq-c1-0jm"/>
+                                </connections>
+                            </containerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seleziona le categorie di notifiche che preferiresti ricevere:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="72b-lT-Qeh">
+                                <rect key="frame" x="16" y="107" width="343" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="72b-lT-Qeh" secondAttribute="height" multiplier="343:65" id="Udd-El-ikd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifiche" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xpv-Ww-mqt">
+                                <rect key="frame" x="16" y="20" width="343" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Xpv-Ww-mqt" secondAttribute="height" multiplier="343:55" id="Kc4-5z-lTz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="33"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Psi-If-tQh" customClass="TKTransitionSubmitButton" customModule="SFA" customModuleProvider="target">
+                                <rect key="frame" x="112.5" y="557" width="150" height="60"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="ctc-s3-OhR"/>
+                                    <constraint firstAttribute="height" constant="60" id="dC6-4L-Ajn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                <state key="normal" title="Fine">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="spinnerColor">
+                                        <color key="value" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="normalCornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="doneAction:" destination="N0A-De-scJ" eventType="touchUpInside" id="zZU-tL-WkU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8w3-Ml-wRP" firstAttribute="top" secondItem="J3W-hL-bgj" secondAttribute="top" constant="150" id="09C-wu-tuP"/>
+                            <constraint firstItem="8w3-Ml-wRP" firstAttribute="centerY" secondItem="J3W-hL-bgj" secondAttribute="centerY" id="5yk-Qz-xpl"/>
+                            <constraint firstItem="Psi-If-tQh" firstAttribute="centerX" secondItem="J3W-hL-bgj" secondAttribute="centerX" id="6Mm-oz-lPh"/>
+                            <constraint firstItem="72b-lT-Qeh" firstAttribute="leading" secondItem="J3W-hL-bgj" secondAttribute="leading" constant="16" id="7nQ-i7-9dP"/>
+                            <constraint firstItem="8w3-Ml-wRP" firstAttribute="trailing" secondItem="J3W-hL-bgj" secondAttribute="trailing" constant="-30" id="SC5-mI-qsi"/>
+                            <constraint firstItem="Xpv-Ww-mqt" firstAttribute="top" secondItem="J3W-hL-bgj" secondAttribute="top" id="e6J-Zv-8lf"/>
+                            <constraint firstItem="Xpv-Ww-mqt" firstAttribute="leading" secondItem="J3W-hL-bgj" secondAttribute="leading" constant="16" id="hFf-e1-0Wq"/>
+                            <constraint firstItem="J3W-hL-bgj" firstAttribute="bottom" secondItem="Psi-If-tQh" secondAttribute="bottom" constant="50" id="m1U-nO-oWz"/>
+                            <constraint firstItem="8w3-Ml-wRP" firstAttribute="centerX" secondItem="J3W-hL-bgj" secondAttribute="centerX" id="tYY-x5-hVK"/>
+                            <constraint firstItem="8w3-Ml-wRP" firstAttribute="leading" secondItem="J3W-hL-bgj" secondAttribute="leading" constant="30" id="uyl-hw-eAP"/>
+                            <constraint firstItem="J3W-hL-bgj" firstAttribute="trailing" secondItem="Xpv-Ww-mqt" secondAttribute="trailing" constant="16" id="va2-Sw-AyU"/>
+                            <constraint firstItem="8w3-Ml-wRP" firstAttribute="top" secondItem="72b-lT-Qeh" secondAttribute="bottom" constant="-2" id="xPA-U5-osK"/>
+                            <constraint firstItem="J3W-hL-bgj" firstAttribute="trailing" secondItem="72b-lT-Qeh" secondAttribute="trailing" constant="16" id="yLc-bV-HgK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="J3W-hL-bgj"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rlM-un-Nch" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="849" y="128"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="jmn-3n-Nte">
+            <objects>
+                <tableViewController id="tfr-mp-bjd" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="grouped" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="QI3-jc-bfe">
+                        <rect key="frame" x="0.0" y="0.0" width="315" height="347"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <sections>
+                            <tableViewSection id="2dj-pC-SRn">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="75" id="NGR-9E-OMH">
+                                        <rect key="frame" x="0.0" y="35" width="315" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NGR-9E-OMH" id="CUX-Ff-pTB">
+                                            <rect key="frame" x="0.0" y="0.0" width="315" height="74.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Eventi MGS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dba-nQ-dv0">
+                                                    <rect key="frame" x="16" y="19" width="283" height="37"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="75" id="p9H-MF-g8i">
+                                        <rect key="frame" x="0.0" y="110" width="315" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p9H-MF-g8i" id="RM3-W0-50O">
+                                            <rect key="frame" x="0.0" y="0.0" width="315" height="74.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Consigli di Don Bosco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhL-3U-3gd">
+                                                    <rect key="frame" x="16" y="19" width="283" height="37"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="75" id="Xaq-fU-oK3">
+                                        <rect key="frame" x="0.0" y="185" width="315" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xaq-fU-oK3" id="QYt-VD-q0r">
+                                            <rect key="frame" x="0.0" y="0.0" width="315" height="74.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Promemoria sacramenti" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKf-Wt-fzZ">
+                                                    <rect key="frame" x="16" y="19" width="283" height="37"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="75" id="7Vr-n6-Fhu">
+                                        <rect key="frame" x="0.0" y="260" width="315" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Vr-n6-Fhu" id="m3P-la-k8b">
+                                            <rect key="frame" x="0.0" y="0.0" width="315" height="74.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Missione dell'Angelo Custode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbM-H4-h2n">
+                                                    <rect key="frame" x="16" y="19" width="283" height="37"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="tfr-mp-bjd" id="xs3-fu-mgh"/>
+                            <outlet property="delegate" destination="tfr-mp-bjd" id="q2D-3M-9Fa"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HnI-Rz-ave" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="849" y="726"/>
+        </scene>
+    </scenes>
+</document>

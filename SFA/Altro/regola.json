@@ -1,0 +1,124 @@
+{
+    "categories" : [
+        {
+            "id" : "ExampleID",
+            "name" : "Generale",
+            "domande" : [
+                {
+                    "domanda" : "Versione",
+                    "risposta" : "v1.0"
+                },
+                {
+                    "domanda" : "Prossima revisione",
+                    "risposta" : "IDK"
+                },
+                {
+                    "domanda" : "Confessore",
+                    "risposta" : "Begato"
+                },
+                {
+                    "domanda" : "Questo è il brano biblico in cui mi rispecchio:",
+                    "risposta" : null
+                },
+                {
+                    "domanda" : "Ho scelto questo brano perchè:",
+                    "risposta" : null
+                },
+                {
+                    "domanda" : "Per quale motivo mi è stato utile scrivere la regola di vita in questo momento della mia storia?",
+                    "risposta" : null
+                }
+            ]
+        },
+        {
+            "id" : "Examble2ID",
+            "name" : "Preghiera personale e sacramenti",
+            "domande" : [
+                {
+                    "domanda" : "Situazione attuale (aspetti positivi, cosa faccio di buono)",
+                    "risposta" : null
+                },
+                {
+                    "domanda" : "Criticità, limiti, cosa manca",
+                    "risposta" : null
+                },
+                {
+                    "domanda" : "Proposito semplice, concreto, fattibile",
+                    "risposta" : null
+                }
+            ]
+        },
+        {
+            "id" : "Examble3ID",
+            "name" : "Formazione della fede e del pensiero",
+            "domande" : [
+                {
+                    "domanda" : "Situazione attuale (aspetti positivi, cosa faccio di buono)",
+                    "risposta" : null
+                },
+                {
+                    "domanda" : "Criticità, limiti, cosa manca",
+                    "risposta" : null
+                },
+                {
+                    "domanda" : "Proposito semplice, concreto, fattibile",
+                    "risposta" : null
+                }
+            ]
+        },
+        {
+            "id" : "Examble4ID",
+            "name" : "Vita comunitaria, gruppi",
+            "domande" : [
+                {
+                    "domanda" : "Situazione attuale (aspetti positivi, cosa faccio di buono)",
+                    "risposta" : null
+                },
+                {
+                    "domanda" : "Criticità, limiti, cosa manca",
+                    "risposta" : null
+                },
+                {
+                    "domanda" : "Proposito semplice, concreto, fattibile",
+                    "risposta" : null
+                }
+            ]
+        },
+        {
+            "id" : "Examble5ID",
+            "name" : "Servizio al prossimo, deidizione agli altri",
+            "domande" : [
+                {
+                    "domanda" : "Situazione attuale (aspetti positivi, cosa faccio di buono)",
+                    "risposta" : null
+                },
+                {
+                    "domanda" : "Criticità, limiti, cosa manca",
+                    "risposta" : null
+                },
+                {
+                    "domanda" : "Proposito semplice, concreto, fattibile",
+                    "risposta" : null
+                }
+            ]
+        },
+        {
+            "id" : "Examble6ID",
+            "name" : "Pensiero finale",
+            "domande" : [
+                {
+                    "domanda" : "Dimensione degli affetti e della sessualità: nodi irrisolti, paure, dubbi - regola aurea: in questo campo i problemi si risolvono solo chiedendo aiuto",
+                    "risposta" : null
+                },
+                {
+                    "domanda" : "Dimensione X: c'è qualche aspetto specifico e particolare della mia vita cge mi mette in crisi (es: alcolm internet, uso del denaro, vizi personali, problemi personali e familiari, etc.)? Ne parlo!",
+                    "risposta" : null
+                },
+                {
+                    "domanda" : "Preghiera di affidamento",
+                    "risposta" : null
+                }
+            ]
+        }
+    ]
+}
