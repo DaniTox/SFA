@@ -10,6 +10,8 @@
 		DB2C316121AC87580009EC14 /* EditRispostaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2C316021AC87580009EC14 /* EditRispostaView.swift */; };
 		DB2C316321AC88E20009EC14 /* EditRispostaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2C316221AC88E20009EC14 /* EditRispostaVC.swift */; };
 		DB61DA1321B5B9ED006B308B /* RegolaFetcherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1221B5B9ED006B308B /* RegolaFetcherModel.swift */; };
+		DB61DA1521B9BA81006B308B /* SitoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1421B9BA81006B308B /* SitoView.swift */; };
+		DB61DA1721B9C605006B308B /* SitoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1621B9C605006B308B /* SitoVC.swift */; };
 		DB88DBDF21A96E6F00B0699B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBDE21A96E6F00B0699B /* HomeViewController.swift */; };
 		DB88DBE121A9718000B0699B /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBE021A9718000B0699B /* RegisterVC.swift */; };
 		DB88DBE821A975C100B0699B /* SpinerLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBE321A975C100B0699B /* SpinerLayer.swift */; };
@@ -18,7 +20,6 @@
 		DB88DBEB21A975C100B0699B /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBE621A975C100B0699B /* FadeTransition.swift */; };
 		DB88DBEC21A975C100B0699B /* TimerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBE721A975C100B0699B /* TimerEx.swift */; };
 		DB88DBEE21A97F4400B0699B /* RootAppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBED21A97F4400B0699B /* RootAppController.swift */; };
-		DB88DBF021AAB6DD00B0699B /* RegolaParserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBEF21AAB6DD00B0699B /* RegolaParserVC.swift */; };
 		DB88DBF321AAF19300B0699B /* RegolaObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBF221AAF19300B0699B /* RegolaObjects.swift */; };
 		DB88DBF521AAF1EA00B0699B /* RegolaParserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBF421AAF1EA00B0699B /* RegolaParserView.swift */; };
 		DB88DBF721AAF3AD00B0699B /* regola.json in Resources */ = {isa = PBXBuildFile; fileRef = DB88DBF621AAF3AD00B0699B /* regola.json */; };
@@ -65,6 +66,8 @@
 		DB2C316021AC87580009EC14 /* EditRispostaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRispostaView.swift; sourceTree = "<group>"; };
 		DB2C316221AC88E20009EC14 /* EditRispostaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRispostaVC.swift; sourceTree = "<group>"; };
 		DB61DA1221B5B9ED006B308B /* RegolaFetcherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegolaFetcherModel.swift; sourceTree = "<group>"; };
+		DB61DA1421B9BA81006B308B /* SitoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitoView.swift; sourceTree = "<group>"; };
+		DB61DA1621B9C605006B308B /* SitoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitoVC.swift; sourceTree = "<group>"; };
 		DB88DBDE21A96E6F00B0699B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DB88DBE021A9718000B0699B /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		DB88DBE321A975C100B0699B /* SpinerLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinerLayer.swift; sourceTree = "<group>"; };
@@ -73,7 +76,6 @@
 		DB88DBE621A975C100B0699B /* FadeTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
 		DB88DBE721A975C100B0699B /* TimerEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerEx.swift; sourceTree = "<group>"; };
 		DB88DBED21A97F4400B0699B /* RootAppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAppController.swift; sourceTree = "<group>"; };
-		DB88DBEF21AAB6DD00B0699B /* RegolaParserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegolaParserVC.swift; sourceTree = "<group>"; };
 		DB88DBF221AAF19300B0699B /* RegolaObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegolaObjects.swift; sourceTree = "<group>"; };
 		DB88DBF421AAF1EA00B0699B /* RegolaParserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegolaParserView.swift; sourceTree = "<group>"; };
 		DB88DBF621AAF3AD00B0699B /* regola.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = regola.json; sourceTree = "<group>"; };
@@ -154,7 +156,6 @@
 		DB88DBFC21AB30C300B0699B /* RegolaDiVIta */ = {
 			isa = PBXGroup;
 			children = (
-				DB88DBEF21AAB6DD00B0699B /* RegolaParserVC.swift */,
 				DB88DBFE21AB315200B0699B /* RegolaCategorieVC.swift */,
 				DB88DBF821AB2BE000B0699B /* DomandeVC.swift */,
 				DB2C316221AC88E20009EC14 /* EditRispostaVC.swift */,
@@ -225,6 +226,7 @@
 				DB88DBDE21A96E6F00B0699B /* HomeViewController.swift */,
 				DB88DBE021A9718000B0699B /* RegisterVC.swift */,
 				DB88DBED21A97F4400B0699B /* RootAppController.swift */,
+				DB61DA1621B9C605006B308B /* SitoVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -238,6 +240,7 @@
 				DBAAE2B421A5C83A00211CBF /* Login.storyboard */,
 				DBAAE2B821A5CD4200211CBF /* Register.storyboard */,
 				DB88DBFD21AB30E400B0699B /* RegolaDiVita */,
+				DB61DA1421B9BA81006B308B /* SitoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				DB88DBF521AAF1EA00B0699B /* RegolaParserView.swift in Sources */,
 				DB88DBFB21AB2C0D00B0699B /* DomandeView.swift in Sources */,
 				DBAF3C40219CBF35003083EA /* IQBarButtonItem.swift in Sources */,
+				DB61DA1721B9C605006B308B /* SitoVC.swift in Sources */,
 				DBAF3C4B219CBF35003083EA /* IQUITextFieldView+Additions.swift in Sources */,
 				DB88DBEB21A975C100B0699B /* FadeTransition.swift in Sources */,
 				DBAAE2AF21A5B3B000211CBF /* WelcomePageVC.swift in Sources */,
@@ -415,7 +419,6 @@
 				DB88DBFF21AB315200B0699B /* RegolaCategorieVC.swift in Sources */,
 				DBAF3C48219CBF35003083EA /* IQKeyboardManager.swift in Sources */,
 				DBAAE2B321A5C53700211CBF /* NotificheVC.swift in Sources */,
-				DB88DBF021AAB6DD00B0699B /* RegolaParserVC.swift in Sources */,
 				DBAF3C47219CBF35003083EA /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				DB88DBE821A975C100B0699B /* SpinerLayer.swift in Sources */,
 				DB88DBE921A975C100B0699B /* CGRectEx.swift in Sources */,
@@ -431,6 +434,7 @@
 				DB2C316121AC87580009EC14 /* EditRispostaView.swift in Sources */,
 				DBAF3C0A219C9019003083EA /* SFA.xcdatamodeld in Sources */,
 				DBAF3C45219CBF35003083EA /* IQKeyboardManagerConstants.swift in Sources */,
+				DB61DA1521B9BA81006B308B /* SitoView.swift in Sources */,
 				DB88DBF921AB2BE000B0699B /* DomandeVC.swift in Sources */,
 				DB88DC0121AB318400B0699B /* RegoleCategorieView.swift in Sources */,
 				DBAF3C24219C9F6A003083EA /* Extensions.swift in Sources */,

@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        if isAlreadyLaunched {            
+        if !isAlreadyLaunched {            
             window?.rootViewController = RootAppController()
         } else {
             let storyboard = UIStoryboard(name: "WelcomeVC", bundle: nil)
