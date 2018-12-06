@@ -12,6 +12,8 @@
 		DB61DA1321B5B9ED006B308B /* RegolaFetcherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1221B5B9ED006B308B /* RegolaFetcherModel.swift */; };
 		DB61DA1521B9BA81006B308B /* SitoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1421B9BA81006B308B /* SitoView.swift */; };
 		DB61DA1721B9C605006B308B /* SitoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1621B9C605006B308B /* SitoVC.swift */; };
+		DB61DA1921B9C81E006B308B /* SocialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1821B9C81E006B308B /* SocialVC.swift */; };
+		DB61DA1B21B9C834006B308B /* SocialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1A21B9C834006B308B /* SocialView.swift */; };
 		DB88DBDF21A96E6F00B0699B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBDE21A96E6F00B0699B /* HomeViewController.swift */; };
 		DB88DBE121A9718000B0699B /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBE021A9718000B0699B /* RegisterVC.swift */; };
 		DB88DBE821A975C100B0699B /* SpinerLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBE321A975C100B0699B /* SpinerLayer.swift */; };
@@ -68,6 +70,8 @@
 		DB61DA1221B5B9ED006B308B /* RegolaFetcherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegolaFetcherModel.swift; sourceTree = "<group>"; };
 		DB61DA1421B9BA81006B308B /* SitoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitoView.swift; sourceTree = "<group>"; };
 		DB61DA1621B9C605006B308B /* SitoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitoVC.swift; sourceTree = "<group>"; };
+		DB61DA1821B9C81E006B308B /* SocialVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialVC.swift; sourceTree = "<group>"; };
+		DB61DA1A21B9C834006B308B /* SocialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialView.swift; sourceTree = "<group>"; };
 		DB88DBDE21A96E6F00B0699B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DB88DBE021A9718000B0699B /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		DB88DBE321A975C100B0699B /* SpinerLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinerLayer.swift; sourceTree = "<group>"; };
@@ -227,6 +231,7 @@
 				DB88DBE021A9718000B0699B /* RegisterVC.swift */,
 				DB88DBED21A97F4400B0699B /* RootAppController.swift */,
 				DB61DA1621B9C605006B308B /* SitoVC.swift */,
+				DB61DA1821B9C81E006B308B /* SocialVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 				DBAAE2B821A5CD4200211CBF /* Register.storyboard */,
 				DB88DBFD21AB30E400B0699B /* RegolaDiVita */,
 				DB61DA1421B9BA81006B308B /* SitoView.swift */,
+				DB61DA1A21B9C834006B308B /* SocialView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -434,7 +440,9 @@
 				DB2C316121AC87580009EC14 /* EditRispostaView.swift in Sources */,
 				DBAF3C0A219C9019003083EA /* SFA.xcdatamodeld in Sources */,
 				DBAF3C45219CBF35003083EA /* IQKeyboardManagerConstants.swift in Sources */,
+				DB61DA1B21B9C834006B308B /* SocialView.swift in Sources */,
 				DB61DA1521B9BA81006B308B /* SitoView.swift in Sources */,
+				DB61DA1921B9C81E006B308B /* SocialVC.swift in Sources */,
 				DB88DBF921AB2BE000B0699B /* DomandeVC.swift in Sources */,
 				DB88DC0121AB318400B0699B /* RegoleCategorieView.swift in Sources */,
 				DBAF3C24219C9F6A003083EA /* Extensions.swift in Sources */,

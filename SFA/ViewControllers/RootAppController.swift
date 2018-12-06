@@ -28,6 +28,10 @@ class RootAppController : UITabBarController {
         vc2.title = "Sito"
         self.addChild(vc2)
         
+        let vc3 = SocialVC()
+        vc3.title = "Social"
+        self.addChild(vc3)
+        
     }
     
     private func presentSitoVC() {
@@ -43,17 +47,6 @@ class RootAppController : UITabBarController {
 }
 
 extension RootAppController : UITabBarControllerDelegate {
-//    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-//        if item.title == "Sito" {
-//            presentSitoVC()
-//            tabBarController?.selectedIndex = self.indexController
-//        } else {
-//            self.indexController = tabBarController?.selectedIndex ?? 0
-//        }
-//
-//    }
-    
-    
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController is SitoVC {
