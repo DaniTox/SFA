@@ -155,8 +155,8 @@
 			isa = PBXGroup;
 			children = (
 				DB88DBEF21AAB6DD00B0699B /* RegolaParserVC.swift */,
-				DB88DBF821AB2BE000B0699B /* DomandeVC.swift */,
 				DB88DBFE21AB315200B0699B /* RegolaCategorieVC.swift */,
+				DB88DBF821AB2BE000B0699B /* DomandeVC.swift */,
 				DB2C316221AC88E20009EC14 /* EditRispostaVC.swift */,
 			);
 			path = RegolaDiVIta;

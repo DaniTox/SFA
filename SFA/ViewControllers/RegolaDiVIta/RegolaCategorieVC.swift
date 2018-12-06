@@ -19,7 +19,8 @@ class RegolaCategorieVC: UIViewController, HasCustomView {
     var persistentContainer : NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
     var tableView : UITableView { return rootView.tableView }
     var regola: Regola?
-    let regolaFetcherModel = RegolaFetcherModel()
+    var categorie : [Categoria] = []
+    let regolaFetcherModel = RegolaFetcherModel.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,10 @@ class RegolaCategorieVC: UIViewController, HasCustomView {
         rootView.refreshControl.addTarget(self, action: #selector(tablePulled), for: .valueChanged)
         
         self.regola = regolaFetcherModel.getRegola()
+        if let categorie = Array(self.regola?.categorie ?? NSSet(array: [])) as? [Categoria] {
+            let cats = categorie.sorted(by: { $0.id < $1.id })
+            self.categorie = cats
+        }
     }
     
     @objc private func tablePulled() {
@@ -47,21 +52,22 @@ extension RegolaCategorieVC : UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-//        cell.textLabel?.text = self.regola?.categorie?[indexPath.row]
-//        cell.accessoryType = .disclosureIndicator
+        cell.textLabel?.text = self.categorie[indexPath.row].name
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vc = DomandeVC()
-//        guard let categories = self.regola?.categorie else { return }
-//        let selectedCategory = categories.[indexPath.row]
-//
-//        guard let selectedDomande = self.regola?.domandeForCategory(selectedCategory) else { return }
-//        vc.domande = selectedDomande
-//        vc.title = selectedCategory
-//        tableView.deselectRow(at: indexPath, animated: true)
-//        navigationController?.pushViewController(vc, animated: true)
+        let vc = DomandeVC()
+        let selectedCategory = self.categorie[indexPath.row]
+
+//        guard let selectedDomande = Array(selectedCategory.domande ?? NSSet()) as? Array<Domanda> else { return }
+//        vc.domande = selectedDomande.sorted(by: { $0.id < $1.id })
+        vc.title = selectedCategory.name
+        vc.selectedCategory = selectedCategory
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -2,4 +2,54 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SFA/ViewControllers/RegolaDiVIta/DomandeVC.swift"
+            timestampString = "565819700.403825"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "getDomande()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SFA.DomandeVC.(getDomande in _624D585F2EEF764D0471AF924F8DD39C)() -&gt; ()"
+                  moduleName = "SFA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danitox/Desktop/SFA%202/SFA/ViewControllers/RegolaDiVIta/DomandeVC.swift"
+                  timestampString = "565813031.975984"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "228">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (SFA.Domanda, SFA.Domanda) -&gt; Swift.Bool in SFA.DomandeVC.(getDomande in _624D585F2EEF764D0471AF924F8DD39C)() -&gt; ()"
+                  moduleName = "SFA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danitox/Desktop/SFA%202/SFA/ViewControllers/RegolaDiVIta/DomandeVC.swift"
+                  timestampString = "565813031.97825"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

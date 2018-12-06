@@ -27,4 +27,16 @@ class EditRispostaVC : UIViewController, HasCustomView {
         super.viewDidLoad()
         title = "Risposta"
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("Saving...")
+        domandaObject.risposta = rootView.textView.text
+        let context = domandaObject.managedObjectContext
+        do {
+            try context?.save()
+        } catch {
+            print(error)
+        }
+    }
 }

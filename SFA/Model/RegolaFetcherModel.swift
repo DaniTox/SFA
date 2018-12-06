@@ -11,12 +11,12 @@ import CoreData
 
 class RegolaFetcherModel {
     
-//    static let shared = RegolaFetcherModel()
-//    private init() { }
+    static let shared = RegolaFetcherModel()
+    private init() { }
 
     public var persistentContainer: NSPersistentContainer?
     
-    public var regola : Regola?
+//    public var regola : Regola?
     
     func createIfNotPresent() {
         assert(persistentContainer != nil, "Devi settare sto cazzo di persistentContainer prima di utilizzare questo oggetto! -> RegolaFetcherModel")
@@ -27,40 +27,27 @@ class RegolaFetcherModel {
         guard let unRegole = regole else { return }
         if unRegole.count < 1 {
             print("Creating Regola since it doesn't exist")
-            self.createFromFile()
+            self.createRegolaModel()
         } else {
             print("Regola esiste già. Non la creo in CoreData")
         }
     }
 
-    
-    private func createFromFile() {
-        assert(persistentContainer != nil, "Devi settare sto cazzo di persistentContainer prima di utilizzare questo oggetto! -> RegolaFetcherModel")
-        let context = persistentContainer!.viewContext
+    public func createRegolaModel() {
+        assert(persistentContainer != nil, "Imposta il container, maledetto!")
         
-        let bundleUrl = Bundle.main.url(forResource: "regola", withExtension: "json")!
-        guard let data = try? Data(contentsOf: bundleUrl) else { return }
-        var regolaFile : RegolaFile = RegolaFile()
+        let bundleURL = Bundle.main.url(forResource: "regola", withExtension: "json")!
+        let data =  try! Data(contentsOf: bundleURL)
         do {
-            regolaFile = try JSONDecoder().decode(RegolaFile.self, from: data)
+            let object = try JSONDecoder().decode(RegolaFile.self, from: data)
+            let regola = Regola.createFromFileObject(object: object, context: persistentContainer!.viewContext)
+            try regola.managedObjectContext?.save()
         } catch {
             print(error)
         }
-        
-//        let regolaCoreData = Regola(context: context)
-//        let categorieFile = regolaFile.categories
-//        for (indexCat, categoriaFile) in categorieFile.enumerated() {
-//            let categoriaCoreData = Categoria(context: context)
-//            categoriaCoreData.id = Int16(indexCat)
-//            categoriaCoreData.name = categoriaFile.name
-//        }
-        
-        do {
-            try context.save()
-        } catch {
-            print("Context: error while saving the new Regola from File... fuck this shit")
-        }
     }
+    
+
     
     private func getLatestRegola() throws -> Regola {
         assert(persistentContainer != nil, "Devi settare sto cazzo di persistentContainer prima di utilizzare questo oggetto! -> RegolaFetcherModel")
@@ -85,11 +72,28 @@ class RegolaFetcherModel {
     
     public func getRegola() -> Regola? {
         assert(persistentContainer != nil, "Devi settare sto cazzo di persistentContainer prima di utilizzare questo oggetto! -> RegolaFetcherModel")
-        if self.regola != nil {
-            return self.regola
-        } else {
+//        if self.regola != nil {
+//            return self.regola
+//        } else {
             return try? self.getLatestRegola()
+//        }
+    }
+    
+    
+    
+    public func getDomande(from category: Categoria) -> [Domanda] {
+        let context = persistentContainer!.viewContext
+        let request: NSFetchRequest<Domanda> = Domanda.fetchRequest()
+        request.predicate = NSPredicate(format: "categoria = %@", category)
+        
+        var domande : [Domanda] = []
+        do {
+            domande = try context.fetch(request)
+        } catch {
+            print("error CoreData getDomande: \(error)")
         }
+        
+        return domande
     }
     
 }

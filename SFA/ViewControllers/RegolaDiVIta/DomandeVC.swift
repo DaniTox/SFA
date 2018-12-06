@@ -17,6 +17,7 @@ class DomandeVC: UIViewController, HasCustomView {
     
     var tableView : UITableView { return rootView.tableView }
     var domande : [Domanda] = []
+    var selectedCategory : Categoria?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,17 +26,32 @@ class DomandeVC: UIViewController, HasCustomView {
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         rootView.refreshControl.addTarget(self, action: #selector(tablePulled), for: .valueChanged)
+        
+        getDomande()
     }
     
     @objc private func tablePulled() {
-        tableView.reloadData()
+        updateTable()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        updateTable()
+    }
+    
+    private func updateTable() {
+        getDomande()
         tableView.reloadData()
     }
     
+    private func getDomande() {
+        guard let categoria = self.selectedCategory else { return }
+        let domande = RegolaFetcherModel.shared.getDomande(from: categoria)
+        self.domande = domande.sorted(by: {$0.id < $1.id })
+        let undomande = selectedCategory?.domande as? Set<Domanda>
+        let domanda = undomande!.first(where: {$0.domanda == "Versione"})
+        print("\(domanda?.domanda): \(domanda?.risposta)")
+    }
 }
 
 extension DomandeVC : UITableViewDelegate, UITableViewDataSource {

@@ -32,21 +32,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.makeKeyAndVisible()
         
-        let bundleURL = Bundle.main.url(forResource: "regola", withExtension: "json")!
-        let data =  try! Data(contentsOf: bundleURL)
-        do {
-            let object = try JSONDecoder().decode(RegolaFile.self, from: data)
-            let regola = Regola.createFromFileObject(object: object, context: persistentContainer.viewContext)
-            let categorie = regola.categorie as! Set<Categoria>
-            let cat = categorie.first
-            let domande = cat?.domande as! Set<Domanda>
-            for domanda in domande {
-                print("\(domanda.domanda) -> \(domanda.risposta)")
-            }
-        } catch {
-            print(error)
-        }
         
+//        let model = RegolaFetcherModel()
+        RegolaFetcherModel.shared.persistentContainer = persistentContainer
+        RegolaFetcherModel.shared.createIfNotPresent()
         
         
         
