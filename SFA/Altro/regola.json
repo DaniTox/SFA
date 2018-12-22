@@ -5,26 +5,32 @@
             "name" : "Generale",
             "domande" : [
                 {
+                	"idDomanda" : 1,
                     "domanda" : "Versione",
                     "risposta" : "v1.0"
                 },
-                {
+                {	
+                	"idDomanda" : 2,
                     "domanda" : "Prossima revisione",
                     "risposta" : "IDK"
                 },
                 {
+                	"idDomanda" : 3,
                     "domanda" : "Confessore",
                     "risposta" : "Begato"
                 },
                 {
+                	"idDomanda" : 4,
                     "domanda" : "Questo è il brano biblico in cui mi rispecchio:",
                     "risposta" : null
                 },
                 {
+                	"idDomanda" : 5,
                     "domanda" : "Ho scelto questo brano perchè:",
                     "risposta" : null
                 },
                 {
+                	"idDomanda" : 6,
                     "domanda" : "Per quale motivo mi è stato utile scrivere la regola di vita in questo momento della mia storia?",
                     "risposta" : null
                 }
@@ -35,14 +41,17 @@
             "name" : "Preghiera personale e sacramenti",
             "domande" : [
                 {
+                	"idDomanda" : 7,
                     "domanda" : "Situazione attuale (aspetti positivi, cosa faccio di buono)",
                     "risposta" : null
                 },
                 {
+                	"idDomanda" : 8,
                     "domanda" : "Criticità, limiti, cosa manca",
                     "risposta" : null
                 },
                 {
+                	"idDomanda" : 9,
                     "domanda" : "Proposito semplice, concreto, fattibile",
                     "risposta" : null
                 }
@@ -53,14 +62,17 @@
             "name" : "Formazione della fede e del pensiero",
             "domande" : [
                 {
+                	"idDomanda" : 10,
                     "domanda" : "Situazione attuale (aspetti positivi, cosa faccio di buono)",
                     "risposta" : null
                 },
                 {
+                	"idDomanda" : 11,
                     "domanda" : "Criticità, limiti, cosa manca",
                     "risposta" : null
                 },
                 {
+                	"idDomanda" : 12,
                     "domanda" : "Proposito semplice, concreto, fattibile",
                     "risposta" : null
                 }
@@ -71,14 +83,17 @@
             "name" : "Vita comunitaria, gruppi",
             "domande" : [
                 {
+                	"idDomanda" : 13,
                     "domanda" : "Situazione attuale (aspetti positivi, cosa faccio di buono)",
                     "risposta" : null
                 },
                 {
+                	"idDomanda" : 14,
                     "domanda" : "Criticità, limiti, cosa manca",
                     "risposta" : null
                 },
                 {
+                	"idDomanda" : 15,
                     "domanda" : "Proposito semplice, concreto, fattibile",
                     "risposta" : null
                 }
@@ -89,14 +104,17 @@
             "name" : "Servizio al prossimo, deidizione agli altri",
             "domande" : [
                 {
+                	"idDomanda" : 16,
                     "domanda" : "Situazione attuale (aspetti positivi, cosa faccio di buono)",
                     "risposta" : null
                 },
                 {
+                	"idDomanda" : 17,
                     "domanda" : "Criticità, limiti, cosa manca",
                     "risposta" : null
                 },
                 {
+                	"idDomanda" : 18,
                     "domanda" : "Proposito semplice, concreto, fattibile",
                     "risposta" : null
                 }
@@ -107,14 +125,17 @@
             "name" : "Pensiero finale",
             "domande" : [
                 {
+                	"idDomanda" : 19,
                     "domanda" : "Dimensione degli affetti e della sessualità: nodi irrisolti, paure, dubbi - regola aurea: in questo campo i problemi si risolvono solo chiedendo aiuto",
                     "risposta" : null
                 },
                 {
+                	"idDomanda" : 20,
                     "domanda" : "Dimensione X: c'è qualche aspetto specifico e particolare della mia vita cge mi mette in crisi (es: alcolm internet, uso del denaro, vizi personali, problemi personali e familiari, etc.)? Ne parlo!",
                     "risposta" : null
                 },
                 {
+                	"idDomanda" : 21,
                     "domanda" : "Preghiera di affidamento",
                     "risposta" : null
                 }

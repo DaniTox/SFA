@@ -19,6 +19,7 @@ class SocialVC: UIViewController, HasCustomView {
     override func viewDidLoad() {
         super.viewDidLoad()
         rootView.instagranmButton.addTarget(self, action: #selector(openInstagram), for: .touchUpInside)
+        rootView.facebookButton.addTarget(self, action: #selector(openFacebook), for: .touchUpInside)
     }
     
     @objc func openInstagram() {
@@ -34,4 +35,16 @@ class SocialVC: UIViewController, HasCustomView {
         }
     }
     
+    @objc private func openFacebook() {
+        let scheme = "fb://profile/mgslombardiaemilia"
+        let url = URL(string: scheme)!
+        
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        } else {
+            let url = URL(string: "https://it-it.facebook.com/mgslombardiaemilia")!
+            let vc = SFSafariViewController(url: url)
+            present(vc, animated: true)
+        }
+    }
 }

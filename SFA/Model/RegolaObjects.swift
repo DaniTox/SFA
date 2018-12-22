@@ -19,10 +19,10 @@ class Regola : NSManagedObject {
             categoriaCD.id = Int16(index)
             categoriaCD.name = categoriaFile.name
             
-            for (index, domandaFile) in categoriaFile.domande.enumerated() {
+            for domandaFile in categoriaFile.domande {
                 let domandaCD = Domanda(context: context)
                 domandaCD.categoria = categoriaCD
-                domandaCD.id = Int16(index)
+                domandaCD.id = Int16(domandaFile.idDomanda)
                 domandaCD.domanda = domandaFile.domanda
                 domandaCD.risposta = domandaFile.rispsota
             }

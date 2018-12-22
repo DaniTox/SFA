@@ -28,6 +28,7 @@ class RegolaCategoryFile : Codable {
     var domande : [RegolaDomandaFile]
 }
 class RegolaDomandaFile : Codable {
+    var idDomanda: Int
     var domanda : String
     var rispsota : String?
 }
