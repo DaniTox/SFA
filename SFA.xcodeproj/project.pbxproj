@@ -17,6 +17,8 @@
 		DB61DA1721B9C605006B308B /* SitoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1621B9C605006B308B /* SitoVC.swift */; };
 		DB61DA1921B9C81E006B308B /* SocialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1821B9C81E006B308B /* SocialVC.swift */; };
 		DB61DA1B21B9C834006B308B /* SocialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1A21B9C834006B308B /* SocialView.swift */; };
+		DB7BEF8621D006A0007A550E /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF8421D006A0007A550E /* KeychainItemAccessibility.swift */; };
+		DB7BEF8721D006A0007A550E /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF8521D006A0007A550E /* KeychainWrapper.swift */; };
 		DB88DBDF21A96E6F00B0699B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBDE21A96E6F00B0699B /* HomeViewController.swift */; };
 		DB88DBE121A9718000B0699B /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBE021A9718000B0699B /* RegisterVC.swift */; };
 		DB88DBE821A975C100B0699B /* SpinerLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBE321A975C100B0699B /* SpinerLayer.swift */; };
@@ -36,7 +38,6 @@
 		DBAAE2AF21A5B3B000211CBF /* WelcomePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAAE2AE21A5B3B000211CBF /* WelcomePageVC.swift */; };
 		DBAAE2B121A5C3FA00211CBF /* NotificheVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBAAE2B021A5C3FA00211CBF /* NotificheVC.storyboard */; };
 		DBAAE2B321A5C53700211CBF /* NotificheVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAAE2B221A5C53700211CBF /* NotificheVC.swift */; };
-		DBAAE2B521A5C83A00211CBF /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBAAE2B421A5C83A00211CBF /* Login.storyboard */; };
 		DBAAE2B721A5CCEB00211CBF /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAAE2B621A5CCEB00211CBF /* LoginVC.swift */; };
 		DBAAE2B921A5CD4200211CBF /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBAAE2B821A5CD4200211CBF /* Register.storyboard */; };
 		DBAAE2BB21A5D26800211CBF /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAAE2BA21A5D26800211CBF /* WelcomeVC.swift */; };
@@ -65,6 +66,7 @@
 		DBAF3C4B219CBF35003083EA /* IQUITextFieldView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF3C3A219CBF35003083EA /* IQUITextFieldView+Additions.swift */; };
 		DBAF3C4C219CBF35003083EA /* IQUIView+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF3C3B219CBF35003083EA /* IQUIView+Hierarchy.swift */; };
 		DBAF3C4D219CBF35003083EA /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF3C3C219CBF35003083EA /* IQNSArray+Sort.swift */; };
+		DBD1DA3021CFE35100BFFBA5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1DA2F21CFE35100BFFBA5 /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +80,8 @@
 		DB61DA1621B9C605006B308B /* SitoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitoVC.swift; sourceTree = "<group>"; };
 		DB61DA1821B9C81E006B308B /* SocialVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialVC.swift; sourceTree = "<group>"; };
 		DB61DA1A21B9C834006B308B /* SocialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialView.swift; sourceTree = "<group>"; };
+		DB7BEF8421D006A0007A550E /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
+		DB7BEF8521D006A0007A550E /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		DB88DBDE21A96E6F00B0699B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DB88DBE021A9718000B0699B /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		DB88DBE321A975C100B0699B /* SpinerLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinerLayer.swift; sourceTree = "<group>"; };
@@ -97,7 +101,6 @@
 		DBAAE2AE21A5B3B000211CBF /* WelcomePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageVC.swift; sourceTree = "<group>"; };
 		DBAAE2B021A5C3FA00211CBF /* NotificheVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NotificheVC.storyboard; sourceTree = "<group>"; };
 		DBAAE2B221A5C53700211CBF /* NotificheVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificheVC.swift; sourceTree = "<group>"; };
-		DBAAE2B421A5C83A00211CBF /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		DBAAE2B621A5CCEB00211CBF /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		DBAAE2B821A5CD4200211CBF /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		DBAAE2BA21A5D26800211CBF /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
@@ -129,6 +132,7 @@
 		DBAF3C3A219CBF35003083EA /* IQUITextFieldView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUITextFieldView+Additions.swift"; sourceTree = "<group>"; };
 		DBAF3C3B219CBF35003083EA /* IQUIView+Hierarchy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIView+Hierarchy.swift"; sourceTree = "<group>"; };
 		DBAF3C3C219CBF35003083EA /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQNSArray+Sort.swift"; sourceTree = "<group>"; };
+		DBD1DA2F21CFE35100BFFBA5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB7BEF8321D006A0007A550E /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				DB7BEF8421D006A0007A550E /* KeychainItemAccessibility.swift */,
+				DB7BEF8521D006A0007A550E /* KeychainWrapper.swift */,
+			);
+			path = Keychain;
+			sourceTree = "<group>";
+		};
 		DB88DBE221A975C100B0699B /* TransitionButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +228,7 @@
 		DBAF3C17219C9058003083EA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DB7BEF8321D006A0007A550E /* Keychain */,
 				DBAF3C25219CBF35003083EA /* IQKeyboardManagerSwift */,
 				DBAF3C01219C9019003083EA /* AppDelegate.swift */,
 				DBAF3C0D219C901B003083EA /* LaunchScreen.storyboard */,
@@ -249,13 +263,13 @@
 				DB88DBE221A975C100B0699B /* TransitionButton */,
 				DBAAE2AC21A5ACCF00211CBF /* WelcomeVC.storyboard */,
 				DBAAE2B021A5C3FA00211CBF /* NotificheVC.storyboard */,
-				DBAAE2B421A5C83A00211CBF /* Login.storyboard */,
 				DBAAE2B821A5CD4200211CBF /* Register.storyboard */,
 				DB88DBFD21AB30E400B0699B /* RegolaDiVita */,
 				DB61DA1421B9BA81006B308B /* SitoView.swift */,
 				DB61DA1A21B9C834006B308B /* SocialView.swift */,
 				DB22DA8C21C02F9500E6497D /* DatePickerModel.swift */,
 				DB22DA8E21C03A6300E6497D /* NoteView.swift */,
+				DBD1DA2F21CFE35100BFFBA5 /* LoginView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -398,7 +412,6 @@
 				DBAAE2B121A5C3FA00211CBF /* NotificheVC.storyboard in Resources */,
 				DBAAE2AD21A5ACCF00211CBF /* WelcomeVC.storyboard in Resources */,
 				DBAAE2B921A5CD4200211CBF /* Register.storyboard in Resources */,
-				DBAAE2B521A5C83A00211CBF /* Login.storyboard in Resources */,
 				DBAF3C0F219C901B003083EA /* LaunchScreen.storyboard in Resources */,
 				DB88DBF721AAF3AD00B0699B /* regola.json in Resources */,
 				DBAF3C0C219C901B003083EA /* Assets.xcassets in Resources */,
@@ -440,6 +453,7 @@
 				DB88DBE921A975C100B0699B /* CGRectEx.swift in Sources */,
 				DB88DBF321AAF19300B0699B /* RegolaObjects.swift in Sources */,
 				DB88DBEE21A97F4400B0699B /* RootAppController.swift in Sources */,
+				DBD1DA3021CFE35100BFFBA5 /* LoginView.swift in Sources */,
 				DB22DA8F21C03A6300E6497D /* NoteView.swift in Sources */,
 				DBAF3C42219CBF35003083EA /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				DBAF3C19219C9203003083EA /* Costanti.swift in Sources */,
@@ -455,12 +469,14 @@
 				DB61DA1B21B9C834006B308B /* SocialView.swift in Sources */,
 				DB61DA1521B9BA81006B308B /* SitoView.swift in Sources */,
 				DB61DA1921B9C81E006B308B /* SocialVC.swift in Sources */,
+				DB7BEF8721D006A0007A550E /* KeychainWrapper.swift in Sources */,
 				DB88DBF921AB2BE000B0699B /* DomandeVC.swift in Sources */,
 				DB88DC0121AB318400B0699B /* RegoleCategorieView.swift in Sources */,
 				DBAF3C24219C9F6A003083EA /* Extensions.swift in Sources */,
 				DBAF3C49219CBF35003083EA /* IQUIScrollView+Additions.swift in Sources */,
 				DB88DBE121A9718000B0699B /* RegisterVC.swift in Sources */,
 				DB88DBEA21A975C100B0699B /* TransitionSubmitButton.swift in Sources */,
+				DB7BEF8621D006A0007A550E /* KeychainItemAccessibility.swift in Sources */,
 				DBAF3C3F219CBF35003083EA /* IQTitleBarButtonItem.swift in Sources */,
 				DBAF3C41219CBF35003083EA /* IQToolbar.swift in Sources */,
 			);

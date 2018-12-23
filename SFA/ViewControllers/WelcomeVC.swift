@@ -23,9 +23,11 @@ class WelcomeVC: UIViewController {
     
     
     @IBAction func loginAction(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Login", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "loginNav")
-        present(vc, animated: true)
+//        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "loginNav")
+        let vc = LoginVC()
+        let nav = UINavigationController(rootViewController: vc)
+        present(nav, animated: true)
     }
     
 }
