@@ -17,6 +17,13 @@ extension UIViewController {
         }
     }
     
+    func showAlert(withTitle title: String, andMessage message : String) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
     
     func enableAutoHideKeyboardAfterTouch(in views: [UIView]) {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))

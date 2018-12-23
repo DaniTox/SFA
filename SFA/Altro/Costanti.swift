@@ -18,6 +18,17 @@ var isAlreadyLaunched : Bool {
     }
 }
 
+
+var userLogged : User? {
+    get {
+        let data = KeychainWrapper.standard.data(forKey: "userLogged") ?? Data()
+        return try? JSONDecoder().decode(User.self, from: data)
+    } set {
+        let data = try? JSONEncoder().encode(newValue)
+        KeychainWrapper.standard.set(data ?? Data(), forKey: "userLogged")
+    }
+}
+
 class RegolaFile : Codable {
     var categories : [RegolaCategoryFile] = []
     init() {}
@@ -38,4 +49,8 @@ enum LocalDBError: Error {
     case inconsistency(String)
     case warning(String)
     case fatal(String)
+}
+
+enum ToxError : Error {
+    case generic
 }
