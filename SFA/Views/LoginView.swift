@@ -21,6 +21,7 @@ class LoginView: UIView {
     var passwordField : UITextField = {
         let field = UITextField()
         field.translatesAutoresizingMaskIntoConstraints = false
+        field.isSecureTextEntry = true
         field.placeholder = "Password"
         field.borderStyle = UITextField.BorderStyle.roundedRect
         return field
@@ -57,6 +58,16 @@ class LoginView: UIView {
         return button
     }()
     
+    
+    var loadingIndicator : UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.hidesWhenStopped = true
+        indicator.color = .blue
+        indicator.style = .whiteLarge
+        return indicator
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .black
@@ -68,7 +79,7 @@ class LoginView: UIView {
         fullStack.addArrangedSubview(loginButton)
         
         addSubview(fullStack)
-        
+        addSubview(loadingIndicator)
     }
     
     override func layoutSubviews() {
@@ -84,7 +95,8 @@ class LoginView: UIView {
         fullStack.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         fullStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
-        
+        loadingIndicator.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        loadingIndicator.topAnchor.constraint(equalTo: fullStack.bottomAnchor, constant: 50).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
