@@ -16,9 +16,11 @@ class WelcomeVC: UIViewController {
     }
 
     @IBAction func registerAction(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Register", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "registerNav")
-        present(vc, animated: true)
+//        let storyboard = UIStoryboard(name: "Register", bundle: nil)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "registerNav")
+        let vc = RegisterVC()
+        let nav = UINavigationController(rootViewController: vc)
+        present(nav, animated: true)
     }
     
     

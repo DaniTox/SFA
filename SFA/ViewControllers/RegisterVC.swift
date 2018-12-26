@@ -8,8 +8,13 @@
 
 import UIKit
 
-class RegisterVC: UIViewController {
-
+class RegisterVC: UIViewController, HasCustomView {
+    typealias CustomView = RegisterView
+    override func loadView() {
+        super.loadView()
+        view = CustomView()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
