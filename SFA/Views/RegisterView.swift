@@ -28,6 +28,7 @@ class RegisterView: UIView {
     
     var emailField : UITextField = {
         let field = UITextField()
+        field.keyboardType = .emailAddress
         field.translatesAutoresizingMaskIntoConstraints = false
         field.borderStyle = UITextField.BorderStyle.roundedRect
         field.placeholder = "Email"
@@ -36,6 +37,7 @@ class RegisterView: UIView {
     
     var ageField : UITextField = {
         let field = UITextField()
+        field.keyboardType = .decimalPad
         field.translatesAutoresizingMaskIntoConstraints = false
         field.borderStyle = UITextField.BorderStyle.roundedRect
         field.placeholder = "Età"
@@ -44,6 +46,7 @@ class RegisterView: UIView {
     
     var password1Field : UITextField = {
         let field = UITextField()
+        field.isSecureTextEntry = true
         field.translatesAutoresizingMaskIntoConstraints = false
         field.borderStyle = UITextField.BorderStyle.roundedRect
         field.placeholder = "Password"
@@ -52,6 +55,7 @@ class RegisterView: UIView {
     
     var password2Field : UITextField = {
         let field = UITextField()
+        field.isSecureTextEntry = true
         field.translatesAutoresizingMaskIntoConstraints = false
         field.borderStyle = UITextField.BorderStyle.roundedRect
         field.placeholder = "Ripeti la password"
@@ -148,7 +152,6 @@ class RegisterView: UIView {
         }
         
     }
-    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
