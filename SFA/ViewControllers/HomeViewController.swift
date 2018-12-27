@@ -19,10 +19,16 @@ class HomeViewController : UIViewController, HasCustomView {
         super.viewDidLoad()
         self.title = "Home"
         rootView.regolaButton.addTarget(self, action: #selector(showRegolaController), for: .touchUpInside)
+        rootView.noteButton.addTarget(self, action: #selector(showNoteListController), for: .touchUpInside)
     }
     
     @objc func showRegolaController() {
         let vc = RegolaCategorieVC()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc private func showNoteListController() {
+        let vc = NoteListVC()
         navigationController?.pushViewController(vc, animated: true)
     }
     
