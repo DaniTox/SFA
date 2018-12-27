@@ -46,4 +46,10 @@ class LoginVC: UIViewController, HasCustomView {
     @objc private func backAction() {
         dismiss(animated: true, completion: nil)
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        rootView.removeConstraints(rootView.constraints)
+        rootView.setNeedsLayout()
+    }
 }

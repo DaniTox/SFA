@@ -92,17 +92,26 @@ class LoginView: UIView {
         loadingIndicator.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         loadingIndicator.topAnchor.constraint(equalTo: fullStack.bottomAnchor, constant: 50).isActive = true
         
+        let device = UIDevice.current.deviceType
+        let orientation = UIDevice.current.orientation
         
         // IPAD CONSTRAINTS
-        if UIDevice.current.deviceType == .pad {
+        if device == .pad {
             
             emailField.heightAnchor.constraint(lessThanOrEqualToConstant: 100).isActive = true
             passwordField.heightAnchor.constraint(lessThanOrEqualToConstant: 100).isActive = true
             fieldsStack.spacing = 20
             
-            fullStack.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.5).isActive = true
-            fullStack.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2).isActive = true
-            fullStack.spacing = 50
+            if orientation == .portrait || orientation == .portraitUpsideDown {
+                fullStack.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5).isActive = true
+                fullStack.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2).isActive = true
+                fullStack.spacing = 50
+            } else {
+                fullStack.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5).isActive = true
+                fullStack.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.35).isActive = true
+                fullStack.spacing = 50
+            }
+            
             
         } else {
         // IPHONE CONSTRAINTS
