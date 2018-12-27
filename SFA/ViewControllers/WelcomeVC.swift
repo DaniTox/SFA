@@ -19,7 +19,7 @@ class WelcomeVC: UIViewController {
 //        let storyboard = UIStoryboard(name: "Register", bundle: nil)
 //        let vc = storyboard.instantiateViewController(withIdentifier: "registerNav")
         let vc = RegisterVC()
-        let nav = UINavigationController(rootViewController: vc)
+        let nav = RotationLogicNavigationController(rootViewController: vc)
         present(nav, animated: true)
     }
     
@@ -28,7 +28,7 @@ class WelcomeVC: UIViewController {
 //        let storyboard = UIStoryboard(name: "Login", bundle: nil)
 //        let vc = storyboard.instantiateViewController(withIdentifier: "loginNav")
         let vc = LoginVC()
-        let nav = UINavigationController(rootViewController: vc)
+        let nav = RotationLogicNavigationController(rootViewController: vc)
         present(nav, animated: true)
     }
     

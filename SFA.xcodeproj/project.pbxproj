@@ -13,6 +13,7 @@
 		DB2C316121AC87580009EC14 /* EditRispostaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2C316021AC87580009EC14 /* EditRispostaView.swift */; };
 		DB2C316321AC88E20009EC14 /* EditRispostaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2C316221AC88E20009EC14 /* EditRispostaVC.swift */; };
 		DB325EDF21D422D7009ADEFC /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB325EDE21D422D7009ADEFC /* RegisterView.swift */; };
+		DB325EE121D5033C009ADEFC /* RotationLogicNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */; };
 		DB61DA1321B5B9ED006B308B /* RegolaFetcherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1221B5B9ED006B308B /* RegolaFetcherModel.swift */; };
 		DB61DA1521B9BA81006B308B /* SitoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1421B9BA81006B308B /* SitoView.swift */; };
 		DB61DA1721B9C605006B308B /* SitoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1621B9C605006B308B /* SitoVC.swift */; };
@@ -81,6 +82,7 @@
 		DB2C316021AC87580009EC14 /* EditRispostaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRispostaView.swift; sourceTree = "<group>"; };
 		DB2C316221AC88E20009EC14 /* EditRispostaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRispostaVC.swift; sourceTree = "<group>"; };
 		DB325EDE21D422D7009ADEFC /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationLogicNavigationController.swift; sourceTree = "<group>"; };
 		DB61DA1221B5B9ED006B308B /* RegolaFetcherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegolaFetcherModel.swift; sourceTree = "<group>"; };
 		DB61DA1421B9BA81006B308B /* SitoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitoView.swift; sourceTree = "<group>"; };
 		DB61DA1621B9C605006B308B /* SitoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitoVC.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				DB61DA1621B9C605006B308B /* SitoVC.swift */,
 				DB61DA1821B9C81E006B308B /* SocialVC.swift */,
 				DB22DA9021C03A9200E6497D /* NoteVC.swift */,
+				DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				DBAF3C3E219CBF35003083EA /* IQPreviousNextView.swift in Sources */,
 				DB7BEF8921D01442007A550E /* User.swift in Sources */,
 				DB22DA8D21C02F9500E6497D /* DatePickerModel.swift in Sources */,
+				DB325EE121D5033C009ADEFC /* RotationLogicNavigationController.swift in Sources */,
 				DBAAE2BD21A5E9DA00211CBF /* CircularThings.swift in Sources */,
 				DBAF3C3D219CBF35003083EA /* IQTextView.swift in Sources */,
 				DB61DA1321B5B9ED006B308B /* RegolaFetcherModel.swift in Sources */,

@@ -32,8 +32,8 @@ class RegisterVC: UIViewController, HasCustomView {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        print("View transitioned")
         rootView.removeConstraints(rootView.constraints)
         rootView.setNeedsLayout()
     }
+    
 }
