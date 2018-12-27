@@ -131,9 +131,15 @@ class RegisterView: UIView {
         
         // IPAD CONSTRAINTS
         if UIDevice.current.deviceType == .pad {
-            fieldStack.spacing = 35
-            fullStack.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.55).isActive = true
-            fullStack.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.6).isActive = true
+            if UIDevice.current.orientation == .portrait || UIDevice.current.orientation == .portraitUpsideDown {
+                fieldStack.spacing = 35
+                fullStack.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.55).isActive = true
+                fullStack.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.6).isActive = true
+            } else {
+                fieldStack.spacing = 20
+                fullStack.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7).isActive = true
+                fullStack.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.6).isActive = true
+            }
         } else {
         // IPHONE CONSTRAINTS
             fieldStack.spacing = 20
@@ -142,6 +148,7 @@ class RegisterView: UIView {
         }
         
     }
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

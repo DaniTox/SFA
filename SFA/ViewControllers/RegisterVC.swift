@@ -19,6 +19,8 @@ class RegisterVC: UIViewController, HasCustomView {
         super.viewDidLoad()
         self.title = "Registrazione"
         
+        enableAutoHideKeyboardAfterTouch(in: [rootView, rootView.registerButton])
+        
         let backButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(backAction))
         navigationItem.setLeftBarButton(backButton, animated: true)
     }
@@ -27,4 +29,11 @@ class RegisterVC: UIViewController, HasCustomView {
         dismiss(animated: true, completion: nil)
     }
 
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        print("View transitioned")
+        rootView.removeConstraints(rootView.constraints)
+        rootView.setNeedsLayout()
+    }
 }
