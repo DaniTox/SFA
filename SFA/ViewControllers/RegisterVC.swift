@@ -67,12 +67,36 @@ class RegisterVC: UIViewController, HasCustomView {
             return
         }
         
-        if password1 != password2 {
-            model.errorHandler?("Le due password non corrispondono")
+        guard let ageInt = Int(age) else {
+            model.errorHandler?("L'età che hai inserito non è un numero intero")
+            rootView.ageField.backgroundColor = .red
             return
         }
         
+        rootView.ageField.backgroundColor = .white
         
+        
+        if password1 != password2 {
+            model.errorHandler?("Le due password non corrispondono")
+            rootView.password1Field.backgroundColor = .red
+            rootView.password2Field.backgroundColor = .red
+            return
+        } else {
+            rootView.password1Field.backgroundColor = .white
+            rootView.password2Field.backgroundColor = .white
+        }
+        
+        
+        let user = User()
+        user.name = nome
+        user.cognome = cognome
+        user.age = ageInt
+        user.email = email
+        user.password = password1
+        
+        model.register(user: user) { [weak self] in
+            self?.showAlert(withTitle: "Successo!", andMessage: "La registrazione è stata eseguita con successo!")
+        }
         
     }
     

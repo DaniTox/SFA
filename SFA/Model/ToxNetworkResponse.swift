@@ -11,6 +11,8 @@ import Foundation
 class ToxNetworkResponse : Codable {
     var code : String
     var message : String
+    var errorCode : String?
+    
     var user : User?
     
 }

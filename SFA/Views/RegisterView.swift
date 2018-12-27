@@ -77,7 +77,7 @@ class RegisterView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Registrati", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
-        button.backgroundColor = .red
+        button.backgroundColor = .orange
         
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 10
