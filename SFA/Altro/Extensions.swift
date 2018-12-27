@@ -8,6 +8,12 @@
 
 import UIKit
 
+extension UIDevice {
+    var deviceType : UIUserInterfaceIdiom {
+        return UIDevice.current.userInterfaceIdiom
+    }
+}
+
 extension UIViewController {
     func showError(withTitle title: String, andMessage message : String) {
         DispatchQueue.main.async {

@@ -45,7 +45,6 @@
 		DBAAE2B121A5C3FA00211CBF /* NotificheVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBAAE2B021A5C3FA00211CBF /* NotificheVC.storyboard */; };
 		DBAAE2B321A5C53700211CBF /* NotificheVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAAE2B221A5C53700211CBF /* NotificheVC.swift */; };
 		DBAAE2B721A5CCEB00211CBF /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAAE2B621A5CCEB00211CBF /* LoginVC.swift */; };
-		DBAAE2B921A5CD4200211CBF /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBAAE2B821A5CD4200211CBF /* Register.storyboard */; };
 		DBAAE2BB21A5D26800211CBF /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAAE2BA21A5D26800211CBF /* WelcomeVC.swift */; };
 		DBAAE2BD21A5E9DA00211CBF /* CircularThings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAAE2BC21A5E9DA00211CBF /* CircularThings.swift */; };
 		DBAF3C02219C9019003083EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF3C01219C9019003083EA /* AppDelegate.swift */; };
@@ -114,7 +113,6 @@
 		DBAAE2B021A5C3FA00211CBF /* NotificheVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NotificheVC.storyboard; sourceTree = "<group>"; };
 		DBAAE2B221A5C53700211CBF /* NotificheVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificheVC.swift; sourceTree = "<group>"; };
 		DBAAE2B621A5CCEB00211CBF /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
-		DBAAE2B821A5CD4200211CBF /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		DBAAE2BA21A5D26800211CBF /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		DBAAE2BC21A5E9DA00211CBF /* CircularThings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularThings.swift; sourceTree = "<group>"; };
 		DBAF3BFE219C9019003083EA /* SFA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SFA.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -280,7 +278,6 @@
 				DB88DBE221A975C100B0699B /* TransitionButton */,
 				DBAAE2AC21A5ACCF00211CBF /* WelcomeVC.storyboard */,
 				DBAAE2B021A5C3FA00211CBF /* NotificheVC.storyboard */,
-				DBAAE2B821A5CD4200211CBF /* Register.storyboard */,
 				DB88DBFD21AB30E400B0699B /* RegolaDiVita */,
 				DB61DA1421B9BA81006B308B /* SitoView.swift */,
 				DB61DA1A21B9C834006B308B /* SocialView.swift */,
@@ -429,7 +426,6 @@
 			files = (
 				DBAAE2B121A5C3FA00211CBF /* NotificheVC.storyboard in Resources */,
 				DBAAE2AD21A5ACCF00211CBF /* WelcomeVC.storyboard in Resources */,
-				DBAAE2B921A5CD4200211CBF /* Register.storyboard in Resources */,
 				DBAF3C0F219C901B003083EA /* LaunchScreen.storyboard in Resources */,
 				DB88DBF721AAF3AD00B0699B /* regola.json in Resources */,
 				DBAF3C0C219C901B003083EA /* Assets.xcassets in Resources */,

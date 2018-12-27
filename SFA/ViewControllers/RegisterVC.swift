@@ -17,7 +17,8 @@ class RegisterVC: UIViewController, HasCustomView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.title = "Registrazione"
+        
         let backButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(backAction))
         navigationItem.setLeftBarButton(backButton, animated: true)
     }

@@ -32,7 +32,7 @@ class LoginView: UIView {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
-        stack.distribution = .fill
+        stack.distribution = .fillEqually
         stack.spacing = 20
         return stack
     }()
@@ -42,8 +42,8 @@ class LoginView: UIView {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
-        stack.distribution = .fill
-        stack.spacing = 50
+        stack.distribution = .fillProportionally
+        stack.spacing = 40
         return stack
     }()
     
@@ -84,19 +84,41 @@ class LoginView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        emailField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        passwordField.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        loginButton.heightAnchor.constraint(lessThanOrEqualToConstant: 100).isActive = true
-        
-        
-        fullStack.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.8).isActive = true
-        fullStack.heightAnchor.constraint(greaterThanOrEqualToConstant: 250).isActive = true
+        // GLOBAL CONSTRAINTS
         fullStack.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         fullStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
         loadingIndicator.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         loadingIndicator.topAnchor.constraint(equalTo: fullStack.bottomAnchor, constant: 50).isActive = true
+        
+        
+        // IPAD CONSTRAINTS
+        if UIDevice.current.deviceType == .pad {
+            
+            emailField.heightAnchor.constraint(lessThanOrEqualToConstant: 100).isActive = true
+            passwordField.heightAnchor.constraint(lessThanOrEqualToConstant: 100).isActive = true
+            fieldsStack.spacing = 20
+            
+            fullStack.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.5).isActive = true
+            fullStack.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2).isActive = true
+            fullStack.spacing = 50
+            
+        } else {
+        // IPHONE CONSTRAINTS
+            emailField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+            passwordField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+            fieldsStack.spacing = 20
+            
+            fullStack.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.8).isActive = true
+            let heightFullStackConstraint = fullStack.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.35)
+            heightFullStackConstraint.priority = .defaultLow
+            heightFullStackConstraint.isActive = true
+            fullStack.spacing = 40
+            
+            loginButton.heightAnchor.constraint(lessThanOrEqualToConstant: 100).isActive = true
+        }
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

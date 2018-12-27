@@ -54,3 +54,4 @@ enum LocalDBError: Error {
 enum ToxError : Error {
     case generic
 }
+

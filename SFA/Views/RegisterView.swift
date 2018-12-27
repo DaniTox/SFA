@@ -72,6 +72,7 @@ class RegisterView: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Registrati", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         button.backgroundColor = .red
         
         button.layer.masksToBounds = true
@@ -89,10 +90,18 @@ class RegisterView: UIView {
         return stack
     }()
     
+    var loadingIndicator : UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.whiteLarge)
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.hidesWhenStopped = true
+        indicator.color = .orange
+        return indicator
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        backgroundColor = .yellow
+        loadingIndicator.startAnimating()
+        backgroundColor = .black
         
         fieldStack.addArrangedSubview(nomeField)
         fieldStack.addArrangedSubview(cognomeField)
@@ -105,18 +114,32 @@ class RegisterView: UIView {
         fullStack.addArrangedSubview(registerButton)
         
         addSubview(fullStack)
+        addSubview(loadingIndicator)
         
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        //GLOBAL CONSTRAINTS
         registerButton.heightAnchor.constraint(lessThanOrEqualToConstant: 70).isActive = true
-        
         fullStack.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         fullStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        fullStack.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7).isActive = true
-        fullStack.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8).isActive = true
+        
+        loadingIndicator.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        loadingIndicator.topAnchor.constraint(equalTo: fullStack.bottomAnchor, constant: 20).isActive = true
+        
+        // IPAD CONSTRAINTS
+        if UIDevice.current.deviceType == .pad {
+            fieldStack.spacing = 35
+            fullStack.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.55).isActive = true
+            fullStack.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.6).isActive = true
+        } else {
+        // IPHONE CONSTRAINTS
+            fieldStack.spacing = 20
+            fullStack.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7).isActive = true
+            fullStack.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8).isActive = true
+        }
         
     }
     
