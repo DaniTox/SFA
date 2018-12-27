@@ -13,6 +13,15 @@ extension UIDevice {
         return UIDevice.current.userInterfaceIdiom
     }
 }
+extension String {
+    var firstLine : String {
+        if let line1 = self.components(separatedBy: .newlines).first {
+            return line1
+        } else {
+            return self
+        }
+    }
+}
 
 extension UIViewController {
     func showError(withTitle title: String, andMessage message : String) {

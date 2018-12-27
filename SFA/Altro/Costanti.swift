@@ -53,5 +53,6 @@ enum LocalDBError: Error {
 
 enum ToxError : Error {
     case generic
+    case noteRelated(String)
 }
 

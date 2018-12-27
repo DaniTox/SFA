@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G3025" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G4015" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Categoria" representedClassName=".Categoria" syncable="YES" codeGenerationType="category">
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -12,6 +12,12 @@
         <attribute name="risposta" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="categoria" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Categoria" inverseName="domande" inverseEntity="Categoria" syncable="YES"/>
     </entity>
+    <entity name="Nota" representedClassName=".Nota" syncable="YES" codeGenerationType="category">
+        <attribute name="body" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Regola" representedClassName=".Regola" syncable="YES" codeGenerationType="category">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
@@ -20,8 +26,9 @@
         <relationship name="categorie" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Categoria" inverseName="regola" inverseEntity="Categoria" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Regola" positionX="-201.37890625" positionY="17.90625" width="128" height="120"/>
-        <element name="Domanda" positionX="207.828125" positionY="45.33203125" width="128" height="105"/>
         <element name="Categoria" positionX="-25.171875" positionY="0.49609375" width="128" height="105"/>
+        <element name="Domanda" positionX="207.828125" positionY="45.33203125" width="128" height="105"/>
+        <element name="Regola" positionX="-201.37890625" positionY="17.90625" width="128" height="120"/>
+        <element name="Nota" positionX="0" positionY="63" width="128" height="105"/>
     </elements>
 </model>

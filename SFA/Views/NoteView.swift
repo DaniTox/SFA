@@ -25,7 +25,7 @@ class NoteView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(textView)
-        addSubview(bottomBar)
+//        addSubview(bottomBar)
     }
     
     
