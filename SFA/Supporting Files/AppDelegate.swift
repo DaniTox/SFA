@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    private let testingCoreData = true
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         print(userLogged?.name)
@@ -39,6 +40,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         RegolaFetcherModel.shared.createIfNotPresent()
         
         
+        if testingCoreData {
+            let context = persistentContainer.viewContext
+            let request : NSFetchRequest<Nota> = Nota.fetchRequest()
+            let notes = try? context.fetch(request)
+            if let realNotes = notes {
+                realNotes.forEach { (nota) in
+                    context.delete(nota)
+                }
+                try? context.save()
+            }
+        }
         
     
 //        let model = RegolaFetcherModel()

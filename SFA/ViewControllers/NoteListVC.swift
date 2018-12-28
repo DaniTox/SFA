@@ -66,8 +66,7 @@ extension NoteListVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
         let note = notes[indexPath.row]
-        cell.textLabel?.text = note.title
-        cell.detailTextLabel?.text = "Data: \(note.date ?? Date())"
+        cell.textLabel?.text = "\(note.title ?? "Nessun titolo")\t-\t\(note.date!)"
         return cell
     }
     

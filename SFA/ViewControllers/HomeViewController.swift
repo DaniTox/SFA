@@ -53,7 +53,7 @@ class HomeView : UIView {
     lazy var noteButton : UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Note", for: .normal)
+        button.setTitle("Diario personale", for: .normal)
         button.backgroundColor = .blue
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         button.titleLabel?.adjustsFontSizeToFitWidth = true

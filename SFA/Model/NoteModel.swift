@@ -53,6 +53,8 @@ class NoteModel {
         let datePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [fromPredicate, toPredicate])
         request.predicate = datePredicate
         
+        //TODO: create a unique note.id
+        
         let context = persistentContainer.viewContext
         var notes : [Nota] = []
         do {
@@ -61,7 +63,7 @@ class NoteModel {
             throw error
         }
         if notes.count == 0 {
-            let newNote = Nota(context: persistentContainer.newBackgroundContext())
+            let newNote = Nota(context: persistentContainer.viewContext)
             return newNote
         } else if notes.count == 1 {
             return notes.first!
