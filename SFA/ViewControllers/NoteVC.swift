@@ -36,9 +36,6 @@ class NoteVC: UIViewController, HasCustomView {
         if title.isEmpty { title = "Nessun titolo" }
         note.title = title
         note.body = rootView.textView.attributedText
-        if note.date == nil {
-            note.date = Date()
-        }
         
         let context = note.managedObjectContext
         do {

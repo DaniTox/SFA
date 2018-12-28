@@ -64,6 +64,8 @@ class NoteModel {
         }
         if notes.count == 0 {
             let newNote = Nota(context: persistentContainer.viewContext)
+            newNote.date = Date()
+            newNote.id = getUniqueID()
             return newNote
         } else if notes.count == 1 {
             return notes.first!
@@ -81,6 +83,32 @@ class NoteModel {
             self.errorHandler?("\(error)")
         }
         return nil
+    }
+    
+    private func isUniqueID(_ id: Int32) -> Bool {
+        let context = persistentContainer.viewContext
+        let request : NSFetchRequest<Nota> = Nota.fetchRequest()
+        let predicate = NSPredicate(format: "id == %d", id)
+        request.predicate = predicate
+        
+        let notes = try? context.fetch(request)
+        guard let realNotes = notes else {
+            return true
+        }
+        if realNotes.count > 0 {
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    public func getUniqueID() -> Int32 {
+        var randomID : Int32
+        repeat {
+            randomID = Int32.random(in: 0..<INT32_MAX)
+        } while isUniqueID(randomID) != true
+        
+        return randomID
     }
     
 }
