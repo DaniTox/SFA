@@ -31,9 +31,7 @@ class NoteListView: UIView {
         tableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
     }
-    
-    
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

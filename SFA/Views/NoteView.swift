@@ -13,19 +13,24 @@ class NoteView: UIView {
     lazy var textView : UITextView = {
         let view = UITextView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body).withSize(20)
+        view.backgroundColor = UIColor.yellow
         return view
     }()
     
-    lazy var bottomBar : UIView = {
-        let bar = UIView()
+    lazy var bottomBar : TextEditingBottomBar = {
+        let bar = TextEditingBottomBar(textView: textView, frame: .zero)
         bar.translatesAutoresizingMaskIntoConstraints = false
+        bar.backgroundColor = UIColor.black.lighter(by: 10)
+        bar.layer.masksToBounds = true
+        bar.layer.cornerRadius = 2
         return bar
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(textView)
-//        addSubview(bottomBar)
+        addSubview(bottomBar)
     }
     
     
@@ -35,6 +40,11 @@ class NoteView: UIView {
         textView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         textView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         textView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        
+        bottomBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
+        bottomBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
+        bottomBar.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+        bottomBar.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
     
