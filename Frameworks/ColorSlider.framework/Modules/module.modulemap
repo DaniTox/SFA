@@ -1,0 +1,4 @@
+framework module ColorSlider {
+  header "ColorSlider-Swift.h"
+  requires objc
+}

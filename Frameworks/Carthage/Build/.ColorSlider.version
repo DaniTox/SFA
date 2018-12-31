@@ -1,0 +1,18 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "4.3",
+  "iOS" : [
+    {
+      "name" : "ColorSlider",
+      "hash" : "f7944c02d83f2f17b4c1494daea6c127df111dd026c2f9b20a41545e236f21ea"
+    }
+  ]
+}
