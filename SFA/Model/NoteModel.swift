@@ -20,7 +20,7 @@ class NoteModel {
     
     func fetchNotes() -> [Nota] {
         let request : NSFetchRequest<Nota> = Nota.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
         request.sortDescriptors = [sortDescriptor]
         
         let context = persistentContainer.viewContext
@@ -52,8 +52,7 @@ class NoteModel {
         let toPredicate = NSPredicate(format: "date < %@", dateTo! as NSDate)
         let datePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [fromPredicate, toPredicate])
         request.predicate = datePredicate
-        
-        //TODO: create a unique note.id
+    
         
         let context = persistentContainer.viewContext
         var notes : [Nota] = []

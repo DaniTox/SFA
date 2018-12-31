@@ -14,6 +14,7 @@
 		DB2C316321AC88E20009EC14 /* EditRispostaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2C316221AC88E20009EC14 /* EditRispostaVC.swift */; };
 		DB325EDF21D422D7009ADEFC /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB325EDE21D422D7009ADEFC /* RegisterView.swift */; };
 		DB325EE121D5033C009ADEFC /* RotationLogicNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */; };
+		DB5751DC21DA651C00F97D25 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5751DB21DA651C00F97D25 /* NoteCell.swift */; };
 		DB61DA1321B5B9ED006B308B /* RegolaFetcherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1221B5B9ED006B308B /* RegolaFetcherModel.swift */; };
 		DB61DA1521B9BA81006B308B /* SitoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1421B9BA81006B308B /* SitoView.swift */; };
 		DB61DA1721B9C605006B308B /* SitoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1621B9C605006B308B /* SitoVC.swift */; };
@@ -87,6 +88,7 @@
 		DB2C316221AC88E20009EC14 /* EditRispostaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRispostaVC.swift; sourceTree = "<group>"; };
 		DB325EDE21D422D7009ADEFC /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationLogicNavigationController.swift; sourceTree = "<group>"; };
+		DB5751DB21DA651C00F97D25 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		DB61DA1221B5B9ED006B308B /* RegolaFetcherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegolaFetcherModel.swift; sourceTree = "<group>"; };
 		DB61DA1421B9BA81006B308B /* SitoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitoView.swift; sourceTree = "<group>"; };
 		DB61DA1621B9C605006B308B /* SitoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitoVC.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				DBD1DA2F21CFE35100BFFBA5 /* LoginView.swift */,
 				DB325EDE21D422D7009ADEFC /* RegisterView.swift */,
 				DB9A19C021D514A900C05755 /* NoteListView.swift */,
+				DB5751DB21DA651C00F97D25 /* NoteCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 				DBAF3C47219CBF35003083EA /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				DB22DA9121C03A9200E6497D /* NoteVC.swift in Sources */,
 				DB88DBE821A975C100B0699B /* SpinerLayer.swift in Sources */,
+				DB5751DC21DA651C00F97D25 /* NoteCell.swift in Sources */,
 				DB88DBE921A975C100B0699B /* CGRectEx.swift in Sources */,
 				DB88DBF321AAF19300B0699B /* RegolaObjects.swift in Sources */,
 				DB88DBEE21A97F4400B0699B /* RootAppController.swift in Sources */,

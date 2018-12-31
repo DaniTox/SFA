@@ -27,8 +27,16 @@ class NoteVC: UIViewController, HasCustomView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setTitle()
         
         rootView.textView.attributedText = (note.body as? NSAttributedString)
+    }
+    
+    private func setTitle() {
+        guard let noteDate = self.note.date else { return }
+        if noteDate.isToday() { self.title = "Oggi" }
+        else if noteDate.isYesterday() { self.title = "Ieri" }
+        else { self.title = noteDate.stringValue }
     }
     
     private func saveNote() {

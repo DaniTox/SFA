@@ -20,6 +20,8 @@ class NoteListVC: UIViewController, HasCustomView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Pagine"
+        
         let persistentContainer = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
         model = NoteModel(container: persistentContainer!)
         model.errorHandler = { [weak self] (errorString) in
@@ -28,7 +30,7 @@ class NoteListVC: UIViewController, HasCustomView {
         
         rootView.tableView.delegate = self
         rootView.tableView.dataSource = self
-        rootView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        rootView.tableView.register(NoteCell.self, forCellReuseIdentifier: "cell")
         
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed))
         navigationItem.setRightBarButton(addButton, animated: true)
@@ -64,9 +66,19 @@ extension NoteListVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? NoteCell else {
+            return UITableViewCell()
+        }
         let note = notes[indexPath.row]
-        cell.textLabel?.text = "\(note.title ?? "Nessun titolo")\t-\t\(note.date!)"
+        if note.date?.isToday() ?? false {
+            cell.noteDateLabel.text = "Oggi"
+        } else if note.date?.isYesterday() ?? false {
+            cell.noteDateLabel.text = "Ieri"
+        } else {
+            cell.noteDateLabel.text = note.date?.stringValue
+        }
+        
+        cell.noteTitleLabel.text = note.title
         return cell
     }
     
@@ -74,6 +86,10 @@ extension NoteListVC : UITableViewDelegate, UITableViewDataSource {
         let note = notes[indexPath.row]
         let vc = NoteVC(nota: note)
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
     }
     
 }

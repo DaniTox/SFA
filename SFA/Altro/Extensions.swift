@@ -98,6 +98,48 @@ extension Date {
         return calendar.nextDate(after: Date(), matching: nextDayComponents, matchingPolicy: .nextTimePreservingSmallerComponents)
     }
     
+    func isToday() -> Bool {
+        var calendar = Calendar.current
+        calendar.locale = NSLocale.current
+        
+        let todayStart = calendar.startOfDay(for: Date())
+        let givenDateStart = calendar.startOfDay(for: self)
+        
+        if todayStart == givenDateStart {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func isYesterday() -> Bool {
+        var calendar = Calendar.current
+        calendar.locale = NSLocale.current
+        
+        let todayStart = calendar.startOfDay(for: Date())
+        let givenDateStart = calendar.startOfDay(for: self)
+        
+        guard let realYesterday =  calendar.date(byAdding: .day, value: -1, to: todayStart) else {
+            return false
+        }
+        
+        if realYesterday == givenDateStart {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    var stringValue : String {
+        var calendar = Calendar.current
+        calendar.locale = NSLocale.current
+        
+        let day = calendar.component(.day, from: self)
+        let month = calendar.component(.month, from: self)
+        let year = calendar.component(.year, from: self)
+    
+        return "\(day)/\(month)/\(year)"
+    }
 }
 
 

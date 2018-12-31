@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    private let testingCoreData = true
+    private let testingCoreData = false
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         print(userLogged?.name)
@@ -41,15 +41,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         if testingCoreData {
+//            let context = persistentContainer.viewContext
+//            let request : NSFetchRequest<Nota> = Nota.fetchRequest()
+//            let notes = try? context.fetch(request)
+//            if let realNotes = notes {
+//                realNotes.forEach { (nota) in
+//                    context.delete(nota)
+//                }
+//                try? context.save()
+//            }
+            
             let context = persistentContainer.viewContext
-            let request : NSFetchRequest<Nota> = Nota.fetchRequest()
-            let notes = try? context.fetch(request)
-            if let realNotes = notes {
-                realNotes.forEach { (nota) in
-                    context.delete(nota)
-                }
-                try? context.save()
+            
+            let randomTryValue = Int.random(in: 0..<10)
+            for i in 1...randomTryValue {
+                let note = Nota(context: context)
+                note.title = "Test12"
+                note.body = NSAttributedString(string: "Ehilaaaaaa")
+                note.id = -(Int32(i))
+                note.date = Calendar.current.date(byAdding: .day, value: -(i), to: Date())
             }
+            
+            try? context.save()
+            
         }
         
     
