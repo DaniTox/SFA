@@ -12,37 +12,54 @@ class NoteCell: UITableViewCell {
 
     lazy var noteTitleLabel : UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.textColor = .white
         return label
     }()
     
     lazy var noteDateLabel : UILabel = {
         let label = UILabel()
-        label.textAlignment = NSTextAlignment.right
-        label.font = UIFont.boldSystemFont(ofSize: 14)
-        label.lineBreakMode = NSLineBreakMode.byWordWrapping
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = NSTextAlignment.right
+        label.font = UIFont.preferredFont(forTextStyle: .body).withSize(14)
+        label.lineBreakMode = NSLineBreakMode.byWordWrapping
+        label.textColor = .white
         return label
+    }()
+    
+    lazy var containerView : UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.masksToBounds = true
+        view.layer.cornerRadius = 10
+        view.backgroundColor = UIColor.black.lighter(by: 10)
+        return view
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubview(noteTitleLabel)
-        addSubview(noteDateLabel)
+        containerView.addSubview(noteTitleLabel)
+        containerView.addSubview(noteDateLabel)
+        addSubview(containerView)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        noteTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
-        noteTitleLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        noteTitleLabel.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        noteTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        containerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
+        containerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5).isActive = true
+        containerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
+        containerView.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
         
-        noteDateLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
-        noteDateLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
-        noteDateLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.4).isActive = true
-        noteDateLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.4).isActive = true
+        noteTitleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
+        noteTitleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
+        noteTitleLabel.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
+        noteTitleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
+        
+        noteDateLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
+        noteDateLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 0).isActive = true
+        noteDateLabel.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.4).isActive = true
+        noteDateLabel.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.4).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {

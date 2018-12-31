@@ -14,6 +14,7 @@ class NoteListView: UIView {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
         table.tableFooterView = UIView()
+        table.separatorStyle = .none
         return table
     }()
     
