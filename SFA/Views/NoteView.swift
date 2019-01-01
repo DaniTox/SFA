@@ -9,7 +9,8 @@
 import UIKit
 
 class NoteView: UIView {
-
+    public var controller : UIViewController?
+    
     lazy var textView : UITextView = {
         let view = UITextView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -19,7 +20,7 @@ class NoteView: UIView {
     }()
     
     lazy var bottomBar : TextEditingBottomBar = {
-        let bar = TextEditingBottomBar(textView: textView, frame: .zero)
+        let bar = TextEditingBottomBar(textView: textView)
         bar.translatesAutoresizingMaskIntoConstraints = false
         bar.backgroundColor = UIColor.black.lighter(by: 10)
         bar.layer.masksToBounds = true
@@ -45,6 +46,7 @@ class NoteView: UIView {
         bottomBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
         bottomBar.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
         bottomBar.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
     }
     
     

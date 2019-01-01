@@ -7,25 +7,18 @@
 //
 
 import UIKit
-import ColorSlider
 
 class TextEditingBottomBar: UIView {
 
     var textView: UITextView
-    
-    lazy var colorSlider : ColorSlider = {
-        let slider = ColorSlider(orientation: Orientation.horizontal, previewView: nil)
-        slider.translatesAutoresizingMaskIntoConstraints = false
-        return slider
-    }()
-    
+
     lazy var sizeButton : UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .darkGray
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 10
-        button.setTitle("Colore", for: .normal)
+        button.setTitle("Dimensione", for: .normal)
         button.titleLabel?.textColor = .white
         return button
     }()
@@ -36,7 +29,7 @@ class TextEditingBottomBar: UIView {
         button.backgroundColor = .darkGray
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 10
-        button.setTitle("Dimensione", for: .normal)
+        button.setTitle("Colore", for: .normal)
         button.titleLabel?.textColor = .white
         return button
     }()
@@ -50,9 +43,9 @@ class TextEditingBottomBar: UIView {
         return stack
     }()
     
-    init(textView: UITextView, frame: CGRect) {
+    init(textView: UITextView) {
         self.textView = textView
-        super.init(frame: frame)
+        super.init(frame: .zero)
         
         buttonsStack.addArrangedSubview(colorButton)
         buttonsStack.addArrangedSubview(sizeButton)
@@ -71,8 +64,7 @@ class TextEditingBottomBar: UIView {
         buttonsStack.spacing = 10
         
     }
-    
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

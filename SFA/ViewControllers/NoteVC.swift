@@ -12,9 +12,13 @@ class NoteVC: UIViewController, HasCustomView {
     typealias CustomView = NoteView
     override func loadView() {
         super.loadView()
-        view = CustomView()
+        let cview = CustomView()
+        cview.controller = self
+        view = cview
     }
     var note : Nota
+    var sizeAlert : SizeSliderAlert?
+    var colorAlert : ColorSliderAlert?
     
     init(nota: Nota) {
         self.note = nota
@@ -28,8 +32,10 @@ class NoteVC: UIViewController, HasCustomView {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTitle()
-        
         rootView.textView.attributedText = (note.body as? NSAttributedString)
+        
+        rootView.bottomBar.sizeButton.addTarget(self, action: #selector(showSizeAlert), for: .touchUpInside)
+        rootView.bottomBar.colorButton.addTarget(self, action: #selector(showColorAlert), for: .touchUpInside)
     }
     
     private func setTitle() {
@@ -56,8 +62,86 @@ class NoteVC: UIViewController, HasCustomView {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         saveNote()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if let alert = self.sizeAlert {
+            alert.centerXAnchor.constraint(equalTo: rootView.centerXAnchor).isActive = true
+            alert.centerYAnchor.constraint(equalTo: rootView.centerYAnchor).isActive = true
+            alert.heightAnchor.constraint(equalTo: rootView.heightAnchor, multiplier: 0.4).isActive = true
+            alert.widthAnchor.constraint(equalTo: rootView.widthAnchor, multiplier: 0.7).isActive = true
+            alert.setNeedsLayout()
+        }
+        if let alert = self.colorAlert {
+            alert.centerXAnchor.constraint(equalTo: rootView.centerXAnchor).isActive = true
+            alert.centerYAnchor.constraint(equalTo: rootView.centerYAnchor).isActive = true
+            alert.heightAnchor.constraint(equalTo: rootView.heightAnchor, multiplier: 0.4).isActive = true
+            alert.widthAnchor.constraint(equalTo: rootView.widthAnchor, multiplier: 0.7).isActive = true
+            alert.setNeedsLayout()
+        }
+    }
+    
+    @objc private func showColorAlert() {
+        if self.colorAlert != nil || self.sizeAlert != nil { return }
+        self.colorAlert = ColorSliderAlert(frame: .zero)
+        colorAlert?.layer.masksToBounds = true
+        colorAlert?.layer.cornerRadius = 10
+        self.colorAlert?.translatesAutoresizingMaskIntoConstraints = false
+        colorAlert?.completionHandler = { [weak self] (newColor) in
+            DispatchQueue.main.async {
+                self?.dismissColorAlert()
+            }
+        }
+        rootView.addSubview(self.colorAlert!)
+        rootView.setNeedsLayout()
+        
+        self.colorAlert?.alpha = 0
+        UIView.animate(withDuration: 0.2) {
+            self.colorAlert?.alpha = 1
+        }
+    }
+    
+    private func dismissColorAlert() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.colorAlert?.alpha = 0
+        }) { completed in
+            if completed != true {
+                return
+            }
+            self.colorAlert?.removeFromSuperview()
+            self.colorAlert = nil
+        }
+    }
+    
+    @objc private func showSizeAlert() {
+        if self.colorAlert != nil || self.sizeAlert != nil { return }
+        let initialValue = Int(rootView.textView.font?.pointSize ?? 19)
+        self.sizeAlert = SizeSliderAlert(frame: .zero, initialValue: initialValue)
+        sizeAlert?.layer.masksToBounds = true
+        sizeAlert?.layer.cornerRadius = 10
+        self.sizeAlert?.translatesAutoresizingMaskIntoConstraints = false   
+        sizeAlert?.completionHandler = { [weak self] (newSize) in
+            DispatchQueue.main.async {
+                self?.dismissSizeAlert()
+            }
+        }
+        rootView.addSubview(sizeAlert!)
+        rootView.setNeedsLayout()
+        self.sizeAlert?.alpha = 0
+        UIView.animate(withDuration: 0.2) {
+            self.sizeAlert?.alpha = 1
+        }
+    }
+    
+    private func dismissSizeAlert() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.sizeAlert?.alpha = 0
+        }) { (completed) in
+            if completed != true { return }
+            self.sizeAlert?.removeFromSuperview()
+            self.sizeAlert = nil
+        }
+    }
 }
