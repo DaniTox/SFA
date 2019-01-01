@@ -44,6 +44,7 @@ class ColorSliderAlert: UIView {
     }()
     
     var completionHandler : ((UIColor) -> Void)?
+    var newValueHandler : ((UIColor) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -54,9 +55,13 @@ class ColorSliderAlert: UIView {
         addSubview(containerView)
         addSubview(continueButton)
         
+        colorSlider.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)
         continueButton.addTarget(self, action: #selector(finishWork), for: .touchUpInside)
     }
 
+    @objc private func sliderValueChanged() {
+        newValueHandler?(colorSlider.color)
+    }
     
     @objc private func finishWork() {
         let color = colorSlider.color

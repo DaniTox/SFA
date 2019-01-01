@@ -94,6 +94,23 @@ class NoteVC: UIViewController, HasCustomView {
                 self?.dismissColorAlert()
             }
         }
+        colorAlert?.newValueHandler = { [weak self] (newValue) in
+            DispatchQueue.main.async {
+                guard let self = self else { return }
+                
+                let textView = self.rootView.textView
+                let selectedRange = textView.selectedRange
+                
+                if selectedRange.length > 0 {
+                    let myAttribute = [NSAttributedString.Key.foregroundColor: newValue]
+                    textView.textStorage.addAttributes(myAttribute, range: selectedRange)
+                } else {
+                    let text = textView.attributedText
+                    textView.textColor = newValue
+                    textView.attributedText = text
+                }
+            }
+        }
         rootView.addSubview(self.colorAlert!)
         rootView.setNeedsLayout()
         

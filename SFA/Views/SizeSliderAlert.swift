@@ -55,6 +55,8 @@ class SizeSliderAlert: UIView {
     }()
     
     var completionHandler : ((Int) -> Void)?
+    var newValueHandler : ((UIColor) -> Void)?
+
     var initialValue : Int
     
     init(frame: CGRect, initialValue : Int) {
