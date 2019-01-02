@@ -20,6 +20,7 @@ class HomeViewController : UIViewController, HasCustomView {
         self.title = "Home"
         rootView.regolaButton.addTarget(self, action: #selector(showRegolaController), for: .touchUpInside)
         rootView.noteButton.addTarget(self, action: #selector(showNoteListController), for: .touchUpInside)
+        rootView.teenStarButton.addTarget(self, action: #selector(showTeenStarController), for: .touchUpInside)
     }
     
     @objc func showRegolaController() {
@@ -29,6 +30,11 @@ class HomeViewController : UIViewController, HasCustomView {
     
     @objc private func showNoteListController() {
         let vc = NoteListVC()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc private func showTeenStarController() {
+        let vc = TeenStarListVC()
         navigationController?.pushViewController(vc, animated: true)
     }
     
