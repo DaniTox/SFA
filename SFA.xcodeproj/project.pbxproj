@@ -81,6 +81,7 @@
 		DBAF3C4C219CBF35003083EA /* IQUIView+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF3C3B219CBF35003083EA /* IQUIView+Hierarchy.swift */; };
 		DBAF3C4D219CBF35003083EA /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF3C3C219CBF35003083EA /* IQNSArray+Sort.swift */; };
 		DBD1DA3021CFE35100BFFBA5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1DA2F21CFE35100BFFBA5 /* LoginView.swift */; };
+		DBFA256121DC3D83000785D0 /* TeenStarTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA256021DC3D83000785D0 /* TeenStarTable.swift */; };
 		DBFE97F821D57C6F00E82803 /* Nota.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE97F721D57C6F00E82803 /* Nota.swift */; };
 		DBFE97FA21D57CD500E82803 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE97F921D57CD500E82803 /* NoteModel.swift */; };
 /* End PBXBuildFile section */
@@ -176,6 +177,7 @@
 		DBAF3C3C219CBF35003083EA /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQNSArray+Sort.swift"; sourceTree = "<group>"; };
 		DBD1DA2F21CFE35100BFFBA5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		DBFA255D21DAC970000785D0 /* ColorSlider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ColorSlider.framework; path = Frameworks/ColorSlider.framework; sourceTree = SOURCE_ROOT; };
+		DBFA256021DC3D83000785D0 /* TeenStarTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarTable.swift; sourceTree = "<group>"; };
 		DBFE97F721D57C6F00E82803 /* Nota.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nota.swift; sourceTree = "<group>"; };
 		DBFE97F921D57CD500E82803 /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -224,14 +226,12 @@
 		DB88DBF121AAF17200B0699B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DB88DBF221AAF19300B0699B /* RegolaObjects.swift */,
 				DB61DA1221B5B9ED006B308B /* RegolaFetcherModel.swift */,
 				DB7BEF8821D01442007A550E /* User.swift */,
 				DB7BEF8A21D01670007A550E /* NetworkAgent.swift */,
 				DB7BEF8C21D0172E007A550E /* URLs.swift */,
 				DB7BEF8E21D01920007A550E /* ToxNetworkResponse.swift */,
 				DB7BEF9021D02128007A550E /* ToxNetworkRequest.swift */,
-				DBFE97F721D57C6F00E82803 /* Nota.swift */,
 				DBFE97F921D57CD500E82803 /* NoteModel.swift */,
 			);
 			path = Model;
@@ -279,6 +279,7 @@
 			children = (
 				DB5751DF21DA75F600F97D25 /* Frameworks */,
 				DBAF3C22219C9F51003083EA /* Altro */,
+				DBFA255F21DC3D39000785D0 /* CoreDataObjects */,
 				DB88DBF121AAF17200B0699B /* Model */,
 				DBAF3C1F219C953D003083EA /* Views */,
 				DBAF3C1A219C942E003083EA /* ViewControllers */,
@@ -420,6 +421,16 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		DBFA255F21DC3D39000785D0 /* CoreDataObjects */ = {
+			isa = PBXGroup;
+			children = (
+				DBFE97F721D57C6F00E82803 /* Nota.swift */,
+				DB88DBF221AAF19300B0699B /* RegolaObjects.swift */,
+				DBFA256021DC3D83000785D0 /* TeenStarTable.swift */,
+			);
+			path = CoreDataObjects;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -555,6 +566,7 @@
 				DB9A19C121D514A900C05755 /* NoteListView.swift in Sources */,
 				DBAF3C24219C9F6A003083EA /* Extensions.swift in Sources */,
 				DBAF3C49219CBF35003083EA /* IQUIScrollView+Additions.swift in Sources */,
+				DBFA256121DC3D83000785D0 /* TeenStarTable.swift in Sources */,
 				DB88DBE121A9718000B0699B /* RegisterVC.swift in Sources */,
 				DB325EDF21D422D7009ADEFC /* RegisterView.swift in Sources */,
 				DB88DBEA21A975C100B0699B /* TransitionSubmitButton.swift in Sources */,

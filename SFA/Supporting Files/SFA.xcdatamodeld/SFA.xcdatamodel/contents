@@ -25,10 +25,22 @@
         <attribute name="versione" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="categorie" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Categoria" inverseName="regola" inverseEntity="Categoria" syncable="YES"/>
     </entity>
+    <entity name="TeenStarTable" representedClassName=".TeenStarTable" syncable="YES" codeGenerationType="category">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="gender" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="giorno" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="muco" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="sentimento8h" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="sentimento14h" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="sentimento20h" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="simbolo" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Categoria" positionX="-25.171875" positionY="0.49609375" width="128" height="105"/>
         <element name="Domanda" positionX="207.828125" positionY="45.33203125" width="128" height="105"/>
-        <element name="Regola" positionX="-201.37890625" positionY="17.90625" width="128" height="120"/>
         <element name="Nota" positionX="0" positionY="63" width="128" height="105"/>
+        <element name="Regola" positionX="-201.37890625" positionY="17.90625" width="128" height="120"/>
+        <element name="TeenStarTable" positionX="0" positionY="63" width="128" height="180"/>
     </elements>
 </model>
