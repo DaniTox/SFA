@@ -55,7 +55,7 @@ class SizeSliderAlert: UIView {
     }()
     
     var completionHandler : ((Int) -> Void)?
-    var newValueHandler : ((UIColor) -> Void)?
+    var newValueHandler : ((Int) -> Void)?
 
     var initialValue : Int
     
@@ -78,6 +78,7 @@ class SizeSliderAlert: UIView {
     @objc private func sliderValueChanged() {
         let intValue = Int(slider.value)
         sliderLabel.text = "\(intValue)"
+        newValueHandler?(intValue)
     }
     
     @objc private func finishWork() {

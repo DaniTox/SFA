@@ -105,9 +105,7 @@ class NoteVC: UIViewController, HasCustomView {
                     let myAttribute = [NSAttributedString.Key.foregroundColor: newValue]
                     textView.textStorage.addAttributes(myAttribute, range: selectedRange)
                 } else {
-                    let text = textView.attributedText
-                    textView.textColor = newValue
-                    textView.attributedText = text
+                    textView.typingAttributes[NSAttributedString.Key.foregroundColor] = newValue
                 }
             }
         }
@@ -142,6 +140,23 @@ class NoteVC: UIViewController, HasCustomView {
         sizeAlert?.completionHandler = { [weak self] (newSize) in
             DispatchQueue.main.async {
                 self?.dismissSizeAlert()
+            }
+        }
+        sizeAlert?.newValueHandler = { [weak self] (newSize) in
+            DispatchQueue.main.async {
+                guard let self = self else { return }
+                
+                let textView = self.rootView.textView
+                let selectedRange = textView.selectedRange
+                let currentFont = textView.font ?? UIFont.preferredFont(forTextStyle: .body).withSize(19)
+                let newSizeFloat = CGFloat(newSize)
+                
+                if selectedRange.length > 0 {
+                    let myAttributes = [NSAttributedString.Key.font: currentFont.withSize(newSizeFloat)]
+                    textView.textStorage.addAttributes(myAttributes, range: selectedRange)
+                } else {
+                    textView.typingAttributes[NSAttributedString.Key.font] = currentFont.withSize(newSizeFloat)
+                }
             }
         }
         rootView.addSubview(sizeAlert!)
