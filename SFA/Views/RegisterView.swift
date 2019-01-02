@@ -44,6 +44,17 @@ class RegisterView: UIView {
         return field
     }()
     
+    var genderButton : UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Sesso", for: .normal)
+        button.backgroundColor = .white
+        button.setTitleColor(.blue, for: .normal)
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 5
+        return button
+    }()
+    
     var password1Field : UITextField = {
         let field = UITextField()
         field.isSecureTextEntry = true
@@ -84,6 +95,16 @@ class RegisterView: UIView {
         return button
     }()
     
+    var ageGenderStack : UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.alignment = UIStackView.Alignment.fill
+        stack.distribution = UIStackView.Distribution.fillEqually
+        stack.axis = .horizontal
+        stack.spacing = 10
+        return stack
+    }()
+    
     var fullStack : UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -107,9 +128,12 @@ class RegisterView: UIView {
         loadingIndicator.startAnimating()
         backgroundColor = .black
         
+        ageGenderStack.addArrangedSubview(ageField)
+        ageGenderStack.addArrangedSubview(genderButton)
+        
         fieldStack.addArrangedSubview(nomeField)
         fieldStack.addArrangedSubview(cognomeField)
-        fieldStack.addArrangedSubview(ageField)
+        fieldStack.addArrangedSubview(ageGenderStack)
         fieldStack.addArrangedSubview(emailField)
         fieldStack.addArrangedSubview(password1Field)
         fieldStack.addArrangedSubview(password2Field)

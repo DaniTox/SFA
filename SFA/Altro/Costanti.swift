@@ -56,3 +56,4 @@ enum ToxError : Error {
     case noteRelated(String)
 }
 
+let genderArray : [String] = ["Maschio", "Femmina"]
