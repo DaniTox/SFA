@@ -20,7 +20,7 @@ class TeenStarListVC: UIViewController, HasCustomView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Dati TeenStar"
+        self.title = "Storico"
         
         let persistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
         model = TeenStarModel(container: persistentContainer)

@@ -57,3 +57,10 @@ enum ToxError : Error {
 }
 
 let genderArray : [String] = ["Maschio", "Femmina"]
+let EMOZIONI : [String] = ["Fiducia", "Collera", "Paura", "Tristezza", "Gioia", "Equilibrio"]
+
+let TEENSTAR_INDICES : [String] = ["Sentimento prevalente alle ore 8:00:",
+                                   "Sentimento prevalente alle ore 14:00:",
+                                   "Sentimento prevalente alle ore 20:00:",
+                                   "Simbolo o colore",
+                                   "Tipo di muco"]
