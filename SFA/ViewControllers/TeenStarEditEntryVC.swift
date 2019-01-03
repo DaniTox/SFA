@@ -10,12 +10,14 @@ import UIKit
 
 let BASIC_CELL_ID = "cell"
 let EMOZIONE_CELL_ID = "emozioneCell"
+let CICLO_CELL_ID = "ciclocell"
 
 let BASIC_ROW_HEIGHT : CGFloat = 50
 let EMOZIONE_ROW_HEIGHT : CGFloat = 200
+let CICLO_ROW_HEIGHT : CGFloat = 350
 
 let TSBOY_SECTIONS = 4
-let TSGIRL_SECTIONS = 6
+let TSGIRL_SECTIONS = 5
 
 func GET_INDEX(_ index: Int) -> Int { return index - 1 }
 
@@ -34,6 +36,7 @@ class TeenStarEditEntryVC: UIViewController, HasCustomView {
         
         rootView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: BASIC_CELL_ID)
         rootView.tableView.register(EmozioneTableViewCell.self, forCellReuseIdentifier: EMOZIONE_CELL_ID)
+        rootView.tableView.register(CicloTableViewCell.self, forCellReuseIdentifier: CICLO_CELL_ID)
         
         rootView.tableView.delegate = self
         rootView.tableView.dataSource = self
@@ -46,20 +49,41 @@ extension TeenStarEditEntryVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
+//        if indexPath.section == 0 {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: BASIC_CELL_ID)
+//            cell?.textLabel?.text = "Data: \(Date().dayOfWeek()) - \(Date().stringValue)"
+//            return cell!
+//        } else {
+//            if indexPath.row == 0 {
+//                let cell = tableView.dequeueReusableCell(withIdentifier: BASIC_CELL_ID)
+//                let str = TEENSTAR_INDICES[GET_INDEX(indexPath.section)]
+//                cell?.textLabel?.text = "\(str)"
+//                return cell!
+//            }
+//            let cell = tableView.dequeueReusableCell(withIdentifier: EMOZIONE_CELL_ID) as? EmozioneTableViewCell
+//            return cell!
+//        }
+        
+        switch indexPath.section {
+        case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: BASIC_CELL_ID)
             cell?.textLabel?.text = "Data: \(Date().dayOfWeek()) - \(Date().stringValue)"
             return cell!
-        } else {
+        case 1, 2, 3, 4:
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: BASIC_CELL_ID)
                 let str = TEENSTAR_INDICES[GET_INDEX(indexPath.section)]
                 cell?.textLabel?.text = "\(str)"
                 return cell!
-            } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: EMOZIONE_CELL_ID) as? EmozioneTableViewCell
+            }
+            if indexPath.section == 4 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: CICLO_CELL_ID) as? CicloTableViewCell
                 return cell!
             }
+            let cell = tableView.dequeueReusableCell(withIdentifier: EMOZIONE_CELL_ID) as? EmozioneTableViewCell
+            return cell!
+        default:
+            fatalError("Section inesistente")
         }
     }
     
@@ -68,10 +92,15 @@ extension TeenStarEditEntryVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return BASIC_ROW_HEIGHT
-        } else {
-            return EMOZIONE_ROW_HEIGHT
+        switch indexPath.section {
+        case 0, 1, 2, 3:
+            if indexPath.row == 0 { return BASIC_ROW_HEIGHT }
+            else { return EMOZIONE_ROW_HEIGHT }
+        case 4:
+            if indexPath.row == 0 { return BASIC_ROW_HEIGHT }
+            else { return CICLO_ROW_HEIGHT }
+        default:
+            return 0
         }
     }
 }
