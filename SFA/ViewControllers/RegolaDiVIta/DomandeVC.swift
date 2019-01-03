@@ -50,7 +50,7 @@ class DomandeVC: UIViewController, HasCustomView {
         self.domande = domande.sorted(by: {$0.id < $1.id })
         let undomande = selectedCategory?.domande as? Set<Domanda>
         let domanda = undomande!.first(where: {$0.domanda == "Versione"})
-        print("\(domanda?.domanda): \(domanda?.risposta)")
+        print("\(String(describing: domanda?.domanda)): \(String(describing: domanda?.risposta))")
     }
 }
 

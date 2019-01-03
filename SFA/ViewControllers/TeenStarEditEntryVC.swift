@@ -11,6 +11,14 @@ import UIKit
 let BASIC_CELL_ID = "cell"
 let EMOZIONE_CELL_ID = "emozioneCell"
 
+let BASIC_ROW_HEIGHT : CGFloat = 50
+let EMOZIONE_ROW_HEIGHT : CGFloat = 200
+
+let TSBOY_SECTIONS = 4
+let TSGIRL_SECTIONS = 6
+
+func GET_INDEX(_ index: Int) -> Int { return index - 1 }
+
 class TeenStarEditEntryVC: UIViewController, HasCustomView {
     typealias CustomView = TeenStarEditEntryView
     override func loadView() {
@@ -18,7 +26,7 @@ class TeenStarEditEntryVC: UIViewController, HasCustomView {
         view = CustomView()
     }
     
-    var genderType : UserGender = .boy
+    var genderType : UserGender = .girl
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,8 +53,7 @@ extension TeenStarEditEntryVC : UITableViewDelegate, UITableViewDataSource {
         } else {
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: BASIC_CELL_ID)
-                let index = indexPath.section - 1
-                let str = TEENSTAR_INDICES[index]
+                let str = TEENSTAR_INDICES[GET_INDEX(indexPath.section)]
                 cell?.textLabel?.text = "\(str)"
                 return cell!
             } else {
@@ -57,14 +64,14 @@ extension TeenStarEditEntryVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return (genderType == .boy) ? 4 : 6
+        return (genderType == .boy) ? TSBOY_SECTIONS : TSGIRL_SECTIONS
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return 50
+            return BASIC_ROW_HEIGHT
         } else {
-            return 200
+            return EMOZIONE_ROW_HEIGHT
         }
     }
 }

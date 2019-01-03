@@ -64,3 +64,11 @@ let TEENSTAR_INDICES : [String] = ["Sentimento prevalente alle ore 8:00:",
                                    "Sentimento prevalente alle ore 20:00:",
                                    "Simbolo o colore",
                                    "Tipo di muco"]
+
+enum CicloColor : Int, Codable {
+    case rosso = 0
+    case verde = 1
+    case giallo = 2
+    case bianco = 3
+    case croce = 4
+}

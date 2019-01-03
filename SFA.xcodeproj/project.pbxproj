@@ -20,6 +20,7 @@
 		DB53C76D21DE69620001054B /* EmozioneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C76C21DE69620001054B /* EmozioneButton.swift */; };
 		DB53C76F21DE699B0001054B /* Emozione.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C76E21DE699B0001054B /* Emozione.swift */; };
 		DB53C77121DE75E70001054B /* EmozioneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C77021DE75E70001054B /* EmozioneTableViewCell.swift */; };
+		DB53C77721DEB9E10001054B /* CicloTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C77621DEB9E10001054B /* CicloTableViewCell.swift */; };
 		DB5751DC21DA651C00F97D25 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5751DB21DA651C00F97D25 /* NoteCell.swift */; };
 		DB5751DE21DA719900F97D25 /* TextEditingBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5751DD21DA719900F97D25 /* TextEditingBottomBar.swift */; };
 		DB5751E821DA808000F97D25 /* SizeSliderAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5751E721DA808000F97D25 /* SizeSliderAlert.swift */; };
@@ -120,6 +121,7 @@
 		DB53C76C21DE69620001054B /* EmozioneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmozioneButton.swift; sourceTree = "<group>"; };
 		DB53C76E21DE699B0001054B /* Emozione.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emozione.swift; sourceTree = "<group>"; };
 		DB53C77021DE75E70001054B /* EmozioneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmozioneTableViewCell.swift; sourceTree = "<group>"; };
+		DB53C77621DEB9E10001054B /* CicloTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CicloTableViewCell.swift; sourceTree = "<group>"; };
 		DB5751DB21DA651C00F97D25 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		DB5751DD21DA719900F97D25 /* TextEditingBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditingBottomBar.swift; sourceTree = "<group>"; };
 		DB5751E721DA808000F97D25 /* SizeSliderAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeSliderAlert.swift; sourceTree = "<group>"; };
@@ -210,6 +212,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB53C77221DEB7870001054B /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				DB5751DB21DA651C00F97D25 /* NoteCell.swift */,
+				DB53C77021DE75E70001054B /* EmozioneTableViewCell.swift */,
+				DB53C77621DEB9E10001054B /* CicloTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		DB53C77321DEB7B50001054B /* VCs Views */ = {
+			isa = PBXGroup;
+			children = (
+				DBF3A2AD21DD7262008AE7D5 /* TeenStarListView.swift */,
+				DBF3A2B321DD81F5008AE7D5 /* TeenStarEditEntryView.swift */,
+				DB61DA1A21B9C834006B308B /* SocialView.swift */,
+				DB22DA8E21C03A6300E6497D /* NoteView.swift */,
+				DBD1DA2F21CFE35100BFFBA5 /* LoginView.swift */,
+				DB325EDE21D422D7009ADEFC /* RegisterView.swift */,
+				DB9A19C021D514A900C05755 /* NoteListView.swift */,
+				DB88DBFD21AB30E400B0699B /* RegolaDiVita */,
+			);
+			path = "VCs Views";
+			sourceTree = "<group>";
+		};
+		DB53C77421DEB7C60001054B /* Legacy */ = {
+			isa = PBXGroup;
+			children = (
+				DB22DA8C21C02F9500E6497D /* DatePickerModel.swift */,
+				DB61DA1421B9BA81006B308B /* SitoView.swift */,
+				DB88DBE221A975C100B0699B /* TransitionButton */,
+				DBAAE2AC21A5ACCF00211CBF /* WelcomeVC.storyboard */,
+				DBAAE2B021A5C3FA00211CBF /* NotificheVC.storyboard */,
+			);
+			path = Legacy;
+			sourceTree = "<group>";
+		};
+		DB53C77521DEB8400001054B /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				DB5751DD21DA719900F97D25 /* TextEditingBottomBar.swift */,
+				DB5751E721DA808000F97D25 /* SizeSliderAlert.swift */,
+				DB53AB8B21DACA34001961EC /* ColorSliderAlert.swift */,
+				DB53C76C21DE69620001054B /* EmozioneButton.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
 		DB5751DF21DA75F600F97D25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,25 +395,10 @@
 		DBAF3C1F219C953D003083EA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DB88DBE221A975C100B0699B /* TransitionButton */,
-				DBAAE2AC21A5ACCF00211CBF /* WelcomeVC.storyboard */,
-				DBAAE2B021A5C3FA00211CBF /* NotificheVC.storyboard */,
-				DB88DBFD21AB30E400B0699B /* RegolaDiVita */,
-				DB61DA1421B9BA81006B308B /* SitoView.swift */,
-				DB61DA1A21B9C834006B308B /* SocialView.swift */,
-				DB22DA8C21C02F9500E6497D /* DatePickerModel.swift */,
-				DB22DA8E21C03A6300E6497D /* NoteView.swift */,
-				DBD1DA2F21CFE35100BFFBA5 /* LoginView.swift */,
-				DB325EDE21D422D7009ADEFC /* RegisterView.swift */,
-				DB9A19C021D514A900C05755 /* NoteListView.swift */,
-				DB5751DB21DA651C00F97D25 /* NoteCell.swift */,
-				DB5751DD21DA719900F97D25 /* TextEditingBottomBar.swift */,
-				DB5751E721DA808000F97D25 /* SizeSliderAlert.swift */,
-				DB53AB8B21DACA34001961EC /* ColorSliderAlert.swift */,
-				DBF3A2AD21DD7262008AE7D5 /* TeenStarListView.swift */,
-				DBF3A2B321DD81F5008AE7D5 /* TeenStarEditEntryView.swift */,
-				DB53C76C21DE69620001054B /* EmozioneButton.swift */,
-				DB53C77021DE75E70001054B /* EmozioneTableViewCell.swift */,
+				DB53C77421DEB7C60001054B /* Legacy */,
+				DB53C77321DEB7B50001054B /* VCs Views */,
+				DB53C77221DEB7870001054B /* TableViewCells */,
+				DB53C77521DEB8400001054B /* Custom */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -556,6 +591,7 @@
 				DB7BEF8B21D01670007A550E /* NetworkAgent.swift in Sources */,
 				DB88DBEC21A975C100B0699B /* TimerEx.swift in Sources */,
 				DBAF3C44219CBF35003083EA /* IQKeyboardManagerConstantsInternal.swift in Sources */,
+				DB53C77721DEB9E10001054B /* CicloTableViewCell.swift in Sources */,
 				DB88DBFF21AB315200B0699B /* RegolaCategorieVC.swift in Sources */,
 				DBAF3C48219CBF35003083EA /* IQKeyboardManager.swift in Sources */,
 				DBAAE2B321A5C53700211CBF /* NotificheVC.swift in Sources */,
