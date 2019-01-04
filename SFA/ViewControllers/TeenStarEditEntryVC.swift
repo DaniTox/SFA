@@ -60,10 +60,6 @@ class TeenStarEditEntryVC: UIViewController, HasCustomView {
     
     private func saveTeenStarEntry() {
         guard let thisEntry = self.entry else { return }
-//        guard self.currentEntryMemory.indices.count > 0 else {
-//            removeEntryBecauseEmpty()
-//            return
-//        }
         
         if let emozione8 = self.currentEntryMemory[1] {
             thisEntry.sentimento8h = emozione8
@@ -103,7 +99,6 @@ extension TeenStarEditEntryVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let viewingEntry = self.entry else { fatalError() }
         
         switch indexPath.section {
         case 0:
@@ -149,34 +144,6 @@ extension TeenStarEditEntryVC : UITableViewDelegate, UITableViewDataSource {
         default:
             fatalError("Section inesistente")
         }
-//        switch indexPath.section {
-//        case 0:
-//            let cell = tableView.dequeueReusableCell(withIdentifier: BASIC_CELL_ID)
-//            cell?.textLabel?.text = "Data: \(Date().dayOfWeek()) - \(Date().stringValue)"
-//            return cell!
-//        case 1, 2, 3, 4:
-//            if indexPath.row == 0 {
-//                let cell = tableView.dequeueReusableCell(withIdentifier: BASIC_CELL_ID)
-//                let str = TEENSTAR_INDICES[GET_INDEX(indexPath.section)]
-//                cell?.textLabel?.text = "\(str)"
-//                return cell!
-//            }
-//            if indexPath.section == 4 {
-//                let cell = tableView.dequeueReusableCell(withIdentifier: CICLO_CELL_ID) as? CicloTableViewCell
-//                cell?.newValueSelected = { [weak self] newValue in
-//                    self?.currentEntryMemory[indexPath.section] = newValue.rawValue
-//                }
-//                return cell!
-//            }
-//            let cell = tableView.dequeueReusableCell(withIdentifier: EMOZIONE_CELL_ID) as? EmozioneTableViewCell
-//            cell?.newValueSelected = { [weak self] (newValue) in
-//                self?.currentEntryMemory[indexPath.section] = newValue.rawValue
-//            }
-//            return cell!
-//        default:
-//            fatalError("Section inesistente")
-//        }
-        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
