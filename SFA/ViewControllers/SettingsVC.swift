@@ -18,6 +18,7 @@ class SettingsVC: UIViewController, HasCustomView {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        rootView.tableView.register(SettingsUserCell.self, forCellReuseIdentifier: "UserCell")
         rootView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         rootView.tableView.delegate = self
         rootView.tableView.dataSource = self
@@ -52,13 +53,8 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-            if userLogged != nil {
-                cell?.textLabel?.text = "\(userLogged!.name) \(userLogged!.cognome)"
-            } else {
-                cell?.textLabel?.text = "Accedi o Registrati"
-                cell?.accessoryType = .disclosureIndicator
-            }
+            let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell") as? SettingsUserCell
+            cell?.userState = (userLogged == nil) ? .empty : .loggedIn
             return cell!
         default:
             fatalError()
