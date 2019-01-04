@@ -71,17 +71,21 @@ class EmozioneTableViewCell: UITableViewCell {
         addSubview(fullStack)
     }
     
-    @objc private func emozioneButtonWasTouched(_ sender: EmozioneButton) {
-        self.newValueSelected?(sender.emozione)
-        self.emozioneSelected = sender.emozione
-        print("Emozione premuta: \(String(describing: sender.emozione))")
+    public func select(newEmotion: Emozione) {
         emozioniButtons.forEach { (button) in
-            if button == sender {
+            if button.emozione == newEmotion {
                 button.layer.borderWidth = 8
             } else {
                 button.layer.borderWidth = 0
             }
         }
+    }
+    
+    @objc private func emozioneButtonWasTouched(_ sender: EmozioneButton) {
+        self.newValueSelected?(sender.emozione)
+        self.emozioneSelected = sender.emozione
+        select(newEmotion: sender.emozione)
+        print("Emozione premuta: \(String(describing: sender.emozione))")
     }
     
     override func layoutSubviews() {

@@ -29,7 +29,15 @@ class TeenStarEditEntryVC: UIViewController, HasCustomView {
     }
     
     var genderType : UserGender? = .boy
-    var entry : TeenStarTable?
+    var entry : TeenStarTable? {
+        didSet {
+            guard let entry = entry else { return }
+            currentEntryMemory[1] = entry.sentimento8h
+            currentEntryMemory[2] = entry.sentimento14h
+            currentEntryMemory[3] = entry.sentimento20h
+            currentEntryMemory[4] = entry.ciclo
+        }
+    }
     
     var currentEntryMemory : [Int : Int16] = [:]
     
@@ -52,10 +60,10 @@ class TeenStarEditEntryVC: UIViewController, HasCustomView {
     
     private func saveTeenStarEntry() {
         guard let thisEntry = self.entry else { return }
-        guard self.currentEntryMemory.indices.count > 0 else {
-            removeEntryBecauseEmpty()
-            return
-        }
+//        guard self.currentEntryMemory.indices.count > 0 else {
+//            removeEntryBecauseEmpty()
+//            return
+//        }
         
         if let emozione8 = self.currentEntryMemory[1] {
             thisEntry.sentimento8h = emozione8
@@ -95,8 +103,7 @@ extension TeenStarEditEntryVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let viewingEntry = self.entry else { fatalError() }
-        let isNewEntry = viewingEntry.isEmpty
+//        guard let viewingEntry = self.entry else { fatalError() }
         
         switch indexPath.section {
         case 0:
@@ -114,6 +121,9 @@ extension TeenStarEditEntryVC : UITableViewDelegate, UITableViewDataSource {
                 cell?.newValueSelected = { [weak self] (newValue) in
                     self?.currentEntryMemory[indexPath.section] = newValue.rawValue
                 }
+                if let valueInMemory = self.currentEntryMemory[indexPath.section], let emotion = Emozione(rawValue: valueInMemory) {
+                    cell?.select(newEmotion: emotion)
+                }
                 return cell!
             default:
                 fatalError("row inesistente in una di queste sezioni: [1, 2, 3]")
@@ -128,6 +138,9 @@ extension TeenStarEditEntryVC : UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: CICLO_CELL_ID) as? CicloTableViewCell
                 cell?.newValueSelected = { [weak self] newValue in
                     self?.currentEntryMemory[indexPath.section] = newValue.rawValue
+                }
+                if let valueInMemory = self.currentEntryMemory[indexPath.section], let cicloColor = CicloColor(rawValue: valueInMemory) {
+                    cell?.select(cicloColor: cicloColor)
                 }
                 return cell!
             default:

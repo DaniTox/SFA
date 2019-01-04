@@ -45,6 +45,10 @@ class CicloTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    public func select(cicloColor: CicloColor) {
+        self.colorSelected = cicloColor
+        colorCollectionView.reloadData()
+    }
 }
 
 extension CicloTableViewCell : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
