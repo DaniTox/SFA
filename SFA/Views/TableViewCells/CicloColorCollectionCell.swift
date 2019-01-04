@@ -23,6 +23,7 @@ class CicloColorCollectionCell: UICollectionViewCell {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.masksToBounds =  true
+        view.layer.cornerRadius = 10
         return view
     }()
     
@@ -57,7 +58,7 @@ class CicloColorCollectionCell: UICollectionViewCell {
         descriptionLabel.topAnchor.constraint(equalTo: topAnchor).isActive = true
         descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
-        colorView.layer.cornerRadius = colorView.frame.height / 2.0
+//        colorView.layer.cornerRadius = colorView.frame.height / 2.0
         
     }
     
@@ -77,9 +78,10 @@ class CicloColorCollectionCell: UICollectionViewCell {
         case .bianco:
             color = .white
         case .croce:
-            color = .black
+            color = .gray
         }
         self.colorView.backgroundColor = color
+        colorView.layer.cornerRadius = colorView.frame.height / 2.0
     }
     
 }

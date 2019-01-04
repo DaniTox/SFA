@@ -51,6 +51,8 @@ class EmozioneTableViewCell: UITableViewCell {
             button.titleLabel?.adjustsFontSizeToFitWidth = true
             button.layer.masksToBounds = true
             button.layer.cornerRadius = 10
+            button.layer.borderColor = UIColor.orange.cgColor
+
             
             button.emozione = Emozione.getEmozioneFrom(str: emozioneValue)
             button.addTarget(self, action: #selector(emozioneButtonWasTouched(_:)), for: .touchUpInside)
@@ -60,6 +62,7 @@ class EmozioneTableViewCell: UITableViewCell {
             } else {
                 emozioniDownStack.addArrangedSubview(button)
             }
+            emozioniButtons.append(button)
         }
         
         fullStack.addArrangedSubview(emozioniUpStack)
@@ -70,6 +73,13 @@ class EmozioneTableViewCell: UITableViewCell {
     @objc private func emozioneButtonWasTouched(_ sender: EmozioneButton) {
         self.touchedEmozione = sender.emozione
         print("Emozione premuta: \(String(describing: sender.emozione))")
+        emozioniButtons.forEach { (button) in
+            if button == sender {
+                button.layer.borderWidth = 8
+            } else {
+                button.layer.borderWidth = 0
+            }
+        }
         // - TODO: aggiungere qualche particolare grafico per fare in modo che si noti quale pulsante è attualmnte premuto. Togliere agli altri pulsanti quell'effetto grafico
         
     }

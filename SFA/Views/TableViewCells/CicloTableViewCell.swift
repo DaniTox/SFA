@@ -8,6 +8,9 @@
 
 import UIKit
 
+let DEFAULT_CICLO_CELL_COLOR = UIColor.black.lighter(by: 8)!
+let SELECTED_CICLO_CELL_COLOR = UIColor.orange//UIColor.green.darker(by: 20)!
+
 class CicloTableViewCell: UITableViewCell {
 
     var colorSelected : CicloColor!
@@ -55,7 +58,16 @@ extension CicloTableViewCell : UICollectionViewDelegate, UICollectionViewDataSou
         cell?.cicloColor = color
         cell?.descriptionLabel.text = COLORS_DESCRIPTIONS[color]
         
-        cell?.backgroundColor = .blue
+        if let selectedColor = self.colorSelected {
+            if selectedColor == color {
+                cell?.backgroundColor = SELECTED_CICLO_CELL_COLOR
+            } else {
+                cell?.backgroundColor = DEFAULT_CICLO_CELL_COLOR
+            }
+        } else {
+            cell?.backgroundColor = DEFAULT_CICLO_CELL_COLOR
+        }
+        
         cell?.layer.masksToBounds = true
         cell?.layer.cornerRadius = 10
         return cell!
@@ -72,7 +84,21 @@ extension CicloTableViewCell : UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Selected collectionView item")
+        guard let cell = collectionView.cellForItem(at: indexPath) else {
+            fatalError("Toccata una cella che non esiste")
+        }
+        
+        guard let cicloCell = cell as? CicloColorCollectionCell else {
+            fatalError("errore nell'ottenere una cella di tipo CicloTableViewCell")
+        }
+        
+        guard let color = cicloCell.cicloColor else {
+            fatalError("Errore nell'ottenere il colore della cella")
+        }
+        
+        self.colorSelected = color
+        print("Selezionato il colore: \(String(describing: color))")
+        collectionView.reloadData()
     }
     
 }
