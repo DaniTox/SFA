@@ -48,6 +48,10 @@ class EmozioneTableViewCell: UITableViewCell {
         
         for (index, emozioneValue) in EMOZIONI.enumerated() {
             let button = EmozioneButton()
+            button.titleLabel?.adjustsFontSizeToFitWidth = true
+            button.layer.masksToBounds = true
+            button.layer.cornerRadius = 10
+            
             button.emozione = Emozione.getEmozioneFrom(str: emozioneValue)
             button.addTarget(self, action: #selector(emozioneButtonWasTouched(_:)), for: .touchUpInside)
             

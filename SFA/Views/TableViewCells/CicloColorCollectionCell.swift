@@ -29,7 +29,12 @@ class CicloColorCollectionCell: UICollectionViewCell {
     var descriptionLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .red
+        label.numberOfLines = 0
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.7
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.textColor = .white
+//        label.backgroundColor = .red
         return label
     }()
     

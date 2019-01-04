@@ -14,7 +14,7 @@ let CICLO_CELL_ID = "ciclocell"
 
 let BASIC_ROW_HEIGHT : CGFloat = 50
 let EMOZIONE_ROW_HEIGHT : CGFloat = 200
-let CICLO_ROW_HEIGHT : CGFloat = 350
+let CICLO_ROW_HEIGHT : CGFloat = 500 //350
 
 let TSBOY_SECTIONS = 4
 let TSGIRL_SECTIONS = 5
@@ -49,21 +49,6 @@ extension TeenStarEditEntryVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if indexPath.section == 0 {
-//            let cell = tableView.dequeueReusableCell(withIdentifier: BASIC_CELL_ID)
-//            cell?.textLabel?.text = "Data: \(Date().dayOfWeek()) - \(Date().stringValue)"
-//            return cell!
-//        } else {
-//            if indexPath.row == 0 {
-//                let cell = tableView.dequeueReusableCell(withIdentifier: BASIC_CELL_ID)
-//                let str = TEENSTAR_INDICES[GET_INDEX(indexPath.section)]
-//                cell?.textLabel?.text = "\(str)"
-//                return cell!
-//            }
-//            let cell = tableView.dequeueReusableCell(withIdentifier: EMOZIONE_CELL_ID) as? EmozioneTableViewCell
-//            return cell!
-//        }
-        
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: BASIC_CELL_ID)

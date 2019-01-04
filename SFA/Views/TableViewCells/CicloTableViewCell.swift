@@ -49,7 +49,12 @@ extension CicloTableViewCell : UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CicloColorCollectionCell
-        cell?.cicloColor = CicloColor.getColorFrom(str: CICLO_COLORS[indexPath.row])
+        
+        let colorString : String = CICLO_COLORS[indexPath.row]
+        let color : CicloColor = CicloColor.getColorFrom(str: colorString)
+        cell?.cicloColor = color
+        cell?.descriptionLabel.text = COLORS_DESCRIPTIONS[color]
+        
         cell?.backgroundColor = .blue
         cell?.layer.masksToBounds = true
         cell?.layer.cornerRadius = 10
