@@ -84,6 +84,8 @@ extension TeenStarListVC : UITableViewDelegate, UITableViewDataSource {
     //TODO: da completare l'implementazione
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = TeenStarEditEntryVC()
+        let entry = entries[indexPath.row]
+        vc.entry = entry
         navigationController?.pushViewController(vc, animated: true)
     }
     
