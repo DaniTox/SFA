@@ -45,7 +45,6 @@ class LoginVC: UIViewController, HasCustomView {
             guard let self = self else { return }
             let string = "Il login è stato eseguito con successo!\nBenvenuto \(userLogged!.name)"
             print(string)
-//            self.showAlert(withTitle: "Successo!", andMessage: string) //function already in MainQueue
             self.successCompletion?(self)
         }
     }
