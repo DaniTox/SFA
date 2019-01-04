@@ -10,8 +10,9 @@ import UIKit
 
 class EmozioneTableViewCell: UITableViewCell {
 
-    var touchedEmozione : Emozione?
+    var emozioneSelected : Emozione?
     var emozioniButtons : [EmozioneButton] = []
+    var newValueSelected : ((Emozione)-> Void)?
     
     var emozioniUpStack : UIStackView = {
         let stack = UIStackView()
@@ -71,7 +72,8 @@ class EmozioneTableViewCell: UITableViewCell {
     }
     
     @objc private func emozioneButtonWasTouched(_ sender: EmozioneButton) {
-        self.touchedEmozione = sender.emozione
+        self.newValueSelected?(sender.emozione)
+        self.emozioneSelected = sender.emozione
         print("Emozione premuta: \(String(describing: sender.emozione))")
         emozioniButtons.forEach { (button) in
             if button == sender {
@@ -80,8 +82,6 @@ class EmozioneTableViewCell: UITableViewCell {
                 button.layer.borderWidth = 0
             }
         }
-        // - TODO: aggiungere qualche particolare grafico per fare in modo che si noti quale pulsante è attualmnte premuto. Togliere agli altri pulsanti quell'effetto grafico
-        
     }
     
     override func layoutSubviews() {

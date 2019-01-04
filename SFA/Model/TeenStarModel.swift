@@ -76,4 +76,43 @@ class TeenStarModel {
         return entries
     }
     
+    private func isUniqueID(_ id: Int32) -> Bool {
+        let context = persistentContainer.viewContext
+        let request : NSFetchRequest<TeenStarTable> = TeenStarTable.fetchRequest()
+        let predicate = NSPredicate(format: "id == %d", id)
+        request.predicate = predicate
+        
+        let entries = try? context.fetch(request)
+        guard let realEntries = entries else {
+            return true
+        }
+        if realEntries.count > 0 {
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    public func getUniqueID() -> Int32 {
+        var randomID : Int32
+        repeat {
+            randomID = Int32.random(in: 0..<INT32_MAX)
+        } while isUniqueID(randomID) != true
+        
+        return randomID
+    }
+    
+    public func getNewEntry() -> TeenStarTable {
+        let context = self.persistentContainer.viewContext
+        let newEntry = TeenStarTable(context: context)
+        newEntry.date = Date()
+        if let userGender = userLogged?.gender {
+            newEntry.gender = Int16(userGender.rawValue)
+        } else {
+            newEntry.gender = Int16(UserGender.boy.rawValue)
+        }
+        newEntry.id = self.getUniqueID()
+        return newEntry
+    }
+    
 }

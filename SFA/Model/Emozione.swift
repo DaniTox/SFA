@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Emozione : Int, Codable {
+enum Emozione : Int16, Codable {
     case fiducioso = 0
     case aggressività = 1
     case paura = 2

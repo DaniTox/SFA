@@ -15,6 +15,8 @@ class CicloTableViewCell: UITableViewCell {
 
     var colorSelected : CicloColor!
     
+    var newValueSelected : ((CicloColor) -> Void)?
+    
     var colorCollectionView : UICollectionView = {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collection.translatesAutoresizingMaskIntoConstraints = false
@@ -97,6 +99,7 @@ extension CicloTableViewCell : UICollectionViewDelegate, UICollectionViewDataSou
         }
         
         self.colorSelected = color
+        self.newValueSelected?(color)
         print("Selezionato il colore: \(String(describing: color))")
         collectionView.reloadData()
     }

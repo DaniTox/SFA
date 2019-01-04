@@ -64,7 +64,7 @@ let TEENSTAR_INDICES : [String] = ["Sentimento prevalente alle ore 8:00:",
                                    "Sentimento prevalente alle ore 20:00:",
                                    "Ciclo: seleziona il tipo di colore o simbolo:"]
 
-enum CicloColor : Int, Codable {
+enum CicloColor : Int16, Codable {
     case rosso = 0
     case verde = 1
     case giallo = 2

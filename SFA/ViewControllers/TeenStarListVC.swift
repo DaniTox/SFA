@@ -50,10 +50,15 @@ class TeenStarListVC: UIViewController, HasCustomView {
     
     @objc private func addEntryButtonTapped() {
         if model.todayTableIsEmpty() {
+            let entry = model.getNewEntry()
             let vc = TeenStarEditEntryVC()
+            
+            vc.genderType = userLogged?.gender ?? .boy
+            vc.entry = entry
+            
             navigationController?.pushViewController(vc, animated: true)
         } else {
-            self.showError(withTitle: "Attenzione", andMessage: "I dati di oggi sono già stati inseriti. Se devi modificarli, premi il primo risultato.")
+            self.showError(withTitle: "Attenzione", andMessage: "Puoi inserire solo un dato al giorno. Riprova domani.")
         }
     }
     

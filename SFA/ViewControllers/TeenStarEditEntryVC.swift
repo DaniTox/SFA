@@ -28,7 +28,10 @@ class TeenStarEditEntryVC: UIViewController, HasCustomView {
         view = CustomView()
     }
     
-    var genderType : UserGender = .girl
+    var genderType : UserGender? = .boy
+    var entry : TeenStarTable?
+    
+    var currentEntryMemory : [Int : Int16] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +43,34 @@ class TeenStarEditEntryVC: UIViewController, HasCustomView {
         
         rootView.tableView.delegate = self
         rootView.tableView.dataSource = self
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        saveTeenStarEntry()
+    }
+    
+    private func saveTeenStarEntry() {
+        guard let thisEntry = self.entry else { return }
+        guard self.currentEntryMemory.indices.count > 0 else { return }
+        if let emozione8 = self.currentEntryMemory[1] {
+            thisEntry.sentimento8h = emozione8
+        }
+        if let emozione14 = self.currentEntryMemory[2] {
+            thisEntry.sentimento14h = emozione14
+        }
+        if let emozione20 = self.currentEntryMemory[3] {
+            thisEntry.sentimento20h = emozione20
+        }
+        if let cicloColor = self.currentEntryMemory[4] {
+            thisEntry.ciclo = cicloColor
+        }
+        let context = thisEntry.managedObjectContext
+        do {
+            try context?.save()
+        } catch {
+            print("Errore a salvare CoreData TeenStar: \(error)")
+        }
     }
     
 }
@@ -63,9 +94,15 @@ extension TeenStarEditEntryVC : UITableViewDelegate, UITableViewDataSource {
             }
             if indexPath.section == 4 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: CICLO_CELL_ID) as? CicloTableViewCell
+                cell?.newValueSelected = { [weak self] newValue in
+                    self?.currentEntryMemory[indexPath.section] = newValue.rawValue
+                }
                 return cell!
             }
             let cell = tableView.dequeueReusableCell(withIdentifier: EMOZIONE_CELL_ID) as? EmozioneTableViewCell
+            cell?.newValueSelected = { [weak self] (newValue) in
+                self?.currentEntryMemory[indexPath.section] = newValue.rawValue
+            }
             return cell!
         default:
             fatalError("Section inesistente")

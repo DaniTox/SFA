@@ -26,6 +26,7 @@
         <relationship name="categorie" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Categoria" inverseName="regola" inverseEntity="Categoria" syncable="YES"/>
     </entity>
     <entity name="TeenStarTable" representedClassName=".TeenStarTable" syncable="YES" codeGenerationType="category">
+        <attribute name="ciclo" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="gender" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="giorno" optional="YES" attributeType="String" syncable="YES"/>
@@ -34,7 +35,6 @@
         <attribute name="sentimento8h" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="sentimento14h" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="sentimento20h" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="simbolo" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
         <element name="Categoria" positionX="-25.171875" positionY="0.49609375" width="128" height="105"/>
