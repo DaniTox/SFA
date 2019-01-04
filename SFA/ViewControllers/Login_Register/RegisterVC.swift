@@ -16,6 +16,7 @@ class RegisterVC: UIViewController, HasCustomView {
     }
     
     let model = NetworkAgent()
+    var successCompletion: ((UIViewController) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +27,11 @@ class RegisterVC: UIViewController, HasCustomView {
         rootView.genderButton.addTarget(self, action: #selector(genderButtonPressed(_:)), for: .touchUpInside)
         rootView.registerButton.addTarget(self, action: #selector(registerAction), for: .touchUpInside)
         
-        let backButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(backAction))
-        navigationItem.setLeftBarButton(backButton, animated: true)
-        
+        if self.isRootNavigationPage {
+            let backButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(backAction))
+            navigationItem.setLeftBarButton(backButton, animated: true)
+        }
+            
         model.errorHandler = { [weak self] (errorString) in
             self?.showError(withTitle: "Errore", andMessage: errorString) // FUNC ALREADY IN MAIN QUEUE
         }
@@ -121,7 +124,9 @@ class RegisterVC: UIViewController, HasCustomView {
         user.password = password1
         
         model.register(user: user) { [weak self] in
-            self?.showAlert(withTitle: "Successo!", andMessage: "La registrazione è stata eseguita con successo!")
+//            self?.showAlert(withTitle: "Successo!", andMessage: "La registrazione è stata eseguita con successo!")
+            print("Registrazione effettuata con successo!")
+            self?.successCompletion?(self!)
         }
         
     }

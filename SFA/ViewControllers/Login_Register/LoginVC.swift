@@ -16,6 +16,8 @@ class LoginVC: UIViewController, HasCustomView {
     }
     
     let model = NetworkAgent()
+    var successCompletion : ((UIViewController) -> Void)?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +29,11 @@ class LoginVC: UIViewController, HasCustomView {
         
         enableAutoHideKeyboardAfterTouch(in: [rootView])
         
-        let backButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(backAction))
-        navigationItem.setLeftBarButton(backButton, animated: true)
-        
+        if self.isRootNavigationPage {
+            let backButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(backAction))
+            navigationItem.setLeftBarButton(backButton, animated: true)
+        }
+    
         rootView.loginButton.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
     }
     
@@ -38,8 +42,11 @@ class LoginVC: UIViewController, HasCustomView {
         let password = rootView.passwordField.text ?? ""
         
         model.login(email: email, password: password) { [weak self] in
+            guard let self = self else { return }
             let string = "Il login è stato eseguito con successo!\nBenvenuto \(userLogged!.name)"
-            self?.showAlert(withTitle: "Successo!", andMessage: string) //function already in MainQueue
+            print(string)
+//            self.showAlert(withTitle: "Successo!", andMessage: string) //function already in MainQueue
+            self.successCompletion?(self)
         }
     }
     

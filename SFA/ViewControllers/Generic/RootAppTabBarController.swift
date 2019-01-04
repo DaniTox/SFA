@@ -21,8 +21,8 @@ class RootAppController : UITabBarController {
     
     private func fillController() {
         let vc = HomeViewController()
-        let nav = UINavigationController(rootViewController: vc)
-        self.addChild(nav)
+        let nav1 = UINavigationController(rootViewController: vc)
+        self.addChild(nav1)
         
         let vc2 = SitoVC()
         vc2.title = "Sito"
@@ -31,6 +31,11 @@ class RootAppController : UITabBarController {
         let vc3 = SocialVC()
         vc3.title = "Social"
         self.addChild(vc3)
+        
+        let vc4 = SettingsVC()
+        vc4.title = "Impostazioni"
+        let nav4 = UINavigationController(rootViewController: vc4)
+        self.addChild(nav4)
         
     }
     

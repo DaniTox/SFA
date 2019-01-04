@@ -51,6 +51,25 @@ extension UIViewController {
         view.endEditing(true)
     }
     
+    var isInNavigationController : Bool {
+        if let _ = self.navigationController {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    var isRootNavigationPage : Bool {
+        guard let nav = self.navigationController else {
+            return false
+        }
+        if nav.viewControllers.first == self {
+            return true
+        } else {
+            return false
+        }
+    }
+    
 }
 
 extension Date {
