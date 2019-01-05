@@ -25,6 +25,9 @@
 		DB53C77921DEC57E0001054B /* CicloColorCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C77821DEC57E0001054B /* CicloColorCollectionCell.swift */; };
 		DB53C78021DFCBF90001054B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C77F21DFCBF90001054B /* SettingsView.swift */; };
 		DB53C78221DFCC3D0001054B /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C78121DFCC3D0001054B /* SettingsVC.swift */; };
+		DB53C78421E0F62B0001054B /* CompagniaTest+Relationships.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C78321E0F62B0001054B /* CompagniaTest+Relationships.swift */; };
+		DB53C78621E0F7E40001054B /* CompagniaTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C78521E0F7E40001054B /* CompagniaTestModel.swift */; };
+		DB53C7AB21E103C90001054B /* compagnie.json in Resources */ = {isa = PBXBuildFile; fileRef = DB53C7AA21E103C90001054B /* compagnie.json */; };
 		DB5751DC21DA651C00F97D25 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5751DB21DA651C00F97D25 /* NoteCell.swift */; };
 		DB5751DE21DA719900F97D25 /* TextEditingBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5751DD21DA719900F97D25 /* TextEditingBottomBar.swift */; };
 		DB5751E821DA808000F97D25 /* SizeSliderAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5751E721DA808000F97D25 /* SizeSliderAlert.swift */; };
@@ -130,6 +133,9 @@
 		DB53C77821DEC57E0001054B /* CicloColorCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CicloColorCollectionCell.swift; sourceTree = "<group>"; };
 		DB53C77F21DFCBF90001054B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		DB53C78121DFCC3D0001054B /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		DB53C78321E0F62B0001054B /* CompagniaTest+Relationships.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompagniaTest+Relationships.swift"; sourceTree = "<group>"; };
+		DB53C78521E0F7E40001054B /* CompagniaTestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompagniaTestModel.swift; sourceTree = "<group>"; };
+		DB53C7AA21E103C90001054B /* compagnie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = compagnie.json; sourceTree = "<group>"; };
 		DB5751DB21DA651C00F97D25 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		DB5751DD21DA719900F97D25 /* TextEditingBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditingBottomBar.swift; sourceTree = "<group>"; };
 		DB5751E721DA808000F97D25 /* SizeSliderAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeSliderAlert.swift; sourceTree = "<group>"; };
@@ -356,6 +362,7 @@
 				DBFE97F921D57CD500E82803 /* NoteModel.swift */,
 				DBF3A2AF21DD73D0008AE7D5 /* TeenStarModel.swift */,
 				DB53C76E21DE699B0001054B /* Emozione.swift */,
+				DB53C78521E0F7E40001054B /* CompagniaTestModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -459,6 +466,7 @@
 			isa = PBXGroup;
 			children = (
 				DB88DBF621AAF3AD00B0699B /* regola.json */,
+				DB53C7AA21E103C90001054B /* compagnie.json */,
 				DBAF3C18219C9203003083EA /* Costanti.swift */,
 				DBAF3C1D219C9478003083EA /* Protocolli.swift */,
 				DBAF3C23219C9F6A003083EA /* Extensions.swift */,
@@ -538,6 +546,7 @@
 				DBFE97F721D57C6F00E82803 /* Nota.swift */,
 				DB88DBF221AAF19300B0699B /* RegolaObjects.swift */,
 				DBFA256021DC3D83000785D0 /* TeenStarTable.swift */,
+				DB53C78321E0F62B0001054B /* CompagniaTest+Relationships.swift */,
 			);
 			path = CoreDataObjects;
 			sourceTree = "<group>";
@@ -602,6 +611,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBAAE2B121A5C3FA00211CBF /* NotificheVC.storyboard in Resources */,
+				DB53C7AB21E103C90001054B /* compagnie.json in Resources */,
 				DBAAE2AD21A5ACCF00211CBF /* WelcomeVC.storyboard in Resources */,
 				DBAF3C0F219C901B003083EA /* LaunchScreen.storyboard in Resources */,
 				DB88DBF721AAF3AD00B0699B /* regola.json in Resources */,
@@ -620,8 +630,10 @@
 				DBAF3C4C219CBF35003083EA /* IQUIView+Hierarchy.swift in Sources */,
 				DBAF3C02219C9019003083EA /* AppDelegate.swift in Sources */,
 				DB88DBDF21A96E6F00B0699B /* HomeViewController.swift in Sources */,
+				DB53C78621E0F7E40001054B /* CompagniaTestModel.swift in Sources */,
 				DB7BEF8D21D0172E007A550E /* URLs.swift in Sources */,
 				DBAAE2B721A5CCEB00211CBF /* LoginVC.swift in Sources */,
+				DB53C78421E0F62B0001054B /* CompagniaTest+Relationships.swift in Sources */,
 				DBF3A2B421DD81F5008AE7D5 /* TeenStarEditEntryView.swift in Sources */,
 				DBAF3C4D219CBF35003083EA /* IQNSArray+Sort.swift in Sources */,
 				DBF3A2AC21DD723B008AE7D5 /* TeenStarListVC.swift in Sources */,

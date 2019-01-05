@@ -36,6 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         RegolaFetcherModel.shared.persistentContainer = persistentContainer
         RegolaFetcherModel.shared.createIfNotPresent()
         
+        let model = CompagniaTestModel(container: persistentContainer)
+        model.createIfNotPresent()
     
         return true
     }

@@ -6,6 +6,20 @@
         <relationship name="domande" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Domanda" inverseName="categoria" inverseEntity="Domanda" syncable="YES"/>
         <relationship name="regola" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Regola" inverseName="categorie" inverseEntity="Regola" syncable="YES"/>
     </entity>
+    <entity name="CompagniaCategoria" representedClassName=".CompagniaCategoria" syncable="YES" codeGenerationType="category">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="domande" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CompagniaDomanda" inverseName="parentCategoria" inverseEntity="CompagniaDomanda" syncable="YES"/>
+        <relationship name="parentVerifica" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CompagniaTest" inverseName="categorie" inverseEntity="CompagniaTest" syncable="YES"/>
+    </entity>
+    <entity name="CompagniaDomanda" representedClassName=".CompagniaDomanda" syncable="YES" codeGenerationType="category">
+        <attribute name="domanda" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="risposta" optional="YES" attributeType="Integer 16" defaultValueString="-1" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="parentCategoria" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CompagniaCategoria" inverseName="domande" inverseEntity="CompagniaCategoria" syncable="YES"/>
+    </entity>
+    <entity name="CompagniaTest" representedClassName=".CompagniaTest" syncable="YES" codeGenerationType="category">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="-1" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="categorie" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CompagniaCategoria" inverseName="parentVerifica" inverseEntity="CompagniaCategoria" syncable="YES"/>
+    </entity>
     <entity name="Domanda" representedClassName=".Domanda" syncable="YES" codeGenerationType="category">
         <attribute name="domanda" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -38,9 +52,12 @@
     </entity>
     <elements>
         <element name="Categoria" positionX="-25.171875" positionY="0.49609375" width="128" height="105"/>
-        <element name="Domanda" positionX="207.828125" positionY="45.33203125" width="128" height="105"/>
-        <element name="Nota" positionX="0" positionY="63" width="128" height="105"/>
-        <element name="Regola" positionX="-201.37890625" positionY="17.90625" width="128" height="120"/>
-        <element name="TeenStarTable" positionX="0" positionY="63" width="128" height="180"/>
+        <element name="Domanda" positionX="166.1015625" positionY="-4.40625" width="128" height="105"/>
+        <element name="Nota" positionX="-401.421875" positionY="21.7578125" width="128" height="105"/>
+        <element name="Regola" positionX="-202.97265625" positionY="-12.03125" width="128" height="120"/>
+        <element name="TeenStarTable" positionX="426.65625" positionY="14.48828125" width="128" height="180"/>
+        <element name="CompagniaTest" positionX="-325.75390625" positionY="212.3671875" width="128" height="75"/>
+        <element name="CompagniaCategoria" positionX="-111.2421875" positionY="211.37109375" width="128" height="90"/>
+        <element name="CompagniaDomanda" positionX="104.4921875" positionY="213.75390625" width="128" height="90"/>
     </elements>
 </model>
