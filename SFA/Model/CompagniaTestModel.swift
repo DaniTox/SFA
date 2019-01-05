@@ -13,24 +13,6 @@ class CompagniaTestModel {
     
     var persistentContainer : NSPersistentContainer
     
-    init(container: NSPersistentContainer) {
-        self.persistentContainer = container
-    }
-    
-    func createIfNotPresent() {
-        let context = persistentContainer.viewContext
-        
-        let request : NSFetchRequest<Regola> = Regola.fetchRequest()
-        let regole = try? context.fetch(request)
-        guard let unRegole = regole else { return }
-        if unRegole.count < 1 {
-            print("Creating CompagniaTest since it doesn't exist")
-            self.createCompagniaBaseEntry()
-        } else {
-            print("CompagniaTest esiste già. Non la creo in CoreData")
-        }
-    }
-    
     private var modelJson : CompagniaFile? {
         guard let url = Bundle.main.url(forResource: "compagnie", withExtension: "json") else { return nil }
         guard let data = try? Data(contentsOf: url) else { return nil }
@@ -38,9 +20,27 @@ class CompagniaTestModel {
         return object
     }
     
-    public func createCompagniaBaseEntry() {
+    init(container: NSPersistentContainer) {
+        self.persistentContainer = container
+    }
+    
+    public func createIfNotPresent() {
+        let context = persistentContainer.viewContext
+        
+        let request : NSFetchRequest<Regola> = Regola.fetchRequest()
+        let regole = try? context.fetch(request)
+        guard let unRegole = regole else { return }
+        if unRegole.count < 1 {
+            print("Creating CompagniaTest since it doesn't exist")
+            _ = self.createCompagniaBaseEntry()
+        } else {
+            print("CompagniaTest esiste già. Non la creo in CoreData")
+        }
+    }
+    
+    private func createCompagniaBaseEntry() -> CompagniaTest {
         //ottengo il file padre
-        guard let model = self.modelJson else { print("Error compagnia base entry creation"); return }
+        guard let model = self.modelJson else { fatalError("Error compagnia base entry creation") }
         let context = persistentContainer.viewContext
         
         //creo una verifica vuota in CoreData
@@ -65,6 +65,27 @@ class CompagniaTestModel {
         
         //salvo il context per applicare le modifiche
         try? context.save()
+        
+        //ritorno la verifica in caso di necessità
+        return verifica
+    }
+    
+    //attualmente, i piani alti dicono che esiste solo una verifica. quindi usare questa funzione per ottenere l'unica verifica da CoreData
+    public func getLatestVerifica() -> CompagniaTest {
+        let context = persistentContainer.viewContext
+        let request : NSFetchRequest<CompagniaTest> = CompagniaTest.fetchRequest()
+        
+        guard let verifiche = try? context.fetch(request) else {
+            //se non riesco a prendere le verifiche salvate, ne creo una vuota dal file json e uso qella
+            return self.createCompagniaBaseEntry()
+        }
+        
+        guard let firstVerifica = verifiche.first else {
+            //se non riesco a prendere le verifiche salvate, ne creo una vuota dal file json e uso qella
+            return self.createCompagniaBaseEntry()
+        }
+        
+        return firstVerifica
     }
 }
 
