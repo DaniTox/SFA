@@ -21,6 +21,7 @@ class HomeViewController : UIViewController, HasCustomView {
         rootView.regolaButton.addTarget(self, action: #selector(showRegolaController), for: .touchUpInside)
         rootView.noteButton.addTarget(self, action: #selector(showNoteListController), for: .touchUpInside)
         rootView.teenStarButton.addTarget(self, action: #selector(showTeenStarController), for: .touchUpInside)
+        rootView.compagniaButton.addTarget(self, action: #selector(showVerificaCompagniaController), for: .touchUpInside)
     }
     
     @objc func showRegolaController() {
@@ -35,6 +36,11 @@ class HomeViewController : UIViewController, HasCustomView {
     
     @objc private func showTeenStarController() {
         let vc = TeenStarListVC()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc private func showVerificaCompagniaController() {
+        let vc = VerificaCompagniaVC()
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -84,6 +90,20 @@ class HomeView : UIView {
         return button
     }()
     
+    lazy var compagniaButton : UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Compagnia", for: .normal)
+        button.backgroundColor = .orange
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleLabel?.minimumScaleFactor = 0.8
+        
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 10
+        return button
+    }()
+    
     private lazy var stackView : UIStackView = {
         let stackView = UIStackView()
         stackView.alignment = .fill
@@ -100,6 +120,7 @@ class HomeView : UIView {
         stackView.addArrangedSubview(regolaButton)
         stackView.addArrangedSubview(noteButton)
         stackView.addArrangedSubview(teenStarButton)
+        stackView.addArrangedSubview(compagniaButton)
         addSubview(stackView)
     }
     
@@ -119,13 +140,3 @@ class HomeView : UIView {
     
 }
 
-
-class TestVC : UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .orange
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.view.alpha = 0.5
-        }
-    }
-}

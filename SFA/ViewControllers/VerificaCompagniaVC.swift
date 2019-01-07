@@ -20,21 +20,26 @@ class VerificaCompagniaVC: UIViewController, HasCustomView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Verifica Compagnia"
         let container = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
         model = CompagniaTestModel(container: container)
         self.verifica = model.getLatestVerifica()
         
-        rootView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        rootView.tableView.register(CompagniaDomandaCell.self, forCellReuseIdentifier: "cell")
         rootView.tableView.delegate = self
         rootView.tableView.dataSource = self
+    }
+    
+    private func GET_CATEGORIE() -> [CompagniaCategoria]? {
+        guard let categorie = self.verifica.categorie as? Set<CompagniaCategoria> else { return nil }
+        return Array(categorie)
     }
     
 }
 
 extension VerificaCompagniaVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let categorie = self.verifica.categorie as? Set<CompagniaCategoria> else { return 0 }
-        let categorieArray = Array(categorie)
+        guard let categorieArray = GET_CATEGORIE() else { return 0 }
         let categoria = categorieArray[section]
         return categoria.domande?.count ?? 0
     }
@@ -44,8 +49,22 @@ extension VerificaCompagniaVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? CompagniaDomandaCell
+        if let categorie = GET_CATEGORIE(), let domande = categorie[indexPath.section].domande as? Set<CompagniaDomanda> {
+            let domandeArray = Array(domande)
+            cell?.mainLabel.text =  domandeArray[indexPath.row].domanda
+        }
+        cell?.accessoryType = .disclosureIndicator
+        return cell!
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let categorie = self.verifica.categorie as? Set<CompagniaCategoria> else { return nil }
+        let categorieArray = Array(categorie)
+        return categorieArray[section].name
+    }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
 }
