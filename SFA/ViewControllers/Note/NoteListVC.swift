@@ -16,7 +16,7 @@ class NoteListVC: UIViewController, HasCustomView {
     }
     
     var model : NoteModel!
-    var notes : [Nota] = []
+    //var notes : [Nota] = []
     
     private var notesDates : [Date] = []
     
@@ -46,7 +46,7 @@ class NoteListVC: UIViewController, HasCustomView {
     }
     
     private func fetchNotes() {
-        notes = model.fetchNotes()
+        //notes = model.fetchNotes()
         notesDates = model.getAllDates()
         rootView.tableView.reloadData()
     }
@@ -93,10 +93,11 @@ extension NoteListVC : UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? NoteCell else {
             return UITableViewCell()
         }
-        let note = notes[indexPath.row]
+        let date = notesDates[indexPath.section]
+        let note = model.getNotes(for: date)[indexPath.row]
         let attributedBody : NSAttributedString? = note.body as? NSAttributedString
         let stringValue : String? = attributedBody?.string
-        let count = stringValue?.count ?? 0
+        let count = stringValue?.wordsCount ?? 0
         cell.noteWordCountLabel.text = "\(count) parole"
         
         cell.noteTitleLabel.text = note.title
@@ -105,7 +106,8 @@ extension NoteListVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let note = notes[indexPath.row]
+        let date = notesDates[indexPath.section]
+        let note = model.getNotes(for: date)[indexPath.row]
         
         if let splitVC = self.splitViewController {
             let vc = NoteVC(nota: note)
@@ -119,6 +121,12 @@ extension NoteListVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+        }
     }
     
 }

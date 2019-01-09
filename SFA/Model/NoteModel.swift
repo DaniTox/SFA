@@ -14,10 +14,13 @@ class NoteModel {
     var persistentContainer : NSPersistentContainer
     var errorHandler : ((String) -> Void)?
     
+    private var notesStorage : [Date: [Nota]] = [:]
+    
     init(container: NSPersistentContainer) {
         self.persistentContainer = container
     }
     
+    @available(*, deprecated)
     func fetchNotes() -> [Nota] {
         let request : NSFetchRequest<Nota> = Nota.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
@@ -27,6 +30,7 @@ class NoteModel {
         var notes : [Nota] = []
         do {
             notes = try context.fetch(request)
+            self.invalidateStorage()
         } catch {
             errorHandler?("\(error)")
         }
@@ -117,6 +121,7 @@ class NoteModel {
         let note = Nota(context: persistentContainer.viewContext)
         note.date = Date()
         note.id = self.getUniqueID()
+        self.invalidateStorage()
         return note
     }
     
@@ -136,17 +141,26 @@ class NoteModel {
         } catch {
             print(error)
         }
+        self.invalidateStorage()
         return Array<Date>(dates)
     }
  
+    //N.B. Questa funzione la prima volta che viene chiamata, ottiene i risultati da CoreData e li salva
+    // nella variabile 'notesStorage' di questo oggetto usando la data passata come param.
+    //In questo modo se viene chiamata di nuovo con la stessa Date non deve ritornare nel Database
+    //Lo storage viene invalidato ad ogni FULL fetch delle note dal database
     public func getNotes(for date: Date) -> [Nota] {
+        if let notePerDataInStorage = notesStorage[date.startOfDay], !notePerDataInStorage.isEmpty {
+            print("Dates ottenute dallo storage")
+            return notePerDataInStorage
+        }
         let context = persistentContainer.viewContext
         let request : NSFetchRequest<Nota> = Nota.fetchRequest()
-        
+    
         var calendar = Calendar.current
-        calendar.timeZone = NSTimeZone.local
+        calendar.locale = NSLocale.current
         
-        let dateFrom = calendar.startOfDay(for: date)
+        let dateFrom = date.startOfDay
         let dateTo = calendar.date(byAdding: .day, value: 1, to: dateFrom)
         if dateTo == nil {
             self.errorHandler?("Errore mentre esguivo qualche controllo delle date. Riprova a creare la nota domani (dalle 00:00 in poi)")
@@ -161,10 +175,19 @@ class NoteModel {
         var notes : [Nota] = []
         do {
             notes = try context.fetch(request)
+            notes.sort(by: { $0.date! > $1.date! })
+            self.notesStorage[dateFrom] = notes
         } catch {
             print(error)
         }
+        print("Dates ottenute dal Database")
         return notes
+    }
+    
+    //funzione che cancella le noteStorage e causa la ricerca dal database invece che dallo storage
+    private func invalidateStorage() {
+        print("Storage invalidato")
+        self.notesStorage.removeAll()
     }
     
 }

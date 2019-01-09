@@ -78,7 +78,7 @@ class NoteVC: UIViewController, HasCustomView {
     private func saveNote() {
         guard self.isWorkingVC == true else { return }
         var title = rootView.textView.attributedText.string.firstLine
-        if title.isEmpty { title = "Nessun titolo" }
+        if title.isEmpty { title = "Nota vuota" }
         note.title = title
         note.body = rootView.textView.attributedText
         

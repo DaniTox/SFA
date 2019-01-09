@@ -21,6 +21,12 @@ extension String {
             return self
         }
     }
+    
+    var wordsCount : Int {
+        let components = self.components(separatedBy: .whitespacesAndNewlines)
+        let words = components.filter { !$0.isEmpty }
+        return words.count
+    }
 }
 
 extension UIViewController {
@@ -158,6 +164,13 @@ extension Date {
         let year = calendar.component(.year, from: self)
     
         return "\(day)/\(month)/\(year)"
+    }
+    
+    var startOfDay : Date {
+        var calendar = Calendar.current
+        calendar.locale = NSLocale.current
+        
+        return calendar.startOfDay(for: self)
     }
 }
 
