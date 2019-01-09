@@ -142,7 +142,8 @@ class NoteModel {
             print(error)
         }
         self.invalidateStorage()
-        return Array<Date>(dates)
+        let array = Array(dates)
+        return array.sorted(by: {$0 > $1})
     }
  
     //N.B. Questa funzione la prima volta che viene chiamata, ottiene i risultati da CoreData e li salva

@@ -39,6 +39,7 @@ class NoteCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        backgroundColor = .clear
         containerView.addSubview(noteTitleLabel)
         containerView.addSubview(noteWordCountLabel)
         addSubview(containerView)
