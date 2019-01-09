@@ -62,6 +62,8 @@ class NoteListVC: UIViewController, HasCustomView {
             let vc = NoteVC(nota: note)
             navigationController?.pushViewController(vc, animated: true)
         }
+        
+        fetchNotes()
     }
     
 }
@@ -117,6 +119,7 @@ extension NoteListVC : UITableViewDelegate, UITableViewDataSource {
             let vc = NoteVC(nota: note)
             navigationController?.pushViewController(vc, animated: true)
         }
+        fetchNotes()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
