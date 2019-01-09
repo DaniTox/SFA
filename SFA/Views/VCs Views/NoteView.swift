@@ -31,7 +31,7 @@ class NoteView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(textView)
-        addSubview(bottomBar)
+        //addSubview(bottomBar)
     }
     
     
@@ -42,10 +42,10 @@ class NoteView: UIView {
         textView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         textView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         
-        bottomBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
-        bottomBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
-        bottomBar.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
-        bottomBar.heightAnchor.constraint(equalToConstant: 50).isActive = true
+//        bottomBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
+//        bottomBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
+//        bottomBar.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+//        bottomBar.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
     }
     

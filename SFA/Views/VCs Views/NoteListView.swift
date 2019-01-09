@@ -11,7 +11,7 @@ import UIKit
 class NoteListView: UIView {
 
     var tableView : UITableView = {
-        let table = UITableView()
+        let table = UITableView(frame: .zero, style: UITableView.Style.grouped)
         table.translatesAutoresizingMaskIntoConstraints = false
         table.tableFooterView = UIView()
         table.separatorStyle = .none

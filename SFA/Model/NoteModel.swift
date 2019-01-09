@@ -36,6 +36,8 @@ class NoteModel {
     
     //this returns today's note if exist, otherwise returns a new note with date setted as today
     //this shouldn't be called directly. Call safelyGetNoteToEdit instead
+    //UPDATE: 09/01/19 - questa funzione non serve più ed è ora deprecata
+    @available(*, deprecated)
     private func getNoteToEdit() throws -> Nota {
         let request : NSFetchRequest<Nota> = Nota.fetchRequest()
         
@@ -73,6 +75,7 @@ class NoteModel {
         }
     }
     
+    @available(*, deprecated)
     public func safelyGetNoteToEdit() -> Nota? {
         var nota: Nota!
         do {
@@ -108,6 +111,60 @@ class NoteModel {
         } while isUniqueID(randomID) != true
         
         return randomID
+    }
+    
+    public func createNewNote() -> Nota {
+        let note = Nota(context: persistentContainer.viewContext)
+        note.date = Date()
+        note.id = self.getUniqueID()
+        return note
+    }
+    
+    public func getAllDates() -> [Date] {
+        let context = persistentContainer.viewContext
+        let request : NSFetchRequest<Nota> = Nota.fetchRequest()
+        var dates = Set<Date>()
+        do {
+            let array = try context.fetch(request)
+            array.forEach { (note) in
+                if let date = note.date {
+                    var calendar = Calendar.current
+                    calendar.timeZone = NSTimeZone.local
+                    dates.insert(calendar.startOfDay(for: date))
+                }
+            }
+        } catch {
+            print(error)
+        }
+        return Array<Date>(dates)
+    }
+ 
+    public func getNotes(for date: Date) -> [Nota] {
+        let context = persistentContainer.viewContext
+        let request : NSFetchRequest<Nota> = Nota.fetchRequest()
+        
+        var calendar = Calendar.current
+        calendar.timeZone = NSTimeZone.local
+        
+        let dateFrom = calendar.startOfDay(for: date)
+        let dateTo = calendar.date(byAdding: .day, value: 1, to: dateFrom)
+        if dateTo == nil {
+            self.errorHandler?("Errore mentre esguivo qualche controllo delle date. Riprova a creare la nota domani (dalle 00:00 in poi)")
+            return []
+        }
+        
+        let fromPredicate = NSPredicate(format: "date > %@", dateFrom as NSDate)
+        let toPredicate = NSPredicate(format: "date < %@", dateTo! as NSDate)
+        let datePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [fromPredicate, toPredicate])
+        request.predicate = datePredicate
+        
+        var notes : [Nota] = []
+        do {
+            notes = try context.fetch(request)
+        } catch {
+            print(error)
+        }
+        return notes
     }
     
 }

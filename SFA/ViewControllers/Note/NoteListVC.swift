@@ -18,6 +18,8 @@ class NoteListVC: UIViewController, HasCustomView {
     var model : NoteModel!
     var notes : [Nota] = []
     
+    private var notesDates : [Date] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Pagine"
@@ -45,24 +47,46 @@ class NoteListVC: UIViewController, HasCustomView {
     
     private func fetchNotes() {
         notes = model.fetchNotes()
+        notesDates = model.getAllDates()
         rootView.tableView.reloadData()
     }
     
     @objc private func addButtonPressed() {
-        let note = model.safelyGetNoteToEdit()
-        if note == nil {
-            self.showError(withTitle: "Errore", andMessage: "C'è stato un errore durante la creazione della nota. Riprova domani")
-            return
+        let note = model.createNewNote()
+        
+        if let splitVC = self.splitViewController {
+            let vc = NoteVC(nota: note)
+            let nav = UINavigationController(rootViewController: vc)
+            splitVC.showDetailViewController(nav, sender: self)
+        } else {
+            let vc = NoteVC(nota: note)
+            navigationController?.pushViewController(vc, animated: true)
         }
-        let vc = NoteVC(nota: note!)
-        navigationController?.pushViewController(vc, animated: true)
     }
     
 }
 
 extension NoteListVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notes.count
+        let dateFocused = notesDates[section]
+        let notesInDate = model.getNotes(for: dateFocused)
+        return notesInDate.count
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return notesDates.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let dateFocued = notesDates[section]
+        if dateFocued.isToday() {
+            return "Oggi"
+        } else if dateFocued.isYesterday() {
+            return "Ieri"
+        } else {
+            return "\(dateFocued.dayOfWeek()) - \(dateFocued.stringValue)"
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -70,22 +94,27 @@ extension NoteListVC : UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         let note = notes[indexPath.row]
-        if note.date?.isToday() ?? false {
-            cell.noteDateLabel.text = "Oggi"
-        } else if note.date?.isYesterday() ?? false {
-            cell.noteDateLabel.text = "Ieri"
-        } else {
-            cell.noteDateLabel.text = note.date?.stringValue
-        }
+        let attributedBody : NSAttributedString? = note.body as? NSAttributedString
+        let stringValue : String? = attributedBody?.string
+        let count = stringValue?.count ?? 0
+        cell.noteWordCountLabel.text = "\(count) parole"
         
         cell.noteTitleLabel.text = note.title
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let note = notes[indexPath.row]
-        let vc = NoteVC(nota: note)
-        navigationController?.pushViewController(vc, animated: true)
+        
+        if let splitVC = self.splitViewController {
+            let vc = NoteVC(nota: note)
+            let nav = UINavigationController(rootViewController: vc)
+            splitVC.showDetailViewController(nav, sender: self)
+        } else {
+            let vc = NoteVC(nota: note)
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

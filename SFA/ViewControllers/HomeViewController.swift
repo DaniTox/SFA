@@ -30,8 +30,16 @@ class HomeViewController : UIViewController, HasCustomView {
     }
     
     @objc private func showNoteListController() {
-        let vc = NoteListVC()
-        navigationController?.pushViewController(vc, animated: true)
+        let noteListVC = NoteListVC()
+        let nav = UINavigationController(rootViewController: noteListVC)
+        
+        let noteViewerVC = NoteVC(nota: nil)
+        let nav2 = UINavigationController(rootViewController: noteViewerVC)
+        
+        let splitViewController = UISplitViewController()
+        splitViewController.viewControllers = [nav, nav2]
+        present(splitViewController, animated: true)
+//        navigationController?.pushViewController(splitViewController, animated: true)
     }
     
     @objc private func showTeenStarController() {

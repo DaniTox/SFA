@@ -18,7 +18,7 @@ class NoteCell: UITableViewCell {
         return label
     }()
     
-    lazy var noteDateLabel : UILabel = {
+    lazy var noteWordCountLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = NSTextAlignment.right
@@ -40,7 +40,7 @@ class NoteCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         containerView.addSubview(noteTitleLabel)
-        containerView.addSubview(noteDateLabel)
+        containerView.addSubview(noteWordCountLabel)
         addSubview(containerView)
     }
     
@@ -56,10 +56,10 @@ class NoteCell: UITableViewCell {
         noteTitleLabel.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
         noteTitleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
         
-        noteDateLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
-        noteDateLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 0).isActive = true
-        noteDateLabel.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.4).isActive = true
-        noteDateLabel.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.4).isActive = true
+        noteWordCountLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
+        noteWordCountLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 0).isActive = true
+        noteWordCountLabel.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.4).isActive = true
+        noteWordCountLabel.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.4).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
