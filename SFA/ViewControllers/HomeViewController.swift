@@ -29,6 +29,8 @@ class HomeViewController : UIViewController, HasCustomView {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    
+    // - TODO: Mettere un Button per dismissare lo splitViewController
     @objc private func showNoteListController() {
         let noteListVC = NoteListVC()
         let nav = UINavigationController(rootViewController: noteListVC)

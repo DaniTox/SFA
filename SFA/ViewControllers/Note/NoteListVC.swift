@@ -38,6 +38,9 @@ class NoteListVC: UIViewController, HasCustomView {
         navigationItem.setRightBarButton(addButton, animated: true)
         
         assert(model != nil, "Non hai settato il model in NoteListVC")
+        
+        let dismissButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissMe))
+        navigationItem.setLeftBarButton(dismissButton, animated: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -66,6 +69,9 @@ class NoteListVC: UIViewController, HasCustomView {
         fetchNotes()
     }
     
+    @objc private func dismissMe() {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 extension NoteListVC : UITableViewDelegate, UITableViewDataSource {
