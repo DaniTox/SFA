@@ -11,6 +11,15 @@ import UIKit
 class CompagniaDomandaCell: UITableViewCell {
 
     public var valueChanged : ((Int) -> Void)?
+    public var domanda: CompagniaDomanda! {
+        didSet {
+            guard domanda != nil else { return }
+            mainLabel.text = domanda.domanda
+            if domanda.risposta < 0 { return }
+            slider.value = Float(domanda.risposta)
+            sliderLabel.text = "\(Int(slider.value))"
+        }
+    }
     
     public lazy var mainLabel : UILabel = {
         let label = UILabel()
@@ -56,11 +65,14 @@ class CompagniaDomandaCell: UITableViewCell {
         addSubview(sliderStack)
         
         slider.addTarget(self, action: #selector(sliderValueChanged(_:)), for: .valueChanged)
+        
+//        assert(domanda != nil)
     }
     
     @objc private func sliderValueChanged(_ sender: UISlider) {
         self.sliderLabel.text = "\(Int(sender.value))"
         self.valueChanged?(Int(sender.value))
+        self.domanda.risposta = Int16(sender.value)
     }
     
     override func layoutSubviews() {
@@ -72,8 +84,8 @@ class CompagniaDomandaCell: UITableViewCell {
         
         sliderLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 70).isActive = true
         
-        sliderStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15).isActive = true
-        sliderStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15).isActive = true
+        sliderStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35).isActive = true
+        sliderStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -35).isActive = true
         sliderStack.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         sliderStack.topAnchor.constraint(equalTo: mainLabel.bottomAnchor).isActive = true
     }

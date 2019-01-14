@@ -35,6 +35,13 @@ class VerificaCompagniaVC: UIViewController, HasCustomView {
         return Array(categorie)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        guard let _ = try? verifica.managedObjectContext?.save() else {
+            fatalError("Errore nel salvataggio")
+        }
+    }
+    
 }
 
 extension VerificaCompagniaVC : UITableViewDelegate, UITableViewDataSource {
@@ -50,11 +57,13 @@ extension VerificaCompagniaVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? CompagniaDomandaCell
-        if let categorie = GET_CATEGORIE(), let domande = categorie[indexPath.section].domande as? Set<CompagniaDomanda> {
+        if
+            let categorie = GET_CATEGORIE(),
+            let domande = categorie[indexPath.section].domande as? Set<CompagniaDomanda>
+        {
             let domandeArray = Array(domande)
             let domandaObject = domandeArray[indexPath.row]
-            cell?.mainLabel.text =  domandaObject.domanda
-            
+            cell?.domanda =  domandaObject
         }
         return cell!
     }
