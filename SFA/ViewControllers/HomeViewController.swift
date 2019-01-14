@@ -43,6 +43,7 @@ class HomeViewController : UIViewController, HasCustomView {
         let nav2 = UINavigationController(rootViewController: vc2)
         
         let splitViewController = UISplitViewController()
+        splitViewController.delegate = self
         splitViewController.preferredDisplayMode = UISplitViewController.DisplayMode.allVisible
         splitViewController.viewControllers = [nav, nav2]
         present(splitViewController, animated: true)
@@ -59,6 +60,12 @@ class HomeViewController : UIViewController, HasCustomView {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+}
+
+extension HomeViewController: UISplitViewControllerDelegate {
+    func splitViewController(_ svc: UISplitViewController, collapseSecondary vc2: UIViewController, onto vc1: UIViewController) -> Bool {
+        return true
+    }
 }
 
 class HomeView : UIView {
