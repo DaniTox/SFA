@@ -13,8 +13,12 @@ class SocialView: UIView {
     var instagranmButton : UIButton = {
         let b = UIButton()
         b.setTitle("Instagram", for: .normal)
-        b.backgroundColor = .red
+        b.backgroundColor = .purple
+        b.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         b.translatesAutoresizingMaskIntoConstraints = false
+        
+        b.layer.masksToBounds = true
+        b.layer.cornerRadius = 10
         return b
     }()
     
@@ -22,28 +26,52 @@ class SocialView: UIView {
         let b = UIButton()
         b.translatesAutoresizingMaskIntoConstraints = false
         b.backgroundColor = .blue
+        b.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         b.setTitle("Facebook", for: .normal)
+        
+        b.layer.masksToBounds = true
+        b.layer.cornerRadius = 10
         return b
+    }()
+    
+    var youtubeButton : UIButton = {
+        let b = UIButton()
+        b.translatesAutoresizingMaskIntoConstraints = false
+        b.backgroundColor = UIColor.red
+        b.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
+        b.setTitle("YouTube", for: .normal)
+        
+        b.layer.masksToBounds = true
+        b.layer.cornerRadius = 10
+        return b
+    }()
+    
+    var stackView : UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.distribution = .fillEqually
+        stack.alignment = .fill
+        stack.spacing = 25
+        return stack
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubview(instagranmButton)
-        addSubview(facebookButton   )
+        stackView.addArrangedSubview(facebookButton)
+        stackView.addArrangedSubview(instagranmButton)
+        stackView.addArrangedSubview(youtubeButton)
+        
+        addSubview(stackView)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        instagranmButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3).isActive = true
-        instagranmButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        instagranmButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        instagranmButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
-        facebookButton.topAnchor.constraint(equalTo: instagranmButton.bottomAnchor).isActive = true
-        facebookButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        facebookButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        facebookButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3).isActive = true
-        
+        stackView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        stackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        stackView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7).isActive = true
+        stackView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
