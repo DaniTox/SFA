@@ -20,6 +20,7 @@ class SocialVC: UIViewController, HasCustomView {
         super.viewDidLoad()
         rootView.instagranmButton.addTarget(self, action: #selector(openInstagram), for: .touchUpInside)
         rootView.facebookButton.addTarget(self, action: #selector(openFacebook), for: .touchUpInside)
+        rootView.youtubeButton.addTarget(self, action: #selector(openYouTube), for: .touchUpInside)
     }
     
     @objc func openInstagram() {
@@ -44,6 +45,23 @@ class SocialVC: UIViewController, HasCustomView {
         } else {
             let url = URL(string: "https://it-it.facebook.com/mgslombardiaemilia")!
             let vc = SFSafariViewController(url: url)
+            present(vc, animated: true)
+        }
+    }
+    
+    @objc private func openYouTube() {
+        let scheme = "youtube://www.youtube.com/channel/mgslombardiaemilia"
+        guard let url = URL(string: scheme) else {
+            fatalError("Errore nella creazione dell'url")
+        }
+        
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        } else {
+            guard let directUrl = URL(string: "https://www.youtube.com/user/mgslombardiaemilia") else {
+                fatalError("Errore creazione url web")
+            }
+            let vc = SFSafariViewController(url: directUrl)
             present(vc, animated: true)
         }
     }
