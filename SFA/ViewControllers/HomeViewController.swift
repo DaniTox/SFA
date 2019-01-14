@@ -35,8 +35,12 @@ class HomeViewController : UIViewController, HasCustomView {
         let noteListVC = NoteListVC()
         let nav = UINavigationController(rootViewController: noteListVC)
         
-        let noteViewerVC = NoteVC(nota: nil)
-        let nav2 = UINavigationController(rootViewController: noteViewerVC)
+        //let noteViewerVC = NoteVC(nota: nil)
+        //let nav2 = UINavigationController(rootViewController: noteViewerVC)
+        
+        let vc2 = UIViewController()
+        vc2.view.backgroundColor = .white
+        let nav2 = UINavigationController(rootViewController: vc2)
         
         let splitViewController = UISplitViewController()
         splitViewController.preferredDisplayMode = UISplitViewController.DisplayMode.allVisible
