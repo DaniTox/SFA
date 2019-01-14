@@ -52,9 +52,10 @@ extension VerificaCompagniaVC : UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? CompagniaDomandaCell
         if let categorie = GET_CATEGORIE(), let domande = categorie[indexPath.section].domande as? Set<CompagniaDomanda> {
             let domandeArray = Array(domande)
-            cell?.mainLabel.text =  domandeArray[indexPath.row].domanda
+            let domandaObject = domandeArray[indexPath.row]
+            cell?.mainLabel.text =  domandaObject.domanda
+            
         }
-        cell?.accessoryType = .disclosureIndicator
         return cell!
     }
     
@@ -65,6 +66,6 @@ extension VerificaCompagniaVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 120
     }
 }
