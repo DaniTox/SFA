@@ -39,6 +39,7 @@ class HomeViewController : UIViewController, HasCustomView {
         let nav2 = UINavigationController(rootViewController: noteViewerVC)
         
         let splitViewController = UISplitViewController()
+        splitViewController.preferredDisplayMode = UISplitViewController.DisplayMode.allVisible
         splitViewController.viewControllers = [nav, nav2]
         present(splitViewController, animated: true)
 //        navigationController?.pushViewController(splitViewController, animated: true)

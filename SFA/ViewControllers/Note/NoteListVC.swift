@@ -70,7 +70,11 @@ class NoteListVC: UIViewController, HasCustomView {
     }
     
     @objc private func dismissMe() {
-        self.dismiss(animated: true, completion: nil)
+        if let splitViewController = self.splitViewController {
+            splitViewController.dismiss(animated: true, completion: nil)
+        } else {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }
 
