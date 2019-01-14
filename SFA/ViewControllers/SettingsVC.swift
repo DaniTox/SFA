@@ -87,6 +87,11 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
                     self.navigationController?.pushViewController(vc, animated: true)
                 }))
                 DispatchQueue.main.async {
+                    if let popover = alert.popoverPresentationController {
+                        let cell = tableView.cellForRow(at: indexPath)
+                        popover.sourceView = cell
+                        popover.sourceRect = cell?.bounds ?? .zero
+                    }
                     self.present(alert, animated: true)
                 }
             } else {
