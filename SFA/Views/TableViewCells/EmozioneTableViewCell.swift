@@ -46,7 +46,7 @@ class EmozioneTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+        self.selectionStyle = .none
         for (index, emozioneValue) in EMOZIONI.enumerated() {
             let button = EmozioneButton()
             button.titleLabel?.adjustsFontSizeToFitWidth = true

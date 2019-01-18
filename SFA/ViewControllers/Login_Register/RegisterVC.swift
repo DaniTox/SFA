@@ -48,7 +48,10 @@ class RegisterVC: UIViewController, HasCustomView {
             })
             alert.addAction(action)
         }
-        
+        if let popover = alert.popoverPresentationController {
+            popover.sourceView = sender
+            popover.sourceRect = sender.bounds
+        }
         present(alert, animated: true)
     }
     

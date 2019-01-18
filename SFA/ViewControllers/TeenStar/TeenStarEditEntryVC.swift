@@ -44,6 +44,7 @@ class TeenStarEditEntryVC: UIViewController, HasCustomView {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .orange
+        self.title = "\(Date().dayOfWeek()) - \(Date().stringValue)"
         
         rootView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: BASIC_CELL_ID)
         rootView.tableView.register(EmozioneTableViewCell.self, forCellReuseIdentifier: EMOZIONE_CELL_ID)
@@ -103,12 +104,14 @@ extension TeenStarEditEntryVC : UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: BASIC_CELL_ID)
+            cell?.selectionStyle = .none
             cell?.textLabel?.text = "Data: \(Date().dayOfWeek()) - \(Date().stringValue)"
             return cell!
         case 1, 2, 3:
             switch indexPath.row {
             case 0:
                 let cell = tableView.dequeueReusableCell(withIdentifier: BASIC_CELL_ID)
+                cell?.selectionStyle = .none
                 cell?.textLabel?.text = TEENSTAR_INDICES[GET_INDEX(indexPath.section)]
                 return cell!
             case 1:
@@ -127,6 +130,7 @@ extension TeenStarEditEntryVC : UITableViewDelegate, UITableViewDataSource {
             switch indexPath.row {
             case 0:
                 let cell = tableView.dequeueReusableCell(withIdentifier: BASIC_CELL_ID)
+                cell?.selectionStyle = .none
                 cell?.textLabel?.text = TEENSTAR_INDICES[GET_INDEX(indexPath.section)]
                 return cell!
             case 1:

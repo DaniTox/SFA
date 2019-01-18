@@ -26,7 +26,7 @@ class CicloTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+        self.selectionStyle = .none
         colorCollectionView.register(CicloColorCollectionCell.self, forCellWithReuseIdentifier: "cell")
         colorCollectionView.delegate = self
         colorCollectionView.dataSource = self

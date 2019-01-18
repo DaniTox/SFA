@@ -77,7 +77,8 @@ extension TeenStarListVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         let entry = entries[indexPath.row]
-        cell?.textLabel?.text = "\(entry.date?.stringValue ?? "NULL")"
+        cell?.accessoryType = .disclosureIndicator
+        cell?.textLabel?.text = "\(Date().dayOfWeek()) - \(entry.date?.stringValue ?? "NULL")"
         return cell!
     }
     
