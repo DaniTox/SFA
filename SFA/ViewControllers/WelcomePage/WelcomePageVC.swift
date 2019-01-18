@@ -19,13 +19,14 @@ class WelcomePageVC: UIPageViewController {
     }
     
     private(set) lazy var orderedViewControllers : [UIViewController] = {
-//        let vcs = [self.getController(withIdentifier: "welcomeVC", storyboardName: "WelcomeVC"),
-//                   self.getController(withIdentifier: "notificheVC", storyboardName: "NotificheVC")]
         let vc1 = WelcomeVC()
         vc1.pageViewController = self
-        let vcs = [vc1,
-                   self.getController(withIdentifier: "notificheVC", storyboardName: "NotificheVC")]
-        return vcs
+        
+        let vc2 = NotificheVC()
+        let nav2 = UINavigationController(rootViewController: vc2)
+        nav2.navigationBar.prefersLargeTitles = true
+        
+        return [vc1, nav2]
     }()
 
     private func getController(withIdentifier identifier: String, storyboardName: String) -> UIViewController {

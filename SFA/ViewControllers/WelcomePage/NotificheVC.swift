@@ -9,10 +9,21 @@
 import UIKit
 import UserNotifications
 
-class NotificheVC: UIViewController {
+class NotificheVC: UITableViewController {
+    
+    private let notifiche : [String] = ["Eventi MGS",
+                                        "Consigli di Don Bosco",
+                                        "Promemoria sacramenti",
+                                        "Mssione dell'angelo custode"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Notifiche"
+        tableView.allowsMultipleSelection = true
+        tableView.backgroundColor = UIColor.black.lighter(by: 10)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.tableFooterView = UIView()
+        
         requestNotificationAccess()
     }
     
@@ -34,12 +45,50 @@ class NotificheVC: UIViewController {
         }
     }
     
-    
-    @IBAction func doneAction(_ sender: UIButton) {
-        let vc = RootAppController()
-        self.present(vc, animated: true)
+}
+
+extension NotificheVC {
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
     
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return notifiche.count
+    }
     
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        let notifica = notifiche[indexPath.row]
+        cell?.textLabel?.text = notifica
+        cell?.textLabel?.textColor = .white
+        cell?.textLabel?.textAlignment = .center
+        cell?.textLabel?.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)
+        cell?.backgroundColor = .clear
+        
+        cell?.selectionStyle = .none
+        if notificheDaRicevere.contains(notifica) {
+            cell?.accessoryType = .checkmark
+        } else {
+            cell?.accessoryType = .none
+        }
+        
+        return cell!
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let notifica = notifiche[indexPath.row]
+        if notificheDaRicevere.contains(notifica) {
+            notificheDaRicevere.removeAll(where: {$0 == notifica})
+        } else {
+            notificheDaRicevere.append(notifica)
+        }
+        tableView.reloadData()
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let tableHeight = tableView.frame.height
+        let cellHeight = tableHeight / 5
+        return cellHeight
+    }
 }
 

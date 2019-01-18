@@ -9,12 +9,25 @@
 import Foundation
 
 let IS_FIRST_LAUNCH = "is_first_launch"
+let NOTIFICHE_DA_RICEVERE = "notifiche_da_ricevere"
 
 var isAlreadyLaunched : Bool {
     get {
         return UserDefaults.standard.bool(forKey: IS_FIRST_LAUNCH)
     } set {
         UserDefaults.standard.set(newValue, forKey: IS_FIRST_LAUNCH)
+    }
+}
+
+var notificheDaRicevere : [String] {
+    get {
+        if let nots = UserDefaults.standard.array(forKey: NOTIFICHE_DA_RICEVERE) as? [String] {
+            return nots
+        } else {
+            return []
+        }
+    } set {
+        UserDefaults.standard.set(newValue, forKey: NOTIFICHE_DA_RICEVERE)
     }
 }
 
