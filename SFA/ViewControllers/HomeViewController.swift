@@ -70,8 +70,8 @@ extension HomeViewController: UISplitViewControllerDelegate {
 
 class HomeView : UIView {
     
-    lazy var regolaButton : UIButton = {
-        let button = UIButton()
+    lazy var regolaButton : UIBouncyButton = {
+        let button = UIBouncyButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Regola di Vita", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
@@ -79,13 +79,13 @@ class HomeView : UIView {
         button.titleLabel?.minimumScaleFactor = 0.8
         button.backgroundColor = .green
         
-        button.layer.masksToBounds = true
-        button.layer.cornerRadius = 10
+//        button.layer.masksToBounds = true
+//        button.layer.cornerRadius = 10
         return button
     }()
     
-    lazy var noteButton : UIButton = {
-        let button = UIButton()
+    lazy var noteButton : UIBouncyButton = {
+        let button = UIBouncyButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Diario personale", for: .normal)
         button.backgroundColor = .blue
@@ -93,13 +93,13 @@ class HomeView : UIView {
         button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.titleLabel?.minimumScaleFactor = 0.8
         
-        button.layer.masksToBounds = true
-        button.layer.cornerRadius = 10
+//        button.layer.masksToBounds = true
+//        button.layer.cornerRadius = 10
         return button
     }()
     
-    lazy var teenStarButton : UIButton = {
-        let button = UIButton()
+    lazy var teenStarButton : UIBouncyButton = {
+        let button = UIBouncyButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("TeenSTAR", for: .normal)
         button.backgroundColor = .purple
@@ -107,13 +107,13 @@ class HomeView : UIView {
         button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.titleLabel?.minimumScaleFactor = 0.8
         
-        button.layer.masksToBounds = true
-        button.layer.cornerRadius = 10
+//        button.layer.masksToBounds = true
+//        button.layer.cornerRadius = 10
         return button
     }()
     
-    lazy var compagniaButton : UIButton = {
-        let button = UIButton()
+    lazy var compagniaButton : UIBouncyButton = {
+        let button = UIBouncyButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Compagnia", for: .normal)
         button.backgroundColor = .orange
@@ -121,8 +121,8 @@ class HomeView : UIView {
         button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.titleLabel?.minimumScaleFactor = 0.8
         
-        button.layer.masksToBounds = true
-        button.layer.cornerRadius = 10
+//        button.layer.masksToBounds = true
+//        button.layer.cornerRadius = 10
         return button
     }()
     
@@ -131,7 +131,7 @@ class HomeView : UIView {
         stackView.alignment = .fill
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
-        stackView.spacing = 30
+        stackView.spacing = 0 //30
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -148,10 +148,14 @@ class HomeView : UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        stackView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        stackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        stackView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.70).isActive = true
-        stackView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
+//        stackView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+//        stackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+//        stackView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.70).isActive = true
+//        stackView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7).isActive = true
     }
     
     
