@@ -15,12 +15,15 @@ class WelcomeVC: UIViewController, HasCustomView {
         view = CustomView()
     }
     
+    var pageViewController : WelcomePageVC?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         rootView.backgroundColor = .orange
         
         rootView.registerButton.addTarget(self, action: #selector(registerAction(_:)), for: .touchUpInside)
         rootView.loginButton.addTarget(self, action: #selector(loginAction(_:)), for: .touchUpInside)
+        rootView.ignoraButton.addTarget(self, action: #selector(ignoraAction), for: .touchUpInside)
     }
 
     @objc func registerAction(_ sender: UIButton) {
@@ -36,4 +39,8 @@ class WelcomeVC: UIViewController, HasCustomView {
         present(nav, animated: true)
     }
     
+    @objc func ignoraAction() {
+        guard let nextController = pageViewController?.getControllerAt(index: 1) else { fatalError() }
+        pageViewController?.setViewControllers([nextController], direction: UIPageViewController.NavigationDirection.forward, animated: true, completion: nil)
+    }
 }
