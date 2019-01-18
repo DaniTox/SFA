@@ -14,6 +14,8 @@ class VerificaCompagniaView: UIView {
         let table = UITableView(frame: .zero, style: .grouped)
         table.translatesAutoresizingMaskIntoConstraints = false
         table.tableFooterView = UIView()
+        table.estimatedRowHeight = 250
+        table.rowHeight = UITableView.automaticDimension
         return table
     }()
 

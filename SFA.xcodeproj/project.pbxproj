@@ -17,8 +17,6 @@
 		DB2C316321AC88E20009EC14 /* EditRispostaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2C316221AC88E20009EC14 /* EditRispostaVC.swift */; };
 		DB325EDF21D422D7009ADEFC /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB325EDE21D422D7009ADEFC /* RegisterView.swift */; };
 		DB325EE121D5033C009ADEFC /* RotationLogicNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */; };
-		DB53AB8921DAC9CD001961EC /* ColorSlider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBFA255D21DAC970000785D0 /* ColorSlider.framework */; };
-		DB53AB8A21DAC9CD001961EC /* ColorSlider.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DBFA255D21DAC970000785D0 /* ColorSlider.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DB53AB8C21DACA34001961EC /* ColorSliderAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53AB8B21DACA34001961EC /* ColorSliderAlert.swift */; };
 		DB53C76D21DE69620001054B /* EmozioneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C76C21DE69620001054B /* EmozioneButton.swift */; };
 		DB53C76F21DE699B0001054B /* Emozione.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C76E21DE699B0001054B /* Emozione.swift */; };
@@ -61,6 +59,7 @@
 		DB88DBFB21AB2C0D00B0699B /* DomandeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBFA21AB2C0D00B0699B /* DomandeView.swift */; };
 		DB88DBFF21AB315200B0699B /* RegolaCategorieVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBFE21AB315200B0699B /* RegolaCategorieVC.swift */; };
 		DB88DC0121AB318400B0699B /* RegoleCategorieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DC0021AB318400B0699B /* RegoleCategorieView.swift */; };
+		DB8EC01521EE4456003B2A81 /* ColorSlider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBFA255D21DAC970000785D0 /* ColorSlider.framework */; };
 		DB9A19BF21D5148E00C05755 /* NoteListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9A19BE21D5148E00C05755 /* NoteListVC.swift */; };
 		DB9A19C121D514A900C05755 /* NoteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9A19C021D514A900C05755 /* NoteListView.swift */; };
 		DBAAE2AD21A5ACCF00211CBF /* WelcomeVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBAAE2AC21A5ACCF00211CBF /* WelcomeVC.storyboard */; };
@@ -94,6 +93,7 @@
 		DBAF3C4B219CBF35003083EA /* IQUITextFieldView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF3C3A219CBF35003083EA /* IQUITextFieldView+Additions.swift */; };
 		DBAF3C4C219CBF35003083EA /* IQUIView+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF3C3B219CBF35003083EA /* IQUIView+Hierarchy.swift */; };
 		DBAF3C4D219CBF35003083EA /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF3C3C219CBF35003083EA /* IQNSArray+Sort.swift */; };
+		DBCE9ED021EFB247005B286A /* VerificaCompagniaDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE9ECF21EFB247005B286A /* VerificaCompagniaDataSource.swift */; };
 		DBD1DA3021CFE35100BFFBA5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1DA2F21CFE35100BFFBA5 /* LoginView.swift */; };
 		DBF3A2AC21DD723B008AE7D5 /* TeenStarListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF3A2AB21DD723B008AE7D5 /* TeenStarListVC.swift */; };
 		DBF3A2AE21DD7262008AE7D5 /* TeenStarListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF3A2AD21DD7262008AE7D5 /* TeenStarListView.swift */; };
@@ -104,20 +104,6 @@
 		DBFE97F821D57C6F00E82803 /* Nota.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE97F721D57C6F00E82803 /* Nota.swift */; };
 		DBFE97FA21D57CD500E82803 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE97F921D57CD500E82803 /* NoteModel.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		DB5751E621DA7B7000F97D25 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				DB53AB8A21DAC9CD001961EC /* ColorSlider.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		DB0D49EB21DFF13000887D3B /* SettingsUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUserCell.swift; sourceTree = "<group>"; };
@@ -208,6 +194,7 @@
 		DBAF3C3A219CBF35003083EA /* IQUITextFieldView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUITextFieldView+Additions.swift"; sourceTree = "<group>"; };
 		DBAF3C3B219CBF35003083EA /* IQUIView+Hierarchy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIView+Hierarchy.swift"; sourceTree = "<group>"; };
 		DBAF3C3C219CBF35003083EA /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQNSArray+Sort.swift"; sourceTree = "<group>"; };
+		DBCE9ECF21EFB247005B286A /* VerificaCompagniaDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificaCompagniaDataSource.swift; sourceTree = "<group>"; };
 		DBD1DA2F21CFE35100BFFBA5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		DBF3A2AB21DD723B008AE7D5 /* TeenStarListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarListVC.swift; sourceTree = "<group>"; };
 		DBF3A2AD21DD7262008AE7D5 /* TeenStarListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarListView.swift; sourceTree = "<group>"; };
@@ -225,7 +212,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB53AB8921DAC9CD001961EC /* ColorSlider.framework in Frameworks */,
+				DB8EC01521EE4456003B2A81 /* ColorSlider.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +348,7 @@
 		DB88DBF121AAF17200B0699B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DBCE9ECE21EFB227005B286A /* Data Sources */,
 				DB61DA1221B5B9ED006B308B /* RegolaFetcherModel.swift */,
 				DB7BEF8821D01442007A550E /* User.swift */,
 				DB7BEF8A21D01670007A550E /* NetworkAgent.swift */,
@@ -396,11 +384,19 @@
 			path = RegolaDiVita;
 			sourceTree = "<group>";
 		};
+		DB8EC01321EE4447003B2A81 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DBAF3BF5219C9019003083EA = {
 			isa = PBXGroup;
 			children = (
 				DBAF3C00219C9019003083EA /* SFA */,
 				DBAF3BFF219C9019003083EA /* Products */,
+				DB8EC01321EE4447003B2A81 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -549,6 +545,14 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		DBCE9ECE21EFB227005B286A /* Data Sources */ = {
+			isa = PBXGroup;
+			children = (
+				DBCE9ECF21EFB247005B286A /* VerificaCompagniaDataSource.swift */,
+			);
+			path = "Data Sources";
+			sourceTree = "<group>";
+		};
 		DBFA255F21DC3D39000785D0 /* CoreDataObjects */ = {
 			isa = PBXGroup;
 			children = (
@@ -570,7 +574,7 @@
 				DBAF3BFA219C9019003083EA /* Sources */,
 				DBAF3BFB219C9019003083EA /* Frameworks */,
 				DBAF3BFC219C9019003083EA /* Resources */,
-				DB5751E621DA7B7000F97D25 /* Embed Frameworks */,
+				DB8EC01621EE4475003B2A81 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -631,6 +635,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		DB8EC01621EE4475003B2A81 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Frameworks/Carthage/Build/iOS/ColorSlider.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DBAF3BFA219C9019003083EA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -665,6 +690,7 @@
 				DBAAE2AF21A5B3B000211CBF /* WelcomePageVC.swift in Sources */,
 				DB53C77921DEC57E0001054B /* CicloColorCollectionCell.swift in Sources */,
 				DB7BEF8B21D01670007A550E /* NetworkAgent.swift in Sources */,
+				DBCE9ED021EFB247005B286A /* VerificaCompagniaDataSource.swift in Sources */,
 				DB53C78021DFCBF90001054B /* SettingsView.swift in Sources */,
 				DB88DBEC21A975C100B0699B /* TimerEx.swift in Sources */,
 				DB19C67F21E2870B0020357D /* VerificaCompagniaVC.swift in Sources */,

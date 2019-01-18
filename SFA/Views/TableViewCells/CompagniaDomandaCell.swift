@@ -24,9 +24,13 @@ class CompagniaDomandaCell: UITableViewCell {
     public lazy var mainLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
+        label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.7
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline).withSize(25)
         return label
     }()
     
@@ -41,6 +45,7 @@ class CompagniaDomandaCell: UITableViewCell {
     private lazy var sliderLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
         label.text = "0"
         label.font = UIFont.preferredFont(forTextStyle: .body).withSize(20)
         label.textAlignment = .center
@@ -57,12 +62,24 @@ class CompagniaDomandaCell: UITableViewCell {
         return stack
     }()
     
+    private var containerView : UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.masksToBounds = true
+        view.layer.cornerRadius = 10
+        view.backgroundColor = .black
+        return view
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubview(mainLabel)
+        
+        containerView.addSubview(mainLabel)
         sliderStack.addArrangedSubview(slider)
         sliderStack.addArrangedSubview(sliderLabel)
-        addSubview(sliderStack)
+        containerView.addSubview(sliderStack)
+        
+        addSubview(containerView)
         
         slider.addTarget(self, action: #selector(sliderValueChanged(_:)), for: .valueChanged)
         
@@ -77,16 +94,22 @@ class CompagniaDomandaCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        mainLabel.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        mainLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
-        mainLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30).isActive = true
-        mainLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.65).isActive = true
+        
+        containerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        containerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        containerView.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
+        containerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
+        
+        mainLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10).isActive = true
+        mainLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
+        mainLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
+        mainLabel.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.65).isActive = true
         
         sliderLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 70).isActive = true
         
-        sliderStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35).isActive = true
-        sliderStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -35).isActive = true
-        sliderStack.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        sliderStack.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 35).isActive = true
+        sliderStack.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -35).isActive = true
+        sliderStack.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10).isActive = true
         sliderStack.topAnchor.constraint(equalTo: mainLabel.bottomAnchor).isActive = true
     }
     
