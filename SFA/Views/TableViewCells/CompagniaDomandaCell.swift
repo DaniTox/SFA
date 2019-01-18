@@ -79,7 +79,9 @@ class CompagniaDomandaCell: UITableViewCell {
         sliderStack.addArrangedSubview(sliderLabel)
         containerView.addSubview(sliderStack)
         
-        addSubview(containerView)
+        contentView.addSubview(containerView)
+        backgroundColor = .clear
+        selectionStyle = .none
         
         slider.addTarget(self, action: #selector(sliderValueChanged(_:)), for: .valueChanged)
         
@@ -95,17 +97,19 @@ class CompagniaDomandaCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        containerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
-        containerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
-        containerView.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
-        containerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
+        let margins = contentView.layoutMarginsGuide
+        
+        containerView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 0).isActive = true
+        containerView.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 0).isActive = true
+        containerView.topAnchor.constraint(equalTo: margins.topAnchor, constant: 5).isActive = true
+        containerView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -5).isActive = true
         
         mainLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10).isActive = true
         mainLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
         mainLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
         mainLabel.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.65).isActive = true
         
-        sliderLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 70).isActive = true
+        sliderLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 50).isActive = true
         
         sliderStack.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 35).isActive = true
         sliderStack.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -35).isActive = true

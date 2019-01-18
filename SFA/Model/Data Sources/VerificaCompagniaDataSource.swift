@@ -33,7 +33,6 @@ class VerificaCompagniaDataSource : NSObject, UITableViewDataSource {
             let object = CategoriaObject(categoria: categoria, domande: model.getDomandaFrom(categoria: categoria))
             storage.append(object)
         }
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,8 +45,11 @@ class VerificaCompagniaDataSource : NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? CompagniaDomandaCell
+        cell?.accessoryType = .none
         let domanda = storage[indexPath.section].domande[indexPath.row]
         cell?.domanda = domanda
+        cell?.layoutIfNeeded()
+        cell?.updateConstraintsIfNeeded()
         return cell!
     }
     
@@ -56,4 +58,5 @@ class VerificaCompagniaDataSource : NSObject, UITableViewDataSource {
         let categorieArray = Array(categorie)
         return categorieArray[section].name
     }
+    
 }
