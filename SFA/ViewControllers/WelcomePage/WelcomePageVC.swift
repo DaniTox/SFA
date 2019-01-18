@@ -19,7 +19,9 @@ class WelcomePageVC: UIPageViewController {
     }
     
     private(set) lazy var orderedViewControllers : [UIViewController] = {
-        let vcs = [self.getController(withIdentifier: "welcomeVC", storyboardName: "WelcomeVC"),
+//        let vcs = [self.getController(withIdentifier: "welcomeVC", storyboardName: "WelcomeVC"),
+//                   self.getController(withIdentifier: "notificheVC", storyboardName: "NotificheVC")]
+        let vcs = [WelcomeVC(),
                    self.getController(withIdentifier: "notificheVC", storyboardName: "NotificheVC")]
         return vcs
     }()

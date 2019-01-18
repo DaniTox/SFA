@@ -96,6 +96,7 @@
 		DBCE9ED021EFB247005B286A /* VerificaCompagniaDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE9ECF21EFB247005B286A /* VerificaCompagniaDataSource.swift */; };
 		DBD1DA3021CFE35100BFFBA5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1DA2F21CFE35100BFFBA5 /* LoginView.swift */; };
 		DBE6070721F261BD00E10422 /* UIBouncyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE6070621F261BD00E10422 /* UIBouncyButton.swift */; };
+		DBE6070921F27AA200E10422 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE6070821F27AA200E10422 /* WelcomeView.swift */; };
 		DBF3A2AC21DD723B008AE7D5 /* TeenStarListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF3A2AB21DD723B008AE7D5 /* TeenStarListVC.swift */; };
 		DBF3A2AE21DD7262008AE7D5 /* TeenStarListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF3A2AD21DD7262008AE7D5 /* TeenStarListView.swift */; };
 		DBF3A2B021DD73D0008AE7D5 /* TeenStarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF3A2AF21DD73D0008AE7D5 /* TeenStarModel.swift */; };
@@ -198,6 +199,7 @@
 		DBCE9ECF21EFB247005B286A /* VerificaCompagniaDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificaCompagniaDataSource.swift; sourceTree = "<group>"; };
 		DBD1DA2F21CFE35100BFFBA5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		DBE6070621F261BD00E10422 /* UIBouncyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBouncyButton.swift; sourceTree = "<group>"; };
+		DBE6070821F27AA200E10422 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		DBF3A2AB21DD723B008AE7D5 /* TeenStarListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarListVC.swift; sourceTree = "<group>"; };
 		DBF3A2AD21DD7262008AE7D5 /* TeenStarListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarListView.swift; sourceTree = "<group>"; };
 		DBF3A2AF21DD73D0008AE7D5 /* TeenStarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarModel.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				DB9A19C021D514A900C05755 /* NoteListView.swift */,
 				DB53C77F21DFCBF90001054B /* SettingsView.swift */,
 				DB19C68021E2877F0020357D /* VerificaCompagniaView.swift */,
+				DBE6070821F27AA200E10422 /* WelcomeView.swift */,
 			);
 			path = "VCs Views";
 			sourceTree = "<group>";
@@ -297,6 +300,8 @@
 			isa = PBXGroup;
 			children = (
 				DBAAE2AE21A5B3B000211CBF /* WelcomePageVC.swift */,
+				DBAAE2BA21A5D26800211CBF /* WelcomeVC.swift */,
+				DBAAE2B221A5C53700211CBF /* NotificheVC.swift */,
 			);
 			path = WelcomePage;
 			sourceTree = "<group>";
@@ -448,8 +453,6 @@
 				DB53C77B21DFCAC30001054B /* Note */,
 				DB53C77A21DFCAAD0001054B /* TeenStar */,
 				DB88DBFC21AB30C300B0699B /* RegolaDiVIta */,
-				DBAAE2B221A5C53700211CBF /* NotificheVC.swift */,
-				DBAAE2BA21A5D26800211CBF /* WelcomeVC.swift */,
 				DB88DBDE21A96E6F00B0699B /* HomeViewController.swift */,
 				DB61DA1621B9C605006B308B /* SitoVC.swift */,
 				DB61DA1821B9C81E006B308B /* SocialVC.swift */,
@@ -749,6 +752,7 @@
 				DB325EDF21D422D7009ADEFC /* RegisterView.swift in Sources */,
 				DB88DBEA21A975C100B0699B /* TransitionSubmitButton.swift in Sources */,
 				DB5751E821DA808000F97D25 /* SizeSliderAlert.swift in Sources */,
+				DBE6070921F27AA200E10422 /* WelcomeView.swift in Sources */,
 				DB7BEF9121D02128007A550E /* ToxNetworkRequest.swift in Sources */,
 				DB7BEF8621D006A0007A550E /* KeychainItemAccessibility.swift in Sources */,
 				DBAF3C3F219CBF35003083EA /* IQTitleBarButtonItem.swift in Sources */,

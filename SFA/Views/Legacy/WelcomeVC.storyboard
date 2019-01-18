@@ -37,9 +37,6 @@
                                         <state key="normal" title="Iscriviti">
                                             <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
-                                        <connections>
-                                            <action selector="registerAction:" destination="zUf-h7-Kca" eventType="touchUpInside" id="cVF-JW-tdW"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8OM-ih-wmu">
                                         <rect key="frame" x="0.0" y="90" width="250" height="60"/>
@@ -48,9 +45,6 @@
                                         <state key="normal" title="Accedi">
                                             <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
-                                        <connections>
-                                            <action selector="loginAction:" destination="zUf-h7-Kca" eventType="touchUpInside" id="Hka-dH-FnO"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
