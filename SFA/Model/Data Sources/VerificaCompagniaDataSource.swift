@@ -8,13 +8,17 @@
 
 import UIKit
 
+struct CategoriaObject {
+    var categoria : CompagniaCategoria
+    var domande : [CompagniaDomanda]
+}
+
 class VerificaCompagniaDataSource : NSObject, UITableViewDataSource {
     
     public var verifica : CompagniaTest!
     private let model : CompagniaTestModel!
     
-    private var storage : [CompagniaCategoria : [CompagniaDomanda]] = [:]
-//    private var selectedCategoria : CompagniaCategoria!
+    private var storage : [CategoriaObject] = []
     
     override init() {
         guard let delegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -24,37 +28,26 @@ class VerificaCompagniaDataSource : NSObject, UITableViewDataSource {
         self.model = CompagniaTestModel(container: persistentContainer)
         self.verifica = model.getLatestVerifica()
         
-        guard let verificaCategorie = self.verifica.categorie as? Set<CompagniaCategoria> else {
-            fatalError()
-        }
-     
-        let categorieArray = Array(verificaCategorie).sorted(by: { ($0.name ?? "") < ($1.name ?? "") })
-        
-        for categoria in categorieArray {
-            guard let domandeSet = categoria.domande as? Set<CompagniaDomanda> else { fatalError() }
-            let domandeArray = Array(domandeSet).sorted(by: { ($0.domanda ?? "") < ($1.domanda ?? "") })
-            storage[categoria] = domandeArray
+        let categorie = model.getCategorieFrom(verifica: self.verifica)
+        for categoria in categorie {
+            let object = CategoriaObject(categoria: categoria, domande: model.getDomandaFrom(categoria: categoria))
+            storage.append(object)
         }
         
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storage.keys.count
+        return storage[section].domande.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.verifica.categorie?.count ?? 0
+        return storage.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? CompagniaDomandaCell
-        let categoria = Array(storage.keys)[indexPath.section]
-//        guard indexPath.row < (storage[categoria]?.count ?? 0) else {
-//            fatalError()
-//        }
-        if let domanda = storage[categoria]?[indexPath.row] {
-            cell?.domanda = domanda
-        }
+        let domanda = storage[indexPath.section].domande[indexPath.row]
+        cell?.domanda = domanda
         return cell!
     }
     

@@ -13,10 +13,10 @@ class CompagniaTestModel {
     
     var persistentContainer : NSPersistentContainer
     
-    private var modelJson : CompagniaFile? {
-        guard let url = Bundle.main.url(forResource: "compagnie", withExtension: "json") else { return nil }
-        guard let data = try? Data(contentsOf: url) else { return nil }
-        guard let object = try? JSONDecoder().decode(CompagniaFile.self, from: data) else { return nil }
+    private var modelJson : CompagniaFile {
+        guard let url = Bundle.main.url(forResource: "compagnie", withExtension: "json") else { fatalError() }
+        guard let data = try? Data(contentsOf: url) else { fatalError() }
+        guard let object = try? JSONDecoder().decode(CompagniaFile.self, from: data) else { fatalError() }
         return object
     }
     
@@ -27,9 +27,11 @@ class CompagniaTestModel {
     public func createIfNotPresent() {
         let context = persistentContainer.viewContext
         
+        //ottengo tutte le regole nel database (dovrebbe sempre e solo essercene una)
         let request : NSFetchRequest<Regola> = Regola.fetchRequest()
         let regole = try? context.fetch(request)
         guard let unRegole = regole else { return }
+        //se non ce n'è neanche una, la creo al momento dal file json
         if unRegole.count < 1 {
             print("Creating CompagniaTest since it doesn't exist")
             _ = self.createCompagniaBaseEntry()
@@ -40,7 +42,7 @@ class CompagniaTestModel {
     
     private func createCompagniaBaseEntry() -> CompagniaTest {
         //ottengo il file padre
-        guard let model = self.modelJson else { fatalError("Error compagnia base entry creation") }
+        let model = self.modelJson
         let context = persistentContainer.viewContext
         
         //creo una verifica vuota in CoreData
@@ -86,6 +88,20 @@ class CompagniaTestModel {
         }
         
         return firstVerifica
+    }
+    
+    public func getCategorieFrom(verifica: CompagniaTest) -> [CompagniaCategoria] {
+        //ottengo le categorie direttamente dall'oggetto invece che da una CoreData request
+        guard let categorieSet = verifica.categorie as? Set<CompagniaCategoria> else { return [] }
+        let array = Array(categorieSet).sorted(by: { ($0.name ?? "") > ($1.name ?? "") })
+        return array
+    }
+    
+    public func getDomandaFrom(categoria: CompagniaCategoria) -> [CompagniaDomanda] {
+        //ottengo le domande direttamente dall'oggetto invece che da una CoreData request
+        guard let domandeSet = categoria.domande as? Set<CompagniaDomanda> else { return [] }
+        let array = Array(domandeSet).sorted(by: { ($0.domanda ?? "") > ($1.domanda ?? "")})
+        return array
     }
 }
 
