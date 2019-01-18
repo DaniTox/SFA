@@ -9,9 +9,44 @@
 import UIKit
 import UserNotifications
 
+class NotificheOnBoardingVC : NotificheVC {
+ 
+    lazy var doneButton : UIBouncyButton = {
+        let button = UIBouncyButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline).withSize(25)
+        button.setTitle("Fine", for: .normal)
+        button.backgroundColor = UIColor.darkGray.darker()
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 10
+        return button
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.addSubview(doneButton)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        doneButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        doneButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
+        doneButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.45).isActive = true
+        doneButton.heightAnchor.constraint(equalToConstant: tableView.frame.height / 8).isActive = true
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let tableHeight = tableView.frame.height
+        let cellHeight = tableHeight / CGFloat(notifiche.count + 2)
+        return cellHeight
+    }
+
+}
+
 class NotificheVC: UITableViewController {
     
-    private let notifiche : [String] = ["Eventi MGS",
+    fileprivate let notifiche : [String] = ["Eventi MGS",
                                         "Consigli di Don Bosco",
                                         "Promemoria sacramenti",
                                         "Mssione dell'angelo custode"]
@@ -23,6 +58,7 @@ class NotificheVC: UITableViewController {
         tableView.backgroundColor = UIColor.black.lighter(by: 10)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.tableFooterView = UIView()
+        tableView.separatorStyle = .none
         
         requestNotificationAccess()
     }
@@ -87,7 +123,7 @@ extension NotificheVC {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let tableHeight = tableView.frame.height
-        let cellHeight = tableHeight / 5
+        let cellHeight = tableHeight / CGFloat(notifiche.count + 1)
         return cellHeight
     }
 }
