@@ -31,6 +31,7 @@ class WelcomePageVC: UIPageViewController {
     }()
 
     @objc private func done() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     private func getController(withIdentifier identifier: String, storyboardName: String) -> UIViewController {

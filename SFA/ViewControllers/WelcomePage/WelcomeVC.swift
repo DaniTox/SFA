@@ -23,7 +23,7 @@ class WelcomeVC: UIViewController, HasCustomView {
         
         rootView.registerButton.addTarget(self, action: #selector(registerAction(_:)), for: .touchUpInside)
         rootView.loginButton.addTarget(self, action: #selector(loginAction(_:)), for: .touchUpInside)
-        rootView.ignoraButton.addTarget(self, action: #selector(ignoraAction), for: .touchUpInside)
+        rootView.ignoraButton.addTarget(self, action: #selector(ignoraAction(_:)), for: .touchUpInside)
     }
 
     @objc func registerAction(_ sender: UIButton) {
@@ -39,8 +39,9 @@ class WelcomeVC: UIViewController, HasCustomView {
         present(nav, animated: true)
     }
     
-    @objc func ignoraAction() {
+    @objc func ignoraAction(_ sender: UIButton) {
         guard let nextController = pageViewController?.getControllerAt(index: 1) else { fatalError() }
         pageViewController?.setViewControllers([nextController], direction: UIPageViewController.NavigationDirection.forward, animated: true, completion: nil)
+        sender.isEnabled = false
     }
 }

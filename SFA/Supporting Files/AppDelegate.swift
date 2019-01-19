@@ -24,13 +24,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if isAlreadyLaunched {            
             window?.rootViewController = RootAppController()
+            window?.makeKeyAndVisible()
         } else {
-            let storyboard = UIStoryboard(name: "WelcomeVC", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "pageController") as! WelcomePageVC
-            window?.rootViewController = vc
+            let homeVC = RootAppController()
+//            let storyboard = UIStoryboard(name: "WelcomeVC", bundle: nil)
+//            let vc = storyboard.instantiateViewController(withIdentifier: "pageController") as! WelcomePageVC
+            let vc = WelcomePageVC()
+            window?.rootViewController = homeVC
+            window?.makeKeyAndVisible()
+            homeVC.present(vc, animated: true)
         }
         
-        window?.makeKeyAndVisible()
+        
         
         
         RegolaFetcherModel.shared.persistentContainer = persistentContainer
