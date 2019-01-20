@@ -33,18 +33,32 @@ class SettingsVC: UIViewController, HasCustomView {
 
 extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let headers = ["Account", "Generale"]
+        return headers[section]
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return 1
+        default:
+            fatalError()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
             return 100
+        case 1:
+            return 50
         default:
             fatalError()
         }
@@ -56,6 +70,16 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell") as? SettingsUserCell
             cell?.userState = (userLogged == nil) ? .empty : .loggedIn
             return cell!
+        case 1:
+            switch indexPath.row {
+            case 0:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+                cell?.textLabel?.text = "Notifiche"
+                cell?.accessoryType = .disclosureIndicator
+                return cell!
+            default:
+                fatalError()
+            }
         default:
             fatalError()
         }
@@ -104,6 +128,14 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
                 DispatchQueue.main.async {
                     self.present(alert, animated: true)
                 }
+            }
+        case 1:
+            switch indexPath.row {
+            case 0:
+                let vc = NotificheVC()
+                navigationController?.pushViewController(vc, animated: true)
+            default:
+                fatalError()
             }
         default:
             fatalError()
