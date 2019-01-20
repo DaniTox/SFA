@@ -29,8 +29,11 @@ class RootAppController : UITabBarController {
         self.addChild(vc2)
         
         let vc3 = SocialVC()
+        let nav3 = UINavigationController(rootViewController: vc3)
+        nav3.navigationBar.prefersLargeTitles = true
+        nav3.navigationItem.title = "I nostri social"
         vc3.title = "Social"
-        self.addChild(vc3)
+        self.addChild(nav3)
         
         let vc4 = SettingsVC()
         vc4.title = "Impostazioni"

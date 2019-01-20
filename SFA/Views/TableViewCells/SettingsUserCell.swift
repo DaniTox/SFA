@@ -19,7 +19,7 @@ class SettingsUserCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.callout)
-        label.textColor = UIColor.blue.lighter()
+        label.textColor = UIColor.blue.lighter(by: 20)
         return label
     }()
     

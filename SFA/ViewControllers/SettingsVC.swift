@@ -47,7 +47,7 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
         case 0:
             return 1
         case 1:
-            return 1
+            return 2
         default:
             fatalError()
         }
@@ -75,6 +75,11 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
             case 0:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
                 cell?.textLabel?.text = "Notifiche"
+                cell?.accessoryType = .disclosureIndicator
+                return cell!
+            case 1:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+                cell?.textLabel?.text = "I nostri Social"
                 cell?.accessoryType = .disclosureIndicator
                 return cell!
             default:
@@ -133,6 +138,10 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
             switch indexPath.row {
             case 0:
                 let vc = NotificheVC()
+                navigationController?.pushViewController(vc, animated: true)
+            case 1:
+                let vc = SocialVC()
+                vc.title = "Social"
                 navigationController?.pushViewController(vc, animated: true)
             default:
                 fatalError()

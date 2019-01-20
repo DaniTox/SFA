@@ -58,6 +58,7 @@ class SocialView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = UIColor.black.lighter(by: 10)
         stackView.addArrangedSubview(facebookButton)
         stackView.addArrangedSubview(instagranmButton)
         stackView.addArrangedSubview(youtubeButton)

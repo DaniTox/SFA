@@ -20,7 +20,7 @@ class WelcomeVC: UIViewController, HasCustomView {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Benvenuto in MGS!"
-        rootView.backgroundColor = .orange
+        rootView.backgroundColor = UIColor.black.lighter(by: 10)
         
         rootView.registerButton.addTarget(self, action: #selector(registerAction(_:)), for: .touchUpInside)
         rootView.loginButton.addTarget(self, action: #selector(loginAction(_:)), for: .touchUpInside)
