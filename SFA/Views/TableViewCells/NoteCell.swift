@@ -28,8 +28,8 @@ class NoteCell: UITableViewCell {
         return label
     }()
     
-    lazy var containerView : UIView = {
-        let view = UIView()
+    lazy var containerView : BouncyView = {
+        let view = BouncyView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.masksToBounds = true
         view.layer.cornerRadius = 10
@@ -40,6 +40,7 @@ class NoteCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .clear
+        selectionStyle = .none
         containerView.addSubview(noteTitleLabel)
         containerView.addSubview(noteWordCountLabel)
         addSubview(containerView)

@@ -93,6 +93,7 @@
 		DBAF3C4B219CBF35003083EA /* IQUITextFieldView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF3C3A219CBF35003083EA /* IQUITextFieldView+Additions.swift */; };
 		DBAF3C4C219CBF35003083EA /* IQUIView+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF3C3B219CBF35003083EA /* IQUIView+Hierarchy.swift */; };
 		DBAF3C4D219CBF35003083EA /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF3C3C219CBF35003083EA /* IQNSArray+Sort.swift */; };
+		DBBBDC5021F5016D00C9F54A /* BouncyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBDC4F21F5016D00C9F54A /* BouncyView.swift */; };
 		DBCE9ED021EFB247005B286A /* VerificaCompagniaDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE9ECF21EFB247005B286A /* VerificaCompagniaDataSource.swift */; };
 		DBD1DA3021CFE35100BFFBA5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1DA2F21CFE35100BFFBA5 /* LoginView.swift */; };
 		DBE6070721F261BD00E10422 /* UIBouncyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE6070621F261BD00E10422 /* UIBouncyButton.swift */; };
@@ -196,6 +197,7 @@
 		DBAF3C3A219CBF35003083EA /* IQUITextFieldView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUITextFieldView+Additions.swift"; sourceTree = "<group>"; };
 		DBAF3C3B219CBF35003083EA /* IQUIView+Hierarchy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIView+Hierarchy.swift"; sourceTree = "<group>"; };
 		DBAF3C3C219CBF35003083EA /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQNSArray+Sort.swift"; sourceTree = "<group>"; };
+		DBBBDC4F21F5016D00C9F54A /* BouncyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncyView.swift; sourceTree = "<group>"; };
 		DBCE9ECF21EFB247005B286A /* VerificaCompagniaDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificaCompagniaDataSource.swift; sourceTree = "<group>"; };
 		DBD1DA2F21CFE35100BFFBA5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		DBE6070621F261BD00E10422 /* UIBouncyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBouncyButton.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				DB53AB8B21DACA34001961EC /* ColorSliderAlert.swift */,
 				DB53C76C21DE69620001054B /* EmozioneButton.swift */,
 				DBE6070621F261BD00E10422 /* UIBouncyButton.swift */,
+				DBBBDC4F21F5016D00C9F54A /* BouncyView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -748,6 +751,7 @@
 				DBF3A2B021DD73D0008AE7D5 /* TeenStarModel.swift in Sources */,
 				DBAF3C49219CBF35003083EA /* IQUIScrollView+Additions.swift in Sources */,
 				DBFA256121DC3D83000785D0 /* TeenStarTable.swift in Sources */,
+				DBBBDC5021F5016D00C9F54A /* BouncyView.swift in Sources */,
 				DB88DBE121A9718000B0699B /* RegisterVC.swift in Sources */,
 				DB325EDF21D422D7009ADEFC /* RegisterView.swift in Sources */,
 				DB88DBEA21A975C100B0699B /* TransitionSubmitButton.swift in Sources */,
