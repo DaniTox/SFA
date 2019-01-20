@@ -21,13 +21,15 @@ class WelcomePageVC: UIPageViewController {
     private(set) lazy var orderedViewControllers : [UIViewController] = {
         let vc1 = WelcomeVC()
         vc1.pageViewController = self
+        let nav1 = UINavigationController(rootViewController: vc1)
+        nav1.navigationBar.prefersLargeTitles = true
         
         let vc2 = NotificheOnBoardingVC()
         vc2.doneButton.addTarget(self, action: #selector(done), for: .touchUpInside)
         let nav2 = UINavigationController(rootViewController: vc2)
         nav2.navigationBar.prefersLargeTitles = true
         
-        return [vc1, nav2]
+        return [nav1, nav2]
     }()
 
     @objc private func done() {

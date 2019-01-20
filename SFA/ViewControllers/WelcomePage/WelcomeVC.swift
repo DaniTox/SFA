@@ -19,6 +19,7 @@ class WelcomeVC: UIViewController, HasCustomView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Benvenuto in MGS!"
         rootView.backgroundColor = .orange
         
         rootView.registerButton.addTarget(self, action: #selector(registerAction(_:)), for: .touchUpInside)

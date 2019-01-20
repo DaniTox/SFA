@@ -77,7 +77,7 @@ class WelcomeView: UIView {
         buttonsStack.addArrangedSubview(registerButton)
         buttonsStack.addArrangedSubview(loginButton)
         
-        addSubview(titleLabel)
+//        addSubview(titleLabel)
         addSubview(buttonsStack)
         addSubview(ignoraButton)
     }
@@ -85,8 +85,8 @@ class WelcomeView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
-        titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+//        titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
+//        titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
         buttonsStack.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         buttonsStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
