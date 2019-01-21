@@ -14,6 +14,12 @@ class SettingsView: UIView {
         let table = UITableView(frame: .zero, style: UITableView.Style.grouped)
         table.translatesAutoresizingMaskIntoConstraints = false
         table.tableFooterView = UIView()
+        table.backgroundColor = Theme.current.tableViewBackground
+        table.isScrollEnabled = false
+        
+        var frame = CGRect.zero
+        frame.size.height = .leastNormalMagnitude
+        table.tableHeaderView = UIView(frame: frame)
         return table
     }()
     

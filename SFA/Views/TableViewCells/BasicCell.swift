@@ -12,8 +12,17 @@ class BasicCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        updateTheme()
+    }
+    
+    private func updateTheme() {
         self.textLabel?.textColor = Theme.current.textColor
         self.backgroundColor = Theme.current.backgroundColor
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        updateTheme()
     }
     
     required init?(coder aDecoder: NSCoder) {

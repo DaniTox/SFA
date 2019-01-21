@@ -16,6 +16,10 @@ class NoteListView: UIView {
         table.tableFooterView = UIView()
         table.separatorStyle = .none
         table.backgroundColor = Theme.current.tableViewBackground
+        
+        var frame = CGRect.zero
+        frame.size.height = .leastNormalMagnitude
+        table.tableHeaderView = UIView(frame: frame)
         return table
     }()
     

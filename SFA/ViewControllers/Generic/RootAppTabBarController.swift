@@ -38,6 +38,7 @@ class RootAppController : UITabBarController {
         let vc4 = SettingsVC()
         vc4.title = "Impostazioni"
         let nav4 = UINavigationController(rootViewController: vc4)
+        nav4.navigationBar.prefersLargeTitles = true
         self.addChild(nav4)
         
     }

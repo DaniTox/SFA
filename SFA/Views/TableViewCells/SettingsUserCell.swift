@@ -13,13 +13,13 @@ enum UserState {
     case empty
 }
 
-class SettingsUserCell: UITableViewCell {
+class SettingsUserCell: BasicCell {
 
     var mainLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.callout)
-        label.textColor = UIColor.blue.lighter(by: 20)
+        label.textColor = Theme.current.cellTitleColor
         return label
     }()
     
@@ -27,7 +27,7 @@ class SettingsUserCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .body)
-        label.textColor = UIColor.gray
+        label.textColor = Theme.current.cellSubtitleColor
         return label
     }()
     

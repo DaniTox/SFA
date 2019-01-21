@@ -15,14 +15,27 @@ class SettingsVC: UIViewController, HasCustomView {
         view = CustomView()
     }
     
+    var themeObserver : NSObjectProtocol!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        themeObserver = NotificationCenter.default.addObserver(forName: .updateTheme, object: nil, queue: .main, using: { (notification) in
+            UIView.animate(withDuration: 0.3, animations: { self.updateTheme() })
+        })
         rootView.tableView.register(SettingsUserCell.self, forCellReuseIdentifier: "UserCell")
         rootView.tableView.register(BasicCell.self, forCellReuseIdentifier: "cell")
         rootView.tableView.register(SwitchCell.self, forCellReuseIdentifier: "switchCell")
         rootView.tableView.delegate = self
         rootView.tableView.dataSource = self
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(themeObserver)
+    }
+    
+    private func updateTheme() {
+        rootView.tableView.backgroundColor = Theme.current.tableViewBackground
+        rootView.tableView.reloadData()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -154,7 +167,8 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
                 vc.title = "Social"
                 navigationController?.pushViewController(vc, animated: true)
             default:
-                fatalError()
+                break
+//                fatalError()
             }
         default:
             fatalError()
