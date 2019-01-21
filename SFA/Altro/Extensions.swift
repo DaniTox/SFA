@@ -103,7 +103,27 @@ extension Date {
     func dayOfWeek() -> String {
         let dateF = DateFormatter()
         dateF.dateFormat = "EEEE"
-        return dateF.string(from: self).capitalized
+        let dayEng = dateF.string(from: self).capitalized
+        var dayIT : String
+        switch dayEng {
+        case "Monday":
+            dayIT = "Lunedì"
+        case "Tuesday":
+            dayIT = "Martedì"
+        case "Wednesday":
+            dayIT = "Mercoledì"
+        case "Thursday":
+            dayIT = "Giovedì"
+        case "Friday":
+            dayIT = "Venerdì"
+        case "Saturday":
+            dayIT = "Sabato"
+        case "Sunday":
+            dayIT = "Domenica"
+        default:
+            dayIT = "ErroreGiorno: \(dayEng)"
+        }
+        return dayIT
     }
     
     var startOfWeek: Date? {
