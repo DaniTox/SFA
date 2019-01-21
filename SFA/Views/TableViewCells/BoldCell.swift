@@ -50,15 +50,29 @@ class BoldCell: UITableViewCell {
         selectionStyle = .none
         containerView.addSubview(mainLabel)
         containerView.addSubview(rightBottomLabel)
-        addSubview(containerView)
+        if UIDevice.current.deviceType == .pad {
+            contentView.addSubview(containerView)
+        } else {
+            addSubview(containerView)
+        }
+        
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        containerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
-        containerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5).isActive = true
-        containerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
-        containerView.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
+        let margins = contentView.layoutMarginsGuide
+        if UIDevice.current.deviceType == .pad {
+            containerView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 5).isActive = true
+            containerView.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: -5).isActive = true
+            containerView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -5).isActive = true
+            containerView.topAnchor.constraint(equalTo: margins.topAnchor, constant: 5).isActive = true
+        } else {
+            containerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
+            containerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5).isActive = true
+            containerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
+            containerView.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
+        }
+
         
         mainLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
         mainLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true

@@ -59,6 +59,12 @@ class SettingsUserCell: BoldCell {
         }
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        mainTitleLabel.textColor = Theme.current.cellTitleColor
+        descriptionLabel.textColor = Theme.current.cellSubtitleColor
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         labelsStack.addArrangedSubview(mainTitleLabel)
