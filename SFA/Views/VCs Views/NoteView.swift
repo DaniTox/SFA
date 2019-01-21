@@ -15,7 +15,14 @@ class NoteView: UIView {
         let view = UITextView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body).withSize(20)
-        view.backgroundColor = UIColor.yellow
+        view.backgroundColor = UIColor.yellow.lighter(by: 5)
+        
+        view.layer.cornerRadius = 10
+        view.layer.shadowColor = UIColor.gray.cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        view.layer.shadowOpacity = 1.0
+        view.layer.shadowRadius = 10
+        view.layer.masksToBounds = false
         return view
     }()
     
@@ -30,6 +37,7 @@ class NoteView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .white
         addSubview(textView)
         //addSubview(bottomBar)
     }
@@ -37,10 +45,10 @@ class NoteView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        textView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        textView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        textView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        textView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        textView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
+        textView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        textView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        textView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
         
 //        bottomBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
 //        bottomBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
