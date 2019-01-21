@@ -104,7 +104,7 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "switchCell") as! SwitchCell
                 cell.cellSwitch.isOn = (Theme.current is DarkTheme) ? true : false
                 cell.cellSwitch.addTarget(self, action: #selector(themeSwitchChanged(_:)), for: .valueChanged)
-                cell.textLabel?.text = "Tema scuro"
+                cell.mainLabel.text = "Tema scuro"
                 return cell
             default:
                 fatalError()

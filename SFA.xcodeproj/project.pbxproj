@@ -20,6 +20,7 @@
 		DB4F3BBC21F5C34C0040F4C4 /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F3BBB21F5C34C0040F4C4 /* Themes.swift */; };
 		DB4F3BBE21F5CE220040F4C4 /* BasicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F3BBD21F5CE220040F4C4 /* BasicCell.swift */; };
 		DB4F3BC321F5F2D90040F4C4 /* ThemedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F3BC221F5F2D90040F4C4 /* ThemedNavigationController.swift */; };
+		DB4F3BC521F5FBC80040F4C4 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F3BC421F5FBC80040F4C4 /* SwitchCell.swift */; };
 		DB53AB8C21DACA34001961EC /* ColorSliderAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53AB8B21DACA34001961EC /* ColorSliderAlert.swift */; };
 		DB53C76D21DE69620001054B /* EmozioneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C76C21DE69620001054B /* EmozioneButton.swift */; };
 		DB53C76F21DE699B0001054B /* Emozione.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C76E21DE699B0001054B /* Emozione.swift */; };
@@ -125,6 +126,7 @@
 		DB4F3BBB21F5C34C0040F4C4 /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
 		DB4F3BBD21F5CE220040F4C4 /* BasicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicCell.swift; sourceTree = "<group>"; };
 		DB4F3BC221F5F2D90040F4C4 /* ThemedNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemedNavigationController.swift; sourceTree = "<group>"; };
+		DB4F3BC421F5FBC80040F4C4 /* SwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
 		DB53AB8B21DACA34001961EC /* ColorSliderAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSliderAlert.swift; sourceTree = "<group>"; };
 		DB53C76C21DE69620001054B /* EmozioneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmozioneButton.swift; sourceTree = "<group>"; };
 		DB53C76E21DE699B0001054B /* Emozione.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emozione.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				DB0D49EB21DFF13000887D3B /* SettingsUserCell.swift */,
 				DB53C7AC21E3D8380001054B /* CompagniaDomandaCell.swift */,
 				DB4F3BBD21F5CE220040F4C4 /* BasicCell.swift */,
+				DB4F3BC421F5FBC80040F4C4 /* SwitchCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -711,6 +714,7 @@
 				DBF3A2AE21DD7262008AE7D5 /* TeenStarListView.swift in Sources */,
 				DBAF3C40219CBF35003083EA /* IQBarButtonItem.swift in Sources */,
 				DB61DA1721B9C605006B308B /* SitoVC.swift in Sources */,
+				DB4F3BC521F5FBC80040F4C4 /* SwitchCell.swift in Sources */,
 				DBFE97F821D57C6F00E82803 /* Nota.swift in Sources */,
 				DBAF3C4B219CBF35003083EA /* IQUITextFieldView+Additions.swift in Sources */,
 				DB88DBEB21A975C100B0699B /* FadeTransition.swift in Sources */,
