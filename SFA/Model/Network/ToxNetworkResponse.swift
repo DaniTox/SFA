@@ -14,5 +14,5 @@ class ToxNetworkResponse : Codable {
     var errorCode : String?
     
     var user : User?
-    
+    var sites : [SitoCategoriaObject]?
 }

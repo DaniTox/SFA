@@ -42,6 +42,8 @@
 		DB61DA1721B9C605006B308B /* SitoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1621B9C605006B308B /* SitoVC.swift */; };
 		DB61DA1921B9C81E006B308B /* SocialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1821B9C81E006B308B /* SocialVC.swift */; };
 		DB61DA1B21B9C834006B308B /* SocialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1A21B9C834006B308B /* SocialView.swift */; };
+		DB67643421F631A200651AD8 /* SitiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67643321F631A200651AD8 /* SitiModel.swift */; };
+		DB67643821F634F700651AD8 /* AuthNetworkAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67643721F634F700651AD8 /* AuthNetworkAgent.swift */; };
 		DB7BEF8621D006A0007A550E /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF8421D006A0007A550E /* KeychainItemAccessibility.swift */; };
 		DB7BEF8721D006A0007A550E /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF8521D006A0007A550E /* KeychainWrapper.swift */; };
 		DB7BEF8921D01442007A550E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF8821D01442007A550E /* User.swift */; };
@@ -149,6 +151,8 @@
 		DB61DA1621B9C605006B308B /* SitoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitoVC.swift; sourceTree = "<group>"; };
 		DB61DA1821B9C81E006B308B /* SocialVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialVC.swift; sourceTree = "<group>"; };
 		DB61DA1A21B9C834006B308B /* SocialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialView.swift; sourceTree = "<group>"; };
+		DB67643321F631A200651AD8 /* SitiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitiModel.swift; sourceTree = "<group>"; };
+		DB67643721F634F700651AD8 /* AuthNetworkAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNetworkAgent.swift; sourceTree = "<group>"; };
 		DB7BEF8421D006A0007A550E /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
 		DB7BEF8521D006A0007A550E /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		DB7BEF8821D01442007A550E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -356,6 +360,24 @@
 			path = Frameworks;
 			sourceTree = "<group>";
 		};
+		DB67643521F634C800651AD8 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				DB7BEF8A21D01670007A550E /* NetworkAgent.swift */,
+				DB7BEF8E21D01920007A550E /* ToxNetworkResponse.swift */,
+				DB7BEF9021D02128007A550E /* ToxNetworkRequest.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		DB67643621F634E200651AD8 /* Login+Register */ = {
+			isa = PBXGroup;
+			children = (
+				DB67643721F634F700651AD8 /* AuthNetworkAgent.swift */,
+			);
+			path = "Login+Register";
+			sourceTree = "<group>";
+		};
 		DB7BEF8321D006A0007A550E /* Keychain */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,17 +402,17 @@
 		DB88DBF121AAF17200B0699B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DB67643621F634E200651AD8 /* Login+Register */,
+				DB67643521F634C800651AD8 /* Network */,
 				DBCE9ECE21EFB227005B286A /* Data Sources */,
 				DB61DA1221B5B9ED006B308B /* RegolaFetcherModel.swift */,
 				DB7BEF8821D01442007A550E /* User.swift */,
-				DB7BEF8A21D01670007A550E /* NetworkAgent.swift */,
 				DB7BEF8C21D0172E007A550E /* URLs.swift */,
-				DB7BEF8E21D01920007A550E /* ToxNetworkResponse.swift */,
-				DB7BEF9021D02128007A550E /* ToxNetworkRequest.swift */,
 				DBFE97F921D57CD500E82803 /* NoteModel.swift */,
 				DBF3A2AF21DD73D0008AE7D5 /* TeenStarModel.swift */,
 				DB53C76E21DE699B0001054B /* Emozione.swift */,
 				DB53C78521E0F7E40001054B /* CompagniaTestModel.swift */,
+				DB67643321F631A200651AD8 /* SitiModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -713,6 +735,7 @@
 				DB2C316321AC88E20009EC14 /* EditRispostaVC.swift in Sources */,
 				DB88DBF521AAF1EA00B0699B /* RegolaParserView.swift in Sources */,
 				DB53AB8C21DACA34001961EC /* ColorSliderAlert.swift in Sources */,
+				DB67643821F634F700651AD8 /* AuthNetworkAgent.swift in Sources */,
 				DB88DBFB21AB2C0D00B0699B /* DomandeView.swift in Sources */,
 				DB5751DE21DA719900F97D25 /* TextEditingBottomBar.swift in Sources */,
 				DBF3A2AE21DD7262008AE7D5 /* TeenStarListView.swift in Sources */,
@@ -781,6 +804,7 @@
 				DBFA256121DC3D83000785D0 /* TeenStarTable.swift in Sources */,
 				DBBBDC5021F5016D00C9F54A /* BouncyView.swift in Sources */,
 				DB88DBE121A9718000B0699B /* RegisterVC.swift in Sources */,
+				DB67643421F631A200651AD8 /* SitiModel.swift in Sources */,
 				DB325EDF21D422D7009ADEFC /* RegisterView.swift in Sources */,
 				DB88DBEA21A975C100B0699B /* TransitionSubmitButton.swift in Sources */,
 				DB5751E821DA808000F97D25 /* SizeSliderAlert.swift in Sources */,

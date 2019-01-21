@@ -15,7 +15,7 @@ class RegisterVC: UIViewController, HasCustomView {
         view = CustomView()
     }
     
-    let model = NetworkAgent()
+    let model = AuthNetworkAgent()
     var successCompletion: ((UIViewController) -> Void)?
     
     override func viewDidLoad() {
