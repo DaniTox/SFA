@@ -34,6 +34,7 @@ class HomeViewController : UIViewController, HasCustomView {
     @objc private func showNoteListController() {
         let noteListVC = NoteListVC()
         let nav = UINavigationController(rootViewController: noteListVC)
+        nav.navigationBar.prefersLargeTitles = true
         
         //let noteViewerVC = NoteVC(nota: nil)
         //let nav2 = UINavigationController(rootViewController: noteViewerVC)
