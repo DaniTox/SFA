@@ -92,16 +92,14 @@ class CompagniaTestModel {
     
     public func getCategorieFrom(verifica: CompagniaTest) -> [CompagniaCategoria] {
         //ottengo le categorie direttamente dall'oggetto invece che da una CoreData request
-        guard let categorieSet = verifica.categorie as? Set<CompagniaCategoria> else { return [] }
-        let array = Array(categorieSet).sorted(by: { ($0.name ?? "") > ($1.name ?? "") })
-        return array
+        guard let categorieArray = verifica.categorie?.array as? Array<CompagniaCategoria> else { return [] }
+        return categorieArray
     }
     
     public func getDomandaFrom(categoria: CompagniaCategoria) -> [CompagniaDomanda] {
         //ottengo le domande direttamente dall'oggetto invece che da una CoreData request
-        guard let domandeSet = categoria.domande as? Set<CompagniaDomanda> else { return [] }
-        let array = Array(domandeSet).sorted(by: { ($0.domanda ?? "") > ($1.domanda ?? "")})
-        return array
+        guard let domandeArray = categoria.domande?.array as? Array<CompagniaDomanda> else { return [] }
+        return domandeArray
     }
 }
 

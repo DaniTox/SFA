@@ -54,9 +54,10 @@ class VerificaCompagniaDataSource : NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        guard let categorie = self.verifica.categorie as? Set<CompagniaCategoria> else { return nil }
-        let categorieArray = Array(categorie)
-        return categorieArray[section].name
+        guard let categorie = self.verifica.categorie?.array as? Array<CompagniaCategoria> else {
+            return nil
+        }
+        return categorie[section].name
     }
     
 }

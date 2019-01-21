@@ -8,7 +8,7 @@
     </entity>
     <entity name="CompagniaCategoria" representedClassName=".CompagniaCategoria" syncable="YES" codeGenerationType="category">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="domande" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CompagniaDomanda" inverseName="parentCategoria" inverseEntity="CompagniaDomanda" syncable="YES"/>
+        <relationship name="domande" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CompagniaDomanda" inverseName="parentCategoria" inverseEntity="CompagniaDomanda" syncable="YES"/>
         <relationship name="parentVerifica" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CompagniaTest" inverseName="categorie" inverseEntity="CompagniaTest" syncable="YES"/>
     </entity>
     <entity name="CompagniaDomanda" representedClassName=".CompagniaDomanda" syncable="YES" codeGenerationType="category">
@@ -18,7 +18,7 @@
     </entity>
     <entity name="CompagniaTest" representedClassName=".CompagniaTest" syncable="YES" codeGenerationType="category">
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="-1" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="categorie" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CompagniaCategoria" inverseName="parentVerifica" inverseEntity="CompagniaCategoria" syncable="YES"/>
+        <relationship name="categorie" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CompagniaCategoria" inverseName="parentVerifica" inverseEntity="CompagniaCategoria" syncable="YES"/>
     </entity>
     <entity name="Domanda" representedClassName=".Domanda" syncable="YES" codeGenerationType="category">
         <attribute name="domanda" optional="YES" attributeType="String" syncable="YES"/>
