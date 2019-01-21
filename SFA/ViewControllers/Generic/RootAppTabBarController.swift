@@ -17,6 +17,15 @@ class RootAppController : UITabBarController {
         super.viewDidLoad()
         self.delegate = self
         fillController()
+        
+        NotificationCenter.default.addObserver(forName: .updateTheme, object: nil, queue: .main, using: { (notification) in
+            self.updateTheme()
+        })
+        updateTheme()
+    }
+    
+    private func updateTheme() {
+        self.tabBar.barStyle = (Theme.current is LightTheme) ? .default : .black
     }
     
     private func fillController() {
