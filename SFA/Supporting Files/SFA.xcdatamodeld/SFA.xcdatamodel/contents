@@ -39,6 +39,19 @@
         <attribute name="versione" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="categorie" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Categoria" inverseName="regola" inverseEntity="Categoria" syncable="YES"/>
     </entity>
+    <entity name="SitoWeb" representedClassName=".SitoWeb" syncable="YES" codeGenerationType="category">
+        <attribute name="descrizione" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idOrder" optional="YES" attributeType="Integer 16" defaultValueString="-1" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="URI" syncable="YES"/>
+        <relationship name="categoriaSito" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SitoWebCategoria" inverseName="sitiWeb" inverseEntity="SitoWebCategoria" syncable="YES"/>
+    </entity>
+    <entity name="SitoWebCategoria" representedClassName=".SitoWebCategoria" syncable="YES" codeGenerationType="category">
+        <attribute name="descrizione" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idOrder" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="sitiWeb" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SitoWeb" inverseName="categoriaSito" inverseEntity="SitoWeb" syncable="YES"/>
+    </entity>
     <entity name="TeenStarTable" representedClassName=".TeenStarTable" syncable="YES" codeGenerationType="category">
         <attribute name="ciclo" optional="YES" attributeType="Integer 16" defaultValueString="-1" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -52,12 +65,14 @@
     </entity>
     <elements>
         <element name="Categoria" positionX="-25.171875" positionY="0.49609375" width="128" height="105"/>
+        <element name="CompagniaCategoria" positionX="-111.2421875" positionY="211.37109375" width="128" height="90"/>
+        <element name="CompagniaDomanda" positionX="104.4921875" positionY="213.75390625" width="128" height="90"/>
+        <element name="CompagniaTest" positionX="-325.75390625" positionY="212.3671875" width="128" height="75"/>
         <element name="Domanda" positionX="166.1015625" positionY="-4.40625" width="128" height="105"/>
         <element name="Nota" positionX="-401.421875" positionY="21.7578125" width="128" height="105"/>
         <element name="Regola" positionX="-202.97265625" positionY="-12.03125" width="128" height="120"/>
         <element name="TeenStarTable" positionX="426.65625" positionY="14.48828125" width="128" height="180"/>
-        <element name="CompagniaTest" positionX="-325.75390625" positionY="212.3671875" width="128" height="75"/>
-        <element name="CompagniaCategoria" positionX="-111.2421875" positionY="211.37109375" width="128" height="90"/>
-        <element name="CompagniaDomanda" positionX="104.4921875" positionY="213.75390625" width="128" height="90"/>
+        <element name="SitoWeb" positionX="-383.5078125" positionY="366.57421875" width="128" height="120"/>
+        <element name="SitoWebCategoria" positionX="-193.44921875" positionY="373.30859375" width="128" height="105"/>
     </elements>
 </model>
