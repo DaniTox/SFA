@@ -21,7 +21,7 @@ class RootAppController : UITabBarController {
     
     private func fillController() {
         let vc = HomeViewController()
-        let nav1 = UINavigationController(rootViewController: vc)
+        let nav1 = ThemedNavigationController(rootViewController: vc)
         self.addChild(nav1)
         
         let vc2 = SitoVC()
@@ -37,8 +37,7 @@ class RootAppController : UITabBarController {
         
         let vc4 = SettingsVC()
         vc4.title = "Impostazioni"
-        let nav4 = UINavigationController(rootViewController: vc4)
-        nav4.navigationBar.prefersLargeTitles = true
+        let nav4 = ThemedNavigationController(rootViewController: vc4)
         self.addChild(nav4)
         
     }

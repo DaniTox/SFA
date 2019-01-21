@@ -19,6 +19,7 @@
 		DB325EE121D5033C009ADEFC /* RotationLogicNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */; };
 		DB4F3BBC21F5C34C0040F4C4 /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F3BBB21F5C34C0040F4C4 /* Themes.swift */; };
 		DB4F3BBE21F5CE220040F4C4 /* BasicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F3BBD21F5CE220040F4C4 /* BasicCell.swift */; };
+		DB4F3BC321F5F2D90040F4C4 /* ThemedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F3BC221F5F2D90040F4C4 /* ThemedNavigationController.swift */; };
 		DB53AB8C21DACA34001961EC /* ColorSliderAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53AB8B21DACA34001961EC /* ColorSliderAlert.swift */; };
 		DB53C76D21DE69620001054B /* EmozioneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C76C21DE69620001054B /* EmozioneButton.swift */; };
 		DB53C76F21DE699B0001054B /* Emozione.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C76E21DE699B0001054B /* Emozione.swift */; };
@@ -123,6 +124,7 @@
 		DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationLogicNavigationController.swift; sourceTree = "<group>"; };
 		DB4F3BBB21F5C34C0040F4C4 /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
 		DB4F3BBD21F5CE220040F4C4 /* BasicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicCell.swift; sourceTree = "<group>"; };
+		DB4F3BC221F5F2D90040F4C4 /* ThemedNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemedNavigationController.swift; sourceTree = "<group>"; };
 		DB53AB8B21DACA34001961EC /* ColorSliderAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSliderAlert.swift; sourceTree = "<group>"; };
 		DB53C76C21DE69620001054B /* EmozioneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmozioneButton.swift; sourceTree = "<group>"; };
 		DB53C76E21DE699B0001054B /* Emozione.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emozione.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 			children = (
 				DB88DBED21A97F4400B0699B /* RootAppTabBarController.swift */,
 				DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */,
+				DB4F3BC221F5F2D90040F4C4 /* ThemedNavigationController.swift */,
 			);
 			path = Generic;
 			sourceTree = "<group>";
@@ -754,6 +757,7 @@
 				DB4F3BBE21F5CE220040F4C4 /* BasicCell.swift in Sources */,
 				DB61DA1B21B9C834006B308B /* SocialView.swift in Sources */,
 				DB61DA1521B9BA81006B308B /* SitoView.swift in Sources */,
+				DB4F3BC321F5F2D90040F4C4 /* ThemedNavigationController.swift in Sources */,
 				DB61DA1921B9C81E006B308B /* SocialVC.swift in Sources */,
 				DBFE97FA21D57CD500E82803 /* NoteModel.swift in Sources */,
 				DB7BEF8F21D01920007A550E /* ToxNetworkResponse.swift in Sources */,

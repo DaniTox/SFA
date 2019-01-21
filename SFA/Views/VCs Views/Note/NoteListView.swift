@@ -25,6 +25,7 @@ class NoteListView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = Theme.current.controllerBackground
         addSubview(tableView)
     }
     

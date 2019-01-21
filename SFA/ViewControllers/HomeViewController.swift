@@ -33,7 +33,7 @@ class HomeViewController : UIViewController, HasCustomView {
     // - TODO: Mettere un Button per dismissare lo splitViewController
     @objc private func showNoteListController() {
         let noteListVC = NoteListVC()
-        let nav = UINavigationController(rootViewController: noteListVC)
+        let nav = ThemedNavigationController(rootViewController: noteListVC)
         nav.navigationBar.prefersLargeTitles = true
         
         //let noteViewerVC = NoteVC(nota: nil)
@@ -41,7 +41,7 @@ class HomeViewController : UIViewController, HasCustomView {
         
         let vc2 = UIViewController()
         vc2.view.backgroundColor = .white
-        let nav2 = UINavigationController(rootViewController: vc2)
+        let nav2 = ThemedNavigationController(rootViewController: vc2)
         
         let splitViewController = UISplitViewController()
         splitViewController.delegate = self
@@ -139,7 +139,7 @@ class HomeView : UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.white
+        backgroundColor = Theme.current.controllerBackground
         stackView.addArrangedSubview(regolaButton)
         stackView.addArrangedSubview(noteButton)
         stackView.addArrangedSubview(teenStarButton)
