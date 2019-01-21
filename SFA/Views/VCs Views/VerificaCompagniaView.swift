@@ -18,6 +18,10 @@ class VerificaCompagniaView: UIView {
         table.estimatedRowHeight = 250
         table.separatorStyle = .none
         table.rowHeight = UITableView.automaticDimension
+        
+        var frame = CGRect.zero
+        frame.size.height = .leastNormalMagnitude
+        table.tableHeaderView = UIView(frame: frame)
         return table
     }()
 

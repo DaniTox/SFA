@@ -39,7 +39,7 @@ class LightTheme: ThemeProtocol {
 }
 
 class DarkTheme : ThemeProtocol {
-    var tableViewBackground: UIColor = UIColor.black.lighter(by: 15)!
+    var tableViewBackground: UIColor = UIColor.black.lighter(by: 17)!
     var controllerBackground: UIColor = UIColor.black.lighter(by: 15)!
     var backgroundColor: UIColor = UIColor.black.lighter(by: 5)!
     var shadowColor: UIColor = UIColor.darkGray.darker()!
