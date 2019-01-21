@@ -24,6 +24,7 @@ class SettingsVC: UIViewController, HasCustomView {
         })
         rootView.tableView.register(SettingsUserCell.self, forCellReuseIdentifier: "UserCell")
         rootView.tableView.register(BasicCell.self, forCellReuseIdentifier: "cell")
+        rootView.tableView.register(BoldCell.self, forCellReuseIdentifier: "boldCell")
         rootView.tableView.register(SwitchCell.self, forCellReuseIdentifier: "switchCell")
         rootView.tableView.delegate = self
         rootView.tableView.dataSource = self
@@ -73,9 +74,9 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 100
+            return 120
         case 1:
-            return 50
+            return 90
         default:
             fatalError()
         }
@@ -90,13 +91,13 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
         case 1:
             switch indexPath.row {
             case 0:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! BasicCell
-                cell.textLabel?.text = "Notifiche"
+                let cell = tableView.dequeueReusableCell(withIdentifier: "boldCell") as! BoldCell
+                cell.mainLabel.text = "Notifiche"
                 cell.accessoryType = .disclosureIndicator
                 return cell
             case 1:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! BasicCell
-                cell.textLabel?.text = "I nostri Social"
+                let cell = tableView.dequeueReusableCell(withIdentifier: "boldCell") as! BoldCell
+                cell.mainLabel.text = "I nostri Social"
                 cell.accessoryType = .disclosureIndicator
                 return cell
             case 2:

@@ -13,9 +13,9 @@ enum UserState {
     case empty
 }
 
-class SettingsUserCell: BasicCell {
+class SettingsUserCell: BoldCell {
 
-    var mainLabel : UILabel = {
+    var mainTitleLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.callout)
@@ -45,13 +45,13 @@ class SettingsUserCell: BasicCell {
             guard let state = userState else { return }
             if state == .loggedIn && userLogged != nil {
                 DispatchQueue.main.async {
-                    self.mainLabel.text = "\(userLogged!.name) \(userLogged!.cognome)"
+                    self.mainTitleLabel.text = "\(userLogged!.name) \(userLogged!.cognome)"
                     self.descriptionLabel.text = "\(userLogged!.email)"
                 }
             } else {
                 DispatchQueue.main.async {
-                    self.mainLabel.text = "Accedi o Registrati"
-                    self.mainLabel.font = UIFont.boldSystemFont(ofSize: 25)
+                    self.mainTitleLabel.text = "Accedi o Registrati"
+                    self.mainTitleLabel.font = UIFont.boldSystemFont(ofSize: 25)
                     self.descriptionLabel.text = "Esegui l'accesso per salvare i tuoi dati"
                     self.accessoryType = .disclosureIndicator
                 }
@@ -61,9 +61,9 @@ class SettingsUserCell: BasicCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        labelsStack.addArrangedSubview(mainLabel)
+        labelsStack.addArrangedSubview(mainTitleLabel)
         labelsStack.addArrangedSubview(descriptionLabel)
-        addSubview(labelsStack)
+        containerView.addSubview(labelsStack)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -72,9 +72,9 @@ class SettingsUserCell: BasicCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        labelsStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
-        labelsStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
-        labelsStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        labelsStack.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.75).isActive = true
+        labelsStack.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
+        labelsStack.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
+        labelsStack.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+        labelsStack.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.75).isActive = true
     }
 }

@@ -15,8 +15,8 @@ class SettingsView: UIView {
         table.translatesAutoresizingMaskIntoConstraints = false
         table.tableFooterView = UIView()
         table.backgroundColor = Theme.current.tableViewBackground
-        table.isScrollEnabled = false
-        
+//        table.isScrollEnabled = false
+        table.separatorStyle = .none
         var frame = CGRect.zero
         frame.size.height = .leastNormalMagnitude
         table.tableHeaderView = UIView(frame: frame)
