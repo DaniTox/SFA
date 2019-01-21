@@ -15,6 +15,12 @@ class RegoleCategorieView : UIView {
         table.translatesAutoresizingMaskIntoConstraints = false
         table.backgroundColor = Theme.current.tableViewBackground
         table.tableFooterView = UIView()
+        table.separatorStyle = .none
+        
+        var frame = CGRect.zero
+        frame.size.height = 10
+        table.tableHeaderView = UIView(frame: frame)
+        
         return table
     }()
     

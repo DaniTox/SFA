@@ -13,6 +13,7 @@ class VerificaCompagniaView: UIView {
     var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.translatesAutoresizingMaskIntoConstraints = false
+        table.backgroundColor = Theme.current.tableViewBackground
         table.tableFooterView = UIView()
         table.estimatedRowHeight = 250
         table.separatorStyle = .none

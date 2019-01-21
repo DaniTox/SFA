@@ -22,12 +22,18 @@ class RegolaCategorieVC: UIViewController, HasCustomView {
     var categorie : [Categoria] = []
     let regolaFetcherModel = RegolaFetcherModel.shared
     
+    var observer : NSObjectProtocol!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         regolaFetcherModel.persistentContainer = persistentContainer
         
+        observer = NotificationCenter.default.addObserver(forName: .updateTheme, object: nil, queue: .main, using: { (notification) in
+            self.updateTheme()
+        })
+        
         title = "Categorie"
-        tableView.register(BasicCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(BoldCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self
         tableView.dataSource = self
         rootView.refreshControl.addTarget(self, action: #selector(tablePulled), for: .valueChanged)
@@ -37,6 +43,11 @@ class RegolaCategorieVC: UIViewController, HasCustomView {
             let cats = categorie.sorted(by: { $0.id < $1.id })
             self.categorie = cats
         }
+    }
+    
+    private func updateTheme() {
+        tableView.backgroundColor = Theme.current.tableViewBackground
+        tableView.reloadData()
     }
     
     @objc private func tablePulled() {
@@ -51,8 +62,8 @@ extension RegolaCategorieVC : UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-        cell.textLabel?.text = self.categorie[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! BoldCell
+        cell.mainLabel.text = self.categorie[indexPath.row].name
         cell.accessoryType = .disclosureIndicator
         return cell
     }
@@ -71,7 +82,7 @@ extension RegolaCategorieVC : UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 100
     }
 
 }

@@ -24,7 +24,7 @@ class CompagniaDomandaCell: UITableViewCell {
     public lazy var mainLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .white
+        label.textColor = Theme.current.textColor
         label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.7
@@ -45,7 +45,7 @@ class CompagniaDomandaCell: UITableViewCell {
     private lazy var sliderLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .white
+        label.textColor = Theme.current.textColor
         label.text = "0"
         label.font = UIFont.preferredFont(forTextStyle: .body).withSize(20)
         label.textAlignment = .center
@@ -67,14 +67,13 @@ class CompagniaDomandaCell: UITableViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.masksToBounds = false
         view.layer.cornerRadius = 10
-        view.backgroundColor = .black
+        view.backgroundColor = Theme.current.backgroundColor
         
-//        view.layer.shadowColor = UIColor.black.lighter()?.cgColor
-//        view.layer.shadowOpacity = 1
-//        view.layer.shadowOffset = CGSize.zero
-//        view.layer.shadowRadius = 10
-//        view.layer.shadowPath = UIBezierPath(rect: view.bounds).cgPath
-//        yourView.layer.shouldRasterize = true
+        view.layer.shadowColor = Theme.current.shadowColor.cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        view.layer.shadowOpacity = 1.0
+        view.layer.shadowRadius = 10
+        view.layer.masksToBounds = false
         return view
     }()
     
