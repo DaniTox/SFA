@@ -14,7 +14,7 @@ class NoteCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.textColor = .white
+        label.textColor = .black
         return label
     }()
     
@@ -24,16 +24,23 @@ class NoteCell: UITableViewCell {
         label.textAlignment = NSTextAlignment.right
         label.font = UIFont.preferredFont(forTextStyle: .body).withSize(14)
         label.lineBreakMode = NSLineBreakMode.byWordWrapping
-        label.textColor = .white
+        label.textColor = .black
         return label
     }()
     
     lazy var containerView : BouncyView = {
         let view = BouncyView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.masksToBounds = true
+//        view.layer.masksToBounds = true
         view.layer.cornerRadius = 10
-        view.backgroundColor = UIColor.black.lighter(by: 10)
+//        view.backgroundColor = UIColor.black.lighter(by: 10)
+        view.backgroundColor = UIColor.lightGray.lighter()
+        
+        view.layer.shadowColor = UIColor.gray.cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        view.layer.shadowOpacity = 1.0
+        view.layer.shadowRadius = 10
+        view.layer.masksToBounds = false
         return view
     }()
     

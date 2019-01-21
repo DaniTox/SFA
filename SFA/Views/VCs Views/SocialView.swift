@@ -17,8 +17,14 @@ class SocialView: UIView {
         b.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         b.translatesAutoresizingMaskIntoConstraints = false
         
-        b.layer.masksToBounds = true
+//        b.layer.masksToBounds = true
         b.layer.cornerRadius = 10
+        
+        b.layer.shadowColor = UIColor.black.cgColor
+        b.layer.shadowOffset = CGSize(width: 0, height: 0)
+        b.layer.shadowOpacity = 1.0
+        b.layer.shadowRadius = 10
+        b.layer.masksToBounds = false
         return b
     }()
     
@@ -29,8 +35,14 @@ class SocialView: UIView {
         b.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         b.setTitle("Facebook", for: .normal)
         
-        b.layer.masksToBounds = true
+//        b.layer.masksToBounds = true
         b.layer.cornerRadius = 10
+        
+        b.layer.shadowColor = UIColor.black.cgColor
+        b.layer.shadowOffset = CGSize(width: 0, height: 0)
+        b.layer.shadowOpacity = 1.0
+        b.layer.shadowRadius = 10
+        b.layer.masksToBounds = false
         return b
     }()
     
@@ -41,8 +53,14 @@ class SocialView: UIView {
         b.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         b.setTitle("YouTube", for: .normal)
         
-        b.layer.masksToBounds = true
+//        b.layer.masksToBounds = true
         b.layer.cornerRadius = 10
+        
+        b.layer.shadowColor = UIColor.black.cgColor
+        b.layer.shadowOffset = CGSize(width: 0, height: 0)
+        b.layer.shadowOpacity = 1.0
+        b.layer.shadowRadius = 10
+        b.layer.masksToBounds = false
         return b
     }()
     
@@ -58,7 +76,8 @@ class SocialView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.black.lighter(by: 10)
+        backgroundColor = .white
+//        backgroundColor = UIColor.black.lighter(by: 10)
         stackView.addArrangedSubview(facebookButton)
         stackView.addArrangedSubview(instagranmButton)
         stackView.addArrangedSubview(youtubeButton)

@@ -62,12 +62,19 @@ class CompagniaDomandaCell: UITableViewCell {
         return stack
     }()
     
-    private var containerView : UIView = {
-        let view = UIView()
+    private var containerView : BouncyView = {
+        let view = BouncyView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.masksToBounds = true
+        view.layer.masksToBounds = false
         view.layer.cornerRadius = 10
         view.backgroundColor = .black
+        
+//        view.layer.shadowColor = UIColor.black.lighter()?.cgColor
+//        view.layer.shadowOpacity = 1
+//        view.layer.shadowOffset = CGSize.zero
+//        view.layer.shadowRadius = 10
+//        view.layer.shadowPath = UIBezierPath(rect: view.bounds).cgPath
+//        yourView.layer.shouldRasterize = true
         return view
     }()
     

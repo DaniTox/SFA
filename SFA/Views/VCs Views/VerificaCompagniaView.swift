@@ -15,6 +15,7 @@ class VerificaCompagniaView: UIView {
         table.translatesAutoresizingMaskIntoConstraints = false
         table.tableFooterView = UIView()
         table.estimatedRowHeight = 250
+        table.separatorStyle = .none
         table.rowHeight = UITableView.automaticDimension
         return table
     }()

@@ -111,7 +111,6 @@ extension NoteListVC : UITableViewDelegate, UITableViewDataSource {
         let stringValue : String? = attributedBody?.string
         let count = stringValue?.wordsCount ?? 0
         cell.noteWordCountLabel.text = "\(count) parole"
-        
         cell.noteTitleLabel.text = note.title
         return cell
     }
