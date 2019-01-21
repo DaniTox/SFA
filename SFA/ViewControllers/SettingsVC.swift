@@ -19,7 +19,8 @@ class SettingsVC: UIViewController, HasCustomView {
         super.viewDidLoad()
         
         rootView.tableView.register(SettingsUserCell.self, forCellReuseIdentifier: "UserCell")
-        rootView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        rootView.tableView.register(BasicCell.self, forCellReuseIdentifier: "cell")
+        rootView.tableView.register(SwitchCell.self, forCellReuseIdentifier: "switchCell")
         rootView.tableView.delegate = self
         rootView.tableView.dataSource = self
     }
@@ -29,6 +30,9 @@ class SettingsVC: UIViewController, HasCustomView {
         rootView.tableView.reloadData()
     }
     
+    @objc private func themeSwitchChanged(_ sender: UISwitch) {
+        Theme.current = (sender.isOn) ? DarkTheme() : LightTheme()
+    }
 }
 
 extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
@@ -47,7 +51,7 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
         case 0:
             return 1
         case 1:
-            return 2
+            return 3
         default:
             fatalError()
         }
@@ -73,15 +77,21 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
         case 1:
             switch indexPath.row {
             case 0:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-                cell?.textLabel?.text = "Notifiche"
-                cell?.accessoryType = .disclosureIndicator
-                return cell!
+                let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! BasicCell
+                cell.textLabel?.text = "Notifiche"
+                cell.accessoryType = .disclosureIndicator
+                return cell
             case 1:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-                cell?.textLabel?.text = "I nostri Social"
-                cell?.accessoryType = .disclosureIndicator
-                return cell!
+                let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! BasicCell
+                cell.textLabel?.text = "I nostri Social"
+                cell.accessoryType = .disclosureIndicator
+                return cell
+            case 2:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "switchCell") as! SwitchCell
+                cell.cellSwitch.isOn = (Theme.current is DarkTheme) ? true : false
+                cell.cellSwitch.addTarget(self, action: #selector(themeSwitchChanged(_:)), for: .valueChanged)
+                cell.textLabel?.text = "Tema scuro"
+                return cell
             default:
                 fatalError()
             }

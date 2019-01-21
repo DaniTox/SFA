@@ -14,7 +14,7 @@ class NoteCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.textColor = .black
+        label.textColor = Theme.current.textColor
         return label
     }()
     
@@ -24,7 +24,7 @@ class NoteCell: UITableViewCell {
         label.textAlignment = NSTextAlignment.right
         label.font = UIFont.preferredFont(forTextStyle: .body).withSize(14)
         label.lineBreakMode = NSLineBreakMode.byWordWrapping
-        label.textColor = .black
+        label.textColor = Theme.current.textColor
         return label
     }()
     
@@ -34,9 +34,9 @@ class NoteCell: UITableViewCell {
 //        view.layer.masksToBounds = true
         view.layer.cornerRadius = 10
 //        view.backgroundColor = UIColor.black.lighter(by: 10)
-        view.backgroundColor = UIColor.lightGray.lighter()
+        view.backgroundColor = Theme.current.backgroundColor
         
-        view.layer.shadowColor = UIColor.gray.cgColor
+        view.layer.shadowColor = Theme.current.shadowColor.cgColor
         view.layer.shadowOffset = CGSize(width: 0, height: 0)
         view.layer.shadowOpacity = 1.0
         view.layer.shadowRadius = 10

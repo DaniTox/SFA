@@ -13,6 +13,11 @@ extension UIDevice {
         return UIDevice.current.userInterfaceIdiom
     }
 }
+
+extension Notification.Name {
+    static let updateTheme = Notification.Name("UPDATE_THEME")
+}
+
 extension String {
     var firstLine : String {
         if let line1 = self.components(separatedBy: .newlines).first {

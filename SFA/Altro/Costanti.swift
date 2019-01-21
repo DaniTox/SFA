@@ -10,6 +10,7 @@ import Foundation
 
 let IS_FIRST_LAUNCH = "is_first_launch"
 let NOTIFICHE_DA_RICEVERE = "notifiche_da_ricevere"
+let THEME_KEY = "theme"
 
 var isAlreadyLaunched : Bool {
     get {
@@ -116,3 +117,11 @@ let COLORS_DESCRIPTIONS : [CicloColor : String] = [
     .bianco : "Giorni di muco cervicale trasparente, elastico, vulva bagnata o sensazione di umidità",
     .croce : "Giorno in cui è avvenuta la mestruazione"
 ]
+
+var theme : String {
+    get {
+        return UserDefaults.standard.string(forKey: THEME_KEY) ?? "light"
+    } set {
+        UserDefaults.standard.set(newValue, forKey: THEME_KEY)
+    }
+}
