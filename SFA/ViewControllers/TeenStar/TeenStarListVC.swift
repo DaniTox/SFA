@@ -18,9 +18,14 @@ class TeenStarListVC: UIViewController, HasCustomView {
     var model : TeenStarModel!
     var entries : [TeenStarTable] = []
     
+    var themeObserver : NSObjectProtocol!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Storico"
+        themeObserver = NotificationCenter.default.addObserver(forName: .updateTheme, object: nil, queue: .main, using: { (notification) in
+            UIView.animate(withDuration: 0.3, animations: { self.updateTheme() })
+        })
         
         let persistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
         model = TeenStarModel(container: persistentContainer)
@@ -39,9 +44,18 @@ class TeenStarListVC: UIViewController, HasCustomView {
         navigationItem.setRightBarButton(rightButton, animated: true)
     }
 
+    deinit {
+        NotificationCenter.default.removeObserver(themeObserver)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchEntries()
+    }
+    
+    private func updateTheme() {
+        rootView.tableView.backgroundColor = Theme.current.tableViewBackground
+        rootView.tableView.reloadData()
     }
     
     @objc private func tableViewWasPulled() {

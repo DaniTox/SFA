@@ -71,6 +71,14 @@ class BoldCell: UITableViewCell {
         rightBottomLabel.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.4).isActive = true
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        mainLabel.textColor = Theme.current.textColor
+        rightBottomLabel.textColor = Theme.current.textColor
+        containerView.backgroundColor = Theme.current.backgroundColor
+        containerView.layer.shadowColor = Theme.current.shadowColor.cgColor
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
