@@ -12,6 +12,8 @@ protocol ThemeProtocol {
     var backgroundColor: UIColor { get }
     var shadowColor : UIColor { get }
     var textColor : UIColor { get }
+    var controllerBackground : UIColor { get }
+    var tableViewBackground: UIColor { get }
 }
 
 class Theme {
@@ -25,12 +27,16 @@ class Theme {
 
 
 class LightTheme: ThemeProtocol {
+    var controllerBackground: UIColor = UIColor.white
+    var tableViewBackground: UIColor = UIColor.lightGray.lighter(by: 10)!
     var backgroundColor: UIColor = UIColor.lightGray.lighter()!
     var shadowColor: UIColor = UIColor.gray
     var textColor : UIColor = UIColor.black
 }
 
 class DarkTheme : ThemeProtocol {
+    var tableViewBackground: UIColor = UIColor.black.lighter(by: 15)!
+    var controllerBackground: UIColor = UIColor.black.lighter(by: 15)!
     var backgroundColor: UIColor = UIColor.black.lighter(by: 5)!
     var shadowColor: UIColor = UIColor.darkGray.darker()!
     var textColor: UIColor = UIColor.white
