@@ -24,7 +24,7 @@ class DomandeVC: UIViewController, HasCustomView {
         tableView.tableHeaderView = UIView(frame: .init(x: 0, y: 0, width: 0, height: 1))
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(BasicCell.self, forCellReuseIdentifier: "cell")
         rootView.refreshControl.addTarget(self, action: #selector(tablePulled), for: .valueChanged)
         
         getDomande()
@@ -64,12 +64,10 @@ extension DomandeVC : UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 0 {
             cell.textLabel?.text = domande[indexPath.section].domanda
             cell.selectionStyle = .none
-            cell.textLabel?.textColor = UIColor.black
         } else {
             cell.textLabel?.text = domande[indexPath.section].risposta ?? "Nessuna"
             cell.selectionStyle = .default
             cell.accessoryType = .disclosureIndicator
-            cell.textLabel?.textColor = UIColor.lightGray
         }
         return cell
     }

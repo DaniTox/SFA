@@ -13,6 +13,7 @@ class RegolaParserView : UIView {
     lazy var tableView : UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
+        table.backgroundColor = Theme.current.tableViewBackground
         return table
     }()
     

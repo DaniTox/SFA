@@ -13,6 +13,8 @@ class RegoleCategorieView : UIView {
     lazy var tableView : UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
+        table.backgroundColor = Theme.current.tableViewBackground
+        table.tableFooterView = UIView()
         return table
     }()
     

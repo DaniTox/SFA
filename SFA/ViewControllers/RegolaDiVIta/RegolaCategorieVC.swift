@@ -27,7 +27,7 @@ class RegolaCategorieVC: UIViewController, HasCustomView {
         regolaFetcherModel.persistentContainer = persistentContainer
         
         title = "Categorie"
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(BasicCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self
         tableView.dataSource = self
         rootView.refreshControl.addTarget(self, action: #selector(tablePulled), for: .valueChanged)

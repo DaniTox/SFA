@@ -14,6 +14,7 @@ class DomandeView: UIView {
         let table = UITableView(frame: .zero, style: .grouped)
         table.tableFooterView = UIView()
         table.translatesAutoresizingMaskIntoConstraints = false
+        table.backgroundColor = Theme.current.tableViewBackground
         return table
     }()
 
