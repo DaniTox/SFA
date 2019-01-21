@@ -31,7 +31,7 @@
 		DB53C78621E0F7E40001054B /* CompagniaTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C78521E0F7E40001054B /* CompagniaTestModel.swift */; };
 		DB53C7AB21E103C90001054B /* compagnie.json in Resources */ = {isa = PBXBuildFile; fileRef = DB53C7AA21E103C90001054B /* compagnie.json */; };
 		DB53C7AD21E3D8380001054B /* CompagniaDomandaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C7AC21E3D8380001054B /* CompagniaDomandaCell.swift */; };
-		DB5751DC21DA651C00F97D25 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5751DB21DA651C00F97D25 /* NoteCell.swift */; };
+		DB5751DC21DA651C00F97D25 /* BoldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5751DB21DA651C00F97D25 /* BoldCell.swift */; };
 		DB5751DE21DA719900F97D25 /* TextEditingBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5751DD21DA719900F97D25 /* TextEditingBottomBar.swift */; };
 		DB5751E821DA808000F97D25 /* SizeSliderAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5751E721DA808000F97D25 /* SizeSliderAlert.swift */; };
 		DB61DA1321B5B9ED006B308B /* RegolaFetcherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1221B5B9ED006B308B /* RegolaFetcherModel.swift */; };
@@ -135,7 +135,7 @@
 		DB53C78521E0F7E40001054B /* CompagniaTestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompagniaTestModel.swift; sourceTree = "<group>"; };
 		DB53C7AA21E103C90001054B /* compagnie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = compagnie.json; sourceTree = "<group>"; };
 		DB53C7AC21E3D8380001054B /* CompagniaDomandaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompagniaDomandaCell.swift; sourceTree = "<group>"; };
-		DB5751DB21DA651C00F97D25 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
+		DB5751DB21DA651C00F97D25 /* BoldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldCell.swift; sourceTree = "<group>"; };
 		DB5751DD21DA719900F97D25 /* TextEditingBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditingBottomBar.swift; sourceTree = "<group>"; };
 		DB5751E721DA808000F97D25 /* SizeSliderAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeSliderAlert.swift; sourceTree = "<group>"; };
 		DB61DA1221B5B9ED006B308B /* RegolaFetcherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegolaFetcherModel.swift; sourceTree = "<group>"; };
@@ -241,7 +241,7 @@
 		DB53C77221DEB7870001054B /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				DB5751DB21DA651C00F97D25 /* NoteCell.swift */,
+				DB5751DB21DA651C00F97D25 /* BoldCell.swift */,
 				DB53C77021DE75E70001054B /* EmozioneTableViewCell.swift */,
 				DB53C77621DEB9E10001054B /* CicloTableViewCell.swift */,
 				DB53C77821DEC57E0001054B /* CicloColorCollectionCell.swift */,
@@ -728,7 +728,7 @@
 				DBAF3C47219CBF35003083EA /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				DB22DA9121C03A9200E6497D /* NoteVC.swift in Sources */,
 				DB88DBE821A975C100B0699B /* SpinerLayer.swift in Sources */,
-				DB5751DC21DA651C00F97D25 /* NoteCell.swift in Sources */,
+				DB5751DC21DA651C00F97D25 /* BoldCell.swift in Sources */,
 				DBF3A2B221DD81D1008AE7D5 /* TeenStarEditEntryVC.swift in Sources */,
 				DB88DBE921A975C100B0699B /* CGRectEx.swift in Sources */,
 				DB88DBF321AAF19300B0699B /* RegolaObjects.swift in Sources */,

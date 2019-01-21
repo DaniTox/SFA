@@ -32,7 +32,7 @@ class NoteListVC: UIViewController, HasCustomView {
         
         rootView.tableView.delegate = self
         rootView.tableView.dataSource = self
-        rootView.tableView.register(NoteCell.self, forCellReuseIdentifier: "cell")
+        rootView.tableView.register(BoldCell.self, forCellReuseIdentifier: "cell")
         
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed))
         navigationItem.setRightBarButton(addButton, animated: true)
@@ -102,7 +102,7 @@ extension NoteListVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? NoteCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? BoldCell else {
             return UITableViewCell()
         }
         let date = notesDates[indexPath.section]
@@ -110,8 +110,8 @@ extension NoteListVC : UITableViewDelegate, UITableViewDataSource {
         let attributedBody : NSAttributedString? = note.body as? NSAttributedString
         let stringValue : String? = attributedBody?.string
         let count = stringValue?.wordsCount ?? 0
-        cell.noteWordCountLabel.text = "\(count) parole"
-        cell.noteTitleLabel.text = note.title
+        cell.rightBottomLabel.text = "\(count) parole"
+        cell.mainLabel.text = note.title
         return cell
     }
     

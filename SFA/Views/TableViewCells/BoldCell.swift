@@ -8,9 +8,9 @@
 
 import UIKit
 
-class NoteCell: UITableViewCell {
+class BoldCell: UITableViewCell {
 
-    lazy var noteTitleLabel : UILabel = {
+    lazy var mainLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 20)
@@ -18,7 +18,7 @@ class NoteCell: UITableViewCell {
         return label
     }()
     
-    lazy var noteWordCountLabel : UILabel = {
+    lazy var rightBottomLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = NSTextAlignment.right
@@ -48,8 +48,8 @@ class NoteCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .clear
         selectionStyle = .none
-        containerView.addSubview(noteTitleLabel)
-        containerView.addSubview(noteWordCountLabel)
+        containerView.addSubview(mainLabel)
+        containerView.addSubview(rightBottomLabel)
         addSubview(containerView)
     }
     
@@ -60,15 +60,15 @@ class NoteCell: UITableViewCell {
         containerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
         containerView.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
         
-        noteTitleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
-        noteTitleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
-        noteTitleLabel.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
-        noteTitleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
+        mainLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
+        mainLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
+        mainLabel.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
+        mainLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
         
-        noteWordCountLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
-        noteWordCountLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 0).isActive = true
-        noteWordCountLabel.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.4).isActive = true
-        noteWordCountLabel.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.4).isActive = true
+        rightBottomLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
+        rightBottomLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 0).isActive = true
+        rightBottomLabel.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.4).isActive = true
+        rightBottomLabel.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.4).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -31,7 +31,7 @@ class TeenStarListVC: UIViewController, HasCustomView {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(tableViewWasPulled), for: .valueChanged)
         rootView.tableView.refreshControl = refreshControl
-        rootView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        rootView.tableView.register(BoldCell.self, forCellReuseIdentifier: "cell")
         rootView.tableView.delegate = self
         rootView.tableView.dataSource = self
         
@@ -75,11 +75,11 @@ extension TeenStarListVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! BoldCell
         let entry = entries[indexPath.row]
-        cell?.accessoryType = .disclosureIndicator
-        cell?.textLabel?.text = "\(Date().dayOfWeek()) - \(entry.date?.stringValue ?? "NULL")"
-        return cell!
+//        cell?.accessoryType = .disclosureIndicator
+        cell.mainLabel.text = "\(Date().dayOfWeek()) - \(entry.date?.stringValue ?? "NULL")"
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -90,7 +90,7 @@ extension TeenStarListVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 75
+        return 90
     }
     
 }
