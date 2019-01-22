@@ -37,14 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             homeVC.present(vc, animated: true)
         }
         
-        
-        let sitesModel = SitiAgent(container: persistentContainer)
-        sitesModel.loadSites { (sites) in
-            for site in sites {
-                print("\(site.name) --> \(site.sitiWeb?.count)")
-            }
-        }
-        
+                
         
         RegolaFetcherModel.shared.persistentContainer = persistentContainer
         RegolaFetcherModel.shared.createIfNotPresent()
