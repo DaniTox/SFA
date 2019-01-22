@@ -12,10 +12,31 @@ import CoreData
 class SitiAgent : SitiNetworkAgent {
     private var persistentContainer : NSPersistentContainer!
     
+    var sitesCategories : [SitoWebCategoria] = []
+    
     init(container: NSPersistentContainer) {
         super.init()
         self.persistentContainer = container
+        
+        //updateSites()
     }
+    
+    public func fetchLocalWebsites() -> [SitoWebCategoria]  {
+        let context = persistentContainer.viewContext
+        let request : NSFetchRequest<SitoWebCategoria> = SitoWebCategoria.fetchRequest()
+        
+        if let categories = try? context.fetch(request) {
+            sitesCategories = categories
+            return categories
+        }
+        return []
+    }
+    
+//    public func updateSites() {
+//        loadSites { (categories) in
+//            self.sitesCategories = categories
+//        }
+//    }
     
     public func loadSites(completion: (([SitoWebCategoria]) -> Void)? = nil) {
         self.getWebsites { (sites) in
@@ -25,6 +46,7 @@ class SitiAgent : SitiNetworkAgent {
     }
     
     private func createCoreDataObjects(_ objects: [SitoCategoriaObject]) -> [SitoWebCategoria] {
+        self.removeAllLocalSites()
         let context = persistentContainer.viewContext
         var siti : [SitoWebCategoria] = []
         
@@ -48,4 +70,13 @@ class SitiAgent : SitiNetworkAgent {
         return siti
     }
     
+    
+    private func removeAllLocalSites() {
+        let context = persistentContainer.viewContext
+        let request : NSFetchRequest<SitoWebCategoria> = SitoWebCategoria.fetchRequest()
+        if let sites = try? context.fetch(request) {
+            sites.forEach( { context.delete($0) } )
+        }
+        try? context.save()
+    }
 }

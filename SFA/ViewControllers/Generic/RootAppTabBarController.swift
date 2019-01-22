@@ -33,7 +33,8 @@ class RootAppController : UITabBarController {
         let nav1 = ThemedNavigationController(rootViewController: vc)
         self.addChild(nav1)
         
-        let vc2 = SitoVC()
+//        let vc2 = SitoVC()
+        let vc2 = SitiListVC()
         vc2.title = "Siti Web"
         self.addChild(vc2)
         
@@ -51,25 +52,25 @@ class RootAppController : UITabBarController {
         
     }
     
-    private func presentSitoVC() {
-        let url = URL(string: "https://sites.google.com/salesiani.it/giopro/")!
-        let sitoVC = SFSafariViewController(url: url)
-        sitoVC.title = "Sito"
-        sitoVC.dismissButtonStyle = .close
-        DispatchQueue.main.async {
-            self.present(sitoVC, animated: true, completion: nil)
-        }
-    }
+//    private func presentSitoVC() {
+//        let url = URL(string: "https://sites.google.com/salesiani.it/giopro/")!
+//        let sitoVC = SFSafariViewController(url: url)
+//        sitoVC.title = "Sito"
+//        sitoVC.dismissButtonStyle = .close
+//        DispatchQueue.main.async {
+//            self.present(sitoVC, animated: true, completion: nil)
+//        }
+//    }
     
 }
 
 extension RootAppController : UITabBarControllerDelegate {
     
-    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        if viewController is SitoVC {
-            self.presentSitoVC()
-            return false
-        }
-        return true
-    }
+//    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+//        if viewController is SitoVC {
+//            self.presentSitoVC()
+//            return false
+//        }
+//        return true
+//    }
 }

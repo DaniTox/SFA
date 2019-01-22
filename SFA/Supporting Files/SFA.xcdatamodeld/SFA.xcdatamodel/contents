@@ -50,7 +50,7 @@
         <attribute name="descrizione" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="idOrder" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="sitiWeb" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SitoWeb" inverseName="categoriaSito" inverseEntity="SitoWeb" syncable="YES"/>
+        <relationship name="sitiWeb" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="SitoWeb" inverseName="categoriaSito" inverseEntity="SitoWeb" syncable="YES"/>
     </entity>
     <entity name="TeenStarTable" representedClassName=".TeenStarTable" syncable="YES" codeGenerationType="category">
         <attribute name="ciclo" optional="YES" attributeType="Integer 16" defaultValueString="-1" usesScalarValueType="YES" syncable="YES"/>
@@ -71,8 +71,8 @@
         <element name="Domanda" positionX="166.1015625" positionY="-4.40625" width="128" height="105"/>
         <element name="Nota" positionX="-401.421875" positionY="21.7578125" width="128" height="105"/>
         <element name="Regola" positionX="-202.97265625" positionY="-12.03125" width="128" height="120"/>
-        <element name="TeenStarTable" positionX="426.65625" positionY="14.48828125" width="128" height="180"/>
         <element name="SitoWeb" positionX="-383.5078125" positionY="366.57421875" width="128" height="120"/>
         <element name="SitoWebCategoria" positionX="-193.44921875" positionY="373.30859375" width="128" height="105"/>
+        <element name="TeenStarTable" positionX="426.65625" positionY="14.48828125" width="128" height="180"/>
     </elements>
 </model>

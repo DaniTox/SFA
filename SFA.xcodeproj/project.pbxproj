@@ -107,6 +107,10 @@
 		DBAF3C4D219CBF35003083EA /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF3C3C219CBF35003083EA /* IQNSArray+Sort.swift */; };
 		DBBBDC5021F5016D00C9F54A /* BouncyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBDC4F21F5016D00C9F54A /* BouncyView.swift */; };
 		DBCE9ED021EFB247005B286A /* VerificaCompagniaDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE9ECF21EFB247005B286A /* VerificaCompagniaDataSource.swift */; };
+		DBCF2F3A21F79E410074E0AF /* SitiListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF2F3921F79E410074E0AF /* SitiListVC.swift */; };
+		DBCF2F3C21F79E7E0074E0AF /* SitiListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF2F3B21F79E7E0074E0AF /* SitiListView.swift */; };
+		DBCF2F3E21F7BC410074E0AF /* SitiDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF2F3D21F7BC410074E0AF /* SitiDataSource.swift */; };
+		DBCF2F4021F7C5050074E0AF /* SitoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF2F3F21F7C5050074E0AF /* SitoCell.swift */; };
 		DBD1DA3021CFE35100BFFBA5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1DA2F21CFE35100BFFBA5 /* LoginView.swift */; };
 		DBE6070721F261BD00E10422 /* UIBouncyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE6070621F261BD00E10422 /* UIBouncyButton.swift */; };
 		DBE6070921F27AA200E10422 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE6070821F27AA200E10422 /* WelcomeView.swift */; };
@@ -223,6 +227,10 @@
 		DBAF3C3C219CBF35003083EA /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQNSArray+Sort.swift"; sourceTree = "<group>"; };
 		DBBBDC4F21F5016D00C9F54A /* BouncyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncyView.swift; sourceTree = "<group>"; };
 		DBCE9ECF21EFB247005B286A /* VerificaCompagniaDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificaCompagniaDataSource.swift; sourceTree = "<group>"; };
+		DBCF2F3921F79E410074E0AF /* SitiListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitiListVC.swift; sourceTree = "<group>"; };
+		DBCF2F3B21F79E7E0074E0AF /* SitiListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitiListView.swift; sourceTree = "<group>"; };
+		DBCF2F3D21F7BC410074E0AF /* SitiDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitiDataSource.swift; sourceTree = "<group>"; };
+		DBCF2F3F21F7C5050074E0AF /* SitoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitoCell.swift; sourceTree = "<group>"; };
 		DBD1DA2F21CFE35100BFFBA5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		DBE6070621F261BD00E10422 /* UIBouncyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBouncyButton.swift; sourceTree = "<group>"; };
 		DBE6070821F27AA200E10422 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -269,6 +277,7 @@
 				DB53C7AC21E3D8380001054B /* CompagniaDomandaCell.swift */,
 				DB4F3BBD21F5CE220040F4C4 /* BasicCell.swift */,
 				DB4F3BC421F5FBC80040F4C4 /* SwitchCell.swift */,
+				DBCF2F3F21F7C5050074E0AF /* SitoCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -286,6 +295,7 @@
 				DB53C77F21DFCBF90001054B /* SettingsView.swift */,
 				DB19C68021E2877F0020357D /* VerificaCompagniaView.swift */,
 				DBE6070821F27AA200E10422 /* WelcomeView.swift */,
+				DBCF2F3B21F79E7E0074E0AF /* SitiListView.swift */,
 			);
 			path = "VCs Views";
 			sourceTree = "<group>";
@@ -527,6 +537,7 @@
 				DB61DA1821B9C81E006B308B /* SocialVC.swift */,
 				DB53C78121DFCC3D0001054B /* SettingsVC.swift */,
 				DB19C67E21E2870B0020357D /* VerificaCompagniaVC.swift */,
+				DBCF2F3921F79E410074E0AF /* SitiListVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -625,6 +636,7 @@
 			isa = PBXGroup;
 			children = (
 				DBCE9ECF21EFB247005B286A /* VerificaCompagniaDataSource.swift */,
+				DBCF2F3D21F7BC410074E0AF /* SitiDataSource.swift */,
 			);
 			path = "Data Sources";
 			sourceTree = "<group>";
@@ -738,6 +750,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBCF2F3C21F79E7E0074E0AF /* SitiListView.swift in Sources */,
 				DBAF3C4C219CBF35003083EA /* IQUIView+Hierarchy.swift in Sources */,
 				DBAF3C02219C9019003083EA /* AppDelegate.swift in Sources */,
 				DB88DBDF21A96E6F00B0699B /* HomeViewController.swift in Sources */,
@@ -755,6 +768,7 @@
 				DBAF3C1E219C9478003083EA /* Protocolli.swift in Sources */,
 				DBAF3C4A219CBF35003083EA /* IQUIViewController+Additions.swift in Sources */,
 				DBAAE2BB21A5D26800211CBF /* WelcomeVC.swift in Sources */,
+				DBCF2F3A21F79E410074E0AF /* SitiListVC.swift in Sources */,
 				DB2C316321AC88E20009EC14 /* EditRispostaVC.swift in Sources */,
 				DB88DBF521AAF1EA00B0699B /* RegolaParserView.swift in Sources */,
 				DB53AB8C21DACA34001961EC /* ColorSliderAlert.swift in Sources */,
@@ -769,6 +783,7 @@
 				DBAF3C4B219CBF35003083EA /* IQUITextFieldView+Additions.swift in Sources */,
 				DB88DBEB21A975C100B0699B /* FadeTransition.swift in Sources */,
 				DBAAE2AF21A5B3B000211CBF /* WelcomePageVC.swift in Sources */,
+				DBCF2F3E21F7BC410074E0AF /* SitiDataSource.swift in Sources */,
 				DB67643D21F636D300651AD8 /* SitiNetworkRequest.swift in Sources */,
 				DBE6070721F261BD00E10422 /* UIBouncyButton.swift in Sources */,
 				DB53C77921DEC57E0001054B /* CicloColorCollectionCell.swift in Sources */,
@@ -827,6 +842,7 @@
 				DB19C68121E2877F0020357D /* VerificaCompagniaView.swift in Sources */,
 				DBAF3C24219C9F6A003083EA /* Extensions.swift in Sources */,
 				DBF3A2B021DD73D0008AE7D5 /* TeenStarModel.swift in Sources */,
+				DBCF2F4021F7C5050074E0AF /* SitoCell.swift in Sources */,
 				DBAF3C49219CBF35003083EA /* IQUIScrollView+Additions.swift in Sources */,
 				DBFA256121DC3D83000785D0 /* TeenStarTable.swift in Sources */,
 				DBBBDC5021F5016D00C9F54A /* BouncyView.swift in Sources */,
