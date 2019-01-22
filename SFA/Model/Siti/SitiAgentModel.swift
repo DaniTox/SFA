@@ -61,7 +61,7 @@ class SitiAgent : SitiNetworkAgent {
                 sitoCD.nome = sito.nome
                 sitoCD.descrizione = sito.descrizione
                 sitoCD.idOrder = Int16(sito.idOrder)
-                //sitoCD.url = sito.urlObject
+                sitoCD.url = URL(string: sito.url)
                 categoriaCD.addToSitiWeb(sitoCD)
             }
             siti.append(categoriaCD)
