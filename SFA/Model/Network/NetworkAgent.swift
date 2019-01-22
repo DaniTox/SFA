@@ -8,11 +8,11 @@
 
 import Foundation
 
-class NetworkAgent {
+class NetworkAgent<Response> where Response: ToxNetworkResponse & Codable {
     
     public var errorHandler : ((String) -> Void)?
     
-    public func executeNetworkRequest(withData jsonData: Data, responseCompletion: @escaping (ToxNetworkResponse)->Void)  {
+    public func executeNetworkRequest(withData jsonData: Data, responseCompletion: @escaping (Response)->Void)  {
         let urlString = URLs.mainUrl
         guard let url = URL(string: urlString) else {
             errorHandler?("Errore generico di quest'app (Codice: -1)")
@@ -25,7 +25,7 @@ class NetworkAgent {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.httpBody = jsonData
         
-        let session = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        let session = URLSession.shared.dataTask(with: request) { (data, responseWeb, error) in
             if error != nil {
                 self.errorHandler?("\(error!)")
                 return
@@ -37,7 +37,7 @@ class NetworkAgent {
             }
             
             do {
-                let response = try JSONDecoder().decode(ToxNetworkResponse.self, from: data)
+                let response = try JSONDecoder().decode(Response.self, from: data)
                 if response.code == "OK" {
                     responseCompletion(response)
                 } else {
@@ -46,6 +46,7 @@ class NetworkAgent {
                 }
 
             } catch {
+                print(error)
                 self.errorHandler?("\(error)")
                 return
             }

@@ -8,12 +8,7 @@
 
 import Foundation
 
-class ToxNetworkRequest : Encodable {
-    var requestType : String = ""
-    var credentials : User?
-    
-    enum CodingKeys : String, CodingKey {
-        case requestType = "type"
-        case credentials
-    }
+protocol ToxNetworkRequest {
+    var requestType : String { get set }
 }
+

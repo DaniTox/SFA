@@ -8,11 +8,8 @@
 
 import Foundation
 
-class ToxNetworkResponse : Codable {
-    var code : String
-    var message : String
-    var errorCode : String?
-    
-    var user : User?
-    var sites : [SitoCategoriaObject]?
+protocol ToxNetworkResponse {
+    var code : String { get set }
+    var message : String { get set }
+    var errorCode : String? { get set }
 }

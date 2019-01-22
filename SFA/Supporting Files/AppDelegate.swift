@@ -38,6 +38,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         
+        let sitesModel = SitiAgent(container: persistentContainer)
+        sitesModel.loadSites { (sites) in
+            for site in sites {
+                print("\(site.name) --> \(site.sitiWeb?.count)")
+            }
+        }
         
         
         RegolaFetcherModel.shared.persistentContainer = persistentContainer

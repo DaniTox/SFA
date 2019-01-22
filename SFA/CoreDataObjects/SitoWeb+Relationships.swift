@@ -22,23 +22,17 @@ class SitoObject : Codable {
     var nome : String
     var idOrder : Int
     var descrizione : String?
-    var urlString : String
-    //    var url : URL? {
-    //        return URL(string: urlString)
-    //    }
+    var url : String
+//    var urlObject : URL? {
+//        return URL(string: url)
+//    }
     
     init() {
         nome = ""
         idOrder = -1
-        urlString = ""
+        url = ""
     }
     
-    enum CodingKeys : String, CodingKey {
-        case urlString = "url"
-        case nome
-        case descrizione
-        case idOrder
-    }
 }
 
 class SitoCategoriaObject : Codable {

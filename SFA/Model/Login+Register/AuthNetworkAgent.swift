@@ -8,14 +8,14 @@
 
 import Foundation
 
-class AuthNetworkAgent : NetworkAgent {
+class AuthNetworkAgent : NetworkAgent<AuthNetworkResponse> {
     
     func login(email: String, password: String, completion: (() -> Void)? = nil) {
         let credentialsUser = User()
         credentialsUser.email = email
         credentialsUser.password = password
         
-        let request = ToxNetworkRequest()
+        let request = AuthNetworkRequest()
         request.requestType = "login_user"
         request.credentials = credentialsUser
         
@@ -34,7 +34,7 @@ class AuthNetworkAgent : NetworkAgent {
     }
     
     func register(user: User, completion: (()->Void)? = nil) {
-        let request = ToxNetworkRequest()
+        let request = AuthNetworkRequest()
         request.requestType = "register_user"
         request.credentials = user
         
