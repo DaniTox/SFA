@@ -122,7 +122,7 @@ extension NoteListVC : UITableViewDelegate, UITableViewDataSource {
         
         if let splitVC = self.splitViewController {
             let vc = NoteVC(nota: note)
-            let nav = UINavigationController(rootViewController: vc)
+            let nav = ThemedNavigationController(rootViewController: vc)
             splitVC.showDetailViewController(nav, sender: self)
         } else {
             let vc = NoteVC(nota: note)

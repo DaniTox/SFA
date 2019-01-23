@@ -40,8 +40,9 @@ class HomeViewController : UIViewController, HasCustomView {
         //let nav2 = UINavigationController(rootViewController: noteViewerVC)
         
         let vc2 = UIViewController()
-        vc2.view.backgroundColor = .white
+        vc2.view.backgroundColor = Theme.current.controllerBackground
         let nav2 = ThemedNavigationController(rootViewController: vc2)
+        nav2.navigationBar.prefersLargeTitles = true
         
         let splitViewController = UISplitViewController()
         splitViewController.delegate = self
