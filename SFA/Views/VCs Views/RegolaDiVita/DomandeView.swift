@@ -15,6 +15,7 @@ class DomandeView: UIView {
         table.tableFooterView = UIView()
         table.translatesAutoresizingMaskIntoConstraints = false
         table.backgroundColor = Theme.current.tableViewBackground
+        table.separatorStyle = .none
         return table
     }()
 
