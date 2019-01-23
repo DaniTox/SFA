@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class SitiListVC : UIViewController, HasCustomView {
     typealias CustomView = SitiListView
@@ -50,5 +51,14 @@ extension SitiListVC : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let sito = dataSource.getSiteFrom(indexPath)
+        if let url = sito?.url {
+            let vc = SFSafariViewController(url: url)
+            present(vc, animated: true, completion: nil)
+        }
     }
 }

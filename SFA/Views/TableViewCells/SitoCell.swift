@@ -27,8 +27,9 @@ class SitoCell: BoldCell {
         label.font = UIFont.preferredFont(forTextStyle: .body)
         label.textAlignment = .left
         label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.7
         
-        label.textColor = Theme.current.textColor
+        label.textColor = Theme.current.cellSubtitleColor
         return label
     }()
     
@@ -36,9 +37,9 @@ class SitoCell: BoldCell {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
-        stack.distribution = .fillEqually
+        stack.distribution = .fillProportionally
         stack.alignment = .fill
-        stack.spacing = 10
+        stack.spacing = 5
         return stack
     }()
     
@@ -53,7 +54,7 @@ class SitoCell: BoldCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         nomeSitoLabel.textColor = Theme.current.textColor
-        urlLabel.textColor = Theme.current.textColor
+        urlLabel.textColor = Theme.current.cellSubtitleColor
     }
     
     override func layoutSubviews() {

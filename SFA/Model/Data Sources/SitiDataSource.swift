@@ -31,6 +31,16 @@ class SitiDataSource : NSObject, UITableViewDataSource {
 //            self?.updateData?()
 //        }
     }
+    public func getSiteFrom(_ indexPath : IndexPath) -> SitoWeb? {
+        let section = indexPath.section
+        let row = indexPath.row
+        
+        let categoria = self.sitesCategories[section]
+        if let site = categoria.sitiWeb?[row] as? SitoWeb {
+            return site
+        }
+        return nil
+    }
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -45,7 +55,7 @@ class SitiDataSource : NSObject, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "sitoCell") as! SitoCell
         if let site = self.sitesCategories[indexPath.section].sitiWeb?[indexPath.row] as? SitoWeb {
             cell.nomeSitoLabel.text = site.nome
-            cell.urlLabel.text = site.url?.path
+            cell.urlLabel.text = site.url?.absoluteString
             cell.accessoryType = .disclosureIndicator
         }
         return cell
