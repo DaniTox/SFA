@@ -26,9 +26,15 @@ class SitiListVC : UIViewController, HasCustomView {
         }
         self.dataSource = SitiDataSource(container: persistentContainer)
         
+        dataSource.errorHandler = { errStr in
+            self.showError(withTitle: "Errore", andMessage: errStr) //already in mainqueue
+        }
+        
         themeObserver = NotificationCenter.default.addObserver(forName: .updateTheme, object: nil, queue: .main, using: { (notification) in
             UIView.animate(withDuration: 0.3, animations: { self.updateTheme() })
         })
+        
+        rootView.refreshControl.addTarget(self, action: #selector(refreshPulled), for: .valueChanged)
         
         rootView.tableView.register(SitoCell.self, forCellReuseIdentifier: "sitoCell")
         rootView.tableView.delegate = self
@@ -37,8 +43,14 @@ class SitiListVC : UIViewController, HasCustomView {
         dataSource.updateData = { [weak self] in
             DispatchQueue.main.async {
                 self?.rootView.tableView.reloadData()
+                self?.rootView.refreshControl.endRefreshing()
             }
         }
+    }
+    
+    @objc private func refreshPulled() {
+        rootView.refreshControl.beginRefreshing()
+        dataSource.fetchData()
     }
     
     private func updateTheme() {

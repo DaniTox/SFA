@@ -24,8 +24,11 @@ class SitiListView : UIView {
         return table
     }()
     
+    public var refreshControl : UIRefreshControl = UIRefreshControl()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        tableView.refreshControl = refreshControl
         addSubview(tableView)
     }
     

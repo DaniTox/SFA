@@ -27,7 +27,7 @@ class NetworkAgent<Response> where Response: ToxNetworkResponse & Codable {
         
         let session = URLSession.shared.dataTask(with: request) { (data, responseWeb, error) in
             if error != nil {
-                self.errorHandler?("\(error!)")
+                self.errorHandler?("\(error!.localizedDescription)")
                 return
             }
             
