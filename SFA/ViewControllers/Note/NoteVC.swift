@@ -35,9 +35,17 @@ class NoteVC: UIViewController, HasCustomView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func updateTheme() {
+        rootView.backgroundColor = Theme.current.backgroundColor
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setTitle()
+        
+        NotificationCenter.default.addObserver(forName: .updateTheme, object: nil, queue: .main) { (notification) in
+            self.updateTheme()
+        }
         
         rootView.bottomBar.sizeButton.addTarget(self, action: #selector(showSizeAlert), for: .touchUpInside)
         rootView.bottomBar.colorButton.addTarget(self, action: #selector(showColorAlert), for: .touchUpInside)
@@ -125,6 +133,7 @@ class NoteVC: UIViewController, HasCustomView {
     
     @objc private func showColorAlert() {
         if self.colorAlert != nil || self.sizeAlert != nil { return }
+        self.rootView.textView.resignFirstResponder()
         self.colorAlert = ColorSliderAlert(frame: .zero)
         colorAlert?.layer.masksToBounds = true
         colorAlert?.layer.cornerRadius = 10
@@ -172,6 +181,7 @@ class NoteVC: UIViewController, HasCustomView {
     
     @objc private func showSizeAlert() {
         if self.colorAlert != nil || self.sizeAlert != nil { return }
+        self.rootView.textView.resignFirstResponder()
         let initialValue = Int(rootView.textView.font?.pointSize ?? 19)
         self.sizeAlert = SizeSliderAlert(frame: .zero, initialValue: initialValue)
         sizeAlert?.layer.masksToBounds = true
