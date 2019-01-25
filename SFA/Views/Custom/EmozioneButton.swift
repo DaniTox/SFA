@@ -19,8 +19,9 @@ class EmozioneButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.setTitleColor(.white, for: .normal)
-        self.backgroundColor = UIColor.yellow
+        self.setTitleColor(Theme.current.textColor, for: .normal)
+        self.backgroundColor = Theme.current.backgroundColor
+        self.titleLabel?.font = UIFont.boldSystemFont(ofSize: 50)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -33,31 +34,31 @@ class EmozioneButton: UIButton {
             guard let self = self else { return }
             
             var title : String = ""
-            var color: UIColor = UIColor.clear
+//            var color: UIColor = UIColor.clear
             
             switch self.emozione! {
             case .fiducioso:
-                title = "Fiducia"
-                color = UIColor.blue.lighter(by: 10)!
+                title = "😌"
+//                color = UIColor.blue.lighter(by: 10)!
             case .aggressività:
-                title = "Collera"
-                color = UIColor.red
+                title = "😡"
+//                color = UIColor.red
             case .paura:
-                title = "Paura"
-                color = UIColor.purple
+                title = "😱"
+//                color = UIColor.purple
             case .tristezza:
-                title = "Tristezza"
-                color = UIColor.gray
+                title = "😢"
+//                color = UIColor.gray
             case .gioia:
-                title = "Gioia"
-                color = UIColor.green.darker(by: 20)!
+                title = "😁"
+//                color = UIColor.green.darker(by: 20)!
             case .equilibrio:
-                title = "Equilibrio"
-                color = UIColor.yellow.darker()!
+                title = "😐"
+//                color = UIColor.yellow.darker()!
             }
             
             self.setTitle(title, for: .normal)
-            self.backgroundColor = color
+//            self.backgroundColor = color
         }
     }
     

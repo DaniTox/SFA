@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EmozioneTableViewCell: UITableViewCell {
+class EmozioneTableViewCell: BoldCell {
 
     var emozioneSelected : Emozione?
     var emozioniButtons : [EmozioneButton] = []
@@ -71,12 +71,19 @@ class EmozioneTableViewCell: UITableViewCell {
         addSubview(fullStack)
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.emozioniButtons.forEach({$0.backgroundColor = Theme.current.backgroundColor })
+    }
+    
     public func select(newEmotion: Emozione) {
         emozioniButtons.forEach { (button) in
             if button.emozione == newEmotion {
-                button.layer.borderWidth = 8
+//                button.layer.borderWidth = 8
+                button.backgroundColor = UIColor.green.darker()
             } else {
-                button.layer.borderWidth = 0
+//                button.layer.borderWidth = 0
+                button.backgroundColor = Theme.current.backgroundColor
             }
         }
     }

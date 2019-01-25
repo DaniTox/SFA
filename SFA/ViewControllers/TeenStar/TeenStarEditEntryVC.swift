@@ -12,7 +12,7 @@ let BASIC_CELL_ID = "cell"
 let EMOZIONE_CELL_ID = "emozioneCell"
 let CICLO_CELL_ID = "ciclocell"
 
-let BASIC_ROW_HEIGHT : CGFloat = 50
+let BASIC_ROW_HEIGHT : CGFloat = 75
 let EMOZIONE_ROW_HEIGHT : CGFloat = 200
 let CICLO_ROW_HEIGHT : CGFloat = 500 //350
 
@@ -28,7 +28,15 @@ class TeenStarEditEntryVC: UIViewController, HasCustomView {
         view = CustomView()
     }
     
-    var genderType : UserGender? = .boy
+    var genderType : UserGender? {
+        didSet {
+            guard let _ = self.genderType else { return }
+            DispatchQueue.main.async { [weak self] in
+                self?.rootView.tableView.reloadData()
+            }
+        }
+    }
+    
     var entry : TeenStarTable? {
         didSet {
             guard let entry = entry else { return }
@@ -46,7 +54,11 @@ class TeenStarEditEntryVC: UIViewController, HasCustomView {
         view.backgroundColor = .orange
         self.title = "\(Date().dayOfWeek()) - \(Date().stringValue)"
         
-        rootView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: BASIC_CELL_ID)
+        NotificationCenter.default.addObserver(forName: .updateTheme, object: nil, queue: .main) { (notification) in
+            self.updateTheme()
+        }
+        
+        rootView.tableView.register(BoldCell.self, forCellReuseIdentifier: BASIC_CELL_ID)
         rootView.tableView.register(EmozioneTableViewCell.self, forCellReuseIdentifier: EMOZIONE_CELL_ID)
         rootView.tableView.register(CicloTableViewCell.self, forCellReuseIdentifier: CICLO_CELL_ID)
         
@@ -57,6 +69,11 @@ class TeenStarEditEntryVC: UIViewController, HasCustomView {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         saveTeenStarEntry()
+    }
+    
+    private func updateTheme() {
+        self.rootView.tableView.backgroundColor = Theme.current.tableViewBackground
+        self.rootView.tableView.reloadData()
     }
     
     private func saveTeenStarEntry() {
@@ -103,17 +120,17 @@ extension TeenStarEditEntryVC : UITableViewDelegate, UITableViewDataSource {
         
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: BASIC_CELL_ID)
-            cell?.selectionStyle = .none
-            cell?.textLabel?.text = "Data: \(Date().dayOfWeek()) - \(Date().stringValue)"
-            return cell!
+            let cell = tableView.dequeueReusableCell(withIdentifier: BASIC_CELL_ID) as! BoldCell
+            cell.selectionStyle = .none
+            cell.mainLabel.text = "Data: \(Date().dayOfWeek()) - \(Date().stringValue)"
+            return cell
         case 1, 2, 3:
             switch indexPath.row {
             case 0:
-                let cell = tableView.dequeueReusableCell(withIdentifier: BASIC_CELL_ID)
-                cell?.selectionStyle = .none
-                cell?.textLabel?.text = TEENSTAR_INDICES[GET_INDEX(indexPath.section)]
-                return cell!
+                let cell = tableView.dequeueReusableCell(withIdentifier: BASIC_CELL_ID)  as! BoldCell
+                cell.selectionStyle = .none
+                cell.mainLabel.text = TEENSTAR_INDICES[GET_INDEX(indexPath.section)]
+                return cell
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: EMOZIONE_CELL_ID) as? EmozioneTableViewCell
                 cell?.newValueSelected = { [weak self] (newValue) in
@@ -129,10 +146,10 @@ extension TeenStarEditEntryVC : UITableViewDelegate, UITableViewDataSource {
         case 4:
             switch indexPath.row {
             case 0:
-                let cell = tableView.dequeueReusableCell(withIdentifier: BASIC_CELL_ID)
-                cell?.selectionStyle = .none
-                cell?.textLabel?.text = TEENSTAR_INDICES[GET_INDEX(indexPath.section)]
-                return cell!
+                let cell = tableView.dequeueReusableCell(withIdentifier: BASIC_CELL_ID) as! BoldCell
+                cell.selectionStyle = .none
+                cell.mainLabel.text = TEENSTAR_INDICES[GET_INDEX(indexPath.section)]
+                return cell
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: CICLO_CELL_ID) as? CicloTableViewCell
                 cell?.newValueSelected = { [weak self] newValue in

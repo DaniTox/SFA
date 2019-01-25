@@ -14,6 +14,8 @@ class TeenStarEditEntryView: UIView {
         let table = UITableView(frame: .zero, style: UITableView.Style.grouped)
         table.translatesAutoresizingMaskIntoConstraints = false
         table.tableFooterView = UIView()
+        table.separatorStyle = .none
+        table.backgroundColor = Theme.current.tableViewBackground
         return table
     }()
     

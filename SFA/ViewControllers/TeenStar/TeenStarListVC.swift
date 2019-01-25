@@ -100,6 +100,7 @@ extension TeenStarListVC : UITableViewDelegate, UITableViewDataSource {
         let vc = TeenStarEditEntryVC()
         let entry = entries[indexPath.row]
         vc.entry = entry
+        vc.genderType = userLogged?.gender ?? .boy
         navigationController?.pushViewController(vc, animated: true)
     }
     
