@@ -31,6 +31,7 @@ class RegisterView: UIView {
         field.keyboardType = .emailAddress
         field.translatesAutoresizingMaskIntoConstraints = false
         field.borderStyle = UITextField.BorderStyle.roundedRect
+        field.autocapitalizationType = .none
         field.placeholder = "Email"
         return field
     }()

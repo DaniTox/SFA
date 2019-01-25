@@ -15,6 +15,7 @@ class LoginView: UIView {
         field.translatesAutoresizingMaskIntoConstraints = false
         field.placeholder = "Email"
         field.borderStyle = UITextField.BorderStyle.roundedRect
+        field.autocapitalizationType = .none
         return field
     }()
     
