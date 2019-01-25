@@ -45,6 +45,11 @@ class RootAppController : UITabBarController {
 //        nav3.navigationItem.title = "I nostri social"
 //        vc3.title = "Social"
 //        self.addChild(nav3)
+        let vc3 = SocialVC()
+        let nav3 = ThemedNavigationController(rootViewController: vc3)
+        vc3.title = "Social"
+        self.addChild(nav3)
+        
         
         let vc4 = SettingsVC()
         vc4.title = "Impostazioni"

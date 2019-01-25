@@ -18,9 +18,17 @@ class SocialVC: UIViewController, HasCustomView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(forName: .updateTheme, object: nil, queue: .main) { (notification) in
+            self.updateTheme()
+        }
+        
         rootView.instagranmButton.addTarget(self, action: #selector(openInstagram), for: .touchUpInside)
         rootView.facebookButton.addTarget(self, action: #selector(openFacebook), for: .touchUpInside)
         rootView.youtubeButton.addTarget(self, action: #selector(openYouTube), for: .touchUpInside)
+    }
+    
+    private func updateTheme() {
+        self.rootView.backgroundColor = Theme.current.controllerBackground
     }
     
     @objc func openInstagram() {
