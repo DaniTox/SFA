@@ -108,4 +108,16 @@ extension TeenStarListVC : UITableViewDelegate, UITableViewDataSource {
         return 90
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let entry = entries[indexPath.row]
+            let context = entry.managedObjectContext
+            context?.delete(entry)
+            if let _ = try? context?.save() {
+                entries.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        }
+    }
+    
 }
