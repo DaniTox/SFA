@@ -27,9 +27,6 @@ class SitiDataSource : NSObject, UITableViewDataSource {
         self.model = SitiAgent(container: container)
         super.init()
         fetchData()
-        
-        
-
     }
     
     public func fetchData() {
