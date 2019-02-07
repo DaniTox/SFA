@@ -10,12 +10,10 @@ import Foundation
 
 class SitiNetworkResponse : ToxNetworkResponse, Codable {
     var code: String
-    
     var message: String
-    
+    var categorie : [SitoCategoriaObject] = []
+
     var errorCode: String?
-    
-    var sites : [SitoCategoriaObject]?
     
     init() {
         code = "NO"

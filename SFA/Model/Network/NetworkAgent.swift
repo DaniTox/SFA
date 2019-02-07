@@ -12,10 +12,16 @@ class NetworkAgent<Response> where Response: ToxNetworkResponse & Codable {
     
     public var errorHandler : ((String) -> Void)?
     
-    public func executeNetworkRequest(withData jsonData: Data, responseCompletion: @escaping (Response)->Void)  {
-        let urlString = URLs.mainUrl
+    public func executeNetworkRequest<RequestType : ToxNetworkRequest> (with toxRequest: RequestType, responseCompletion: @escaping (Response)->Void)  {
+        let pathComponent = toxRequest.requestType
+        let urlString = "\(URLs.mainUrl)/\(pathComponent)"
         guard let url = URL(string: urlString) else {
             errorHandler?("Errore generico di quest'app (Codice: -1)")
+            return
+        }
+        
+        guard let jsonData = try? JSONEncoder().encode(toxRequest) else {
+            errorHandler?("Errore mentre mi stavo preparando per comunicare con il server (Codice errore: -3)")
             return
         }
         

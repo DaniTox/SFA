@@ -34,10 +34,16 @@ class RootAppController : UITabBarController {
         self.addChild(nav1)
         
 //        let vc2 = SitoVC()
-        let vc2 = SitiListVC()  
+        let vc2 = SitiVC(type: WebsiteType.materiali)
         let nav2 = ThemedNavigationController(rootViewController: vc2)
-        vc2.title = "Siti Web"
+        vc2.title = "Materiali"
         self.addChild(nav2)
+        
+        
+        let vc5 = SitiVC(type: WebsiteType.preghiere)
+        let nav5 = ThemedNavigationController(rootViewController: vc5)
+        vc5.title = "Preghiere"
+        self.addChild(nav5)
         
 //        let vc3 = SocialVC()
 //        let nav3 = UINavigationController(rootViewController: vc3)

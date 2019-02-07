@@ -38,8 +38,8 @@ class SitiAgent : SitiNetworkAgent {
 //        }
 //    }
     
-    public func loadSites(completion: (([SitoWebCategoria]) -> Void)? = nil) {
-        self.getWebsites { (sites) in
+    public func loadSites(type: WebsiteType, completion: (([SitoWebCategoria]) -> Void)? = nil) {
+        self.getWebsites(type: type) { (sites) in
             let coreDataSites = self.createCoreDataObjects(sites)
             completion?(coreDataSites)
         }
@@ -52,7 +52,7 @@ class SitiAgent : SitiNetworkAgent {
         
         for categoria in objects {
             let categoriaCD = SitoWebCategoria(context: context)
-            categoriaCD.name = categoria.name
+            categoriaCD.name = categoria.nome
             categoriaCD.idOrder = Int16(categoria.idOrder)
             categoriaCD.descrizione = categoria.descrizione
             

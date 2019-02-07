@@ -15,6 +15,7 @@ class SitiDataSource : NSObject, UITableViewDataSource {
     private var sitesCategories : [SitoWebCategoria] = []
     private var model : SitiAgent
     public var updateData : (() -> Void)?
+    public var type : WebsiteType
     public var errorHandler : ((String) -> Void)? {
         didSet {
             guard let handler = errorHandler else { return }
@@ -22,15 +23,16 @@ class SitiDataSource : NSObject, UITableViewDataSource {
         }
     }
     
-    init(container: NSPersistentContainer) {
+    init(type: WebsiteType, container: NSPersistentContainer) {
         self.persistentContainer = container
+        self.type = type
         self.model = SitiAgent(container: container)
         super.init()
         fetchData()
     }
     
     public func fetchData() {
-        model.loadSites(completion: { (newSitesCategories) in
+        model.loadSites(type: type, completion: { (newSitesCategories) in
             self.sitesCategories = newSitesCategories
             self.updateData?()
         })

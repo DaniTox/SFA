@@ -1,15 +1,15 @@
 //
-//  SitiWebRequest.swift
+//  SitiPreghiereRequest.swift
 //  SFA
 //
-//  Created by Dani Tox on 21/01/19.
+//  Created by Dani Tox on 02/02/19.
 //  Copyright © 2019 Dani Tox. All rights reserved.
 //
 
 import Foundation
 
-class SitiNetworkRequest : ToxNetworkRequest, Codable {
-    var requestType: String = "get_sites"
+class SitiPreghiereRequest : ToxNetworkRequest, Codable {
+    var requestType: String = "siti-preghiere"
     enum CodingKeys : String, CodingKey {
         case requestType = "type"
     }

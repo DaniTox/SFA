@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ToxNetworkRequest {
+protocol ToxNetworkRequest : Codable {
     var requestType : String { get set }
 }
 

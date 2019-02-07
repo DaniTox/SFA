@@ -9,7 +9,7 @@
 import UIKit
 import SafariServices
 
-class SitiListVC : UIViewController, HasCustomView {
+class SitiVC: UIViewController, HasCustomView {
     typealias CustomView = SitiListView
     override func loadView() {
         super.loadView()
@@ -19,12 +19,23 @@ class SitiListVC : UIViewController, HasCustomView {
     var dataSource : SitiDataSource!
     
     var themeObserver : NSObjectProtocol?
+    var sitiVCType : WebsiteType
+    
+    init(type: WebsiteType) {
+        self.sitiVCType = type
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let persistentContainer = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer else {
             fatalError()
         }
-        self.dataSource = SitiDataSource(container: persistentContainer)
+        self.dataSource = SitiDataSource(type: sitiVCType, container: persistentContainer)
         
         dataSource.errorHandler = { errStr in
             self.showError(withTitle: "Errore", andMessage: errStr) //already in mainqueue
@@ -59,12 +70,12 @@ class SitiListVC : UIViewController, HasCustomView {
     }
 }
 
-extension SitiListVC : UITableViewDelegate {
-    
+extension SitiVC : UITableViewDelegate {
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let sito = dataSource.getSiteFrom(indexPath)

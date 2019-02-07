@@ -37,7 +37,7 @@ class SitoObject : Codable {
 
 class SitoCategoriaObject : Codable {
     var idOrder : Int
-    var name : String
+    var nome : String
     var descrizione : String?
     var sites : [SitoObject]
     

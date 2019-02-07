@@ -19,11 +19,7 @@ class AuthNetworkAgent : NetworkAgent<AuthNetworkResponse> {
         request.requestType = "login_user"
         request.credentials = credentialsUser
         
-        guard let data = try? JSONEncoder().encode(request) else {
-            self.errorHandler?("Errore mentre mi stavo preparando per comunicare con il server (Codice errore: -3)")
-            return
-        }
-        executeNetworkRequest(withData: data) { [weak self] (response) in
+        executeNetworkRequest(with: request) { [weak self] (response) in
             guard let user = response.user else {
                 self?.errorHandler?("C'è stato un errore durante la fase di login. Riprova più tardi (Codice errore: -4)")
                 return
@@ -38,12 +34,7 @@ class AuthNetworkAgent : NetworkAgent<AuthNetworkResponse> {
         request.requestType = "register_user"
         request.credentials = user
         
-        guard let data = try? JSONEncoder().encode(request) else {
-            self.errorHandler?("Errore mentre mi stavo preparando per comunicare con il server (Codice errore: -3)")
-            return
-        }
-        
-        executeNetworkRequest(withData: data) { [weak self] (response) in
+        executeNetworkRequest(with: request) { [weak self] (response) in
             guard let user = response.user else {
                 self?.errorHandler?("C'è stato un errore durante la fase di registrazione. Riprova più tardi (Codice errore: -5)")
                 return
