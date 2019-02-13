@@ -11,13 +11,14 @@ import Foundation
 class AuthNetworkAgent : NetworkAgent<AuthNetworkResponse> {
     
     func login(email: String, password: String, completion: (() -> Void)? = nil) {
-        let credentialsUser = User()
-        credentialsUser.email = email
-        credentialsUser.password = password
+        let usr = User()
+        usr.email = email
         
-        let request = AuthNetworkRequest()
-        request.requestType = "login_user"
-        request.credentials = credentialsUser
+        let passwordAttempted = password
+        
+        let request = LoginNetworkRequest()
+        request.user = usr
+        request.password = passwordAttempted
         
         executeNetworkRequest(with: request) { [weak self] (response) in
             guard let user = response.user else {
@@ -30,8 +31,7 @@ class AuthNetworkAgent : NetworkAgent<AuthNetworkResponse> {
     }
     
     func register(user: User, completion: (()->Void)? = nil) {
-        let request = AuthNetworkRequest()
-        request.requestType = "register_user"
+        let request = RegisterNetworkRequest()
         request.credentials = user
         
         executeNetworkRequest(with: request) { [weak self] (response) in

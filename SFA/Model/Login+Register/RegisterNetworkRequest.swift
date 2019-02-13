@@ -8,12 +8,12 @@
 
 import Foundation
 
-class AuthNetworkRequest : ToxNetworkRequest, Codable {
-    var requestType: String = "login_user"
+class RegisterNetworkRequest : ToxNetworkRequest, Codable {
+    var requestType: String = "register"
     var credentials : User?
     
     enum CodingKeys : String, CodingKey {
         case requestType = "type"
-        case credentials
+        case credentials = "user"
     }
 }
