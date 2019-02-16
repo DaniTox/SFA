@@ -11,6 +11,10 @@
 		DB0D49EC21DFF13000887D3B /* SettingsUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D49EB21DFF13000887D3B /* SettingsUserCell.swift */; };
 		DB19C67F21E2870B0020357D /* VerificaCompagniaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB19C67E21E2870B0020357D /* VerificaCompagniaVC.swift */; };
 		DB19C68121E2877F0020357D /* VerificaCompagniaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB19C68021E2877F0020357D /* VerificaCompagniaView.swift */; };
+		DB217D4922184FE0003ED264 /* GenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB217D4822184FE0003ED264 /* GenderVC.swift */; };
+		DB217D4B2218500B003ED264 /* GenderVCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB217D4A2218500B003ED264 /* GenderVCView.swift */; };
+		DB217D4D22185124003ED264 /* UIBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB217D4C22185124003ED264 /* UIBox.swift */; };
+		DB217D4F2218557D003ED264 /* GenderBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB217D4E2218557D003ED264 /* GenderBox.swift */; };
 		DB22DA8D21C02F9500E6497D /* DatePickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB22DA8C21C02F9500E6497D /* DatePickerModel.swift */; };
 		DB22DA8F21C03A6300E6497D /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB22DA8E21C03A6300E6497D /* NoteView.swift */; };
 		DB22DA9121C03A9200E6497D /* NoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB22DA9021C03A9200E6497D /* NoteVC.swift */; };
@@ -132,6 +136,10 @@
 		DB0D49EB21DFF13000887D3B /* SettingsUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUserCell.swift; sourceTree = "<group>"; };
 		DB19C67E21E2870B0020357D /* VerificaCompagniaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificaCompagniaVC.swift; sourceTree = "<group>"; };
 		DB19C68021E2877F0020357D /* VerificaCompagniaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificaCompagniaView.swift; sourceTree = "<group>"; };
+		DB217D4822184FE0003ED264 /* GenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderVC.swift; sourceTree = "<group>"; };
+		DB217D4A2218500B003ED264 /* GenderVCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderVCView.swift; sourceTree = "<group>"; };
+		DB217D4C22185124003ED264 /* UIBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBox.swift; sourceTree = "<group>"; };
+		DB217D4E2218557D003ED264 /* GenderBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderBox.swift; sourceTree = "<group>"; };
 		DB22DA8C21C02F9500E6497D /* DatePickerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerModel.swift; sourceTree = "<group>"; };
 		DB22DA8E21C03A6300E6497D /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
 		DB22DA9021C03A9200E6497D /* NoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteVC.swift; sourceTree = "<group>"; };
@@ -303,6 +311,7 @@
 				DB19C68021E2877F0020357D /* VerificaCompagniaView.swift */,
 				DBE6070821F27AA200E10422 /* WelcomeView.swift */,
 				DBCF2F3B21F79E7E0074E0AF /* SitiListView.swift */,
+				DB217D4A2218500B003ED264 /* GenderVCView.swift */,
 			);
 			path = "VCs Views";
 			sourceTree = "<group>";
@@ -328,6 +337,8 @@
 				DB53C76C21DE69620001054B /* EmozioneButton.swift */,
 				DBE6070621F261BD00E10422 /* UIBouncyButton.swift */,
 				DBBBDC4F21F5016D00C9F54A /* BouncyView.swift */,
+				DB217D4C22185124003ED264 /* UIBox.swift */,
+				DB217D4E2218557D003ED264 /* GenderBox.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -356,6 +367,7 @@
 				DBAAE2AE21A5B3B000211CBF /* WelcomePageVC.swift */,
 				DBAAE2BA21A5D26800211CBF /* WelcomeVC.swift */,
 				DBAAE2B221A5C53700211CBF /* NotificheVC.swift */,
+				DB217D4822184FE0003ED264 /* GenderVC.swift */,
 			);
 			path = WelcomePage;
 			sourceTree = "<group>";
@@ -760,6 +772,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBCF2F3C21F79E7E0074E0AF /* SitiListView.swift in Sources */,
+				DB217D4D22185124003ED264 /* UIBox.swift in Sources */,
 				DBAF3C4C219CBF35003083EA /* IQUIView+Hierarchy.swift in Sources */,
 				DBAF3C02219C9019003083EA /* AppDelegate.swift in Sources */,
 				DB88DBDF21A96E6F00B0699B /* HomeViewController.swift in Sources */,
@@ -770,6 +783,7 @@
 				DB53C78421E0F62B0001054B /* CompagniaTest+Relationships.swift in Sources */,
 				DBF3A2B421DD81F5008AE7D5 /* TeenStarEditEntryView.swift in Sources */,
 				DBAF3C4D219CBF35003083EA /* IQNSArray+Sort.swift in Sources */,
+				DB217D4922184FE0003ED264 /* GenderVC.swift in Sources */,
 				DB4F3BBC21F5C34C0040F4C4 /* Themes.swift in Sources */,
 				DBF3A2AC21DD723B008AE7D5 /* TeenStarListVC.swift in Sources */,
 				DB53C78221DFCC3D0001054B /* SettingsVC.swift in Sources */,
@@ -780,6 +794,7 @@
 				DBCF2F3A21F79E410074E0AF /* SitiVC.swift in Sources */,
 				DB2C316321AC88E20009EC14 /* EditRispostaVC.swift in Sources */,
 				DB88DBF521AAF1EA00B0699B /* RegolaParserView.swift in Sources */,
+				DB217D4B2218500B003ED264 /* GenderVCView.swift in Sources */,
 				DB53AB8C21DACA34001961EC /* ColorSliderAlert.swift in Sources */,
 				DB67643821F634F700651AD8 /* AuthNetworkAgent.swift in Sources */,
 				DB88DBFB21AB2C0D00B0699B /* DomandeView.swift in Sources */,
@@ -808,6 +823,7 @@
 				DBAF3C48219CBF35003083EA /* IQKeyboardManager.swift in Sources */,
 				DBAAE2B321A5C53700211CBF /* NotificheVC.swift in Sources */,
 				DB53C77121DE75E70001054B /* EmozioneTableViewCell.swift in Sources */,
+				DB217D4F2218557D003ED264 /* GenderBox.swift in Sources */,
 				DBAF3C47219CBF35003083EA /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				DB22DA9121C03A9200E6497D /* NoteVC.swift in Sources */,
 				DB88DBE821A975C100B0699B /* SpinerLayer.swift in Sources */,

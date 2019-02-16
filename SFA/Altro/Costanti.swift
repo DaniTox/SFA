@@ -11,12 +11,23 @@ import Foundation
 let IS_FIRST_LAUNCH = "is_first_launch"
 let NOTIFICHE_DA_RICEVERE = "notifiche_da_ricevere"
 let THEME_KEY = "theme"
+let GENDER_KEY = "gender"
 
 var isAlreadyLaunched : Bool {
     get {
         return UserDefaults.standard.bool(forKey: IS_FIRST_LAUNCH)
     } set {
         UserDefaults.standard.set(newValue, forKey: IS_FIRST_LAUNCH)
+    }
+}
+
+var genderSaved : UserGender {
+    get {
+        guard let data = UserDefaults.standard.data(forKey: GENDER_KEY) else { return .boy }
+        return (try? JSONDecoder().decode(UserGender.self, from: data)) ?? .boy
+    } set {
+        let dataToSave = try? JSONEncoder().encode(newValue)
+        UserDefaults.standard.set(dataToSave, forKey: GENDER_KEY)
     }
 }
 

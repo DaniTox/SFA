@@ -29,7 +29,13 @@ class WelcomePageVC: UIPageViewController {
         let nav2 = UINavigationController(rootViewController: vc2)
         nav2.navigationBar.prefersLargeTitles = true
         
-        return [nav1, nav2]
+        let vc3 = GenderVC()
+        vc3.title = "Sesso"
+        let nav3 = ThemedNavigationController(rootViewController: vc3)
+        nav3.navigationBar.prefersLargeTitles = true
+        
+        
+        return [nav1, nav3, nav2 ]
     }()
 
     @objc private func done() {
