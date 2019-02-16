@@ -9,7 +9,15 @@
 import UIKit
 
 class WelcomePageVC: UIPageViewController {
-
+    
+    override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
+        super.init(transitionStyle: style, navigationOrientation: navigationOrientation, options: options)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = self
@@ -20,17 +28,15 @@ class WelcomePageVC: UIPageViewController {
     
     private(set) lazy var orderedViewControllers : [UIViewController] = {
         let vc1 = WelcomeVC()
-        vc1.pageViewController = self
-        let nav1 = UINavigationController(rootViewController: vc1)
+        let nav1 = ThemedNavigationController(rootViewController: vc1)
         nav1.navigationBar.prefersLargeTitles = true
         
         let vc2 = NotificheOnBoardingVC()
         vc2.doneButton.addTarget(self, action: #selector(done), for: .touchUpInside)
-        let nav2 = UINavigationController(rootViewController: vc2)
+        let nav2 = ThemedNavigationController(rootViewController: vc2)
         nav2.navigationBar.prefersLargeTitles = true
         
         let vc3 = GenderVC()
-        vc3.title = "Sesso"
         let nav3 = ThemedNavigationController(rootViewController: vc3)
         nav3.navigationBar.prefersLargeTitles = true
         

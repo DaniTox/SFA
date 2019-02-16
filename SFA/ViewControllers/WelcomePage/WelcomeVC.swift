@@ -8,14 +8,14 @@
 
 import UIKit
 
-class WelcomeVC: UIViewController, HasCustomView {
+class WelcomeVC: UIViewController, HasCustomView, OrderedFlowController {
     typealias CustomView = WelcomeView
     override func loadView() {
         super.loadView()
         view = CustomView()
     }
     
-    var pageViewController : WelcomePageVC?
+    var orderingCoordinator: OrderedFlowCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +27,20 @@ class WelcomeVC: UIViewController, HasCustomView {
         rootView.ignoraButton.addTarget(self, action: #selector(ignoraAction(_:)), for: .touchUpInside)
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        orderingCoordinator?.controllerDidActivate(self)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        rootView.ignoraButton.isEnabled = true
+    }
+    
     @objc func registerAction(_ sender: UIButton) {
         let vc = RegisterVC()
         let nav = RotationLogicNavigationController(rootViewController: vc)
         present(nav, animated: true)
     }
-    
     
     @objc func loginAction(_ sender: UIButton) {
         let vc = LoginVC()
@@ -41,8 +49,6 @@ class WelcomeVC: UIViewController, HasCustomView {
     }
     
     @objc func ignoraAction(_ sender: UIButton) {
-        guard let nextController = pageViewController?.getControllerAt(index: 1) else { fatalError() }
-        pageViewController?.setViewControllers([nextController], direction: UIPageViewController.NavigationDirection.forward, animated: true, completion: nil)
-        sender.isEnabled = false
+        orderingCoordinator?.next()
     }
 }

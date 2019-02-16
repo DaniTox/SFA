@@ -1,0 +1,22 @@
+//
+//  OrderedFlowCoordinator.swift
+//  SFA
+//
+//  Created by Dani Tox on 16/02/19.
+//  Copyright © 2019 Dani Tox. All rights reserved.
+//
+
+import UIKit
+
+protocol OrderedFlowCoordinator : Coordinator {
+    var currentShowingControllerIndex : Int { get set }
+    var controllers: [OrderedFlowController] { get set }
+    func controllerDidActivate(_ vc: OrderedFlowController)
+    func next()
+    func previous()
+}
+
+
+protocol OrderedFlowController where Self: UIViewController {
+    var orderingCoordinator : OrderedFlowCoordinator? { get set }
+}

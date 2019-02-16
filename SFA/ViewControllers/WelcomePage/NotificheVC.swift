@@ -9,7 +9,8 @@
 import UIKit
 import UserNotifications
 
-class NotificheOnBoardingVC : NotificheVC {
+class NotificheOnBoardingVC : NotificheVC, OrderedFlowController {
+    var orderingCoordinator: OrderedFlowCoordinator?
  
     lazy var doneButton : UIBouncyButton = {
         let button = UIBouncyButton()
@@ -23,9 +24,15 @@ class NotificheOnBoardingVC : NotificheVC {
         return button
     }()
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        orderingCoordinator?.controllerDidActivate(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(doneButton)
+        doneButton.addTarget(self, action: #selector(doneAction), for: .touchUpInside)
     }
     
     override func viewDidLayoutSubviews() {
@@ -42,6 +49,10 @@ class NotificheOnBoardingVC : NotificheVC {
         return cellHeight
     }
 
+    @objc func doneAction() {
+        orderingCoordinator?.next()
+    }
+    
 }
 
 class NotificheVC: UITableViewController {

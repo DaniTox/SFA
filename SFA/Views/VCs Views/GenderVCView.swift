@@ -23,15 +23,23 @@ class GenderVCView: UIView {
         return stack
     }()
     
+    lazy var continueButton : UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Continua", for: .normal)
+//        button.backgroundColor = .green
+        return button
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
+        backgroundColor = Theme.current.controllerBackground
         
         boxesStack.addArrangedSubview(maleBox)
         boxesStack.addArrangedSubview(girlBox)
         
         addSubview(boxesStack)
-        
+        addSubview(continueButton)
     }
     
     override func layoutSubviews() {
@@ -40,6 +48,10 @@ class GenderVCView: UIView {
         boxesStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         boxesStack.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.85).isActive = true
         boxesStack.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.85).isActive = true
+        
+        continueButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -15).isActive = true
+        continueButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

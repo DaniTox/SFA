@@ -74,6 +74,7 @@ class WelcomeView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        
         buttonsStack.addArrangedSubview(registerButton)
         buttonsStack.addArrangedSubview(loginButton)
         

@@ -24,17 +24,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        if isAlreadyLaunched {            
+        if isAlreadyLaunched {
             window?.rootViewController = RootAppController()
             window?.makeKeyAndVisible()
         } else {
             let homeVC = RootAppController()
-//            let storyboard = UIStoryboard(name: "WelcomeVC", bundle: nil)
-//            let vc = storyboard.instantiateViewController(withIdentifier: "pageController") as! WelcomePageVC
-            let vc = WelcomePageVC()
+
+            let nav = ThemedNavigationController()
+            let onboardingCoordinator = OnboardingCoordinator(navigationController: nav)
+            onboardingCoordinator.terminateAction = { 
+                DispatchQueue.main.async {
+                    nav.dismiss(animated: true, completion: nil)
+                }
+            }
+            
             window?.rootViewController = homeVC
             window?.makeKeyAndVisible()
-            homeVC.present(vc, animated: true)
+            homeVC.present(onboardingCoordinator.navigationController, animated: true)
+            onboardingCoordinator.start()
         }
         
                 

@@ -15,6 +15,8 @@
 		DB217D4B2218500B003ED264 /* GenderVCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB217D4A2218500B003ED264 /* GenderVCView.swift */; };
 		DB217D4D22185124003ED264 /* UIBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB217D4C22185124003ED264 /* UIBox.swift */; };
 		DB217D4F2218557D003ED264 /* GenderBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB217D4E2218557D003ED264 /* GenderBox.swift */; };
+		DB217D5222188C2D003ED264 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB217D5122188C2D003ED264 /* Coordinator.swift */; };
+		DB217D5422188D9E003ED264 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB217D5322188D9E003ED264 /* OnboardingCoordinator.swift */; };
 		DB22DA8D21C02F9500E6497D /* DatePickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB22DA8C21C02F9500E6497D /* DatePickerModel.swift */; };
 		DB22DA8F21C03A6300E6497D /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB22DA8E21C03A6300E6497D /* NoteView.swift */; };
 		DB22DA9121C03A9200E6497D /* NoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB22DA9021C03A9200E6497D /* NoteVC.swift */; };
@@ -112,6 +114,7 @@
 		DBAF3C4D219CBF35003083EA /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF3C3C219CBF35003083EA /* IQNSArray+Sort.swift */; };
 		DBBBDC5021F5016D00C9F54A /* BouncyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBDC4F21F5016D00C9F54A /* BouncyView.swift */; };
 		DBBE6FC621F8EEA80001875A /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBE6FC521F8EEA80001875A /* TextCell.swift */; };
+		DBC7F4C92218ACAB00C22945 /* OrderedFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4C82218ACAB00C22945 /* OrderedFlowCoordinator.swift */; };
 		DBCE9ED021EFB247005B286A /* VerificaCompagniaDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE9ECF21EFB247005B286A /* VerificaCompagniaDataSource.swift */; };
 		DBCF2F3A21F79E410074E0AF /* SitiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF2F3921F79E410074E0AF /* SitiVC.swift */; };
 		DBCF2F3C21F79E7E0074E0AF /* SitiListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF2F3B21F79E7E0074E0AF /* SitiListView.swift */; };
@@ -140,6 +143,8 @@
 		DB217D4A2218500B003ED264 /* GenderVCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderVCView.swift; sourceTree = "<group>"; };
 		DB217D4C22185124003ED264 /* UIBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBox.swift; sourceTree = "<group>"; };
 		DB217D4E2218557D003ED264 /* GenderBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderBox.swift; sourceTree = "<group>"; };
+		DB217D5122188C2D003ED264 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		DB217D5322188D9E003ED264 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		DB22DA8C21C02F9500E6497D /* DatePickerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerModel.swift; sourceTree = "<group>"; };
 		DB22DA8E21C03A6300E6497D /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
 		DB22DA9021C03A9200E6497D /* NoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteVC.swift; sourceTree = "<group>"; };
@@ -239,6 +244,7 @@
 		DBAF3C3C219CBF35003083EA /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQNSArray+Sort.swift"; sourceTree = "<group>"; };
 		DBBBDC4F21F5016D00C9F54A /* BouncyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncyView.swift; sourceTree = "<group>"; };
 		DBBE6FC521F8EEA80001875A /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
+		DBC7F4C82218ACAB00C22945 /* OrderedFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedFlowCoordinator.swift; sourceTree = "<group>"; };
 		DBCE9ECF21EFB247005B286A /* VerificaCompagniaDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificaCompagniaDataSource.swift; sourceTree = "<group>"; };
 		DBCF2F3921F79E410074E0AF /* SitiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitiVC.swift; sourceTree = "<group>"; };
 		DBCF2F3B21F79E7E0074E0AF /* SitiListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitiListView.swift; sourceTree = "<group>"; };
@@ -271,6 +277,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB217D5022188AD6003ED264 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				DB217D5122188C2D003ED264 /* Coordinator.swift */,
+				DB217D5322188D9E003ED264 /* OnboardingCoordinator.swift */,
+				DBC7F4C82218ACAB00C22945 /* OrderedFlowCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		DB4F3BBF21F5DEC80040F4C4 /* Note */ = {
 			isa = PBXGroup;
 			children = (
@@ -519,6 +535,7 @@
 		DBAF3C00219C9019003083EA /* SFA */ = {
 			isa = PBXGroup;
 			children = (
+				DB217D5022188AD6003ED264 /* Coordinator */,
 				DB5751DF21DA75F600F97D25 /* Frameworks */,
 				DBAF3C22219C9F51003083EA /* Altro */,
 				DBFA255F21DC3D39000785D0 /* CoreDataObjects */,
@@ -788,6 +805,7 @@
 				DBF3A2AC21DD723B008AE7D5 /* TeenStarListVC.swift in Sources */,
 				DB53C78221DFCC3D0001054B /* SettingsVC.swift in Sources */,
 				DB53C7AD21E3D8380001054B /* CompagniaDomandaCell.swift in Sources */,
+				DB217D5222188C2D003ED264 /* Coordinator.swift in Sources */,
 				DBAF3C1E219C9478003083EA /* Protocolli.swift in Sources */,
 				DBAF3C4A219CBF35003083EA /* IQUIViewController+Additions.swift in Sources */,
 				DBAAE2BB21A5D26800211CBF /* WelcomeVC.swift in Sources */,
@@ -800,6 +818,7 @@
 				DB88DBFB21AB2C0D00B0699B /* DomandeView.swift in Sources */,
 				DB5751DE21DA719900F97D25 /* TextEditingBottomBar.swift in Sources */,
 				DBF3A2AE21DD7262008AE7D5 /* TeenStarListView.swift in Sources */,
+				DBC7F4C92218ACAB00C22945 /* OrderedFlowCoordinator.swift in Sources */,
 				DBAF3C40219CBF35003083EA /* IQBarButtonItem.swift in Sources */,
 				DB61DA1721B9C605006B308B /* SitoVC.swift in Sources */,
 				DB4F3BC521F5FBC80040F4C4 /* SwitchCell.swift in Sources */,
@@ -827,6 +846,7 @@
 				DBAF3C47219CBF35003083EA /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				DB22DA9121C03A9200E6497D /* NoteVC.swift in Sources */,
 				DB88DBE821A975C100B0699B /* SpinerLayer.swift in Sources */,
+				DB217D5422188D9E003ED264 /* OnboardingCoordinator.swift in Sources */,
 				DB5751DC21DA651C00F97D25 /* BoldCell.swift in Sources */,
 				DBF3A2B221DD81D1008AE7D5 /* TeenStarEditEntryVC.swift in Sources */,
 				DB88DBE921A975C100B0699B /* CGRectEx.swift in Sources */,
