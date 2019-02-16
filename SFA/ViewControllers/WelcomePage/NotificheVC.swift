@@ -24,11 +24,6 @@ class NotificheOnBoardingVC : NotificheVC, OrderedFlowController {
         return button
     }()
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        orderingCoordinator?.controllerDidActivate(self)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(doneButton)

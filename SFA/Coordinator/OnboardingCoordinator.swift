@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OnboardingCoordinator: OrderedFlowCoordinator {
+class OnboardingCoordinator: NSObject, OrderedFlowCoordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     
@@ -23,6 +23,8 @@ class OnboardingCoordinator: OrderedFlowCoordinator {
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+        super.init()
+        self.navigationController.delegate = self
     }
     
     func start() {
@@ -47,13 +49,12 @@ class OnboardingCoordinator: OrderedFlowCoordinator {
         terminateAction?()
     }
     
-    func controllerDidActivate(_ vc: OrderedFlowController) {
-        if let index = controllers.firstIndex(where: { ($0 as? UIViewController) == (vc as? UIViewController) }) {
+}
+
+extension OnboardingCoordinator : UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        if let index = controllers.firstIndex(where: { ($0 as? UIViewController) == (viewController) }) {
             currentShowingControllerIndex = index
         }
-    }
-    
-    func previous() {
-        
     }
 }

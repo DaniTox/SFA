@@ -26,11 +26,6 @@ class WelcomeVC: UIViewController, HasCustomView, OrderedFlowController {
         rootView.loginButton.addTarget(self, action: #selector(loginAction(_:)), for: .touchUpInside)
         rootView.ignoraButton.addTarget(self, action: #selector(ignoraAction(_:)), for: .touchUpInside)
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        orderingCoordinator?.controllerDidActivate(self)
-    }
     
     override func viewDidDisappear(_ animated: Bool) {
         rootView.ignoraButton.isEnabled = true

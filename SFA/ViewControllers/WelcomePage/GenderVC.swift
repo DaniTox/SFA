@@ -43,11 +43,6 @@ class GenderVC: UIViewController, HasCustomView, OrderedFlowController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        orderingCoordinator?.controllerDidActivate(self)
-    }
-    
     private func updateTheme() {
         rootView.backgroundColor = Theme.current.controllerBackground
     }

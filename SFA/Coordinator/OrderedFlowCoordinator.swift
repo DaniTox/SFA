@@ -11,9 +11,7 @@ import UIKit
 protocol OrderedFlowCoordinator : Coordinator {
     var currentShowingControllerIndex : Int { get set }
     var controllers: [OrderedFlowController] { get set }
-    func controllerDidActivate(_ vc: OrderedFlowController)
     func next()
-    func previous()
 }
 
 
