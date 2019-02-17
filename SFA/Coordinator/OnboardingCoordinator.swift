@@ -16,6 +16,7 @@ class OnboardingCoordinator: NSObject, OrderedFlowCoordinator {
     var controllers : [OrderedFlowController] = [
         WelcomeVC(),
         GenderVC(),
+        GradoScuolaVC(),
         NotificheOnBoardingVC()
     ]
 

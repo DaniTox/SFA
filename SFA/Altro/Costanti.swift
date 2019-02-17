@@ -12,6 +12,13 @@ let IS_FIRST_LAUNCH = "is_first_launch"
 let NOTIFICHE_DA_RICEVERE = "notifiche_da_ricevere"
 let THEME_KEY = "theme"
 let GENDER_KEY = "gender"
+let GRADOSCUOLA_KEY = "gradoScuola"
+
+
+enum GradoScuola : Int,  Codable {
+    case medie = 0
+    case superiori = 1
+}
 
 var isAlreadyLaunched : Bool {
     get {
@@ -28,6 +35,16 @@ var genderSaved : UserGender {
     } set {
         let dataToSave = try? JSONEncoder().encode(newValue)
         UserDefaults.standard.set(dataToSave, forKey: GENDER_KEY)
+    }
+}
+
+var gradoScuolaSaved : GradoScuola {
+    get {
+        guard let data = UserDefaults.standard.data(forKey: GRADOSCUOLA_KEY) else { return .medie }
+        return (try? JSONDecoder().decode(GradoScuola.self, from: data)) ?? .medie
+    } set {
+        let dataToSave = try? JSONEncoder().encode(newValue)
+        UserDefaults.standard.set(dataToSave, forKey: GRADOSCUOLA_KEY)
     }
 }
 

@@ -115,6 +115,8 @@
 		DBBBDC5021F5016D00C9F54A /* BouncyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBDC4F21F5016D00C9F54A /* BouncyView.swift */; };
 		DBBE6FC621F8EEA80001875A /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBE6FC521F8EEA80001875A /* TextCell.swift */; };
 		DBC7F4C92218ACAB00C22945 /* OrderedFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4C82218ACAB00C22945 /* OrderedFlowCoordinator.swift */; };
+		DBC7F4CB2219898100C22945 /* GradoScuolaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4CA2219898100C22945 /* GradoScuolaVC.swift */; };
+		DBC7F4CD22198A0A00C22945 /* GradoScuolaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4CC22198A0A00C22945 /* GradoScuolaView.swift */; };
 		DBCE9ED021EFB247005B286A /* VerificaCompagniaDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE9ECF21EFB247005B286A /* VerificaCompagniaDataSource.swift */; };
 		DBCF2F3A21F79E410074E0AF /* SitiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF2F3921F79E410074E0AF /* SitiVC.swift */; };
 		DBCF2F3C21F79E7E0074E0AF /* SitiListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF2F3B21F79E7E0074E0AF /* SitiListView.swift */; };
@@ -245,6 +247,8 @@
 		DBBBDC4F21F5016D00C9F54A /* BouncyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncyView.swift; sourceTree = "<group>"; };
 		DBBE6FC521F8EEA80001875A /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
 		DBC7F4C82218ACAB00C22945 /* OrderedFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedFlowCoordinator.swift; sourceTree = "<group>"; };
+		DBC7F4CA2219898100C22945 /* GradoScuolaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradoScuolaVC.swift; sourceTree = "<group>"; };
+		DBC7F4CC22198A0A00C22945 /* GradoScuolaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradoScuolaView.swift; sourceTree = "<group>"; };
 		DBCE9ECF21EFB247005B286A /* VerificaCompagniaDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificaCompagniaDataSource.swift; sourceTree = "<group>"; };
 		DBCF2F3921F79E410074E0AF /* SitiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitiVC.swift; sourceTree = "<group>"; };
 		DBCF2F3B21F79E7E0074E0AF /* SitiListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitiListView.swift; sourceTree = "<group>"; };
@@ -328,6 +332,7 @@
 				DBE6070821F27AA200E10422 /* WelcomeView.swift */,
 				DBCF2F3B21F79E7E0074E0AF /* SitiListView.swift */,
 				DB217D4A2218500B003ED264 /* GenderVCView.swift */,
+				DBC7F4CC22198A0A00C22945 /* GradoScuolaView.swift */,
 			);
 			path = "VCs Views";
 			sourceTree = "<group>";
@@ -384,6 +389,7 @@
 				DBAAE2BA21A5D26800211CBF /* WelcomeVC.swift */,
 				DBAAE2B221A5C53700211CBF /* NotificheVC.swift */,
 				DB217D4822184FE0003ED264 /* GenderVC.swift */,
+				DBC7F4CA2219898100C22945 /* GradoScuolaVC.swift */,
 			);
 			path = WelcomePage;
 			sourceTree = "<group>";
@@ -817,12 +823,14 @@
 				DB67643821F634F700651AD8 /* AuthNetworkAgent.swift in Sources */,
 				DB88DBFB21AB2C0D00B0699B /* DomandeView.swift in Sources */,
 				DB5751DE21DA719900F97D25 /* TextEditingBottomBar.swift in Sources */,
+				DBC7F4CB2219898100C22945 /* GradoScuolaVC.swift in Sources */,
 				DBF3A2AE21DD7262008AE7D5 /* TeenStarListView.swift in Sources */,
 				DBC7F4C92218ACAB00C22945 /* OrderedFlowCoordinator.swift in Sources */,
 				DBAF3C40219CBF35003083EA /* IQBarButtonItem.swift in Sources */,
 				DB61DA1721B9C605006B308B /* SitoVC.swift in Sources */,
 				DB4F3BC521F5FBC80040F4C4 /* SwitchCell.swift in Sources */,
 				DBFE97F821D57C6F00E82803 /* Nota.swift in Sources */,
+				DBC7F4CD22198A0A00C22945 /* GradoScuolaView.swift in Sources */,
 				DBAF3C4B219CBF35003083EA /* IQUITextFieldView+Additions.swift in Sources */,
 				DB88DBEB21A975C100B0699B /* FadeTransition.swift in Sources */,
 				DBAAE2AF21A5B3B000211CBF /* WelcomePageVC.swift in Sources */,
