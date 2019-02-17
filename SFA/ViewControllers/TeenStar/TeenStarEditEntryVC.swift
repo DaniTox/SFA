@@ -52,7 +52,11 @@ class TeenStarEditEntryVC: UIViewController, HasCustomView {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .orange
-        self.title = "\(Date().dayOfWeek()) - \(Date().stringValue)"
+        if let entry = entry {
+            self.title = "\(entry.date?.dayOfWeek() ?? "NULL") - \(entry.date?.stringValue ?? "NULL")"
+        } else {
+            self.title = "\(Date().dayOfWeek()) - \(Date().stringValue)"
+        }
         
         NotificationCenter.default.addObserver(forName: .updateTheme, object: nil, queue: .main) { (notification) in
             self.updateTheme()

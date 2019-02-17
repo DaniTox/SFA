@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
 class TeenStarListVC: UIViewController, HasCustomView {
     typealias CustomView = TeenStarListView
@@ -39,6 +40,8 @@ class TeenStarListVC: UIViewController, HasCustomView {
         rootView.tableView.register(BoldCell.self, forCellReuseIdentifier: "cell")
         rootView.tableView.delegate = self
         rootView.tableView.dataSource = self
+        rootView.tableView.emptyDataSetDelegate = self
+        rootView.tableView.emptyDataSetSource = self
         
         let rightButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addEntryButtonTapped))
         navigationItem.setRightBarButton(rightButton, animated: true)
@@ -83,7 +86,7 @@ class TeenStarListVC: UIViewController, HasCustomView {
     
 }
 
-extension TeenStarListVC : UITableViewDelegate, UITableViewDataSource {
+extension TeenStarListVC : UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return entries.count
     }
@@ -92,7 +95,7 @@ extension TeenStarListVC : UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! BoldCell
         let entry = entries[indexPath.row]
         cell.accessoryType = .disclosureIndicator
-        cell.mainLabel.text = "\(Date().dayOfWeek()) - \(entry.date?.stringValue ?? "NULL")"
+        cell.mainLabel.text = "\(entry.date?.dayOfWeek() ?? "NULL") - \(entry.date?.stringValue ?? "NULL")"
         return cell
     }
     
@@ -118,6 +121,18 @@ extension TeenStarListVC : UITableViewDelegate, UITableViewDataSource {
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
         }
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let str = "TeenSTAR"
+        let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+    
+    func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        let str = "Non hai ancora aggiunto nessun dato.\nCreane uno premendo sul pulsante +"
+        let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)]
+        return NSAttributedString(string: str, attributes: attrs)
     }
     
 }

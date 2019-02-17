@@ -119,6 +119,7 @@
 		DBC7F4CD22198A0A00C22945 /* GradoScuolaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4CC22198A0A00C22945 /* GradoScuolaView.swift */; };
 		DBC7F4DC2219AEC500C22945 /* NotificheOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4DB2219AEC500C22945 /* NotificheOnboardingVC.swift */; };
 		DBC7F4DF2219AFA900C22945 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4DE2219AFA900C22945 /* HomeView.swift */; };
+		DBC7F4E22219B8DE00C22945 /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC7F4E12219B8DE00C22945 /* DZNEmptyDataSet.framework */; };
 		DBCE9ED021EFB247005B286A /* VerificaCompagniaDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE9ECF21EFB247005B286A /* VerificaCompagniaDataSource.swift */; };
 		DBCF2F3A21F79E410074E0AF /* SitiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF2F3921F79E410074E0AF /* SitiVC.swift */; };
 		DBCF2F3C21F79E7E0074E0AF /* SitiListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF2F3B21F79E7E0074E0AF /* SitiListView.swift */; };
@@ -253,6 +254,7 @@
 		DBC7F4CC22198A0A00C22945 /* GradoScuolaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradoScuolaView.swift; sourceTree = "<group>"; };
 		DBC7F4DB2219AEC500C22945 /* NotificheOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificheOnboardingVC.swift; sourceTree = "<group>"; };
 		DBC7F4DE2219AFA900C22945 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		DBC7F4E12219B8DE00C22945 /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DZNEmptyDataSet.framework; path = Frameworks/Carthage/Build/iOS/DZNEmptyDataSet.framework; sourceTree = "<group>"; };
 		DBCE9ECF21EFB247005B286A /* VerificaCompagniaDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificaCompagniaDataSource.swift; sourceTree = "<group>"; };
 		DBCF2F3921F79E410074E0AF /* SitiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitiVC.swift; sourceTree = "<group>"; };
 		DBCF2F3B21F79E7E0074E0AF /* SitiListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitiListView.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB8EC01521EE4456003B2A81 /* ColorSlider.framework in Frameworks */,
+				DBC7F4E22219B8DE00C22945 /* DZNEmptyDataSet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +483,7 @@
 		DB8EC01321EE4447003B2A81 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DBC7F4E12219B8DE00C22945 /* DZNEmptyDataSet.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -872,6 +876,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Frameworks/Carthage/Build/iOS/ColorSlider.framework",
+				"$(SRCROOT)/Frameworks/Carthage/Build/iOS/DZNEmptyDataSet.framework",
 			);
 			outputFileListPaths = (
 			);
