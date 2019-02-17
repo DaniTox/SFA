@@ -70,14 +70,6 @@ class GenderVCView: UIView {
         return stack
     }()
     
-//    lazy var continueButton : UIButton = {
-//        let button = UIButton()
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        button.setTitle("Continua", for: .normal)
-//        button.backgroundColor = .green
-//        return button
-//    }()
-    
     var fullStack : UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
