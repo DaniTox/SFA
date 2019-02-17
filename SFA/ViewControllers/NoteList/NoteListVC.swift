@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
 class NoteListVC: UIViewController, HasCustomView {
     typealias CustomView = NoteListView
@@ -32,6 +33,8 @@ class NoteListVC: UIViewController, HasCustomView {
         
         rootView.tableView.delegate = self
         rootView.tableView.dataSource = self
+        rootView.tableView.emptyDataSetDelegate = self
+        rootView.tableView.emptyDataSetSource = self
         rootView.tableView.register(BoldCell.self, forCellReuseIdentifier: "cell")
         
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed))
@@ -78,7 +81,7 @@ class NoteListVC: UIViewController, HasCustomView {
     }
 }
 
-extension NoteListVC : UITableViewDelegate, UITableViewDataSource {
+extension NoteListVC : UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let dateFocused = notesDates[section]
         let notesInDate = model.getNotes(for: dateFocused)
@@ -139,6 +142,18 @@ extension NoteListVC : UITableViewDelegate, UITableViewDataSource {
         if editingStyle == .delete {
             
         }
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let str = "Diario"
+        let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+    
+    func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        let str = "Non hai ancora aggiunto nessuna nota.\nCreane una premendo sul pulsante +"
+        let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)]
+        return NSAttributedString(string: str, attributes: attrs)
     }
     
 }
