@@ -16,7 +16,7 @@ class GenderVC: UIViewController, HasCustomView, OrderedFlowController {
     }
     
     var orderingCoordinator: OrderedFlowCoordinator?
-    var genderSelected : UserGender?
+    var finishAction : (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,44 +26,30 @@ class GenderVC: UIViewController, HasCustomView, OrderedFlowController {
             self.updateTheme()
         }
         
-        rootView.continueButton.addTarget(self, action: #selector(continueOnBoarding), for: .touchUpInside)
+//        rootView.continueButton.addTarget(self, action: #selector(continueOnBoarding), for: .touchUpInside)
         
-        rootView.maleBox.boxTouched = { [weak self] in
-            genderSaved = .boy
-            self?.genderSelected = .boy
-            guard let self = self else { return }
-            self.select(box: self.rootView.maleBox)
-        }
+        rootView.maleButton.addTarget(self, action: #selector(maleTouched), for: .touchUpInside)
+        rootView.girlButton.addTarget(self, action: #selector(girlTouched), for: .touchUpInside)
         
-        rootView.girlBox.boxTouched = { [weak self] in
-            genderSaved = .girl
-            self?.genderSelected = .girl
-            guard let self = self else { return }
-            self.select(box: self.rootView.girlBox)
-        }
+    }
+    
+    @objc private func maleTouched() {
+        genderSaved = .boy
+        workFinished()
+    }
+    
+    @objc private func girlTouched() {
+        genderSaved = .girl
+        workFinished()
+    }
+    
+    func workFinished() {
+        orderingCoordinator?.next()
+        finishAction?()
     }
     
     private func updateTheme() {
         rootView.backgroundColor = Theme.current.controllerBackground
     }
     
-    @objc private func continueOnBoarding(_ sender: UIButton) {
-        if genderSelected == nil {
-            showError(withTitle: "Errore", andMessage: "Devi selezionare il sesso prima di continuare")
-            return
-        }
-        orderingCoordinator?.next()
-    }
-    
-    private func select(box: GenderBox) {
-        DispatchQueue.main.async { [weak self] in
-            box.selectBox()
-            if box == self?.rootView.maleBox {
-                self?.rootView.girlBox.unselectBox()
-            } else {
-                self?.rootView.maleBox.unselectBox()
-            }
-        }
-    }
-
 }

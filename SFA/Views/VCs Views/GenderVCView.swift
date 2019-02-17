@@ -9,49 +9,104 @@
 import UIKit
 
 class GenderVCView: UIView {
+    
+    lazy var titleLabel : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.boldSystemFont(ofSize: 30)
+        label.textColor = Theme.current.textColor
+        label.textAlignment = .center
+        label.text = "Sei maschio o femmina?"
+        label.adjustsFontSizeToFitWidth = true
+        return label
+    }()
 
-    public var maleBox = GenderBox(gender: .boy, frame: .zero)
-    public var girlBox = GenderBox(gender: .girl, frame: .zero)
+    lazy var maleButton : UIBouncyButton = {
+        let button = UIBouncyButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Maschio", for: .normal)
+        button.setTitleColor(Theme.current.textColor, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.backgroundColor = Theme.current.backgroundColor
+        
+        //        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 10
+        button.layer.shadowColor = Theme.current.shadowColor.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 0)
+        button.layer.shadowOpacity = 1.0
+        button.layer.shadowRadius = 10
+        button.layer.masksToBounds = false
+        return button
+    }()
+    
+    
+    lazy var girlButton : UIBouncyButton = {
+        let button = UIBouncyButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Femmina", for: .normal)
+        button.setTitleColor(Theme.current.textColor, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.backgroundColor = Theme.current.backgroundColor
+        
+        //        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 10
+        button.layer.shadowColor = Theme.current.shadowColor.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 0)
+        button.layer.shadowOpacity = 1.0
+        button.layer.shadowRadius = 10
+        button.layer.masksToBounds = false
+        return button
+    }()
     
     private var boxesStack : UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .horizontal
+        stack.axis = .vertical
         stack.distribution = .fillEqually
         stack.alignment = .fill
-        stack.spacing = 10
+        stack.spacing = 20
         return stack
     }()
     
-    lazy var continueButton : UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Continua", for: .normal)
+//    lazy var continueButton : UIButton = {
+//        let button = UIButton()
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        button.setTitle("Continua", for: .normal)
 //        button.backgroundColor = .green
-        return button
+//        return button
+//    }()
+    
+    var fullStack : UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.distribution = .fillProportionally
+        stack.alignment = .fill
+        stack.spacing = 20
+        return stack
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = Theme.current.controllerBackground
         
-        boxesStack.addArrangedSubview(maleBox)
-        boxesStack.addArrangedSubview(girlBox)
+        boxesStack.addArrangedSubview(maleButton)
+        boxesStack.addArrangedSubview(girlButton)
         
-        addSubview(boxesStack)
-        addSubview(continueButton)
+        fullStack.addArrangedSubview(titleLabel)
+        fullStack.addArrangedSubview(boxesStack)
+        
+        addSubview(fullStack)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        boxesStack.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        boxesStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        boxesStack.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.85).isActive = true
-        boxesStack.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.85).isActive = true
-        
-        continueButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -15).isActive = true
-        continueButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        
+        fullStack.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        fullStack.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        fullStack.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.75).isActive = true
+        fullStack.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {

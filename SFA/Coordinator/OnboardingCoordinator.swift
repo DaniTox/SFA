@@ -42,7 +42,7 @@ class OnboardingCoordinator: NSObject, OrderedFlowCoordinator {
             var vc = controllers[currentShowingControllerIndex]
             vc.orderingCoordinator = self
             navigationController.pushViewController(vc as! UIViewController, animated: true)
-            navigationController.navigationItem.backBarButtonItem?.isEnabled = false
+//            navigationController.navigationItem.backBarButtonItem?.isEnabled = false
         }
     }
     
