@@ -117,6 +117,8 @@
 		DBC7F4C92218ACAB00C22945 /* OrderedFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4C82218ACAB00C22945 /* OrderedFlowCoordinator.swift */; };
 		DBC7F4CB2219898100C22945 /* GradoScuolaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4CA2219898100C22945 /* GradoScuolaVC.swift */; };
 		DBC7F4CD22198A0A00C22945 /* GradoScuolaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4CC22198A0A00C22945 /* GradoScuolaView.swift */; };
+		DBC7F4DC2219AEC500C22945 /* NotificheOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4DB2219AEC500C22945 /* NotificheOnboardingVC.swift */; };
+		DBC7F4DF2219AFA900C22945 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4DE2219AFA900C22945 /* HomeView.swift */; };
 		DBCE9ED021EFB247005B286A /* VerificaCompagniaDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE9ECF21EFB247005B286A /* VerificaCompagniaDataSource.swift */; };
 		DBCF2F3A21F79E410074E0AF /* SitiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF2F3921F79E410074E0AF /* SitiVC.swift */; };
 		DBCF2F3C21F79E7E0074E0AF /* SitiListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF2F3B21F79E7E0074E0AF /* SitiListView.swift */; };
@@ -249,6 +251,8 @@
 		DBC7F4C82218ACAB00C22945 /* OrderedFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedFlowCoordinator.swift; sourceTree = "<group>"; };
 		DBC7F4CA2219898100C22945 /* GradoScuolaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradoScuolaVC.swift; sourceTree = "<group>"; };
 		DBC7F4CC22198A0A00C22945 /* GradoScuolaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradoScuolaView.swift; sourceTree = "<group>"; };
+		DBC7F4DB2219AEC500C22945 /* NotificheOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificheOnboardingVC.swift; sourceTree = "<group>"; };
+		DBC7F4DE2219AFA900C22945 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DBCE9ECF21EFB247005B286A /* VerificaCompagniaDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificaCompagniaDataSource.swift; sourceTree = "<group>"; };
 		DBCF2F3921F79E410074E0AF /* SitiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitiVC.swift; sourceTree = "<group>"; };
 		DBCF2F3B21F79E7E0074E0AF /* SitiListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitiListView.swift; sourceTree = "<group>"; };
@@ -291,15 +295,6 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		DB4F3BBF21F5DEC80040F4C4 /* Note */ = {
-			isa = PBXGroup;
-			children = (
-				DB22DA8E21C03A6300E6497D /* NoteView.swift */,
-				DB9A19C021D514A900C05755 /* NoteListView.swift */,
-			);
-			path = Note;
-			sourceTree = "<group>";
-		};
 		DB53C77221DEB7870001054B /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,26 +310,6 @@
 				DBBE6FC521F8EEA80001875A /* TextCell.swift */,
 			);
 			path = TableViewCells;
-			sourceTree = "<group>";
-		};
-		DB53C77321DEB7B50001054B /* VCs Views */ = {
-			isa = PBXGroup;
-			children = (
-				DB4F3BBF21F5DEC80040F4C4 /* Note */,
-				DB88DBFD21AB30E400B0699B /* RegolaDiVita */,
-				DBF3A2AD21DD7262008AE7D5 /* TeenStarListView.swift */,
-				DBF3A2B321DD81F5008AE7D5 /* TeenStarEditEntryView.swift */,
-				DB61DA1A21B9C834006B308B /* SocialView.swift */,
-				DBD1DA2F21CFE35100BFFBA5 /* LoginView.swift */,
-				DB325EDE21D422D7009ADEFC /* RegisterView.swift */,
-				DB53C77F21DFCBF90001054B /* SettingsView.swift */,
-				DB19C68021E2877F0020357D /* VerificaCompagniaView.swift */,
-				DBE6070821F27AA200E10422 /* WelcomeView.swift */,
-				DBCF2F3B21F79E7E0074E0AF /* SitiListView.swift */,
-				DB217D4A2218500B003ED264 /* GenderVCView.swift */,
-				DBC7F4CC22198A0A00C22945 /* GradoScuolaView.swift */,
-			);
-			path = "VCs Views";
 			sourceTree = "<group>";
 		};
 		DB53C77421DEB7C60001054B /* Legacy */ = {
@@ -368,7 +343,9 @@
 			isa = PBXGroup;
 			children = (
 				DBF3A2AB21DD723B008AE7D5 /* TeenStarListVC.swift */,
+				DBF3A2AD21DD7262008AE7D5 /* TeenStarListView.swift */,
 				DBF3A2B121DD81D1008AE7D5 /* TeenStarEditEntryVC.swift */,
+				DBF3A2B321DD81F5008AE7D5 /* TeenStarEditEntryView.swift */,
 			);
 			path = TeenStar;
 			sourceTree = "<group>";
@@ -377,7 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				DB22DA9021C03A9200E6497D /* NoteVC.swift */,
-				DB9A19BE21D5148E00C05755 /* NoteListVC.swift */,
+				DB22DA8E21C03A6300E6497D /* NoteView.swift */,
 			);
 			path = Note;
 			sourceTree = "<group>";
@@ -386,21 +363,17 @@
 			isa = PBXGroup;
 			children = (
 				DBAAE2AE21A5B3B000211CBF /* WelcomePageVC.swift */,
-				DBAAE2BA21A5D26800211CBF /* WelcomeVC.swift */,
-				DBAAE2B221A5C53700211CBF /* NotificheVC.swift */,
-				DB217D4822184FE0003ED264 /* GenderVC.swift */,
-				DBC7F4CA2219898100C22945 /* GradoScuolaVC.swift */,
 			);
 			path = WelcomePage;
 			sourceTree = "<group>";
 		};
-		DB53C77D21DFCAF60001054B /* Login_Register */ = {
+		DB53C77D21DFCAF60001054B /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				DBAAE2B621A5CCEB00211CBF /* LoginVC.swift */,
-				DB88DBE021A9718000B0699B /* RegisterVC.swift */,
+				DBD1DA2F21CFE35100BFFBA5 /* LoginView.swift */,
 			);
-			path = Login_Register;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		DB53C77E21DFCBC90001054B /* Generic */ = {
@@ -496,22 +469,12 @@
 		DB88DBFC21AB30C300B0699B /* RegolaDiVIta */ = {
 			isa = PBXGroup;
 			children = (
-				DB88DBFE21AB315200B0699B /* RegolaCategorieVC.swift */,
-				DB88DBF821AB2BE000B0699B /* DomandeVC.swift */,
-				DB2C316221AC88E20009EC14 /* EditRispostaVC.swift */,
+				DB88DBF421AAF1EA00B0699B /* RegolaParserView.swift */,
+				DBC7F4D32219AD6000C22945 /* Risposte */,
+				DBC7F4D22219AD4A00C22945 /* Categorie */,
+				DBC7F4D12219AD3700C22945 /* Domande */,
 			);
 			path = RegolaDiVIta;
-			sourceTree = "<group>";
-		};
-		DB88DBFD21AB30E400B0699B /* RegolaDiVita */ = {
-			isa = PBXGroup;
-			children = (
-				DB88DBF421AAF1EA00B0699B /* RegolaParserView.swift */,
-				DB88DBFA21AB2C0D00B0699B /* DomandeView.swift */,
-				DB88DC0021AB318400B0699B /* RegoleCategorieView.swift */,
-				DB2C316021AC87580009EC14 /* EditRispostaView.swift */,
-			);
-			path = RegolaDiVita;
 			sourceTree = "<group>";
 		};
 		DB8EC01321EE4447003B2A81 /* Frameworks */ = {
@@ -570,18 +533,23 @@
 		DBAF3C1A219C942E003083EA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				DB53C77E21DFCBC90001054B /* Generic */,
-				DB53C77D21DFCAF60001054B /* Login_Register */,
 				DB53C77C21DFCAE10001054B /* WelcomePage */,
+				DBC7F4D92219AE8A00C22945 /* Welcome */,
+				DB53C77E21DFCBC90001054B /* Generic */,
+				DBC7F4DD2219AF9900C22945 /* Home */,
+				DB88DBFC21AB30C300B0699B /* RegolaDiVIta */,
+				DBC7F4D02219ACE400C22945 /* NoteList */,
 				DB53C77B21DFCAC30001054B /* Note */,
 				DB53C77A21DFCAAD0001054B /* TeenStar */,
-				DB88DBFC21AB30C300B0699B /* RegolaDiVIta */,
-				DB88DBDE21A96E6F00B0699B /* HomeViewController.swift */,
-				DB61DA1621B9C605006B308B /* SitoVC.swift */,
-				DB61DA1821B9C81E006B308B /* SocialVC.swift */,
-				DB53C78121DFCC3D0001054B /* SettingsVC.swift */,
-				DB19C67E21E2870B0020357D /* VerificaCompagniaVC.swift */,
-				DBCF2F3921F79E410074E0AF /* SitiVC.swift */,
+				DBC7F4D72219AE4E00C22945 /* Compagnia */,
+				DBC7F4CE2219AC7800C22945 /* Siti */,
+				DBC7F4D52219ADCE00C22945 /* Social */,
+				DBC7F4D42219ADAE00C22945 /* Settings */,
+				DBC7F4DA2219AEB100C22945 /* Notifiche */,
+				DBC7F4D82219AE6E00C22945 /* Scuola */,
+				DBC7F4D62219AE1E00C22945 /* Gender */,
+				DBC7F4CF2219ACB700C22945 /* Register */,
+				DB53C77D21DFCAF60001054B /* Login */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -590,7 +558,6 @@
 			isa = PBXGroup;
 			children = (
 				DB53C77421DEB7C60001054B /* Legacy */,
-				DB53C77321DEB7B50001054B /* VCs Views */,
 				DB53C77221DEB7870001054B /* TableViewCells */,
 				DB53C77521DEB8400001054B /* Custom */,
 			);
@@ -674,6 +641,133 @@
 				DBAF3C3C219CBF35003083EA /* IQNSArray+Sort.swift */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		DBC7F4CE2219AC7800C22945 /* Siti */ = {
+			isa = PBXGroup;
+			children = (
+				DB61DA1621B9C605006B308B /* SitoVC.swift */,
+				DBCF2F3921F79E410074E0AF /* SitiVC.swift */,
+				DBCF2F3B21F79E7E0074E0AF /* SitiListView.swift */,
+			);
+			path = Siti;
+			sourceTree = "<group>";
+		};
+		DBC7F4CF2219ACB700C22945 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				DB88DBE021A9718000B0699B /* RegisterVC.swift */,
+				DB325EDE21D422D7009ADEFC /* RegisterView.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		DBC7F4D02219ACE400C22945 /* NoteList */ = {
+			isa = PBXGroup;
+			children = (
+				DB9A19BE21D5148E00C05755 /* NoteListVC.swift */,
+				DB9A19C021D514A900C05755 /* NoteListView.swift */,
+			);
+			path = NoteList;
+			sourceTree = "<group>";
+		};
+		DBC7F4D12219AD3700C22945 /* Domande */ = {
+			isa = PBXGroup;
+			children = (
+				DB88DBF821AB2BE000B0699B /* DomandeVC.swift */,
+				DB88DBFA21AB2C0D00B0699B /* DomandeView.swift */,
+			);
+			path = Domande;
+			sourceTree = "<group>";
+		};
+		DBC7F4D22219AD4A00C22945 /* Categorie */ = {
+			isa = PBXGroup;
+			children = (
+				DB88DBFE21AB315200B0699B /* RegolaCategorieVC.swift */,
+				DB88DC0021AB318400B0699B /* RegoleCategorieView.swift */,
+			);
+			path = Categorie;
+			sourceTree = "<group>";
+		};
+		DBC7F4D32219AD6000C22945 /* Risposte */ = {
+			isa = PBXGroup;
+			children = (
+				DB2C316221AC88E20009EC14 /* EditRispostaVC.swift */,
+				DB2C316021AC87580009EC14 /* EditRispostaView.swift */,
+			);
+			path = Risposte;
+			sourceTree = "<group>";
+		};
+		DBC7F4D42219ADAE00C22945 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				DB53C78121DFCC3D0001054B /* SettingsVC.swift */,
+				DB53C77F21DFCBF90001054B /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		DBC7F4D52219ADCE00C22945 /* Social */ = {
+			isa = PBXGroup;
+			children = (
+				DB61DA1821B9C81E006B308B /* SocialVC.swift */,
+				DB61DA1A21B9C834006B308B /* SocialView.swift */,
+			);
+			path = Social;
+			sourceTree = "<group>";
+		};
+		DBC7F4D62219AE1E00C22945 /* Gender */ = {
+			isa = PBXGroup;
+			children = (
+				DB217D4822184FE0003ED264 /* GenderVC.swift */,
+				DB217D4A2218500B003ED264 /* GenderVCView.swift */,
+			);
+			path = Gender;
+			sourceTree = "<group>";
+		};
+		DBC7F4D72219AE4E00C22945 /* Compagnia */ = {
+			isa = PBXGroup;
+			children = (
+				DB19C67E21E2870B0020357D /* VerificaCompagniaVC.swift */,
+				DB19C68021E2877F0020357D /* VerificaCompagniaView.swift */,
+			);
+			path = Compagnia;
+			sourceTree = "<group>";
+		};
+		DBC7F4D82219AE6E00C22945 /* Scuola */ = {
+			isa = PBXGroup;
+			children = (
+				DBC7F4CA2219898100C22945 /* GradoScuolaVC.swift */,
+				DBC7F4CC22198A0A00C22945 /* GradoScuolaView.swift */,
+			);
+			path = Scuola;
+			sourceTree = "<group>";
+		};
+		DBC7F4D92219AE8A00C22945 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				DBAAE2BA21A5D26800211CBF /* WelcomeVC.swift */,
+				DBE6070821F27AA200E10422 /* WelcomeView.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		DBC7F4DA2219AEB100C22945 /* Notifiche */ = {
+			isa = PBXGroup;
+			children = (
+				DBAAE2B221A5C53700211CBF /* NotificheVC.swift */,
+				DBC7F4DB2219AEC500C22945 /* NotificheOnboardingVC.swift */,
+			);
+			path = Notifiche;
+			sourceTree = "<group>";
+		};
+		DBC7F4DD2219AF9900C22945 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DB88DBDE21A96E6F00B0699B /* HomeViewController.swift */,
+				DBC7F4DE2219AFA900C22945 /* HomeView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		DBCE9ECE21EFB227005B286A /* Data Sources */ = {
@@ -804,6 +898,7 @@
 				DB4F3BC721F6264F0040F4C4 /* SitoWeb+Relationships.swift in Sources */,
 				DBAAE2B721A5CCEB00211CBF /* LoginVC.swift in Sources */,
 				DB53C78421E0F62B0001054B /* CompagniaTest+Relationships.swift in Sources */,
+				DBC7F4DC2219AEC500C22945 /* NotificheOnboardingVC.swift in Sources */,
 				DBF3A2B421DD81F5008AE7D5 /* TeenStarEditEntryView.swift in Sources */,
 				DBAF3C4D219CBF35003083EA /* IQNSArray+Sort.swift in Sources */,
 				DB217D4922184FE0003ED264 /* GenderVC.swift in Sources */,
@@ -820,6 +915,7 @@
 				DB88DBF521AAF1EA00B0699B /* RegolaParserView.swift in Sources */,
 				DB217D4B2218500B003ED264 /* GenderVCView.swift in Sources */,
 				DB53AB8C21DACA34001961EC /* ColorSliderAlert.swift in Sources */,
+				DBC7F4DF2219AFA900C22945 /* HomeView.swift in Sources */,
 				DB67643821F634F700651AD8 /* AuthNetworkAgent.swift in Sources */,
 				DB88DBFB21AB2C0D00B0699B /* DomandeView.swift in Sources */,
 				DB5751DE21DA719900F97D25 /* TextEditingBottomBar.swift in Sources */,
