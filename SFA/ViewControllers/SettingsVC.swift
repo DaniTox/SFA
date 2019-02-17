@@ -65,7 +65,7 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
         case 0:
             return 1
         case 1:
-            return 3
+            return 4
         default:
             fatalError()
         }
@@ -105,6 +105,11 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
                 cell.cellSwitch.isOn = (Theme.current is DarkTheme) ? true : false
                 cell.cellSwitch.addTarget(self, action: #selector(themeSwitchChanged(_:)), for: .valueChanged)
                 cell.mainLabel.text = "Tema scuro"
+                return cell
+            case 3:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "boldCell") as! BoldCell
+                cell.mainLabel.text = "Tipo di scuola"
+                cell.accessoryType = .disclosureIndicator
                 return cell
             default:
                 fatalError()
@@ -166,6 +171,14 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
             case 1:
                 let vc = SocialVC()
                 vc.title = "Social"
+                navigationController?.pushViewController(vc, animated: true)
+            case 3:
+                let vc = GradoScuolaVC()
+                vc.finishAction = { [weak self] in
+                    DispatchQueue.main.async {
+                        self?.navigationController?.popViewController(animated: true)
+                    }
+                }
                 navigationController?.pushViewController(vc, animated: true)
             default:
                 break

@@ -16,6 +16,7 @@ class GradoScuolaVC: UIViewController, HasCustomView, OrderedFlowController {
     }
     
     var orderingCoordinator: OrderedFlowCoordinator?
+    var finishAction : (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +40,9 @@ class GradoScuolaVC: UIViewController, HasCustomView, OrderedFlowController {
         workFinished()
     }
     
-    private func workFinished() {
+    public func workFinished() {
         orderingCoordinator?.next()
+        finishAction?()
     }
     
     private func updateTheme() {
