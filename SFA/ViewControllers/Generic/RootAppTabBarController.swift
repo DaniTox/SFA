@@ -31,6 +31,7 @@ class RootAppController : UITabBarController {
     private func fillController() {
         let vc = HomeViewController()
         let nav1 = ThemedNavigationController(rootViewController: vc)
+        nav1.tabBarItem.image = UIImage(named: "verifiche")
         self.addChild(nav1)
         
 //        let vc2 = SitoVC()
@@ -60,6 +61,7 @@ class RootAppController : UITabBarController {
         let vc4 = SettingsVC()
         vc4.title = "Impostazioni"
         let nav4 = ThemedNavigationController(rootViewController: vc4)
+        nav4.tabBarItem.image = UIImage(named: "settings")
         self.addChild(nav4)
         
     }
