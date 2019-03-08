@@ -133,6 +133,7 @@
 		DBF3A2B021DD73D0008AE7D5 /* TeenStarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF3A2AF21DD73D0008AE7D5 /* TeenStarModel.swift */; };
 		DBF3A2B221DD81D1008AE7D5 /* TeenStarEditEntryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF3A2B121DD81D1008AE7D5 /* TeenStarEditEntryVC.swift */; };
 		DBF3A2B421DD81F5008AE7D5 /* TeenStarEditEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF3A2B321DD81F5008AE7D5 /* TeenStarEditEntryView.swift */; };
+		DBF5C1A522330D070086E9E7 /* RegolaVita.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5C1A422330D070086E9E7 /* RegolaVita.swift */; };
 		DBF67B242205B293002CF893 /* SitiPreghiereRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF67B232205B293002CF893 /* SitiPreghiereRequest.swift */; };
 		DBFA256121DC3D83000785D0 /* TeenStarTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA256021DC3D83000785D0 /* TeenStarTable.swift */; };
 		DBFE97F821D57C6F00E82803 /* Nota.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE97F721D57C6F00E82803 /* Nota.swift */; };
@@ -268,6 +269,7 @@
 		DBF3A2AF21DD73D0008AE7D5 /* TeenStarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarModel.swift; sourceTree = "<group>"; };
 		DBF3A2B121DD81D1008AE7D5 /* TeenStarEditEntryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarEditEntryVC.swift; sourceTree = "<group>"; };
 		DBF3A2B321DD81F5008AE7D5 /* TeenStarEditEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarEditEntryView.swift; sourceTree = "<group>"; };
+		DBF5C1A422330D070086E9E7 /* RegolaVita.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegolaVita.swift; sourceTree = "<group>"; };
 		DBF67B232205B293002CF893 /* SitiPreghiereRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitiPreghiereRequest.swift; sourceTree = "<group>"; };
 		DBFA255D21DAC970000785D0 /* ColorSlider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ColorSlider.framework; path = Frameworks/ColorSlider.framework; sourceTree = SOURCE_ROOT; };
 		DBFA256021DC3D83000785D0 /* TeenStarTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarTable.swift; sourceTree = "<group>"; };
@@ -465,6 +467,7 @@
 				DBF3A2AF21DD73D0008AE7D5 /* TeenStarModel.swift */,
 				DB53C76E21DE699B0001054B /* Emozione.swift */,
 				DB53C78521E0F7E40001054B /* CompagniaTestModel.swift */,
+				DBF5C1A422330D070086E9E7 /* RegolaVita.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -877,6 +880,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Frameworks/Carthage/Build/iOS/ColorSlider.framework",
 				"$(SRCROOT)/Frameworks/Carthage/Build/iOS/DZNEmptyDataSet.framework",
+				"$(SRCROOT)/Frameworks/Carthage/Build/iOS/RealmSwift.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -910,6 +914,7 @@
 				DB4F3BBC21F5C34C0040F4C4 /* Themes.swift in Sources */,
 				DBF3A2AC21DD723B008AE7D5 /* TeenStarListVC.swift in Sources */,
 				DB53C78221DFCC3D0001054B /* SettingsVC.swift in Sources */,
+				DBF5C1A522330D070086E9E7 /* RegolaVita.swift in Sources */,
 				DB53C7AD21E3D8380001054B /* CompagniaDomandaCell.swift in Sources */,
 				DB217D5222188C2D003ED264 /* Coordinator.swift in Sources */,
 				DBAF3C1E219C9478003083EA /* Protocolli.swift in Sources */,

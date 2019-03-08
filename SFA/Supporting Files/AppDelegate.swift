@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -44,7 +45,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             onboardingCoordinator.start()
         }
         
-                
+        let r = try! Realm()
+        try? r.write {
+            r.deleteAll()
+        }
+        
         
         RegolaFetcherModel.shared.persistentContainer = persistentContainer
         RegolaFetcherModel.shared.createIfNotPresent()

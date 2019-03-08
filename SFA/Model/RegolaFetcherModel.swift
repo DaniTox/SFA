@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import RealmSwift
 
 class RegolaFetcherModel {
     
@@ -19,35 +20,24 @@ class RegolaFetcherModel {
 //    public var regola : Regola?
     
     func createIfNotPresent() {
-        assert(persistentContainer != nil, "Devi settare sto cazzo di persistentContainer prima di utilizzare questo oggetto! -> RegolaFetcherModel")
-        let context = persistentContainer!.viewContext
-        
-        let request : NSFetchRequest<Regola> = Regola.fetchRequest()
-        let regole = try? context.fetch(request)
-        guard let unRegole = regole else { return }
-        if unRegole.count < 1 {
-            print("Creating Regola since it doesn't exist")
-            self.createRegolaModel()
-        } else {
-            print("Regola esiste già. Non la creo in CoreData")
+        let realm = try! Realm()
+        let allRegole = realm.objects(RegolaVita.self)
+        if allRegole.count < 1 {
+            createRegolaModel()
         }
     }
 
     public func createRegolaModel() {
-        assert(persistentContainer != nil, "Imposta il container, maledetto!")
+        let path = Bundle.main.path(forResource: "regola", ofType: "json")!
+        let data = try! Data(contentsOf: URL(fileURLWithPath: path))
+        let regolaFile = try! JSONDecoder().decode(RegolaFile.self, from: data)
         
-        let bundleURL = Bundle.main.url(forResource: "regola", withExtension: "json")!
-        let data =  try! Data(contentsOf: bundleURL)
-        do {
-            let object = try JSONDecoder().decode(RegolaFile.self, from: data)
-            let regola = Regola.createFromFileObject(object: object, context: persistentContainer!.viewContext)
-            try regola.managedObjectContext?.save()
-        } catch {
-            print(error)
+        let newRegola = RegolaVita.createFromFile(regolaFile: regolaFile)
+        let realm = try! Realm()
+        try? realm.write {
+            realm.add(newRegola)
         }
     }
-    
-
     
     private func getLatestRegola() throws -> Regola {
         assert(persistentContainer != nil, "Devi settare sto cazzo di persistentContainer prima di utilizzare questo oggetto! -> RegolaFetcherModel")
