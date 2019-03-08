@@ -34,7 +34,7 @@ class DomandeVC: UIViewController, HasCustomView {
         tableView.register(TextCell.self, forCellReuseIdentifier: "textCell")
         rootView.refreshControl.addTarget(self, action: #selector(tablePulled), for: .valueChanged)
         
-        getDomande()
+//        getDomande()
     }
     
     private func updateTheme() {
@@ -52,18 +52,18 @@ class DomandeVC: UIViewController, HasCustomView {
     }
     
     private func updateTable() {
-        getDomande()
+//        getDomande()
         tableView.reloadData()
     }
     
-    private func getDomande() {
-        guard let categoria = self.selectedCategory else { return }
-        let domande = RegolaFetcherModel.shared.getDomande(from: categoria)
-        self.domande = domande.sorted(by: {$0.id < $1.id })
-        let undomande = selectedCategory?.domande as? Set<Domanda>
-        let domanda = undomande!.first(where: {$0.domanda == "Versione"})
-        print("\(String(describing: domanda?.domanda)): \(String(describing: domanda?.risposta))")
-    }
+//    private func getDomande() {
+//        guard let categoria = self.selectedCategory else { return }
+//        let domande = RegolaFetcherModel.shared.getDomande(from: categoria)
+//        self.domande = domande.sorted(by: {$0.id < $1.id })
+//        let undomande = selectedCategory?.domande as? Set<Domanda>
+//        let domanda = undomande!.first(where: {$0.domanda == "Versione"})
+//        print("\(String(describing: domanda?.domanda)): \(String(describing: domanda?.risposta))")
+//    }
 }
 
 extension DomandeVC : UITableViewDelegate, UITableViewDataSource {
@@ -101,10 +101,9 @@ extension DomandeVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 { return }
         tableView.deselectRow(at: indexPath, animated: true)
-        let domanda = self.domande[indexPath.section]
-        let vc = EditRispostaVC()
-        vc.domandaObject = domanda
-        navigationController?.pushViewController(vc, animated: true)
+//        let domanda = self.domande[indexPath.section]
+//        let vc = EditRispostaVC(domanda: domanda)
+//        navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

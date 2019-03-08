@@ -16,69 +16,68 @@ class RegolaCategorieVC: UIViewController, HasCustomView {
         view = CustomView()
     }
     
-    var persistentContainer : NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
-    var tableView : UITableView { return rootView.tableView }
-    var regola: Regola?
-    var categorie : [Categoria] = []
+    var regola: RegolaVita?
     let regolaFetcherModel = RegolaFetcherModel.shared
     
     var observer : NSObjectProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        regolaFetcherModel.persistentContainer = persistentContainer
         
         observer = NotificationCenter.default.addObserver(forName: .updateTheme, object: nil, queue: .main, using: { (notification) in
             self.updateTheme()
         })
         
-        title = "Categorie"
-        tableView.register(BoldCell.self, forCellReuseIdentifier: "cell")
-        tableView.delegate = self
-        tableView.dataSource = self
+        title = "Regola di Vita"
+        rootView.tableView.register(BoldCell.self, forCellReuseIdentifier: "cell")
+        rootView.tableView.delegate = self
+        rootView.tableView.dataSource = self
         rootView.refreshControl.addTarget(self, action: #selector(tablePulled), for: .valueChanged)
         
         self.regola = regolaFetcherModel.getRegola()
-        if let categorie = Array(self.regola?.categorie ?? NSSet(array: [])) as? [Categoria] {
-            let cats = categorie.sorted(by: { $0.id < $1.id })
-            self.categorie = cats
-        }
     }
     
     private func updateTheme() {
-        tableView.backgroundColor = Theme.current.tableViewBackground
-        tableView.reloadData()
+        rootView.tableView.backgroundColor = Theme.current.tableViewBackground
+        rootView.tableView.reloadData()
     }
     
     @objc private func tablePulled() {
-        tableView.reloadData()
+        rootView.tableView.reloadData()
     }
 
 }
 
 extension RegolaCategorieVC : UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return regola?.categorie.count ?? 0
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return regola?.categorie?.count ?? 0
+        let categoria = self.regola?.categorie[section]
+        return categoria?.domande.count ?? 0
     }
 
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.regola?.categorie[section].nome
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! BoldCell
-        cell.mainLabel.text = self.categorie[indexPath.row].name
+        let categoria = self.regola?.categorie[indexPath.section]
+        if let domanda = categoria?.domande[indexPath.row] {
+            cell.mainLabel.text = domanda.domanda
+        }
         cell.accessoryType = .disclosureIndicator
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = DomandeVC()
-        let selectedCategory = self.categorie[indexPath.row]
-
-//        guard let selectedDomande = Array(selectedCategory.domande ?? NSSet()) as? Array<Domanda> else { return }
-//        vc.domande = selectedDomande.sorted(by: { $0.id < $1.id })
-        vc.title = selectedCategory.name
-        vc.selectedCategory = selectedCategory
-        
-        tableView.deselectRow(at: indexPath, animated: true)
-        navigationController?.pushViewController(vc, animated: true)
+        let categoria = self.regola?.categorie[indexPath.section]
+        if let domanda = categoria?.domande[indexPath.row] {
+            let vc = EditRispostaVC(domanda: domanda)
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

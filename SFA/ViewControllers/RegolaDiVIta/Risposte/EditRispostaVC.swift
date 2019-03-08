@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RealmSwift
+
 
 class EditRispostaVC : UIViewController, HasCustomView {
     typealias CustomView = EditRispostaView
@@ -15,12 +17,18 @@ class EditRispostaVC : UIViewController, HasCustomView {
         view = CustomView()
     }
     
-    var domandaObject : Domanda! {
-        didSet {
-            guard let domanda = domandaObject else { fatalError("domandaObject == nil")}
-            rootView.domandaLabel.text = domanda.domanda
-            rootView.textView.text = domanda.risposta
-        }
+    var domandaObject : RegolaDomanda
+    
+    init(domanda: RegolaDomanda) {
+        self.domandaObject = domanda
+        super.init(nibName: nil, bundle: nil)
+        
+        rootView.domandaLabel.text = domandaObject.domanda
+        rootView.textView.text = domandaObject.risposta
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -30,13 +38,16 @@ class EditRispostaVC : UIViewController, HasCustomView {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("Saving...")
-        domandaObject.risposta = rootView.textView.text
-        let context = domandaObject.managedObjectContext
-        do {
-            try context?.save()
-        } catch {
-            print(error)
+        
+        saveRisposta()
+    }
+    
+    private func saveRisposta() {
+        let newRisposta = rootView.textView.text
+        
+        let realm = try! Realm()
+        try? realm.write {
+            domandaObject.risposta = newRisposta
         }
     }
 }

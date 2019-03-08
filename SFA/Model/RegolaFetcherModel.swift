@@ -55,19 +55,10 @@ class RegolaFetcherModel {
     
     
     
-    public func getDomande(from category: Categoria) -> [Domanda] {
-        let context = persistentContainer!.viewContext
-        let request: NSFetchRequest<Domanda> = Domanda.fetchRequest()
-        request.predicate = NSPredicate(format: "categoria = %@", category)
-        
-        var domande : [Domanda] = []
-        do {
-            domande = try context.fetch(request)
-        } catch {
-            print("error CoreData getDomande: \(error)")
-        }
-        
-        return domande
+    public func getDomande(from category: RegolaCategoria) -> [RegolaDomanda] {
+        let realm = try! Realm()
+        let domande = realm.objects(RegolaDomanda.self).filter(NSPredicate(format: "categoria = %@", category))
+        return domande.compactMap { $0 }
     }
     
 }

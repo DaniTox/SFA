@@ -11,7 +11,7 @@ import UIKit
 class RegoleCategorieView : UIView {
     
     lazy var tableView : UITableView = {
-        let table = UITableView()
+        let table = UITableView(frame: .zero, style: UITableView.Style.grouped)
         table.translatesAutoresizingMaskIntoConstraints = false
         table.backgroundColor = Theme.current.tableViewBackground
         table.tableFooterView = UIView()
