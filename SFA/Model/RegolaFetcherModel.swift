@@ -39,34 +39,18 @@ class RegolaFetcherModel {
         }
     }
     
-    private func getLatestRegola() throws -> Regola {
-        assert(persistentContainer != nil, "Devi settare sto cazzo di persistentContainer prima di utilizzare questo oggetto! -> RegolaFetcherModel")
-        let context = persistentContainer!.viewContext
-        
-        let request : NSFetchRequest<Regola> = Regola.fetchRequest()
-        do {
-            let regole = try context.fetch(request)
-            if regole.count < 1 {
-                throw LocalDBError.inconsistency("Regole nel database: \(regole.count)")
-            }
-            guard let regola = regole.first else {
-                throw LocalDBError.foundNil("Ho fetchato il database correttamente, però la lista regole è vuota")
-            }
+    private func getLatestRegola() throws -> RegolaVita {
+        let realm = try! Realm()
+        let regole = realm.objects(RegolaVita.self)
+        if let regola = regole.first {
             return regola
-        } catch {
-            throw error
+        } else {
+            throw ToxException.regola("Errore regola database. Contatta lo sviluppatore")
         }
     }
     
-
-    
-    public func getRegola() -> Regola? {
-        assert(persistentContainer != nil, "Devi settare sto cazzo di persistentContainer prima di utilizzare questo oggetto! -> RegolaFetcherModel")
-//        if self.regola != nil {
-//            return self.regola
-//        } else {
-            return try? self.getLatestRegola()
-//        }
+    public func getRegola() -> RegolaVita? {
+        return try? self.getLatestRegola()
     }
     
     

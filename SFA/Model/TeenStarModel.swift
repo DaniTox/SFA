@@ -28,7 +28,7 @@ class TeenStarModel {
         let dateFrom = calendar.startOfDay(for: Date())
         let dateTo = calendar.date(byAdding: .day, value: 1, to: dateFrom)
         if dateTo == nil {
-            throw ToxError.noteRelated("Errore mentre esguivo qualche controllo delle date. Riprova a creare la nota domani (dalle 00:00 in poi)")
+            throw ToxException.noteRelated("Errore mentre esguivo qualche controllo delle date. Riprova a creare la nota domani (dalle 00:00 in poi)")
         }
         
         let fromPredicate = NSPredicate(format: "date > %@", dateFrom as NSDate)
