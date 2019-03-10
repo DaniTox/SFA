@@ -79,10 +79,12 @@ class HomeView : UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = Theme.current.controllerBackground
-        stackView.addArrangedSubview(regolaButton)
+        
         stackView.addArrangedSubview(noteButton)
-        stackView.addArrangedSubview(teenStarButton)
         stackView.addArrangedSubview(compagniaButton)
+        stackView.addArrangedSubview(teenStarButton)
+        stackView.addArrangedSubview(regolaButton)
+        
         addSubview(stackView)
     }
     
