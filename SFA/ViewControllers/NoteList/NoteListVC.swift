@@ -25,8 +25,7 @@ class NoteListVC: UIViewController, HasCustomView {
         super.viewDidLoad()
         self.title = "Pagine"
         
-        let persistentContainer = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
-        model = NoteModel(container: persistentContainer!)
+        model = NoteModel()
         model.errorHandler = { [weak self] (errorString) in
             self?.showError(withTitle: "Errore", andMessage: errorString) //already in MainQueue
         }
@@ -110,11 +109,15 @@ extension NoteListVC : UITableViewDelegate, UITableViewDataSource, DZNEmptyDataS
         }
         let date = notesDates[indexPath.section]
         let note = model.getNotes(for: date)[indexPath.row]
-        let attributedBody : NSAttributedString? = note.body as? NSAttributedString
-        let stringValue : String? = attributedBody?.string
-        let count = stringValue?.wordsCount ?? 0
+        
+        let attributedBody : NSAttributedString = note.getBody()
+        let stringValue : String = attributedBody.string
+        
+        let count = stringValue.wordsCount
+        
         cell.rightBottomLabel.text = "\(count) parole"
         cell.mainLabel.text = note.title
+        
         return cell
     }
     

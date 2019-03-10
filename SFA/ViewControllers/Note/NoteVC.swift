@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class NoteVC: UIViewController, HasCustomView {
     typealias CustomView = NoteView
@@ -16,17 +17,18 @@ class NoteVC: UIViewController, HasCustomView {
         cview.controller = self
         view = cview
     }
-    var note : Nota!
+    
+    var note : Note!
     var sizeAlert : SizeSliderAlert?
     var colorAlert : ColorSliderAlert?
     var isWorkingVC : Bool = true
     
-    init(nota: Nota?) {
-        if nota == nil {
+    init(nota: Note?) {
+        if let passedNote = nota {
+            self.note = passedNote
+        } else {
             self.isWorkingVC = false
             self.note = nil
-        } else {
-            self.note = nota!
         }
         super.init(nibName: nil, bundle: nil)
     }
@@ -64,7 +66,7 @@ class NoteVC: UIViewController, HasCustomView {
             bar.items = [dimensionButton, colorButton]
             bar.sizeToFit()
             rootView.textView.inputAccessoryView = bar
-            rootView.textView.attributedText = (note.body as? NSAttributedString)
+            rootView.textView.attributedText = note.getBody()
         } else {
             rootView.textView.isEditable = false
             rootView.bottomBar.alpha = 0
@@ -77,7 +79,7 @@ class NoteVC: UIViewController, HasCustomView {
             self.title = "Nessuna nota selezionata"
             return
         }
-        guard let noteDate = self.note.date else { return }
+        let noteDate = self.note.date
         if noteDate.isToday() { self.title = "Oggi" }
         else if noteDate.isYesterday() { self.title = "Ieri" }
         else { self.title = noteDate.stringValue }
@@ -87,15 +89,11 @@ class NoteVC: UIViewController, HasCustomView {
         guard self.isWorkingVC == true else { return }
         var title = rootView.textView.attributedText.string.firstLine
         if title.isEmpty { title = "Nota vuota" }
-        note.title = title
-        note.body = rootView.textView.attributedText
         
-        let context = note.managedObjectContext
-        do {
-          try context?.save()
-        } catch {
-            self.showError(withTitle: "Errore", andMessage: "Errore nel salvataggio in CoreData")
-            print("\(error)")
+        let realm = try! Realm()
+        try? realm.write {
+            note.title = title
+            note.setBody(attributedString: rootView.textView.attributedText)
         }
     }
     
@@ -110,7 +108,10 @@ class NoteVC: UIViewController, HasCustomView {
     
     private func removeNote() {
         guard let note = self.note else { return }
-        note.managedObjectContext?.delete(note)
+        let realm = try! Realm()
+        try? realm.write {
+            realm.delete(note)
+        }
     }
     
     override func viewDidLayoutSubviews() {
