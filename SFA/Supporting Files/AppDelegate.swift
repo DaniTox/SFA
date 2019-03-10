@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        if isAlreadyLaunched {
+        if !isAlreadyLaunched {
             window?.rootViewController = RootAppController()
             window?.makeKeyAndVisible()
         } else {

@@ -9,37 +9,37 @@
 import UIKit
 import DZNEmptyDataSet
 
-class NoteListVC: UIViewController, HasCustomView {
-    typealias CustomView = NoteListView
-    override func loadView() {
-        super.loadView()
-        view = CustomView()
-    }
+class NoteListVC: UITableViewController {
     
-    var model : NoteModel!
-    //var notes : [Nota] = []
-    
-    private var notesDates : [Date] = []
+    let dataSource = NotesDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Pagine"
         
-        model = NoteModel()
-        model.errorHandler = { [weak self] (errorString) in
-            self?.showError(withTitle: "Errore", andMessage: errorString) //already in MainQueue
+        dataSource.errorHandler = { [weak self] (error) in
+            self?.showError(withTitle: "Errore", andMessage: "\(error)") //already in MainQueue
         }
         
-        rootView.tableView.delegate = self
-        rootView.tableView.dataSource = self
-        rootView.tableView.emptyDataSetDelegate = self
-        rootView.tableView.emptyDataSetSource = self
-        rootView.tableView.register(BoldCell.self, forCellReuseIdentifier: "cell")
+        dataSource.dataLoaded = { [weak self] in
+            self?.tableView.reloadData()
+        }
+        
+        tableView.delegate = self
+        tableView.dataSource = dataSource
+        tableView.tableFooterView = UIView()
+        tableView.backgroundColor = Theme.current.tableViewBackground
+        tableView.emptyDataSetDelegate = self
+        tableView.emptyDataSetSource = self
+        tableView.register(BoldCell.self, forCellReuseIdentifier: "cell")
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(tablePulled), for: .valueChanged)
+        tableView.refreshControl = refreshControl
         
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed))
         navigationItem.setRightBarButton(addButton, animated: true)
         
-        assert(model != nil, "Non hai settato il model in NoteListVC")
         
         let dismissButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissMe))
         navigationItem.setLeftBarButton(dismissButton, animated: true)
@@ -47,18 +47,16 @@ class NoteListVC: UIViewController, HasCustomView {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        fetchNotes()
+        dataSource.updateData()
     }
     
-    private func fetchNotes() {
-        //notes = model.fetchNotes()
-        notesDates = model.getAllDates()
-        rootView.tableView.reloadData()
+    @objc private func tablePulled() {
+        dataSource.updateData()
     }
     
     @objc private func addButtonPressed() {
-        let note = model.createNewNote()
-        
+        let note = dataSource.getNewNote()
+
         if let splitVC = self.splitViewController {
             let vc = NoteVC(nota: note)
             let nav = UINavigationController(rootViewController: vc)
@@ -67,8 +65,7 @@ class NoteListVC: UIViewController, HasCustomView {
             let vc = NoteVC(nota: note)
             navigationController?.pushViewController(vc, animated: true)
         }
-        
-        fetchNotes()
+
     }
     
     @objc private func dismissMe() {
@@ -80,72 +77,22 @@ class NoteListVC: UIViewController, HasCustomView {
     }
 }
 
-extension NoteListVC : UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let dateFocused = notesDates[section]
-        let notesInDate = model.getNotes(for: dateFocused)
-        return notesInDate.count
-    }
+extension NoteListVC : DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return notesDates.count
-    }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let dateFocued = notesDates[section]
-        if dateFocued.isToday() {
-            return "Oggi"
-        } else if dateFocued.isYesterday() {
-            return "Ieri"
-        } else {
-            return "\(dateFocued.dayOfWeek()) - \(dateFocued.stringValue)"
-        }
-        
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? BoldCell else {
-            return UITableViewCell()
-        }
-        let date = notesDates[indexPath.section]
-        let note = model.getNotes(for: date)[indexPath.row]
-        
-        let attributedBody : NSAttributedString = note.getBody()
-        let stringValue : String = attributedBody.string
-        
-        let count = stringValue.wordsCount
-        
-        cell.rightBottomLabel.text = "\(count) parole"
-        cell.mainLabel.text = note.title
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let date = notesDates[indexPath.section]
-        let note = model.getNotes(for: date)[indexPath.row]
-        
-        if let splitVC = self.splitViewController {
-            let vc = NoteVC(nota: note)
-            let nav = ThemedNavigationController(rootViewController: vc)
-            splitVC.showDetailViewController(nav, sender: self)
-        } else {
-            let vc = NoteVC(nota: note)
-            navigationController?.pushViewController(vc, animated: true)
-        }
-        fetchNotes()
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            
-        }
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let date = notesDates[indexPath.section]
+//        let note = model.getNotes(for: date)[indexPath.row]
+//
+//        if let splitVC = self.splitViewController {
+//            let vc = NoteVC(nota: note)
+//            let nav = ThemedNavigationController(rootViewController: vc)
+//            splitVC.showDetailViewController(nav, sender: self)
+//        } else {
+//            let vc = NoteVC(nota: note)
+//            navigationController?.pushViewController(vc, animated: true)
+//        }
+//    }
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let str = "Diario"
@@ -154,9 +101,13 @@ extension NoteListVC : UITableViewDelegate, UITableViewDataSource, DZNEmptyDataS
     }
     
     func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        let str = "Non hai ancora aggiunto nessuna nota.\nCreane una premendo sul pulsante +"
+        let str = "Non hai ancora aggiunto nessuna pagina di diario."
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)]
         return NSAttributedString(string: str, attributes: attrs)
+    }
+    
+    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControl.State) -> NSAttributedString! {
+        return NSAttributedString(string: "Crea")
     }
     
 }

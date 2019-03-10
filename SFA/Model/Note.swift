@@ -33,3 +33,17 @@ class Note : Object {
         }
     }
 }
+
+class NoteStorage: Equatable {
+    static func == (lhs: NoteStorage, rhs: NoteStorage) -> Bool {
+        return lhs.date == rhs.date
+    }
+    
+    var date: Date
+    var notes: [Note]
+    
+    init(date: Date, notes: [Note]) {
+        self.date = date
+        self.notes = notes
+    }
+}
