@@ -28,6 +28,10 @@ class NotesDataSource : NSObject, UITableViewDataSource {
         return noteModel.createNewNote()
     }
     
+    func getNoteAt(indexPath: IndexPath) -> Note {
+        return noteModel.notesStorage[indexPath.section].notes[indexPath.row]
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return noteModel.notesStorage.count
     }

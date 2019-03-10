@@ -80,19 +80,18 @@ class NoteListVC: UITableViewController {
 extension NoteListVC : DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let date = notesDates[indexPath.section]
-//        let note = model.getNotes(for: date)[indexPath.row]
-//
-//        if let splitVC = self.splitViewController {
-//            let vc = NoteVC(nota: note)
-//            let nav = ThemedNavigationController(rootViewController: vc)
-//            splitVC.showDetailViewController(nav, sender: self)
-//        } else {
-//            let vc = NoteVC(nota: note)
-//            navigationController?.pushViewController(vc, animated: true)
-//        }
-//    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let note = dataSource.getNoteAt(indexPath: indexPath)
+
+        if let splitVC = self.splitViewController {
+            let vc = NoteVC(nota: note)
+            let nav = ThemedNavigationController(rootViewController: vc)
+            splitVC.showDetailViewController(nav, sender: self)
+        } else {
+            let vc = NoteVC(nota: note)
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let str = "Diario"
