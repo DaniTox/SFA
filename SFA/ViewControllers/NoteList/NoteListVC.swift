@@ -28,6 +28,7 @@ class NoteListVC: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = dataSource
         tableView.tableFooterView = UIView()
+        tableView.separatorStyle = .none
         tableView.backgroundColor = Theme.current.tableViewBackground
         tableView.emptyDataSetDelegate = self
         tableView.emptyDataSetSource = self
@@ -107,6 +108,14 @@ extension NoteListVC : DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     
     func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControl.State) -> NSAttributedString! {
         return NSAttributedString(string: "Crea")
+    }
+    
+    func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
+        addButtonPressed()
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
     }
     
 }

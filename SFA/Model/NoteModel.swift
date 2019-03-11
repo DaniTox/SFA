@@ -29,7 +29,7 @@ class NoteModel {
         
         notesStorage = []
         
-        let allDates = Array(Set<Date>(notes.compactMap({ $0.date.startOfDay })).sorted())
+        let allDates = Array(Set<Date>(notes.compactMap({ $0.date.startOfDay })).sorted(by: {$0 > $1}))
         allDates.forEach({ (date) in
             let notes = notes.filter({ $0.date.startOfDay == date })
             let newStorage = NoteStorage(date: date, notes: notes)
