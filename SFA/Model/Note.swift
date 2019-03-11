@@ -20,13 +20,13 @@ class Note : Object {
     }
     
     func setBody(attributedString: NSAttributedString) {
-        let docAttrs = [NSAttributedString.DocumentAttributeKey.documentType : NSAttributedString.DocumentType.html]
+        let docAttrs = [NSAttributedString.DocumentAttributeKey.documentType : NSAttributedString.DocumentType.rtf]
         let data = try? attributedString.data(from: .init(location: 0, length: attributedString.length), documentAttributes: docAttrs)
         self.body = data
     }
     
     func getBody() -> NSAttributedString {
-        if let bodyData = self.body, let attributedString = try? NSAttributedString(data: bodyData, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
+        if let bodyData = self.body, let attributedString = try? NSAttributedString(data: bodyData, options: [.documentType: NSAttributedString.DocumentType.rtf], documentAttributes: nil) {
             return attributedString
         } else {
             return NSAttributedString(string: "")

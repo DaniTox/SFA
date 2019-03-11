@@ -29,7 +29,6 @@ class NotesDataSource : NSObject, UITableViewDataSource {
         }
     }
     
-    
     deinit {
         notificationToken?.invalidate()
     }
