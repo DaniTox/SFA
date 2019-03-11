@@ -41,9 +41,10 @@ class NoteListVC: UITableViewController {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed))
         navigationItem.setRightBarButton(addButton, animated: true)
         
-        
-        let dismissButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissMe))
-        navigationItem.setLeftBarButton(dismissButton, animated: true)
+        if UIDevice.current.deviceType == .pad {
+            let dismissButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissMe))
+            navigationItem.setLeftBarButton(dismissButton, animated: true)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -60,7 +61,7 @@ class NoteListVC: UITableViewController {
 
         if let splitVC = self.splitViewController {
             let vc = NoteVC(nota: note)
-            let nav = UINavigationController(rootViewController: vc)
+            let nav = ThemedNavigationController(rootViewController: vc)
             splitVC.showDetailViewController(nav, sender: self)
         } else {
             let vc = NoteVC(nota: note)

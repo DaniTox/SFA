@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class NotesDataSource : NSObject, UITableViewDataSource {
     
@@ -18,6 +19,20 @@ class NotesDataSource : NSObject, UITableViewDataSource {
         }
     }
     public var dataLoaded : (() -> Void)?
+    private var notificationToken : NotificationToken?
+    
+    override init() {
+        super.init()
+        let realm = try! Realm()
+        self.notificationToken = realm.observe { (notification, realm) in
+            self.updateData()
+        }
+    }
+    
+    
+    deinit {
+        notificationToken?.invalidate()
+    }
     
     func updateData() {
         noteModel.fullFetch()
