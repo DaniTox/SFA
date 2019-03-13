@@ -25,7 +25,8 @@ class NotesDataSource : NSObject, UITableViewDataSource {
         super.init()
         let realm = try! Realm()
         self.notificationToken = realm.observe { (notification, realm) in
-            self.updateData()
+            //PROBABLY THIS CAUSE THE CRASH DURING DELETION OF ROW IN TABLEVIEW
+//            self.updateData()
         }
     }
     
@@ -43,21 +44,25 @@ class NotesDataSource : NSObject, UITableViewDataSource {
     }
     
     func getNoteAt(indexPath: IndexPath) -> Note {
-        return noteModel.notesStorage[indexPath.section].notes[indexPath.row]
+        return noteModel.notesCache[indexPath.section].notes[indexPath.row]
+    }
+    
+    func remove(note: Note) {
+        noteModel.remove(note: note)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return noteModel.notesStorage.count
+        return noteModel.notesCache.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let storage = noteModel.notesStorage[section]
+        let storage = noteModel.notesCache[section]
         return storage.notes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! BoldCell
-        let note = noteModel.notesStorage[indexPath.section].notes[indexPath.row]
+        let note = noteModel.notesCache[indexPath.section].notes[indexPath.row]
         
         let attributedBody : NSAttributedString = note.getBody()
         let stringValue : String = attributedBody.string
@@ -70,7 +75,7 @@ class NotesDataSource : NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let dateFocued = noteModel.notesStorage[section].date
+        let dateFocued = noteModel.notesCache[section].date
         if dateFocued.isToday() {
             return "Oggi"
         } else if dateFocued.isYesterday() {
@@ -81,6 +86,18 @@ class NotesDataSource : NSObject, UITableViewDataSource {
         
     }
     
-    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let note = self.getNoteAt(indexPath: indexPath)
+            let noteStorageCount = self.noteModel.notesCache[indexPath.section].notes.count
+            self.remove(note: note)
+            
+            if (noteStorageCount - 1) == 0 {
+                tableView.deleteSections(IndexSet(integer: indexPath.section), with: .fade)
+            } else {
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        }
+    }
     
 }
