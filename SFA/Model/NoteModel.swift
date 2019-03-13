@@ -19,9 +19,6 @@ class NoteModel {
     public func createNewNote() -> Note {
         let note = Note()
         note.date = Date()
-        
-        
-        
         return note
     }
     

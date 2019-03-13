@@ -18,18 +18,13 @@ class NoteVC: UIViewController, HasCustomView {
         view = cview
     }
     
-    var note : Note!
+    var note : Note
+    
     var sizeAlert : SizeSliderAlert?
     var colorAlert : ColorSliderAlert?
-    var isWorkingVC : Bool = true
     
-    init(nota: Note?) {
-        if let passedNote = nota {
-            self.note = passedNote
-        } else {
-            self.isWorkingVC = false
-            self.note = nil
-        }
+    init(nota: Note) {
+        self.note = nota
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -59,26 +54,17 @@ class NoteVC: UIViewController, HasCustomView {
     }
     
     private func initTextView() {
-        if let note = self.note {
-            let bar = UIToolbar()
-            let dimensionButton = UIBarButtonItem(title: "Dimensione", style: .plain, target: self, action: #selector(showSizeAlert))
-            let colorButton = UIBarButtonItem(title: "Colore", style: .plain, target: self, action: #selector(showColorAlert))
-            bar.items = [dimensionButton, colorButton]
-            bar.sizeToFit()
-            rootView.textView.inputAccessoryView = bar
-            rootView.textView.attributedText = note.getBody()
-        } else {
-            rootView.textView.isEditable = false
-            rootView.bottomBar.alpha = 0
-        }
+        let bar = UIToolbar()
+        let dimensionButton = UIBarButtonItem(title: "Dimensione", style: .plain, target: self, action: #selector(showSizeAlert))
+        let colorButton = UIBarButtonItem(title: "Colore", style: .plain, target: self, action: #selector(showColorAlert))
+        bar.items = [dimensionButton, colorButton]
+        bar.sizeToFit()
+        rootView.textView.inputAccessoryView = bar
+        rootView.textView.attributedText = note.getBody()
         setTitle()
     }
     
     private func setTitle() {
-        if self.note == nil {
-            self.title = "Nessuna nota selezionata"
-            return
-        }
         let noteDate = self.note.date
         if noteDate.isToday() { self.title = "Oggi" }
         else if noteDate.isYesterday() { self.title = "Ieri" }
@@ -86,7 +72,12 @@ class NoteVC: UIViewController, HasCustomView {
     }
     
     private func saveNote() {
-        guard self.isWorkingVC == true else { return }
+        let currentAttributedText = rootView.textView.attributedText
+        if currentAttributedText?.string.isEmpty ?? false {
+            removeNote()
+            return
+        }
+        
         var title = rootView.textView.attributedText.string.firstLine
         if title.isEmpty { title = "Nota vuota" }
         
@@ -100,18 +91,16 @@ class NoteVC: UIViewController, HasCustomView {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if self.isWorkingVC {
-            saveNote()
-        } else {
-            removeNote()
-        }
+        saveNote()
     }
     
     private func removeNote() {
-        guard let note = self.note else { return }
         let realm = try! Realm()
-        try? realm.write {
-            realm.delete(note)
+        
+        if let savedNote = realm.objects(Note.self).filter(NSPredicate(format: "id == %@", note.id)).first {
+            try? realm.write {
+                realm.delete(savedNote)
+            }
         }
     }
     

@@ -23,6 +23,7 @@ class NoteListVC: UITableViewController {
         
         dataSource.dataLoaded = { [weak self] in
             self?.tableView.reloadData()
+            self?.tableView.refreshControl?.endRefreshing()
         }
         
         tableView.delegate = self
@@ -41,14 +42,13 @@ class NoteListVC: UITableViewController {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed))
         navigationItem.setRightBarButton(addButton, animated: true)
         
-//        if UIDevice.current.deviceType == .pad {
-//            let dismissButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissMe))
-//            navigationItem.setLeftBarButton(dismissButton, animated: true)
-//        }
+        
+        dataSource.updateData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+//        dataSource.dataLoaded?()
         dataSource.updateData()
     }
     
@@ -59,15 +59,8 @@ class NoteListVC: UITableViewController {
     @objc private func addButtonPressed() {
         let note = dataSource.getNewNote()
 
-//        if let splitVC = self.splitViewController {
-//            let vc = NoteVC(nota: note)
-//            let nav = ThemedNavigationController(rootViewController: vc)
-//            splitVC.showDetailViewController(nav, sender: self)
-//        } else {
-            let vc = NoteVC(nota: note)
-            navigationController?.pushViewController(vc, animated: true)
-//        }
-
+        let vc = NoteVC(nota: note)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc private func dismissMe() {
@@ -85,15 +78,8 @@ extension NoteListVC : DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let note = dataSource.getNoteAt(indexPath: indexPath)
 
-//        if let splitVC = self.splitViewController {
-//            let vc = NoteVC(nota: note)
-//            let nav = ThemedNavigationController(rootViewController: vc)
-//            splitVC.showDetailViewController(nav, sender: self)
-//            dataSource.dataLoaded?()
-//        } else {
-            let vc = NoteVC(nota: note)
-            navigationController?.pushViewController(vc, animated: true)
-//        }
+        let vc = NoteVC(nota: note)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
@@ -119,7 +105,5 @@ extension NoteListVC : DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
     }
-    
-    
-    
+
 }

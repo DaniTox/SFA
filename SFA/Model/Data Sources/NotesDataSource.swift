@@ -29,9 +29,9 @@ class NotesDataSource : NSObject, UITableViewDataSource {
         let newNote = noteModel.createNewNote()
 //        if let storageOfToday = noteModel.notesCache.first(where: { $0.date == Date().startOfDay }) {
 //            storageOfToday.notes.append(newNote)
-//            dataLoaded?()
 //        } else {
-//            self.updateData()
+//            let newStorage = NoteStorage(date: Date().startOfDay, notes: [newNote])
+//            noteModel.notesCache.insert(newStorage, at: 0)
 //        }
         return newNote
     }
@@ -90,6 +90,7 @@ class NotesDataSource : NSObject, UITableViewDataSource {
             } else {
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
+            dataLoaded?()
         }
     }
     
