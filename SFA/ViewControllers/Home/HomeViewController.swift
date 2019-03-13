@@ -34,23 +34,23 @@ class HomeViewController : UIViewController, HasCustomView {
     @objc private func showNoteListController() {
         let noteListVC = NoteListVC()
         
-        if UIDevice.current.deviceType == .pad {
-            let nav = ThemedNavigationController(rootViewController: noteListVC)
-            nav.navigationBar.prefersLargeTitles = true
-            
-            let vc2 = UIViewController()
-            vc2.view.backgroundColor = Theme.current.controllerBackground
-            let nav2 = ThemedNavigationController(rootViewController: vc2)
-            nav2.navigationBar.prefersLargeTitles = true
-            
-            let splitViewController = UISplitViewController()
-            splitViewController.delegate = self
-            splitViewController.preferredDisplayMode = UISplitViewController.DisplayMode.allVisible
-            splitViewController.viewControllers = [nav, nav2]
-            present(splitViewController, animated: true)
-        } else {
+//        if UIDevice.current.deviceType == .pad {
+//            let nav = ThemedNavigationController(rootViewController: noteListVC)
+//            nav.navigationBar.prefersLargeTitles = true
+//
+//            let vc2 = UIViewController()
+//            vc2.view.backgroundColor = Theme.current.controllerBackground
+//            let nav2 = ThemedNavigationController(rootViewController: vc2)
+//            nav2.navigationBar.prefersLargeTitles = true
+//
+//            let splitViewController = UISplitViewController()
+//            splitViewController.delegate = self
+//            splitViewController.preferredDisplayMode = UISplitViewController.DisplayMode.allVisible
+//            splitViewController.viewControllers = [nav, nav2]
+//            present(splitViewController, animated: true)
+//        } else {
             navigationController?.pushViewController(noteListVC, animated: true)
-        }
+//        }
     }
     
     @objc private func showTeenStarController() {

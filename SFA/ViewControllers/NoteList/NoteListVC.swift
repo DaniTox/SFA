@@ -41,10 +41,10 @@ class NoteListVC: UITableViewController {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed))
         navigationItem.setRightBarButton(addButton, animated: true)
         
-        if UIDevice.current.deviceType == .pad {
-            let dismissButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissMe))
-            navigationItem.setLeftBarButton(dismissButton, animated: true)
-        }
+//        if UIDevice.current.deviceType == .pad {
+//            let dismissButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissMe))
+//            navigationItem.setLeftBarButton(dismissButton, animated: true)
+//        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -59,14 +59,14 @@ class NoteListVC: UITableViewController {
     @objc private func addButtonPressed() {
         let note = dataSource.getNewNote()
 
-        if let splitVC = self.splitViewController {
-            let vc = NoteVC(nota: note)
-            let nav = ThemedNavigationController(rootViewController: vc)
-            splitVC.showDetailViewController(nav, sender: self)
-        } else {
+//        if let splitVC = self.splitViewController {
+//            let vc = NoteVC(nota: note)
+//            let nav = ThemedNavigationController(rootViewController: vc)
+//            splitVC.showDetailViewController(nav, sender: self)
+//        } else {
             let vc = NoteVC(nota: note)
             navigationController?.pushViewController(vc, animated: true)
-        }
+//        }
 
     }
     
@@ -85,14 +85,15 @@ extension NoteListVC : DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let note = dataSource.getNoteAt(indexPath: indexPath)
 
-        if let splitVC = self.splitViewController {
-            let vc = NoteVC(nota: note)
-            let nav = ThemedNavigationController(rootViewController: vc)
-            splitVC.showDetailViewController(nav, sender: self)
-        } else {
+//        if let splitVC = self.splitViewController {
+//            let vc = NoteVC(nota: note)
+//            let nav = ThemedNavigationController(rootViewController: vc)
+//            splitVC.showDetailViewController(nav, sender: self)
+//            dataSource.dataLoaded?()
+//        } else {
             let vc = NoteVC(nota: note)
             navigationController?.pushViewController(vc, animated: true)
-        }
+//        }
     }
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {

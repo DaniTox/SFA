@@ -19,20 +19,6 @@ class NotesDataSource : NSObject, UITableViewDataSource {
         }
     }
     public var dataLoaded : (() -> Void)?
-    private var notificationToken : NotificationToken?
-    
-    override init() {
-        super.init()
-        let realm = try! Realm()
-        self.notificationToken = realm.observe { (notification, realm) in
-            //PROBABLY THIS CAUSE THE CRASH DURING DELETION OF ROW IN TABLEVIEW
-//            self.updateData()
-        }
-    }
-    
-    deinit {
-        notificationToken?.invalidate()
-    }
     
     func updateData() {
         noteModel.fullFetch()
@@ -40,7 +26,14 @@ class NotesDataSource : NSObject, UITableViewDataSource {
     }
     
     func getNewNote() -> Note {
-        return noteModel.createNewNote()
+        let newNote = noteModel.createNewNote()
+//        if let storageOfToday = noteModel.notesCache.first(where: { $0.date == Date().startOfDay }) {
+//            storageOfToday.notes.append(newNote)
+//            dataLoaded?()
+//        } else {
+//            self.updateData()
+//        }
+        return newNote
     }
     
     func getNoteAt(indexPath: IndexPath) -> Note {
