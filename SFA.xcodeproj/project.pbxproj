@@ -38,7 +38,6 @@
 		DB53C77921DEC57E0001054B /* CicloColorCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C77821DEC57E0001054B /* CicloColorCollectionCell.swift */; };
 		DB53C78021DFCBF90001054B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C77F21DFCBF90001054B /* SettingsView.swift */; };
 		DB53C78221DFCC3D0001054B /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C78121DFCC3D0001054B /* SettingsVC.swift */; };
-		DB53C78421E0F62B0001054B /* CompagniaTest+Relationships.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C78321E0F62B0001054B /* CompagniaTest+Relationships.swift */; };
 		DB53C78621E0F7E40001054B /* CompagniaAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C78521E0F7E40001054B /* CompagniaAgent.swift */; };
 		DB53C7AB21E103C90001054B /* compagnie.json in Resources */ = {isa = PBXBuildFile; fileRef = DB53C7AA21E103C90001054B /* compagnie.json */; };
 		DB53C7AD21E3D8380001054B /* CompagniaDomandaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C7AC21E3D8380001054B /* CompagniaDomandaCell.swift */; };
@@ -72,7 +71,6 @@
 		DB88DBEB21A975C100B0699B /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBE621A975C100B0699B /* FadeTransition.swift */; };
 		DB88DBEC21A975C100B0699B /* TimerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBE721A975C100B0699B /* TimerEx.swift */; };
 		DB88DBEE21A97F4400B0699B /* RootAppTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBED21A97F4400B0699B /* RootAppTabBarController.swift */; };
-		DB88DBF321AAF19300B0699B /* RegolaObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBF221AAF19300B0699B /* RegolaObjects.swift */; };
 		DB88DBF521AAF1EA00B0699B /* RegolaParserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBF421AAF1EA00B0699B /* RegolaParserView.swift */; };
 		DB88DBF721AAF3AD00B0699B /* regola.json in Resources */ = {isa = PBXBuildFile; fileRef = DB88DBF621AAF3AD00B0699B /* regola.json */; };
 		DB88DBF921AB2BE000B0699B /* DomandeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBF821AB2BE000B0699B /* DomandeVC.swift */; };
@@ -143,7 +141,6 @@
 		DBF5C1A7223443870086E9E7 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5C1A6223443870086E9E7 /* Note.swift */; };
 		DBF67B242205B293002CF893 /* SitiPreghiereRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF67B232205B293002CF893 /* SitiPreghiereRequest.swift */; };
 		DBFA256121DC3D83000785D0 /* TeenStarTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA256021DC3D83000785D0 /* TeenStarTable.swift */; };
-		DBFE97F821D57C6F00E82803 /* NotaCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE97F721D57C6F00E82803 /* NotaCoreData.swift */; };
 		DBFE97FA21D57CD500E82803 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE97F921D57CD500E82803 /* NoteModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -194,7 +191,6 @@
 		DB53C77821DEC57E0001054B /* CicloColorCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CicloColorCollectionCell.swift; sourceTree = "<group>"; };
 		DB53C77F21DFCBF90001054B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		DB53C78121DFCC3D0001054B /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
-		DB53C78321E0F62B0001054B /* CompagniaTest+Relationships.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompagniaTest+Relationships.swift"; sourceTree = "<group>"; };
 		DB53C78521E0F7E40001054B /* CompagniaAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompagniaAgent.swift; sourceTree = "<group>"; };
 		DB53C7AA21E103C90001054B /* compagnie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = compagnie.json; sourceTree = "<group>"; };
 		DB53C7AC21E3D8380001054B /* CompagniaDomandaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompagniaDomandaCell.swift; sourceTree = "<group>"; };
@@ -228,7 +224,6 @@
 		DB88DBE621A975C100B0699B /* FadeTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
 		DB88DBE721A975C100B0699B /* TimerEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerEx.swift; sourceTree = "<group>"; };
 		DB88DBED21A97F4400B0699B /* RootAppTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAppTabBarController.swift; sourceTree = "<group>"; };
-		DB88DBF221AAF19300B0699B /* RegolaObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegolaObjects.swift; sourceTree = "<group>"; };
 		DB88DBF421AAF1EA00B0699B /* RegolaParserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegolaParserView.swift; sourceTree = "<group>"; };
 		DB88DBF621AAF3AD00B0699B /* regola.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = regola.json; sourceTree = "<group>"; };
 		DB88DBF821AB2BE000B0699B /* DomandeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomandeVC.swift; sourceTree = "<group>"; };
@@ -300,7 +295,6 @@
 		DBF67B232205B293002CF893 /* SitiPreghiereRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitiPreghiereRequest.swift; sourceTree = "<group>"; };
 		DBFA255D21DAC970000785D0 /* ColorSlider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ColorSlider.framework; path = Frameworks/ColorSlider.framework; sourceTree = SOURCE_ROOT; };
 		DBFA256021DC3D83000785D0 /* TeenStarTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarTable.swift; sourceTree = "<group>"; };
-		DBFE97F721D57C6F00E82803 /* NotaCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotaCoreData.swift; sourceTree = "<group>"; };
 		DBFE97F921D57CD500E82803 /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -823,10 +817,7 @@
 		DBFA255F21DC3D39000785D0 /* CoreDataObjects */ = {
 			isa = PBXGroup;
 			children = (
-				DBFE97F721D57C6F00E82803 /* NotaCoreData.swift */,
-				DB88DBF221AAF19300B0699B /* RegolaObjects.swift */,
 				DBFA256021DC3D83000785D0 /* TeenStarTable.swift */,
-				DB53C78321E0F62B0001054B /* CompagniaTest+Relationships.swift */,
 				DB4F3BC621F6264F0040F4C4 /* SitoWeb+Relationships.swift */,
 			);
 			path = CoreDataObjects;
@@ -941,7 +932,6 @@
 				DB7BEF8D21D0172E007A550E /* URLs.swift in Sources */,
 				DB4F3BC721F6264F0040F4C4 /* SitoWeb+Relationships.swift in Sources */,
 				DBAAE2B721A5CCEB00211CBF /* LoginVC.swift in Sources */,
-				DB53C78421E0F62B0001054B /* CompagniaTest+Relationships.swift in Sources */,
 				DBC7F4DC2219AEC500C22945 /* NotificheOnboardingVC.swift in Sources */,
 				DBF3A2B421DD81F5008AE7D5 /* TeenStarEditEntryView.swift in Sources */,
 				DBAF3C4D219CBF35003083EA /* IQNSArray+Sort.swift in Sources */,
@@ -972,7 +962,6 @@
 				DBAF3C40219CBF35003083EA /* IQBarButtonItem.swift in Sources */,
 				DB61DA1721B9C605006B308B /* SitoVC.swift in Sources */,
 				DB4F3BC521F5FBC80040F4C4 /* SwitchCell.swift in Sources */,
-				DBFE97F821D57C6F00E82803 /* NotaCoreData.swift in Sources */,
 				DB323B0C223C4A7C00116FE3 /* VerificaCompagnia.swift in Sources */,
 				DBC7F4CD22198A0A00C22945 /* GradoScuolaView.swift in Sources */,
 				DBAF3C4B219CBF35003083EA /* IQUITextFieldView+Additions.swift in Sources */,
@@ -1002,7 +991,6 @@
 				DB5751DC21DA651C00F97D25 /* BoldCell.swift in Sources */,
 				DBF3A2B221DD81D1008AE7D5 /* TeenStarEditEntryVC.swift in Sources */,
 				DB88DBE921A975C100B0699B /* CGRectEx.swift in Sources */,
-				DB88DBF321AAF19300B0699B /* RegolaObjects.swift in Sources */,
 				DB060C8822149B13003E0C96 /* LoginNetworkRequest.swift in Sources */,
 				DB88DBEE21A97F4400B0699B /* RootAppTabBarController.swift in Sources */,
 				DB67643A21F6364E00651AD8 /* RegisterNetworkRequest.swift in Sources */,

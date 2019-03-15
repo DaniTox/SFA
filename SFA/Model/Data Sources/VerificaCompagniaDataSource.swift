@@ -9,10 +9,10 @@
 import UIKit
 import RealmSwift
 
-struct CategoriaObject {
-    var categoria : CompagniaCategoria
-    var domande : [CompagniaDomanda]
-}
+//struct CategoriaObject {
+//    var categoria : CompagniaCategoria
+//    var domande : [CompagniaDomanda]
+//}
 
 class VerificaCompagniaDataSource : NSObject, UITableViewDataSource {
     

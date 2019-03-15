@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class CompagniaDomandaCell: UITableViewCell {
 
@@ -97,7 +98,10 @@ class CompagniaDomandaCell: UITableViewCell {
     @objc private func sliderValueChanged(_ sender: UISlider) {
         self.sliderLabel.text = "\(Int(sender.value))"
         self.valueChanged?(Int(sender.value))
-        self.domanda.risposta = Int(sender.value)
+        let realm = try! Realm()
+        try? realm.write {
+            self.domanda.risposta = Int(sender.value)
+        }
     }
     
     override func layoutSubviews() {

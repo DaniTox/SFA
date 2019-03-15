@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 
 class RegolaCategorieVC: UIViewController, HasCustomView {
     typealias CustomView = RegoleCategorieView
