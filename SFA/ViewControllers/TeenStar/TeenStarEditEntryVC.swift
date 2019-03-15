@@ -7,25 +7,41 @@
 //
 
 import UIKit
+import RealmSwift
 
-let BASIC_CELL_ID = "cell"
-let EMOZIONE_CELL_ID = "emozioneCell"
-let CICLO_CELL_ID = "ciclocell"
+struct EntryMemory {
+    var sentimento8 : Emozione?
+    var sentimento14 : Emozione?
+    var sentimento20 : Emozione?
+    var ciclo : CicloColor?
+}
 
-let BASIC_ROW_HEIGHT : CGFloat = 75
-let EMOZIONE_ROW_HEIGHT : CGFloat = 200
-let CICLO_ROW_HEIGHT : CGFloat = 500 //350
-
-let TSBOY_SECTIONS = 4
-let TSGIRL_SECTIONS = 5
-
-func GET_INDEX(_ index: Int) -> Int { return index - 1 }
-
-class TeenStarEditEntryVC: UIViewController, HasCustomView {
+class TeenStarEditEntryVC<T : TeenStarDerivative & Object>: UIViewController, HasCustomView {
     typealias CustomView = TeenStarEditEntryView
     override func loadView() {
         super.loadView()
         view = CustomView()
+    }
+
+    var currentEntryMemory : EntryMemory!
+    var entry : T
+    
+    init(table : T) {
+        self.entry = table
+        super.init(nibName: nil, bundle: nil)
+        
+        currentEntryMemory.sentimento8 = entry.sentimentiTable?.sentimentoOre8
+        currentEntryMemory.sentimento14 = entry.sentimentiTable?.sentimentoOre14
+        currentEntryMemory.sentimento20 = entry.sentimentiTable?.sentimentoOre20
+        
+        if let parsedEntry = entry as? TeenStarFemmina {
+            currentEntryMemory.ciclo = parsedEntry.cicloTable?.cicloColor
+        }
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     var genderType : UserGender? {
@@ -37,26 +53,11 @@ class TeenStarEditEntryVC: UIViewController, HasCustomView {
         }
     }
     
-    var entry : TeenStarTable? {
-        didSet {
-            guard let entry = entry else { return }
-            currentEntryMemory[1] = entry.sentimento8h
-            currentEntryMemory[2] = entry.sentimento14h
-            currentEntryMemory[3] = entry.sentimento20h
-            currentEntryMemory[4] = entry.ciclo
-        }
-    }
-    
-    var currentEntryMemory : [Int : Int16] = [:]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .orange
-        if let entry = entry {
-            self.title = "\(entry.date?.dayOfWeek() ?? "NULL") - \(entry.date?.stringValue ?? "NULL")"
-        } else {
-            self.title = "\(Date().dayOfWeek()) - \(Date().stringValue)"
-        }
+        
+        self.title = "\(entry.date.dayOfWeek()) - \(entry.date.stringValue)"
         
         NotificationCenter.default.addObserver(forName: .updateTheme, object: nil, queue: .main) { (notification) in
             self.updateTheme()
@@ -81,39 +82,26 @@ class TeenStarEditEntryVC: UIViewController, HasCustomView {
     }
     
     private func saveTeenStarEntry() {
-        guard let thisEntry = self.entry else { return }
         
-        if let emozione8 = self.currentEntryMemory[1] {
-            thisEntry.sentimento8h = emozione8
+        if let emozione8 = self.currentEntryMemory.sentimento8 {
+            entry.sentimentiTable?.sentimentoOre8 = emozione8
         }
-        if let emozione14 = self.currentEntryMemory[2] {
-            thisEntry.sentimento14h = emozione14
+        if let emozione14 = self.currentEntryMemory.sentimento14 {
+            entry.sentimentiTable?.sentimentoOre14 = emozione14
         }
-        if let emozione20 = self.currentEntryMemory[3] {
-            thisEntry.sentimento20h = emozione20
+        if let emozione20 = self.currentEntryMemory.sentimento20 {
+            entry.sentimentiTable?.sentimentoOre20 = emozione20
         }
-        if let cicloColor = self.currentEntryMemory[4] {
-            thisEntry.ciclo = cicloColor
-        }
-        
-        if thisEntry.isEmpty {
-            removeEntryBecauseEmpty()
-            return
+        if let parsedEntry = entry as? TeenStarFemmina, let cicloColor = self.currentEntryMemory.ciclo {
+            parsedEntry.cicloTable?.cicloColor = cicloColor
         }
         
-        let context = thisEntry.managedObjectContext
-        do {
-            try context?.save()
-        } catch {
-            print("Errore a salvare CoreData TeenStar: \(error)")
+        let realm = try! Realm()
+        try? realm.write {
+            realm.add(entry, update: true)
         }
     }
-    
-    private func removeEntryBecauseEmpty() {
-        guard let thisEntry = self.entry else { return }
-        let context = thisEntry.managedObjectContext
-        context?.delete(thisEntry)
-    }
+
 }
 extension TeenStarEditEntryVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

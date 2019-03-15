@@ -69,7 +69,7 @@ class CicloColorCollectionCell: UICollectionViewCell {
     private func updateView() {
         var color : UIColor = UIColor.white
         switch self.cicloColor! {
-        case .rosso:
+        case .rosso, .none:
             color = .red
         case .verde:
             color = .green

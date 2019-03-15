@@ -9,21 +9,35 @@
 import Foundation
 import RealmSwift
 
-class TeenStarMaschio : Object {
+@objc protocol TeenStarDerivative {
+    @objc var id : String { get set }
+    @objc var date : Date { get set }
+    @objc var sentimentiTable : SentimentoTable? { get set }
+    var gender : Int { get }
+}
+
+class TeenStarMaschio : Object, TeenStarDerivative {
     @objc dynamic var id = UUID().uuidString
     @objc dynamic var date = Date()
     @objc dynamic var sentimentiTable : SentimentoTable?
     
+    var gender : Int {
+        return 0
+    }
     override static func primaryKey() -> String? {
         return "id"
     }
 }
 
-class TeenStarFemmina : Object {
+class TeenStarFemmina : Object, TeenStarDerivative {
     @objc dynamic var id = UUID().uuidString
     @objc dynamic var date = Date()
     @objc dynamic var sentimentiTable : SentimentoTable?
     @objc dynamic var cicloTable : CicloTable?
+    
+    var gender : Int {
+        return 1
+    }
     
     override static func primaryKey() -> String? {
         return "id"
