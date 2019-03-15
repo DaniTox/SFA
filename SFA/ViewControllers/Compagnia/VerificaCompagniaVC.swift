@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class VerificaCompagniaVC: UIViewController, HasCustomView {
     typealias CustomView = VerificaCompagniaView
@@ -15,14 +16,12 @@ class VerificaCompagniaVC: UIViewController, HasCustomView {
         view = CustomView()
     }
     
-    var model : CompagniaTestModel!
+    var model : CompagniaAgent = CompagniaAgent()
     var dataSource : VerificaCompagniaDataSource = VerificaCompagniaDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Verifica Compagnia"
-        let container = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
-        model = CompagniaTestModel(container: container)
         
         rootView.tableView.estimatedRowHeight = 250
         rootView.tableView.rowHeight = UITableView.automaticDimension
@@ -37,8 +36,9 @@ class VerificaCompagniaVC: UIViewController, HasCustomView {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        guard let _ = try? dataSource.verifica.managedObjectContext?.save() else {
-            fatalError("Errore nel salvataggio")
+        let realm = try! Realm()
+        try? realm.write {
+            realm.add(dataSource.verifica, update: true)
         }
     }
     

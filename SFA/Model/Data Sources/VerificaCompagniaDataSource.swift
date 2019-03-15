@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 struct CategoriaObject {
     var categoria : CompagniaCategoria
@@ -15,24 +16,16 @@ struct CategoriaObject {
 
 class VerificaCompagniaDataSource : NSObject, UITableViewDataSource {
     
-    public var verifica : CompagniaTest!
-    private let model : CompagniaTestModel!
+    public var verifica : VerificaCompagnia
+    private let model : CompagniaAgent!
     
-    private var storage : [CategoriaObject] = []
+    private var storage = List<VerificaCategoria>()
     
     override init() {
-        guard let delegate = UIApplication.shared.delegate as? AppDelegate else {
-            fatalError("Delegate error")
-        }
-        let persistentContainer = delegate.persistentContainer
-        self.model = CompagniaTestModel(container: persistentContainer)
+        self.model = CompagniaAgent()
         self.verifica = model.getLatestVerifica()
         
-        let categorie = model.getCategorieFrom(verifica: self.verifica)
-        for categoria in categorie {
-            let object = CategoriaObject(categoria: categoria, domande: model.getDomandaFrom(categoria: categoria))
-            storage.append(object)
-        }
+        self.storage = self.verifica.categorie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,9 +47,7 @@ class VerificaCompagniaDataSource : NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        guard let categorie = self.verifica.categorie?.array as? Array<CompagniaCategoria> else {
-            return nil
-        }
+        let categorie = self.verifica.categorie
         return categorie[section].name
     }
     

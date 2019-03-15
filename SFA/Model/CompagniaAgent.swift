@@ -7,11 +7,9 @@
 //
 
 import UIKit
-import CoreData
+import RealmSwift
 
-class CompagniaTestModel {
-    
-    var persistentContainer : NSPersistentContainer
+class CompagniaAgent {
     
     private var modelJson : CompagniaFile {
         guard let url = Bundle.main.url(forResource: "compagnie", withExtension: "json") else { fatalError() }
@@ -20,19 +18,13 @@ class CompagniaTestModel {
         return object
     }
     
-    init(container: NSPersistentContainer) {
-        self.persistentContainer = container
-    }
-    
     public func createIfNotPresent() {
-        let context = persistentContainer.viewContext
+        let realm = try! Realm()
         
         //ottengo tutte le regole nel database (dovrebbe sempre e solo essercene una)
-        let request : NSFetchRequest<Regola> = Regola.fetchRequest()
-        let regole = try? context.fetch(request)
-        guard let unRegole = regole else { return }
+        let verifiche = realm.objects(VerificaCompagnia.self)
         //se non ce n'è neanche una, la creo al momento dal file json
-        if unRegole.count < 1 {
+        if verifiche.count < 1 {
             print("Creating CompagniaTest since it doesn't exist")
             _ = self.createCompagniaBaseEntry()
         } else {
@@ -40,47 +32,46 @@ class CompagniaTestModel {
         }
     }
     
-    private func createCompagniaBaseEntry() -> CompagniaTest {
+    private func createCompagniaBaseEntry() -> VerificaCompagnia {
+        let realm = try! Realm()
+        
         //ottengo il file padre
         let model = self.modelJson
-        let context = persistentContainer.viewContext
         
         //creo una verifica vuota in CoreData
-        let verifica = CompagniaTest(context: context)
+        let verifica = VerificaCompagnia()
         
         //per ogni categoria che c'è nel file, la creo in CoreData e la aggiungo alla verifica in CoreData
         for categoria in model.categorie {
-            let cdCategoria : CompagniaCategoria = CompagniaCategoria(context: context)
+            let cdCategoria = VerificaCategoria()
             cdCategoria.name = categoria.nome
             
             //per ogni domanda nel file, creo una domanda CoreData e la aggiungo alla categoria CoreData
             for domandaString in categoria.domande {
-                let cdDomanda : CompagniaDomanda = CompagniaDomanda(context: context)
+                let cdDomanda = VerificaDomanda()
                 cdDomanda.domanda = domandaString
                 
-                cdCategoria.addToDomande(cdDomanda)
+                cdCategoria.domande.append(cdDomanda)
             }
             
             //qua aggiungo la categoria alla verifica come detto in precedenza
-            verifica.addToCategorie(cdCategoria)
+            verifica.categorie.append(cdCategoria)
         }
         
         //salvo il context per applicare le modifiche
-        try? context.save()
+        try? realm.write {
+            realm.add(verifica)
+        }
         
         //ritorno la verifica in caso di necessità
         return verifica
     }
     
     //attualmente, i piani alti dicono che esiste solo una verifica. quindi usare questa funzione per ottenere l'unica verifica da CoreData
-    public func getLatestVerifica() -> CompagniaTest {
-        let context = persistentContainer.viewContext
-        let request : NSFetchRequest<CompagniaTest> = CompagniaTest.fetchRequest()
+    public func getLatestVerifica() -> VerificaCompagnia {
+        let realm = try! Realm()
         
-        guard let verifiche = try? context.fetch(request) else {
-            //se non riesco a prendere le verifiche salvate, ne creo una vuota dal file json e uso qella
-            return self.createCompagniaBaseEntry()
-        }
+        let verifiche = realm.objects(VerificaCompagnia.self)
         
         guard let firstVerifica = verifiche.first else {
             //se non riesco a prendere le verifiche salvate, ne creo una vuota dal file json e uso qella
@@ -90,17 +81,6 @@ class CompagniaTestModel {
         return firstVerifica
     }
     
-    public func getCategorieFrom(verifica: CompagniaTest) -> [CompagniaCategoria] {
-        //ottengo le categorie direttamente dall'oggetto invece che da una CoreData request
-        guard let categorieArray = verifica.categorie?.array as? Array<CompagniaCategoria> else { return [] }
-        return categorieArray
-    }
-    
-    public func getDomandaFrom(categoria: CompagniaCategoria) -> [CompagniaDomanda] {
-        //ottengo le domande direttamente dall'oggetto invece che da una CoreData request
-        guard let domandeArray = categoria.domande?.array as? Array<CompagniaDomanda> else { return [] }
-        return domandeArray
-    }
 }
 
 class CompagniaFile : Codable {

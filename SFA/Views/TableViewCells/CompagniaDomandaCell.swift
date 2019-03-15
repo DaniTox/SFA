@@ -11,7 +11,7 @@ import UIKit
 class CompagniaDomandaCell: UITableViewCell {
 
     public var valueChanged : ((Int) -> Void)?
-    public var domanda: CompagniaDomanda! {
+    public var domanda: VerificaDomanda! {
         didSet {
             guard domanda != nil else { return }
             mainLabel.text = domanda.domanda
@@ -97,7 +97,7 @@ class CompagniaDomandaCell: UITableViewCell {
     @objc private func sliderValueChanged(_ sender: UISlider) {
         self.sliderLabel.text = "\(Int(sender.value))"
         self.valueChanged?(Int(sender.value))
-        self.domanda.risposta = Int16(sender.value)
+        self.domanda.risposta = Int(sender.value)
     }
     
     override func layoutSubviews() {
