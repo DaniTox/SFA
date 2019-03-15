@@ -107,31 +107,7 @@ let TEENSTAR_INDICES : [String] = ["Sentimento prevalente alle ore 8:00:",
                                    "Sentimento prevalente alle ore 20:00:",
                                    "Ciclo: seleziona il tipo di colore o simbolo:"]
 
-enum CicloColor : Int16, Codable {
-    case rosso = 0
-    case verde = 1
-    case giallo = 2
-    case bianco = 3
-    case croce = 4
-    
-    static func getColorFrom(str: String) -> CicloColor {
-        let colorStr = str.lowercased()
-        switch colorStr {
-        case "rosso":
-            return .rosso
-        case "verde":
-            return .verde
-        case "giallo":
-            return .giallo
-        case "bianco":
-            return .bianco
-        case "croce":
-            return .croce
-        default:
-            fatalError("Errore CicloColor con questa stringa non esiste")
-        }
-    }
-}
+
 
 let CICLO_COLORS : [String] = ["rosso",
                                "verde",

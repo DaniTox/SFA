@@ -23,6 +23,7 @@
 		DB2C316121AC87580009EC14 /* EditRispostaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2C316021AC87580009EC14 /* EditRispostaView.swift */; };
 		DB2C316321AC88E20009EC14 /* EditRispostaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2C316221AC88E20009EC14 /* EditRispostaVC.swift */; };
 		DB323B0C223C4A7C00116FE3 /* VerificaCompagnia.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB323B0B223C4A7C00116FE3 /* VerificaCompagnia.swift */; };
+		DB323B0F223C56BB00116FE3 /* TeenStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB323B0E223C56BB00116FE3 /* TeenStar.swift */; };
 		DB325EDF21D422D7009ADEFC /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB325EDE21D422D7009ADEFC /* RegisterView.swift */; };
 		DB325EE121D5033C009ADEFC /* RotationLogicNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */; };
 		DB4F3BBC21F5C34C0040F4C4 /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F3BBB21F5C34C0040F4C4 /* Themes.swift */; };
@@ -176,6 +177,7 @@
 		DB2C316021AC87580009EC14 /* EditRispostaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRispostaView.swift; sourceTree = "<group>"; };
 		DB2C316221AC88E20009EC14 /* EditRispostaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRispostaVC.swift; sourceTree = "<group>"; };
 		DB323B0B223C4A7C00116FE3 /* VerificaCompagnia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificaCompagnia.swift; sourceTree = "<group>"; };
+		DB323B0E223C56BB00116FE3 /* TeenStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStar.swift; sourceTree = "<group>"; };
 		DB325EDE21D422D7009ADEFC /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationLogicNavigationController.swift; sourceTree = "<group>"; };
 		DB4F3BBB21F5C34C0040F4C4 /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
@@ -321,6 +323,17 @@
 				DBC7F4C82218ACAB00C22945 /* OrderedFlowCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		DB323B0D223C558700116FE3 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				DBF5C1A422330D070086E9E7 /* RegolaVita.swift */,
+				DBF5C1A6223443870086E9E7 /* Note.swift */,
+				DB323B0B223C4A7C00116FE3 /* VerificaCompagnia.swift */,
+				DB323B0E223C56BB00116FE3 /* TeenStar.swift */,
+			);
+			path = Objects;
 			sourceTree = "<group>";
 		};
 		DB53C77221DEB7870001054B /* TableViewCells */ = {
@@ -481,6 +494,7 @@
 		DB88DBF121AAF17200B0699B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DB323B0D223C558700116FE3 /* Objects */,
 				DB67643B21F636BA00651AD8 /* Siti */,
 				DB67643621F634E200651AD8 /* Login+Register */,
 				DB67643521F634C800651AD8 /* Network */,
@@ -492,9 +506,6 @@
 				DBF3A2AF21DD73D0008AE7D5 /* TeenStarModel.swift */,
 				DB53C76E21DE699B0001054B /* Emozione.swift */,
 				DB53C78521E0F7E40001054B /* CompagniaAgent.swift */,
-				DBF5C1A422330D070086E9E7 /* RegolaVita.swift */,
-				DBF5C1A6223443870086E9E7 /* Note.swift */,
-				DB323B0B223C4A7C00116FE3 /* VerificaCompagnia.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1003,6 +1014,7 @@
 				DBAF3C19219C9203003083EA /* Costanti.swift in Sources */,
 				DBAF3C3E219CBF35003083EA /* IQPreviousNextView.swift in Sources */,
 				DB7BEF8921D01442007A550E /* User.swift in Sources */,
+				DB323B0F223C56BB00116FE3 /* TeenStar.swift in Sources */,
 				DBF67B242205B293002CF893 /* SitiPreghiereRequest.swift in Sources */,
 				DB22DA8D21C02F9500E6497D /* DatePickerModel.swift in Sources */,
 				DB9A19BF21D5148E00C05755 /* NoteListVC.swift in Sources */,

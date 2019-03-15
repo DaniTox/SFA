@@ -10,13 +10,7 @@ import Foundation
 import CoreData
 
 class TeenStarModel {
-    
-    var persistentContainer : NSPersistentContainer
     var errorHandler : ((String)->Void)?
-    
-    init(container: NSPersistentContainer) {
-        self.persistentContainer = container
-    }
     
     //this is just a primitive function. Don't call this directly. Call todayTableIsEmpty instead.
     private func primitive_TodayTableIsEmpty() throws -> Bool {
