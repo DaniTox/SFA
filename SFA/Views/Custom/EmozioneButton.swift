@@ -34,31 +34,25 @@ class EmozioneButton: UIButton {
             guard let self = self else { return }
             
             var title : String = ""
-//            var color: UIColor = UIColor.clear
             
             switch self.emozione! {
             case .fiducioso:
                 title = "😌"
-//                color = UIColor.blue.lighter(by: 10)!
             case .aggressività:
                 title = "😡"
-//                color = UIColor.red
             case .paura:
                 title = "😱"
-//                color = UIColor.purple
             case .tristezza:
                 title = "😢"
-//                color = UIColor.gray
             case .gioia:
                 title = "😁"
-//                color = UIColor.green.darker(by: 20)!
             case .equilibrio:
                 title = "😐"
-//                color = UIColor.yellow.darker()!
+            default:
+                break
             }
             
             self.setTitle(title, for: .normal)
-//            self.backgroundColor = color
         }
     }
     

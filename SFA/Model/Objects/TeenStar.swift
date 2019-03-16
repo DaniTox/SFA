@@ -19,12 +19,12 @@ import RealmSwift
 class TeenStarMaschio : Object, TeenStarDerivative {
     @objc dynamic var id = UUID().uuidString
     @objc dynamic var date = Date()
-    @objc dynamic var sentimentiTable : SentimentoTable?
+    @objc dynamic var sentimentiTable : SentimentoTable? = SentimentoTable()
     
     var gender : Int {
         return 0
     }
-    override static func primaryKey() -> String? {
+    override static func primaryKey() -> String {
         return "id"
     }
 }
@@ -32,14 +32,14 @@ class TeenStarMaschio : Object, TeenStarDerivative {
 class TeenStarFemmina : Object, TeenStarDerivative {
     @objc dynamic var id = UUID().uuidString
     @objc dynamic var date = Date()
-    @objc dynamic var sentimentiTable : SentimentoTable?
-    @objc dynamic var cicloTable : CicloTable?
+    @objc dynamic var sentimentiTable : SentimentoTable? = SentimentoTable()
+    @objc dynamic var cicloTable : CicloTable? = CicloTable()
     
     var gender : Int {
         return 1
     }
     
-    override static func primaryKey() -> String? {
+    override static func primaryKey() -> String {
         return "id"
     }
 }

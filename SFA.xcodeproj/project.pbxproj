@@ -25,6 +25,7 @@
 		DB323B0C223C4A7C00116FE3 /* VerificaCompagnia.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB323B0B223C4A7C00116FE3 /* VerificaCompagnia.swift */; };
 		DB323B0F223C56BB00116FE3 /* TeenStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB323B0E223C56BB00116FE3 /* TeenStar.swift */; };
 		DB323B11223C645800116FE3 /* TeenStarDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB323B10223C645800116FE3 /* TeenStarDataSource.swift */; };
+		DB323B13223D35FB00116FE3 /* TeenStarListSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB323B12223D35FB00116FE3 /* TeenStarListSource.swift */; };
 		DB325EDF21D422D7009ADEFC /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB325EDE21D422D7009ADEFC /* RegisterView.swift */; };
 		DB325EE121D5033C009ADEFC /* RotationLogicNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */; };
 		DB4F3BBC21F5C34C0040F4C4 /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F3BBB21F5C34C0040F4C4 /* Themes.swift */; };
@@ -180,6 +181,7 @@
 		DB323B0B223C4A7C00116FE3 /* VerificaCompagnia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificaCompagnia.swift; sourceTree = "<group>"; };
 		DB323B0E223C56BB00116FE3 /* TeenStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStar.swift; sourceTree = "<group>"; };
 		DB323B10223C645800116FE3 /* TeenStarDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarDataSource.swift; sourceTree = "<group>"; };
+		DB323B12223D35FB00116FE3 /* TeenStarListSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarListSource.swift; sourceTree = "<group>"; };
 		DB325EDE21D422D7009ADEFC /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationLogicNavigationController.swift; sourceTree = "<group>"; };
 		DB4F3BBB21F5C34C0040F4C4 /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
@@ -824,6 +826,7 @@
 				DBCF2F3D21F7BC410074E0AF /* SitiDataSource.swift */,
 				DBD901192235AB9E007F37F0 /* NotesDataSource.swift */,
 				DB323B10223C645800116FE3 /* TeenStarDataSource.swift */,
+				DB323B12223D35FB00116FE3 /* TeenStarListSource.swift */,
 			);
 			path = "Data Sources";
 			sourceTree = "<group>";
@@ -1045,6 +1048,7 @@
 				DB19C68121E2877F0020357D /* VerificaCompagniaView.swift in Sources */,
 				DBAF3C24219C9F6A003083EA /* Extensions.swift in Sources */,
 				DBF3A2B021DD73D0008AE7D5 /* TeenStarModel.swift in Sources */,
+				DB323B13223D35FB00116FE3 /* TeenStarListSource.swift in Sources */,
 				DBCF2F4021F7C5050074E0AF /* SitoCell.swift in Sources */,
 				DBAF3C49219CBF35003083EA /* IQUIScrollView+Additions.swift in Sources */,
 				DBFA256121DC3D83000785D0 /* TeenStarTable.swift in Sources */,

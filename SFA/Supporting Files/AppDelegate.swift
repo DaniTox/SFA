@@ -50,6 +50,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            r.deleteAll()
 //        }
         
+//        let realm = try! Realm()
+//        try? realm.write {
+//            realm.delete(realm.objects(TeenStarFemmina.self))
+//        }
+        
         
         
         RegolaFetcherModel.shared.persistentContainer = persistentContainer

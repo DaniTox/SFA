@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class HomeViewController : UIViewController, HasCustomView {
     typealias CustomView = HomeView
@@ -35,8 +36,14 @@ class HomeViewController : UIViewController, HasCustomView {
     }
     
     @objc private func showTeenStarController() {
-        let vc = TeenStarListVC()
-        navigationController?.pushViewController(vc, animated: true)
+        if userLogged?.gender == .boy {
+            let vc = TeenStarListVC<TeenStarMaschio>()
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = TeenStarListVC<TeenStarFemmina>()
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
     
     @objc private func showVerificaCompagniaController() {
