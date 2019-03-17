@@ -27,23 +27,32 @@ class SitiAgent : SitiNetworkAgent {
     
     private func createCoreDataObjects(_ objects: [SitoCategoriaObject]) -> [SitoWebCategoria] {
         self.removeAllLocalSites()
+        let realm = try! Realm()
+        
         var siti : [SitoWebCategoria] = []
         
         for categoria in objects {
-            let categoriaCD = SitoWebCategoria(context: context)
-            categoriaCD.name = categoria.nome
-            categoriaCD.idOrder = Int16(categoria.idOrder)
-            categoriaCD.descrizione = categoria.descrizione
+            let categoriaCD = SitoWebCategoria()
+            categoriaCD.nome = categoria.nome
+            categoriaCD.order = categoria.idOrder
+            categoriaCD.descrizione = categoria.descrizione ?? ""
             
             for sito in categoria.sites {
-                let sitoCD = SitoWeb(context: context)
+                let sitoCD = SitoWeb()
                 sitoCD.nome = sito.nome
-                sitoCD.descrizione = sito.descrizione
-                sitoCD.idOrder = Int16(sito.idOrder)
-                sitoCD.url = URL(string: sito.url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlFragmentAllowed) ?? "")
-                categoriaCD.addToSitiWeb(sitoCD)
+                sitoCD.descrizione = sito.descrizione ?? ""
+                sitoCD.order = sito.idOrder
+                if let webUrlString = sito.urlString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlFragmentAllowed),
+                    let url = URL(string: webUrlString) {
+                    sitoCD.url = url
+                }
+                categoriaCD.siti.append(sitoCD)
             }
             siti.append(categoriaCD)
+        }
+        
+        try? realm.write {
+            realm.add(siti)
         }
         return siti
     }

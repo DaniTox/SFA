@@ -39,15 +39,16 @@ class SitoWeb : Object {
     }
 }
 
-class SitoObject : Decodable {
-    var order : Int
+struct SitoObject : Codable {
     var nome : String
-    var descrizione: String
-    var url: String
+    var idOrder : Int
+    var descrizione : String?
+    var urlString : String
 }
 
-class SitoCategoriaObject : Decodable {
-    var nome: String
-    var descrizione: String
-    var siti: [SitoObject]
+struct SitoCategoriaObject : Codable {
+    var idOrder : Int
+    var nome : String
+    var descrizione : String?
+    var sites : [SitoObject]
 }

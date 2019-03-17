@@ -26,7 +26,7 @@ class SitiDataSource : NSObject, UITableViewDataSource {
     
     init(type: WebsiteType) {
         self.type = type
-        self.model = SitiAgent(container: container)
+        self.model = SitiAgent()
         super.init()
         
         fetchData()
@@ -44,10 +44,7 @@ class SitiDataSource : NSObject, UITableViewDataSource {
         let row = indexPath.row
         
         let categoria = self.sitesCategories[section]
-        if let site = categoria.sitiWeb?[row] as? SitoWeb {
-            return site
-        }
-        return nil
+        return categoria.siti[row]
     }
     
     
@@ -56,22 +53,23 @@ class SitiDataSource : NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.sitesCategories[section].sitiWeb?.count ?? 0
+        return self.sitesCategories[section].siti.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "sitoCell") as! SitoCell
-        if let site = self.sitesCategories[indexPath.section].sitiWeb?[indexPath.row] as? SitoWeb {
-            cell.nomeSitoLabel.text = site.nome
-            cell.urlLabel.text = site.url?.absoluteString
-            cell.accessoryType = .disclosureIndicator
-        }
+        
+        let site = self.sitesCategories[indexPath.section].siti[indexPath.row]
+        cell.nomeSitoLabel.text = site.nome
+        cell.urlLabel.text = site.url.absoluteString
+        cell.accessoryType = .disclosureIndicator
+        
         return cell
     }
     
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.sitesCategories[section].name
+        return self.sitesCategories[section].nome
     }
     
 }
