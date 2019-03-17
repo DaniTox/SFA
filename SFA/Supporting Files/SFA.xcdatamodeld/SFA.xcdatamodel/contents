@@ -1,32 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G5019" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="SitoWeb" representedClassName=".SitoWeb" syncable="YES" codeGenerationType="category">
-        <attribute name="descrizione" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="idOrder" optional="YES" attributeType="Integer 16" defaultValueString="-1" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="url" optional="YES" attributeType="URI" syncable="YES"/>
-        <relationship name="categoriaSito" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SitoWebCategoria" inverseName="sitiWeb" inverseEntity="SitoWebCategoria" syncable="YES"/>
-    </entity>
-    <entity name="SitoWebCategoria" representedClassName=".SitoWebCategoria" syncable="YES" codeGenerationType="category">
-        <attribute name="descrizione" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="idOrder" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="sitiWeb" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="SitoWeb" inverseName="categoriaSito" inverseEntity="SitoWeb" syncable="YES"/>
-    </entity>
-    <entity name="TeenStarTable" representedClassName=".TeenStarTable" syncable="YES" codeGenerationType="category">
-        <attribute name="ciclo" optional="YES" attributeType="Integer 16" defaultValueString="-1" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="gender" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="giorno" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="-1" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="muco" optional="YES" attributeType="Integer 16" defaultValueString="-1" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="sentimento8h" optional="YES" attributeType="Integer 16" defaultValueString="-1" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="sentimento14h" optional="YES" attributeType="Integer 16" defaultValueString="-1" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="sentimento20h" optional="YES" attributeType="Integer 16" defaultValueString="-1" usesScalarValueType="YES" syncable="YES"/>
-    </entity>
-    <elements>
-        <element name="SitoWeb" positionX="-383.5078125" positionY="366.57421875" width="128" height="120"/>
-        <element name="SitoWebCategoria" positionX="-193.44921875" positionY="373.30859375" width="128" height="105"/>
-        <element name="TeenStarTable" positionX="426.65625" positionY="14.48828125" width="128" height="180"/>
-    </elements>
+    <elements/>
 </model>

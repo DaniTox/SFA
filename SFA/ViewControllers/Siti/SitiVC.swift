@@ -16,13 +16,11 @@ class SitiVC: UIViewController, HasCustomView {
         view = CustomView()
     }
     
-    var dataSource : SitiDataSource!
-    
+    var dataSource : SitiDataSource
     var themeObserver : NSObjectProtocol?
-    var sitiVCType : WebsiteType
     
     init(type: WebsiteType) {
-        self.sitiVCType = type
+        self.dataSource = SitiDataSource(type: type)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -32,10 +30,6 @@ class SitiVC: UIViewController, HasCustomView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let persistentContainer = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer else {
-            fatalError()
-        }
-        self.dataSource = SitiDataSource(type: sitiVCType, container: persistentContainer)
         
         dataSource.errorHandler = { errStr in
             self.showError(withTitle: "Errore", andMessage: errStr) //already in mainqueue

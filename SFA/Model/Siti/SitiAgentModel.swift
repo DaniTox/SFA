@@ -7,36 +7,16 @@
 //
 
 import Foundation
-import CoreData
+import RealmSwift
 
 class SitiAgent : SitiNetworkAgent {
-    private var persistentContainer : NSPersistentContainer!
     
     var sitesCategories : [SitoWebCategoria] = []
     
-    init(container: NSPersistentContainer) {
-        super.init()
-        self.persistentContainer = container
-        
-        //updateSites()
-    }
-    
     public func fetchLocalWebsites() -> [SitoWebCategoria]  {
-        let context = persistentContainer.viewContext
-        let request : NSFetchRequest<SitoWebCategoria> = SitoWebCategoria.fetchRequest()
-        
-        if let categories = try? context.fetch(request) {
-            sitesCategories = categories
-            return categories
-        }
-        return []
+        let realm = try! Realm()
+        return realm.objects(SitoWebCategoria.self).map { $0 }
     }
-    
-//    public func updateSites() {
-//        loadSites { (categories) in
-//            self.sitesCategories = categories
-//        }
-//    }
     
     public func loadSites(type: WebsiteType, completion: (([SitoWebCategoria]) -> Void)? = nil) {
         self.getWebsites(type: type) { (sites) in
@@ -47,7 +27,6 @@ class SitiAgent : SitiNetworkAgent {
     
     private func createCoreDataObjects(_ objects: [SitoCategoriaObject]) -> [SitoWebCategoria] {
         self.removeAllLocalSites()
-        let context = persistentContainer.viewContext
         var siti : [SitoWebCategoria] = []
         
         for categoria in objects {
@@ -66,17 +45,14 @@ class SitiAgent : SitiNetworkAgent {
             }
             siti.append(categoriaCD)
         }
-        try? context.save()
         return siti
     }
     
     
     private func removeAllLocalSites() {
-        let context = persistentContainer.viewContext
-        let request : NSFetchRequest<SitoWebCategoria> = SitoWebCategoria.fetchRequest()
-        if let sites = try? context.fetch(request) {
-            sites.forEach( { context.delete($0) } )
+        let realm = try! Realm()
+        try? realm.write {
+            realm.delete(realm.objects(SitoWebCategoria.self))
         }
-        try? context.save()
     }
 }

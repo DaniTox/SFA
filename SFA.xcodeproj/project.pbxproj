@@ -26,13 +26,13 @@
 		DB323B0F223C56BB00116FE3 /* TeenStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB323B0E223C56BB00116FE3 /* TeenStar.swift */; };
 		DB323B11223C645800116FE3 /* TeenStarDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB323B10223C645800116FE3 /* TeenStarDataSource.swift */; };
 		DB323B13223D35FB00116FE3 /* TeenStarListSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB323B12223D35FB00116FE3 /* TeenStarListSource.swift */; };
+		DB323B15223D521300116FE3 /* SitoWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB323B14223D521300116FE3 /* SitoWeb.swift */; };
 		DB325EDF21D422D7009ADEFC /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB325EDE21D422D7009ADEFC /* RegisterView.swift */; };
 		DB325EE121D5033C009ADEFC /* RotationLogicNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */; };
 		DB4F3BBC21F5C34C0040F4C4 /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F3BBB21F5C34C0040F4C4 /* Themes.swift */; };
 		DB4F3BBE21F5CE220040F4C4 /* BasicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F3BBD21F5CE220040F4C4 /* BasicCell.swift */; };
 		DB4F3BC321F5F2D90040F4C4 /* ThemedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F3BC221F5F2D90040F4C4 /* ThemedNavigationController.swift */; };
 		DB4F3BC521F5FBC80040F4C4 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F3BC421F5FBC80040F4C4 /* SwitchCell.swift */; };
-		DB4F3BC721F6264F0040F4C4 /* SitoWeb+Relationships.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F3BC621F6264F0040F4C4 /* SitoWeb+Relationships.swift */; };
 		DB53AB8C21DACA34001961EC /* ColorSliderAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53AB8B21DACA34001961EC /* ColorSliderAlert.swift */; };
 		DB53C76D21DE69620001054B /* EmozioneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C76C21DE69620001054B /* EmozioneButton.swift */; };
 		DB53C76F21DE699B0001054B /* Emozione.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C76E21DE699B0001054B /* Emozione.swift */; };
@@ -49,7 +49,6 @@
 		DB5751E821DA808000F97D25 /* SizeSliderAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5751E721DA808000F97D25 /* SizeSliderAlert.swift */; };
 		DB61DA1321B5B9ED006B308B /* RegolaFetcherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1221B5B9ED006B308B /* RegolaFetcherModel.swift */; };
 		DB61DA1521B9BA81006B308B /* SitoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1421B9BA81006B308B /* SitoView.swift */; };
-		DB61DA1721B9C605006B308B /* SitoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1621B9C605006B308B /* SitoVC.swift */; };
 		DB61DA1921B9C81E006B308B /* SocialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1821B9C81E006B308B /* SocialVC.swift */; };
 		DB61DA1B21B9C834006B308B /* SocialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1A21B9C834006B308B /* SocialView.swift */; };
 		DB67643421F631A200651AD8 /* SitiNetworkAgentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67643321F631A200651AD8 /* SitiNetworkAgentModel.swift */; };
@@ -136,14 +135,12 @@
 		DBE6070721F261BD00E10422 /* UIBouncyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE6070621F261BD00E10422 /* UIBouncyButton.swift */; };
 		DBE6070921F27AA200E10422 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE6070821F27AA200E10422 /* WelcomeView.swift */; };
 		DBF3A2AC21DD723B008AE7D5 /* TeenStarListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF3A2AB21DD723B008AE7D5 /* TeenStarListVC.swift */; };
-		DBF3A2AE21DD7262008AE7D5 /* TeenStarListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF3A2AD21DD7262008AE7D5 /* TeenStarListView.swift */; };
 		DBF3A2B021DD73D0008AE7D5 /* TeenStarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF3A2AF21DD73D0008AE7D5 /* TeenStarModel.swift */; };
 		DBF3A2B221DD81D1008AE7D5 /* TeenStarEditEntryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF3A2B121DD81D1008AE7D5 /* TeenStarEditEntryVC.swift */; };
 		DBF3A2B421DD81F5008AE7D5 /* TeenStarEditEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF3A2B321DD81F5008AE7D5 /* TeenStarEditEntryView.swift */; };
 		DBF5C1A522330D070086E9E7 /* RegolaVita.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5C1A422330D070086E9E7 /* RegolaVita.swift */; };
 		DBF5C1A7223443870086E9E7 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5C1A6223443870086E9E7 /* Note.swift */; };
 		DBF67B242205B293002CF893 /* SitiPreghiereRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF67B232205B293002CF893 /* SitiPreghiereRequest.swift */; };
-		DBFA256121DC3D83000785D0 /* TeenStarTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA256021DC3D83000785D0 /* TeenStarTable.swift */; };
 		DBFE97FA21D57CD500E82803 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE97F921D57CD500E82803 /* NoteModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -182,13 +179,13 @@
 		DB323B0E223C56BB00116FE3 /* TeenStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStar.swift; sourceTree = "<group>"; };
 		DB323B10223C645800116FE3 /* TeenStarDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarDataSource.swift; sourceTree = "<group>"; };
 		DB323B12223D35FB00116FE3 /* TeenStarListSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarListSource.swift; sourceTree = "<group>"; };
+		DB323B14223D521300116FE3 /* SitoWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitoWeb.swift; sourceTree = "<group>"; };
 		DB325EDE21D422D7009ADEFC /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationLogicNavigationController.swift; sourceTree = "<group>"; };
 		DB4F3BBB21F5C34C0040F4C4 /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
 		DB4F3BBD21F5CE220040F4C4 /* BasicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicCell.swift; sourceTree = "<group>"; };
 		DB4F3BC221F5F2D90040F4C4 /* ThemedNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemedNavigationController.swift; sourceTree = "<group>"; };
 		DB4F3BC421F5FBC80040F4C4 /* SwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
-		DB4F3BC621F6264F0040F4C4 /* SitoWeb+Relationships.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SitoWeb+Relationships.swift"; sourceTree = "<group>"; };
 		DB53AB8B21DACA34001961EC /* ColorSliderAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSliderAlert.swift; sourceTree = "<group>"; };
 		DB53C76C21DE69620001054B /* EmozioneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmozioneButton.swift; sourceTree = "<group>"; };
 		DB53C76E21DE699B0001054B /* Emozione.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emozione.swift; sourceTree = "<group>"; };
@@ -205,7 +202,6 @@
 		DB5751E721DA808000F97D25 /* SizeSliderAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeSliderAlert.swift; sourceTree = "<group>"; };
 		DB61DA1221B5B9ED006B308B /* RegolaFetcherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegolaFetcherModel.swift; sourceTree = "<group>"; };
 		DB61DA1421B9BA81006B308B /* SitoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitoView.swift; sourceTree = "<group>"; };
-		DB61DA1621B9C605006B308B /* SitoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitoVC.swift; sourceTree = "<group>"; };
 		DB61DA1821B9C81E006B308B /* SocialVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialVC.swift; sourceTree = "<group>"; };
 		DB61DA1A21B9C834006B308B /* SocialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialView.swift; sourceTree = "<group>"; };
 		DB67643321F631A200651AD8 /* SitiNetworkAgentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitiNetworkAgentModel.swift; sourceTree = "<group>"; };
@@ -292,7 +288,6 @@
 		DBE6070621F261BD00E10422 /* UIBouncyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBouncyButton.swift; sourceTree = "<group>"; };
 		DBE6070821F27AA200E10422 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		DBF3A2AB21DD723B008AE7D5 /* TeenStarListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarListVC.swift; sourceTree = "<group>"; };
-		DBF3A2AD21DD7262008AE7D5 /* TeenStarListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarListView.swift; sourceTree = "<group>"; };
 		DBF3A2AF21DD73D0008AE7D5 /* TeenStarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarModel.swift; sourceTree = "<group>"; };
 		DBF3A2B121DD81D1008AE7D5 /* TeenStarEditEntryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarEditEntryVC.swift; sourceTree = "<group>"; };
 		DBF3A2B321DD81F5008AE7D5 /* TeenStarEditEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarEditEntryView.swift; sourceTree = "<group>"; };
@@ -300,7 +295,6 @@
 		DBF5C1A6223443870086E9E7 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		DBF67B232205B293002CF893 /* SitiPreghiereRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitiPreghiereRequest.swift; sourceTree = "<group>"; };
 		DBFA255D21DAC970000785D0 /* ColorSlider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ColorSlider.framework; path = Frameworks/ColorSlider.framework; sourceTree = SOURCE_ROOT; };
-		DBFA256021DC3D83000785D0 /* TeenStarTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarTable.swift; sourceTree = "<group>"; };
 		DBFE97F921D57CD500E82803 /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -336,6 +330,7 @@
 				DBF5C1A6223443870086E9E7 /* Note.swift */,
 				DB323B0B223C4A7C00116FE3 /* VerificaCompagnia.swift */,
 				DB323B0E223C56BB00116FE3 /* TeenStar.swift */,
+				DB323B14223D521300116FE3 /* SitoWeb.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -388,7 +383,6 @@
 			isa = PBXGroup;
 			children = (
 				DBF3A2AB21DD723B008AE7D5 /* TeenStarListVC.swift */,
-				DBF3A2AD21DD7262008AE7D5 /* TeenStarListView.swift */,
 				DBF3A2B121DD81D1008AE7D5 /* TeenStarEditEntryVC.swift */,
 				DBF3A2B321DD81F5008AE7D5 /* TeenStarEditEntryView.swift */,
 			);
@@ -556,7 +550,6 @@
 				DB217D5022188AD6003ED264 /* Coordinator */,
 				DB5751DF21DA75F600F97D25 /* Frameworks */,
 				DBAF3C22219C9F51003083EA /* Altro */,
-				DBFA255F21DC3D39000785D0 /* CoreDataObjects */,
 				DB88DBF121AAF17200B0699B /* Model */,
 				DBAF3C1F219C953D003083EA /* Views */,
 				DBAF3C1A219C942E003083EA /* ViewControllers */,
@@ -695,7 +688,6 @@
 		DBC7F4CE2219AC7800C22945 /* Siti */ = {
 			isa = PBXGroup;
 			children = (
-				DB61DA1621B9C605006B308B /* SitoVC.swift */,
 				DBCF2F3921F79E410074E0AF /* SitiVC.swift */,
 				DBCF2F3B21F79E7E0074E0AF /* SitiListView.swift */,
 			);
@@ -831,15 +823,6 @@
 			path = "Data Sources";
 			sourceTree = "<group>";
 		};
-		DBFA255F21DC3D39000785D0 /* CoreDataObjects */ = {
-			isa = PBXGroup;
-			children = (
-				DBFA256021DC3D83000785D0 /* TeenStarTable.swift */,
-				DB4F3BC621F6264F0040F4C4 /* SitoWeb+Relationships.swift */,
-			);
-			path = CoreDataObjects;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -945,9 +928,9 @@
 				DBAF3C4C219CBF35003083EA /* IQUIView+Hierarchy.swift in Sources */,
 				DBAF3C02219C9019003083EA /* AppDelegate.swift in Sources */,
 				DB88DBDF21A96E6F00B0699B /* HomeViewController.swift in Sources */,
+				DB323B15223D521300116FE3 /* SitoWeb.swift in Sources */,
 				DB53C78621E0F7E40001054B /* CompagniaAgent.swift in Sources */,
 				DB7BEF8D21D0172E007A550E /* URLs.swift in Sources */,
-				DB4F3BC721F6264F0040F4C4 /* SitoWeb+Relationships.swift in Sources */,
 				DBAAE2B721A5CCEB00211CBF /* LoginVC.swift in Sources */,
 				DBC7F4DC2219AEC500C22945 /* NotificheOnboardingVC.swift in Sources */,
 				DBF3A2B421DD81F5008AE7D5 /* TeenStarEditEntryView.swift in Sources */,
@@ -974,10 +957,8 @@
 				DB88DBFB21AB2C0D00B0699B /* DomandeView.swift in Sources */,
 				DB5751DE21DA719900F97D25 /* TextEditingBottomBar.swift in Sources */,
 				DBC7F4CB2219898100C22945 /* GradoScuolaVC.swift in Sources */,
-				DBF3A2AE21DD7262008AE7D5 /* TeenStarListView.swift in Sources */,
 				DBC7F4C92218ACAB00C22945 /* OrderedFlowCoordinator.swift in Sources */,
 				DBAF3C40219CBF35003083EA /* IQBarButtonItem.swift in Sources */,
-				DB61DA1721B9C605006B308B /* SitoVC.swift in Sources */,
 				DB4F3BC521F5FBC80040F4C4 /* SwitchCell.swift in Sources */,
 				DB323B0C223C4A7C00116FE3 /* VerificaCompagnia.swift in Sources */,
 				DBC7F4CD22198A0A00C22945 /* GradoScuolaView.swift in Sources */,
@@ -1051,7 +1032,6 @@
 				DB323B13223D35FB00116FE3 /* TeenStarListSource.swift in Sources */,
 				DBCF2F4021F7C5050074E0AF /* SitoCell.swift in Sources */,
 				DBAF3C49219CBF35003083EA /* IQUIScrollView+Additions.swift in Sources */,
-				DBFA256121DC3D83000785D0 /* TeenStarTable.swift in Sources */,
 				DBBBDC5021F5016D00C9F54A /* BouncyView.swift in Sources */,
 				DB88DBE121A9718000B0699B /* RegisterVC.swift in Sources */,
 				DB67643421F631A200651AD8 /* SitiNetworkAgentModel.swift in Sources */,

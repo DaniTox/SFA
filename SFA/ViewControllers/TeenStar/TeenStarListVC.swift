@@ -37,12 +37,14 @@ class TeenStarListVC<T: TeenStarDerivative & Object>: UITableViewController, DZN
         
         dataSource.dataLoaded = { [weak self] in
             self?.tableView.reloadData()
+            self?.tableView.refreshControl?.endRefreshing()
         }
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(tableViewWasPulled), for: .valueChanged)
         tableView.refreshControl = refreshControl
         tableView.tableFooterView = UIView()
+        tableView.separatorStyle = .none
         tableView.backgroundColor = Theme.current.tableViewBackground
         tableView.register(BoldCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self

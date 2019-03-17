@@ -7,15 +7,16 @@
 //
 
 import UIKit
-import CoreData
+import RealmSwift
 
 class SitiDataSource : NSObject, UITableViewDataSource {
     
-    private var persistentContainer : NSPersistentContainer
     private var sitesCategories : [SitoWebCategoria] = []
     private var model : SitiAgent
+    
     public var updateData : (() -> Void)?
     public var type : WebsiteType
+    
     public var errorHandler : ((String) -> Void)? {
         didSet {
             guard let handler = errorHandler else { return }
@@ -23,11 +24,11 @@ class SitiDataSource : NSObject, UITableViewDataSource {
         }
     }
     
-    init(type: WebsiteType, container: NSPersistentContainer) {
-        self.persistentContainer = container
+    init(type: WebsiteType) {
         self.type = type
         self.model = SitiAgent(container: container)
         super.init()
+        
         fetchData()
     }
     
