@@ -8,8 +8,8 @@
 
 import Foundation
 
-class SitiMaterialiRequest : ToxNetworkRequest, Codable {
-    var requestType: String = "siti-materiali"
+class SitiMaterialiRequest : ToxNetworkRequest, Codable {    
+    var requestType: String = "materiali"
     enum CodingKeys : String, CodingKey {
         case requestType = "type"
     }

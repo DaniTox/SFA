@@ -10,8 +10,8 @@ import Foundation
 
 struct URLs {
     #if arch(x86_64)
-        static let mainUrl = "http://localhost:1998"
+        static let mainUrl = "http://localhost:5000"
     #else
-        static let mainUrl = "http://api.suppstudenti.com:1998"
+        static let mainUrl = "http://api.suppstudenti.com:5000"
     #endif
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 class SitiPreghiereRequest : ToxNetworkRequest, Codable {
-    var requestType: String = "siti-preghiere"
+    var requestType: String = "preghiere"
     enum CodingKeys : String, CodingKey {
         case requestType = "type"
     }
