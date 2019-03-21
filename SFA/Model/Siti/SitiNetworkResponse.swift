@@ -11,7 +11,7 @@ import Foundation
 class SitiNetworkResponse : ToxNetworkResponse, Codable {
     var code: String
     var message: String
-    var categorie : [SitoCategoriaObject] = []
+    var siti : [SitoObject] = []
 
     var errorCode: String?
     

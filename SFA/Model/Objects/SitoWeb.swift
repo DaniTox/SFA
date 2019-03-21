@@ -40,8 +40,9 @@ class SitoWeb : Object {
 }
 
 struct SitoObject : Codable {
+    var id: Int?
     var nome : String
-    var idOrder : Int
+    var order : Int?
     var descrizione : String?
     var urlString : String
 }
