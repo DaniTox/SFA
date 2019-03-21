@@ -11,7 +11,7 @@ import RealmSwift
 
 class SitoWebCategoria : Object {
     @objc dynamic var id = UUID().uuidString
-    @objc dynamic var idCategoriaType: Int
+    @objc dynamic var idCategoriaType: Int = -1
     @objc dynamic var order = -1
     @objc dynamic var nome = ""
     @objc dynamic var descrizione = ""

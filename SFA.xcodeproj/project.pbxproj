@@ -27,6 +27,7 @@
 		DB323B11223C645800116FE3 /* TeenStarDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB323B10223C645800116FE3 /* TeenStarDataSource.swift */; };
 		DB323B13223D35FB00116FE3 /* TeenStarListSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB323B12223D35FB00116FE3 /* TeenStarListSource.swift */; };
 		DB323B15223D521300116FE3 /* SitoWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB323B14223D521300116FE3 /* SitoWeb.swift */; };
+		DB32449022443B9800116FE3 /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB32448E22443B7D00116FE3 /* DZNEmptyDataSet.framework */; };
 		DB325EDF21D422D7009ADEFC /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB325EDE21D422D7009ADEFC /* RegisterView.swift */; };
 		DB325EE121D5033C009ADEFC /* RotationLogicNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */; };
 		DB4F3BBC21F5C34C0040F4C4 /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F3BBB21F5C34C0040F4C4 /* Themes.swift */; };
@@ -124,7 +125,6 @@
 		DBC7F4CD22198A0A00C22945 /* GradoScuolaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4CC22198A0A00C22945 /* GradoScuolaView.swift */; };
 		DBC7F4DC2219AEC500C22945 /* NotificheOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4DB2219AEC500C22945 /* NotificheOnboardingVC.swift */; };
 		DBC7F4DF2219AFA900C22945 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4DE2219AFA900C22945 /* HomeView.swift */; };
-		DBC7F4E22219B8DE00C22945 /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC7F4E12219B8DE00C22945 /* DZNEmptyDataSet.framework */; };
 		DBCE9ED021EFB247005B286A /* VerificaCompagniaDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE9ECF21EFB247005B286A /* VerificaCompagniaDataSource.swift */; };
 		DBCF2F3A21F79E410074E0AF /* SitiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF2F3921F79E410074E0AF /* SitiVC.swift */; };
 		DBCF2F3C21F79E7E0074E0AF /* SitiListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF2F3B21F79E7E0074E0AF /* SitiListView.swift */; };
@@ -180,6 +180,7 @@
 		DB323B10223C645800116FE3 /* TeenStarDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarDataSource.swift; sourceTree = "<group>"; };
 		DB323B12223D35FB00116FE3 /* TeenStarListSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarListSource.swift; sourceTree = "<group>"; };
 		DB323B14223D521300116FE3 /* SitoWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitoWeb.swift; sourceTree = "<group>"; };
+		DB32448E22443B7D00116FE3 /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DZNEmptyDataSet.framework; path = Frameworks/DZNEmptyDataSet.framework; sourceTree = SOURCE_ROOT; };
 		DB325EDE21D422D7009ADEFC /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationLogicNavigationController.swift; sourceTree = "<group>"; };
 		DB4F3BBB21F5C34C0040F4C4 /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
@@ -305,8 +306,8 @@
 			files = (
 				DBC63C462235BD8D003D888E /* Realm.framework in Frameworks */,
 				DB8EC01521EE4456003B2A81 /* ColorSlider.framework in Frameworks */,
-				DBC7F4E22219B8DE00C22945 /* DZNEmptyDataSet.framework in Frameworks */,
 				DBC63C442235BD51003D888E /* RealmSwift.framework in Frameworks */,
+				DB32449022443B9800116FE3 /* DZNEmptyDataSet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +429,7 @@
 		DB5751DF21DA75F600F97D25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DB32448E22443B7D00116FE3 /* DZNEmptyDataSet.framework */,
 				DBC63C452235BD8D003D888E /* Realm.framework */,
 				DBC63C432235BD51003D888E /* RealmSwift.framework */,
 				DBFA255D21DAC970000785D0 /* ColorSlider.framework */,

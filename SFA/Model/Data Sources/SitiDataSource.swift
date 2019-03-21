@@ -11,7 +11,7 @@ import RealmSwift
 
 class SitiDataSource : NSObject, UITableViewDataSource {
     
-    private var sitesCategories : [SitoWebCategoria] = []
+    private var sites : [SitoWeb] = []
     private var model : SitiAgent
     
     public var updateData : (() -> Void)?
@@ -33,8 +33,8 @@ class SitiDataSource : NSObject, UITableViewDataSource {
     }
     
     public func fetchData() {
-        model.loadSites(type: type, completion: { (newSitesCategories) in
-            self.sitesCategories = newSitesCategories
+        model.loadSites(type: type, completion: { (newSites) in
+            self.sites = newSites
             self.updateData?()
         })
     }

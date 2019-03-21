@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SitiNetworkResponse : ToxNetworkResponse, Codable {
+struct SitiNetworkResponse : ToxNetworkResponse, Codable {
     var code: String
     var message: String
     var siti : [SitoObject] = []
@@ -16,8 +16,8 @@ class SitiNetworkResponse : ToxNetworkResponse, Codable {
 
     var errorCode: String?
     
-    init() {
-        code = "NO"
-        message = "Default error message after initialization"
-    }
+//    init() {
+//        code = "NO"
+//        message = "Default error message after initialization"
+//    }
 }
