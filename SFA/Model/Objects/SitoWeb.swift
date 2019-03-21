@@ -11,6 +11,7 @@ import RealmSwift
 
 class SitoWebCategoria : Object {
     @objc dynamic var id = UUID().uuidString
+    @objc dynamic var idCategoriaType: Int
     @objc dynamic var order = -1
     @objc dynamic var nome = ""
     @objc dynamic var descrizione = ""
@@ -45,11 +46,17 @@ struct SitoObject : Codable {
     var order : Int?
     var descrizione : String?
     var urlString : String
+    var categoriaID: Int?
 }
 
 struct SitoCategoriaObject : Codable {
-    var idOrder : Int
+    var id: Int?
+    var order : Int
     var nome : String
     var descrizione : String?
-    var sites : [SitoObject]
+}
+
+enum WebsiteType: Int, Codable {
+    case materiali = 0
+    case preghiere = 1
 }

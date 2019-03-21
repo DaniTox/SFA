@@ -11,51 +11,57 @@ import RealmSwift
 
 class SitiAgent : SitiNetworkAgent {
     
-    var sitesCategories : [SitoWebCategoria] = []
+    var sitesCategories : [SitoWeb] = []
     
-    public func fetchLocalWebsites() -> [SitoWebCategoria]  {
+    public func fetchLocalWebsites(type: WebsiteType) -> [SitoWeb]  {
         let realm = try! Realm()
-        return realm.objects(SitoWebCategoria.self).map { $0 }
+        switch type {
+        case .materiali:
+            let predicate = NSPredicate(format: "self.categoria.idCategoriaType == %d", WebsiteType.materiali)
+            return realm.objects(SitoWeb.self).filter(predicate)
+        case .preghiere:
+            let predicate = NSPredicate(format: "self.categoria.idCategoriaType == %d", WebsiteType.preghiere)
+            return realm.objects(SitoWeb.self).filter(predicate)
+        }
     }
     
     public func loadSites(type: WebsiteType, completion: (([SitoWeb]) -> Void)? = nil) {
-        self.getWebsites(type: type) { (sites) in
-            let coreDataSites = self.createCoreDataObjects(sites)
-            completion?(coreDataSites)
+        self.getWebsites(type: type) { (sites, categoria) in
+            let databaseSites = self.convertAndSave(siti: sites, for: categoria)
+            completion?(databaseSites)
         }
     }
     
-    //TODO: - Da modificare il modo in cui si ricevono i siti. Non più nested quindi ottenendo la categoria che essa conteneva i suoi siti ma in modo separato. Il response quindi conterrà: code, message, siti, categorie. I siti avranno un id che indicherà a che categoria appartengono. Fare in questo modo anche se ci sono url diversi per ogni tipo di sito
-    private func createCoreDataObjects(_ objects: [SitoObject]) -> [SitoWeb] {
+    private func convertAndSave(siti: [SitoObject], for categoria: SitoCategoriaObject) -> [SitoWeb] {
         self.removeAllLocalSites()
         let realm = try! Realm()
         
-        var siti : [SitoWebCategoria] = []
+        let newCategoria = SitoWebCategoria()
+        newCategoria.idCategoriaType = categoria.id
+        newCategoria.nome = categoria.nome
+        newCategoria.descrizione = categoria.descrizione ?? ""
+        newCategoria.order = categoria.order
         
-        for categoria in objects {
-            let categoriaCD = SitoWebCategoria()
-            categoriaCD.nome = categoria.nome
-            categoriaCD.order = categoria.idOrder
-            categoriaCD.descrizione = categoria.descrizione ?? ""
+        var newSites: [SitoWeb] = []
+        
+        for sito in siti {
+            let newSito = SitoWeb()
+            newSito.nome = sito.nome
+            newSito.descrizione = sito.descrizione ?? ""
+            newSito.order = sito.order
+            newSito.categoria = newCategoria
             
-            for sito in categoria.sites {
-                let sitoCD = SitoWeb()
-                sitoCD.nome = sito.nome
-                sitoCD.descrizione = sito.descrizione ?? ""
-                sitoCD.order = sito.order ?? 0
-                if let webUrlString = sito.urlString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlFragmentAllowed),
-                    let url = URL(string: webUrlString) {
-                    sitoCD.url = url
-                }
-                categoriaCD.siti.append(sitoCD)
-            }
-            siti.append(categoriaCD)
+            newSites.append(newSito)
         }
+        
+        newCategoria.siti.append(objectsIn: newSites)
         
         try? realm.write {
-            realm.add(siti)
+            realm.add(newSites)
+            realm.add(newCategoria)
         }
-        return siti
+        
+        return newSites
     }
     
     
@@ -63,6 +69,7 @@ class SitiAgent : SitiNetworkAgent {
         let realm = try! Realm()
         try? realm.write {
             realm.delete(realm.objects(SitoWebCategoria.self))
+            realm.delete(realm.objects(SitoWeb.self))
         }
     }
 }

@@ -12,6 +12,7 @@ class SitiNetworkResponse : ToxNetworkResponse, Codable {
     var code: String
     var message: String
     var siti : [SitoObject] = []
+    var categoria: SitoCategoriaObject
 
     var errorCode: String?
     

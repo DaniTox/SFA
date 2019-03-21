@@ -10,25 +10,17 @@ import Foundation
 
 class SitiNetworkAgent : NetworkAgent<SitiNetworkResponse> {
     
-    func getWebsites(type: WebsiteType, completion: (([SitoObject]) -> Void)? = nil) {
+    func getWebsites(type: WebsiteType, completion: (([SitoObject], SitoCategoriaObject) -> Void)? = nil) {
         if type == .materiali {
             let request = SitiMaterialiRequest()
             self.executeNetworkRequest(with: request) { (response) in
-                completion?(response.siti)
+                completion?(response.siti, response.categoria)
             }
         } else {
             let request = SitiPreghiereRequest()
             self.executeNetworkRequest(with: request) { (response) in
-                completion?(response.siti)
+                completion?(response.siti, response.categoria)
             }
         }
-        
-        
     }
-
-}
-
-enum WebsiteType {
-    case materiali
-    case preghiere
 }
