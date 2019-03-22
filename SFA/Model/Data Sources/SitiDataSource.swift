@@ -50,8 +50,10 @@ class SitiDataSource : NSObject, UITableViewDataSource {
     
     public func fetchSitesFromNetwork(completion: (() -> Void)? = nil) {
         model.fetchFromNetwork(type: self.type) {
-            self.fetchLocalWebsistes()
-            completion?()
+            DispatchQueue.main.async {
+                self.fetchLocalWebsistes()
+                completion?()
+            }
         }
     }
     

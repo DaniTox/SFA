@@ -47,10 +47,12 @@ class SitiAgent : NetworkAgent<SitiNetworkResponse> {
         let realm = try! Realm()
         
         let categorieToRemove = realm.objects(SitoWebCategoria.self).filter(NSPredicate(format: "idCategoriaType == %d", categoria.id ?? -1))
-        realm.delete(categorieToRemove)
-        
         let sitiToRemove = realm.objects(SitoWeb.self).filter(NSPredicate(format: "ANY self.categoria.idCategoriaType == %d", categoria.id ?? -1))
-        realm.delete(sitiToRemove)
+        
+        try? realm.write {
+            realm.delete(categorieToRemove)
+            realm.delete(sitiToRemove)
+        }
         
         let newCategoria = SitoWebCategoria()
         newCategoria.idCategoriaType = categoria.id ?? -1
