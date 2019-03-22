@@ -9,12 +9,7 @@
 import UIKit
 import SafariServices
 
-class SitiVC: UIViewController, HasCustomView {
-    typealias CustomView = SitiListView
-    override func loadView() {
-        super.loadView()
-        view = CustomView()
-    }
+class SitiVC: UITableViewController {
     
     var dataSource : SitiDataSource
     var themeObserver : NSObjectProtocol?
@@ -28,6 +23,8 @@ class SitiVC: UIViewController, HasCustomView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    let tableRefreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,61 +36,47 @@ class SitiVC: UIViewController, HasCustomView {
             UIView.animate(withDuration: 0.3, animations: { self.updateTheme() })
         })
         
-        rootView.refreshControl.addTarget(self, action: #selector(refreshPulled), for: .valueChanged)
         
-        rootView.tableView.register(SitoCell.self, forCellReuseIdentifier: "sitoCell")
-        rootView.tableView.delegate = self
-        rootView.tableView.dataSource = self.dataSource
+        tableRefreshControl.addTarget(self, action: #selector(refreshPulled), for: .valueChanged)
+        tableView.refreshControl = tableRefreshControl
         
-//        dataSource.databaseUpdated = { [weak self] in
-//            if self?.dataSource.sites.count == 0 {
-//                self?.dataSource.fetchSitesFromNetwork()
-//            } else {
-//                DispatchQueue.main.async {
-//                    self?.rootView.tableView.reloadData()
-//                    self?.rootView.refreshControl.endRefreshing()
-//                }
-//            }
-//        }
-        
-//        dataSource.networkSitesUpdated = { [weak self] in
-//            DispatchQueue.main.async {
-//                self?.rootView.tableView.reloadData()
-//                self?.rootView.refreshControl.endRefreshing()
-//            }
-//        }
+        tableView.tableFooterView = UIView()
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = Theme.current.tableViewBackground
+        tableView.register(SitoCell.self, forCellReuseIdentifier: "sitoCell")
+        tableView.dataSource = self.dataSource
         
         dataSource.fetchData {
             DispatchQueue.main.async { [weak self] in
-                self?.rootView.tableView.reloadData()
-                self?.rootView.refreshControl.endRefreshing()
+                self?.tableView.reloadData()
+                self?.tableView.refreshControl?.endRefreshing()
             }
         }
     }
     
     @objc private func refreshPulled() {
-        rootView.refreshControl.beginRefreshing()
+        tableView.refreshControl?.beginRefreshing()
         dataSource.fetchSitesFromNetwork {
             DispatchQueue.main.async { [weak self] in
-                self?.rootView.tableView.reloadData()
-                self?.rootView.refreshControl.endRefreshing()
+                self?.tableView.reloadData()
+                self?.tableView.refreshControl?.endRefreshing()
             }
         }
     }
     
     private func updateTheme() {
-        rootView.tableView.backgroundColor = Theme.current.tableViewBackground
-        rootView.tableView.reloadData()
+        tableView.backgroundColor = Theme.current.tableViewBackground
+        tableView.reloadData()
     }
 }
 
-extension SitiVC : UITableViewDelegate {
+extension SitiVC {
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let sito = dataSource.getSiteFrom(indexPath)
         if let url = sito?.url {
