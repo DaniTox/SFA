@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class SitiAgent : SitiNetworkAgent {
+class SitiAgent : NetworkAgent<SitiNetworkResponse> {
     
     var sites : [SitoWeb] = []
     
@@ -25,16 +25,32 @@ class SitiAgent : SitiNetworkAgent {
         }
     }
     
-    public func fetchFromNetwork(type: WebsiteType, completion: (() -> Void)? = nil) {
-        self.getWebsites(type: type) { (sites, categoria) in
-            self.convertAndSave(siti: sites, for: categoria)
-            completion?()
+    func fetchFromNetwork(type: WebsiteType, completion: (() -> Void)? = nil) {
+        if type == .materiali {
+            let request = SitiMaterialiRequest()
+            self.executeNetworkRequest(with: request) { (response) in
+                self.convertAndSave(siti: response.siti, for: response.categoria)
+                
+                completion?()
+            }
+        } else {
+            let request = SitiPreghiereRequest()
+            self.executeNetworkRequest(with: request) { (response) in
+                self.convertAndSave(siti: response.siti, for: response.categoria)
+                
+                completion?()
+            }
         }
     }
     
     private func convertAndSave(siti: [SitoObject], for categoria: SitoCategoriaObject) {
-        self.removeAllLocalSites()
         let realm = try! Realm()
+        
+        let categorieToRemove = realm.objects(SitoWebCategoria.self).filter(NSPredicate(format: "idCategoriaType == %d", categoria.id ?? -1))
+        realm.delete(categorieToRemove)
+        
+        let sitiToRemove = realm.objects(SitoWeb.self).filter(NSPredicate(format: "ANY self.categoria.idCategoriaType == %d", categoria.id ?? -1))
+        realm.delete(sitiToRemove)
         
         let newCategoria = SitoWebCategoria()
         newCategoria.idCategoriaType = categoria.id ?? -1

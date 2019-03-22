@@ -45,30 +45,40 @@ class SitiVC: UIViewController, HasCustomView {
         rootView.tableView.delegate = self
         rootView.tableView.dataSource = self.dataSource
         
-        dataSource.databaseUpdated = { [weak self] in
-            if self?.dataSource.sites.count == 0 {
-                self?.dataSource.fetchSitesFromNetwork()
-            } else {
-                DispatchQueue.main.async {
-                    self?.rootView.tableView.reloadData()
-                    self?.rootView.refreshControl.endRefreshing()
-                }
-            }
-        }
+//        dataSource.databaseUpdated = { [weak self] in
+//            if self?.dataSource.sites.count == 0 {
+//                self?.dataSource.fetchSitesFromNetwork()
+//            } else {
+//                DispatchQueue.main.async {
+//                    self?.rootView.tableView.reloadData()
+//                    self?.rootView.refreshControl.endRefreshing()
+//                }
+//            }
+//        }
         
-        dataSource.networkSitesUpdated = { [weak self] in
-            DispatchQueue.main.async {
+//        dataSource.networkSitesUpdated = { [weak self] in
+//            DispatchQueue.main.async {
+//                self?.rootView.tableView.reloadData()
+//                self?.rootView.refreshControl.endRefreshing()
+//            }
+//        }
+        
+        dataSource.fetchData {
+            DispatchQueue.main.async { [weak self] in
                 self?.rootView.tableView.reloadData()
                 self?.rootView.refreshControl.endRefreshing()
             }
         }
-        
-        dataSource.fetchLocalWebsistes()
     }
     
     @objc private func refreshPulled() {
         rootView.refreshControl.beginRefreshing()
-        dataSource.fetchSitesFromNetwork()
+        dataSource.fetchSitesFromNetwork {
+            DispatchQueue.main.async { [weak self] in
+                self?.rootView.tableView.reloadData()
+                self?.rootView.refreshControl.endRefreshing()
+            }
+        }
     }
     
     private func updateTheme() {

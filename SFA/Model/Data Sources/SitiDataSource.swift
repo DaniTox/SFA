@@ -32,17 +32,26 @@ class SitiDataSource : NSObject, UITableViewDataSource {
         super.init()
     }
     
-    public func fetchLocalWebsistes() {
-        self.sites =  model.fetchLocalWebsites(type: type)
-        databaseUpdated?()
+    public func fetchData(completion: (() -> Void)? = nil) {
+        self.fetchLocalWebsistes()
+        if self.sites.count == 0 {
+            model.fetchFromNetwork(type: self.type) { [weak self] in
+                self?.fetchLocalWebsistes()
+                completion?()
+            }
+        } else {
+            completion?()
+        }
     }
     
-    public func fetchSitesFromNetwork() {
-        model.fetchFromNetwork(type: type) { [weak self] in
-            DispatchQueue.main.async {
-                self?.sites = self!.model.fetchLocalWebsites(type: self!.type)
-                self?.networkSitesUpdated?()
-            }
+    private func fetchLocalWebsistes() {
+        self.sites =  model.fetchLocalWebsites(type: type)
+    }
+    
+    public func fetchSitesFromNetwork(completion: (() -> Void)? = nil) {
+        model.fetchFromNetwork(type: self.type) {
+            self.fetchLocalWebsistes()
+            completion?()
         }
     }
     
