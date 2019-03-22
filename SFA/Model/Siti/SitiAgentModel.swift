@@ -17,22 +17,22 @@ class SitiAgent : SitiNetworkAgent {
         let realm = try! Realm()
         switch type {
         case .materiali:
-            let predicate = NSPredicate(format: "self.categoria.idCategoriaType == %d", WebsiteType.materiali.rawValue)
+            let predicate = NSPredicate(format: "ANY categoria.idCategoriaType == %d", WebsiteType.materiali.rawValue)
             return realm.objects(SitoWeb.self).filter(predicate).map { $0 }
         case .preghiere:
-            let predicate = NSPredicate(format: "self.categoria.idCategoriaType == %d", WebsiteType.preghiere.rawValue)
+            let predicate = NSPredicate(format: "ANY categoria.idCategoriaType == %d", WebsiteType.preghiere.rawValue)
             return realm.objects(SitoWeb.self).filter(predicate).map { $0 }
         }
     }
     
-    public func loadSites(type: WebsiteType, completion: (([SitoWeb]) -> Void)? = nil) {
+    public func fetchFromNetwork(type: WebsiteType, completion: (() -> Void)? = nil) {
         self.getWebsites(type: type) { (sites, categoria) in
-            let databaseSites = self.convertAndSave(siti: sites, for: categoria)
-            completion?(databaseSites)
+            self.convertAndSave(siti: sites, for: categoria)
+            completion?()
         }
     }
     
-    private func convertAndSave(siti: [SitoObject], for categoria: SitoCategoriaObject) -> [SitoWeb] {
+    private func convertAndSave(siti: [SitoObject], for categoria: SitoCategoriaObject) {
         self.removeAllLocalSites()
         let realm = try! Realm()
         
@@ -40,7 +40,7 @@ class SitiAgent : SitiNetworkAgent {
         newCategoria.idCategoriaType = categoria.id ?? -1
         newCategoria.nome = categoria.nome
         newCategoria.descrizione = categoria.descrizione ?? ""
-        newCategoria.order = categoria.order
+        newCategoria.order = categoria.order ?? -1
         
         var newSites: [SitoWeb] = []
         
@@ -59,8 +59,6 @@ class SitiAgent : SitiNetworkAgent {
             realm.add(newSites)
             realm.add(newCategoria)
         }
-        
-        return newSites
     }
     
     

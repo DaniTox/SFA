@@ -20,16 +20,16 @@ class NetworkAgent<Response> where Response: ToxNetworkResponse & Codable {
             return
         }
         
-        guard let jsonData = try? JSONEncoder().encode(toxRequest) else {
-            errorHandler?("Errore mentre mi stavo preparando per comunicare con il server (Codice errore: -3)")
-            return
-        }
+//        guard let jsonData = try? JSONEncoder().encode(toxRequest) else {
+//            errorHandler?("Errore mentre mi stavo preparando per comunicare con il server (Codice errore: -3)")
+//            return
+//        }
         
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.httpBody = jsonData
+        let request = URLRequest(url: url)
+//        request.httpMethod = "POST"
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.addValue("application/json", forHTTPHeaderField: "Accept")
+//        request.httpBody = jsonData
         
         let session = URLSession.shared.dataTask(with: request) { (data, responseWeb, error) in
             if error != nil {

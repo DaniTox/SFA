@@ -30,9 +30,9 @@ class SitoWeb : Object {
     @objc private dynamic var urlString = ""
     let categoria = LinkingObjects(fromType: SitoWebCategoria.self, property: "siti")
     
-    var url : URL {
-        get { return URL(string: urlString)! }
-        set { urlString = newValue.absoluteString }
+    var url : URL? {
+        get { return URL(string: urlString) }
+        set { urlString = newValue?.absoluteString ?? "" }
     }
     
     override static func primaryKey() -> String {
@@ -51,7 +51,7 @@ struct SitoObject : Codable {
 
 struct SitoCategoriaObject : Codable {
     var id: Int?
-    var order : Int
+    var order : Int?
     var nome : String
     var descrizione : String?
 }

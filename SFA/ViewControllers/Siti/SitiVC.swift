@@ -45,17 +45,30 @@ class SitiVC: UIViewController, HasCustomView {
         rootView.tableView.delegate = self
         rootView.tableView.dataSource = self.dataSource
         
-        dataSource.updateData = { [weak self] in
+        dataSource.databaseUpdated = { [weak self] in
+            if self?.dataSource.sites.count == 0 {
+                self?.dataSource.fetchSitesFromNetwork()
+            } else {
+                DispatchQueue.main.async {
+                    self?.rootView.tableView.reloadData()
+                    self?.rootView.refreshControl.endRefreshing()
+                }
+            }
+        }
+        
+        dataSource.networkSitesUpdated = { [weak self] in
             DispatchQueue.main.async {
                 self?.rootView.tableView.reloadData()
                 self?.rootView.refreshControl.endRefreshing()
             }
         }
+        
+        dataSource.fetchLocalWebsistes()
     }
     
     @objc private func refreshPulled() {
         rootView.refreshControl.beginRefreshing()
-        dataSource.fetchData()
+        dataSource.fetchSitesFromNetwork()
     }
     
     private func updateTheme() {
