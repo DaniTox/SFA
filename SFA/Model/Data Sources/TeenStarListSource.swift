@@ -57,10 +57,16 @@ class TeenStarListSource<T : TeenStarDerivative & Object> : NSObject, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! BoldCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TeenStarCell
         let entry = entries[indexPath.row]
         cell.accessoryType = .disclosureIndicator
+        
         cell.mainLabel.text = "\(entry.date.dayOfWeek()) - \(entry.date.stringValue)"
+        
+        if let sentimentiTable = entry.sentimentiTable {
+            cell.setSentimenti(table: sentimentiTable)
+        }
+        
         return cell
     }
     

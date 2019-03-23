@@ -46,7 +46,7 @@ class TeenStarListVC<T: TeenStarDerivative & Object>: UITableViewController, DZN
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
         tableView.backgroundColor = Theme.current.tableViewBackground
-        tableView.register(BoldCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(TeenStarCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self
         tableView.dataSource = dataSource
         tableView.emptyDataSetDelegate = self
@@ -99,6 +99,6 @@ class TeenStarListVC<T: TeenStarDerivative & Object>: UITableViewController, DZN
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
+        return 170
     }
 }

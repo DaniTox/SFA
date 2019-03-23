@@ -30,6 +30,7 @@
 		DB32449022443B9800116FE3 /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB32448E22443B7D00116FE3 /* DZNEmptyDataSet.framework */; };
 		DB32449122466F9000116FE3 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC63C452235BD8D003D888E /* Realm.framework */; };
 		DB32449222466F9400116FE3 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC63C432235BD51003D888E /* RealmSwift.framework */; };
+		DB32449422469AD100116FE3 /* TeenStarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB32449322469AD100116FE3 /* TeenStarCell.swift */; };
 		DB325EDF21D422D7009ADEFC /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB325EDE21D422D7009ADEFC /* RegisterView.swift */; };
 		DB325EE121D5033C009ADEFC /* RotationLogicNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */; };
 		DB4F3BBC21F5C34C0040F4C4 /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F3BBB21F5C34C0040F4C4 /* Themes.swift */; };
@@ -164,6 +165,7 @@
 		DB323B12223D35FB00116FE3 /* TeenStarListSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarListSource.swift; sourceTree = "<group>"; };
 		DB323B14223D521300116FE3 /* SitoWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitoWeb.swift; sourceTree = "<group>"; };
 		DB32448E22443B7D00116FE3 /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DZNEmptyDataSet.framework; path = Frameworks/DZNEmptyDataSet.framework; sourceTree = SOURCE_ROOT; };
+		DB32449322469AD100116FE3 /* TeenStarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarCell.swift; sourceTree = "<group>"; };
 		DB325EDE21D422D7009ADEFC /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationLogicNavigationController.swift; sourceTree = "<group>"; };
 		DB4F3BBB21F5C34C0040F4C4 /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				DB4F3BC421F5FBC80040F4C4 /* SwitchCell.swift */,
 				DBCF2F3F21F7C5050074E0AF /* SitoCell.swift */,
 				DBBE6FC521F8EEA80001875A /* TextCell.swift */,
+				DB32449322469AD100116FE3 /* TeenStarCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -941,6 +944,7 @@
 				DB67643821F634F700651AD8 /* AuthNetworkAgent.swift in Sources */,
 				DB88DBFB21AB2C0D00B0699B /* DomandeView.swift in Sources */,
 				DB5751DE21DA719900F97D25 /* TextEditingBottomBar.swift in Sources */,
+				DB32449422469AD100116FE3 /* TeenStarCell.swift in Sources */,
 				DBC7F4CB2219898100C22945 /* GradoScuolaVC.swift in Sources */,
 				DBC7F4C92218ACAB00C22945 /* OrderedFlowCoordinator.swift in Sources */,
 				DBAF3C40219CBF35003083EA /* IQBarButtonItem.swift in Sources */,
