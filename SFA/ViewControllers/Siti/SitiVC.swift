@@ -30,6 +30,9 @@ class SitiVC: UITableViewController {
         
         dataSource.errorHandler = { errStr in
             self.showError(withTitle: "Errore", andMessage: errStr) //already in mainqueue
+            DispatchQueue.main.async { [weak self] in
+                self?.tableView.refreshControl?.endRefreshing()
+            }
         }
         
         themeObserver = NotificationCenter.default.addObserver(forName: .updateTheme, object: nil, queue: .main, using: { (notification) in
