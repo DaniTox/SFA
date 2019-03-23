@@ -36,8 +36,10 @@ class SitiDataSource : NSObject, UITableViewDataSource {
         self.fetchLocalWebsistes()
         if self.sites.count == 0 {
             model.fetchFromNetwork(type: self.type) { [weak self] in
-                self?.fetchLocalWebsistes()
-                completion?()
+                DispatchQueue.main.async {
+                    self?.fetchLocalWebsistes()
+                    completion?()
+                }
             }
         } else {
             completion?()

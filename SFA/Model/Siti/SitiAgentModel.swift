@@ -29,16 +29,18 @@ class SitiAgent : NetworkAgent<SitiNetworkResponse> {
         if type == .materiali {
             let request = SitiMaterialiRequest()
             self.executeNetworkRequest(with: request) { (response) in
-                self.convertAndSave(siti: response.siti, for: response.categoria)
-                
-                completion?()
+                DispatchQueue.main.async {
+                    self.convertAndSave(siti: response.siti, for: response.categoria)
+                    completion?()
+                }
             }
         } else {
             let request = SitiPreghiereRequest()
             self.executeNetworkRequest(with: request) { (response) in
-                self.convertAndSave(siti: response.siti, for: response.categoria)
-                
-                completion?()
+                DispatchQueue.main.async {
+                    self.convertAndSave(siti: response.siti, for: response.categoria)
+                    completion?()
+                }
             }
         }
     }
