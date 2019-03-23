@@ -28,6 +28,8 @@
 		DB323B13223D35FB00116FE3 /* TeenStarListSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB323B12223D35FB00116FE3 /* TeenStarListSource.swift */; };
 		DB323B15223D521300116FE3 /* SitoWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB323B14223D521300116FE3 /* SitoWeb.swift */; };
 		DB32449022443B9800116FE3 /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB32448E22443B7D00116FE3 /* DZNEmptyDataSet.framework */; };
+		DB32449122466F9000116FE3 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC63C452235BD8D003D888E /* Realm.framework */; };
+		DB32449222466F9400116FE3 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC63C432235BD51003D888E /* RealmSwift.framework */; };
 		DB325EDF21D422D7009ADEFC /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB325EDE21D422D7009ADEFC /* RegisterView.swift */; };
 		DB325EE121D5033C009ADEFC /* RotationLogicNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */; };
 		DB4F3BBC21F5C34C0040F4C4 /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F3BBB21F5C34C0040F4C4 /* Themes.swift */; };
@@ -116,10 +118,6 @@
 		DBAF3C4D219CBF35003083EA /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF3C3C219CBF35003083EA /* IQNSArray+Sort.swift */; };
 		DBBBDC5021F5016D00C9F54A /* BouncyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBDC4F21F5016D00C9F54A /* BouncyView.swift */; };
 		DBBE6FC621F8EEA80001875A /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBE6FC521F8EEA80001875A /* TextCell.swift */; };
-		DBC63C442235BD51003D888E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC63C432235BD51003D888E /* RealmSwift.framework */; };
-		DBC63C462235BD8D003D888E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC63C452235BD8D003D888E /* Realm.framework */; };
-		DBC63C482235BDF9003D888E /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DBC63C452235BD8D003D888E /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DBC63C4A2235BDF9003D888E /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DBC63C432235BD51003D888E /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DBC7F4C92218ACAB00C22945 /* OrderedFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4C82218ACAB00C22945 /* OrderedFlowCoordinator.swift */; };
 		DBC7F4CB2219898100C22945 /* GradoScuolaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4CA2219898100C22945 /* GradoScuolaVC.swift */; };
 		DBC7F4CD22198A0A00C22945 /* GradoScuolaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4CC22198A0A00C22945 /* GradoScuolaView.swift */; };
@@ -143,21 +141,6 @@
 		DBF67B242205B293002CF893 /* SitiPreghiereRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF67B232205B293002CF893 /* SitiPreghiereRequest.swift */; };
 		DBFE97FA21D57CD500E82803 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE97F921D57CD500E82803 /* NoteModel.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		DBC63C4B2235BDF9003D888E /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				DBC63C4A2235BDF9003D888E /* RealmSwift.framework in Embed Frameworks */,
-				DBC63C482235BDF9003D888E /* Realm.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		DB060C8722149B13003E0C96 /* LoginNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNetworkRequest.swift; sourceTree = "<group>"; };
@@ -242,7 +225,7 @@
 		DBAAE2B621A5CCEB00211CBF /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		DBAAE2BA21A5D26800211CBF /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		DBAAE2BC21A5E9DA00211CBF /* CircularThings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularThings.swift; sourceTree = "<group>"; };
-		DBAF3BFE219C9019003083EA /* SFA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SFA.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBAF3BFE219C9019003083EA /* MGS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBAF3C01219C9019003083EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBAF3C09219C9019003083EA /* SFA.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SFA.xcdatamodel; sourceTree = "<group>"; };
 		DBAF3C0B219C901B003083EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -304,10 +287,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBC63C462235BD8D003D888E /* Realm.framework in Frameworks */,
+				DB32449222466F9400116FE3 /* RealmSwift.framework in Frameworks */,
 				DB8EC01521EE4456003B2A81 /* ColorSlider.framework in Frameworks */,
-				DBC63C442235BD51003D888E /* RealmSwift.framework in Frameworks */,
 				DB32449022443B9800116FE3 /* DZNEmptyDataSet.framework in Frameworks */,
+				DB32449122466F9000116FE3 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,7 +524,7 @@
 		DBAF3BFF219C9019003083EA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DBAF3BFE219C9019003083EA /* SFA.app */,
+				DBAF3BFE219C9019003083EA /* MGS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -828,23 +811,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DBAF3BFD219C9019003083EA /* SFA */ = {
+		DBAF3BFD219C9019003083EA /* MGS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DBAF3C13219C901B003083EA /* Build configuration list for PBXNativeTarget "SFA" */;
+			buildConfigurationList = DBAF3C13219C901B003083EA /* Build configuration list for PBXNativeTarget "MGS" */;
 			buildPhases = (
 				DBAF3BFA219C9019003083EA /* Sources */,
 				DBAF3BFB219C9019003083EA /* Frameworks */,
 				DBAF3BFC219C9019003083EA /* Resources */,
 				DB8EC01621EE4475003B2A81 /* ShellScript */,
-				DBC63C4B2235BDF9003D888E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = SFA;
+			name = MGS;
 			productName = SFA;
-			productReference = DBAF3BFE219C9019003083EA /* SFA.app */;
+			productReference = DBAF3BFE219C9019003083EA /* MGS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -875,7 +857,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DBAF3BFD219C9019003083EA /* SFA */,
+				DBAF3BFD219C9019003083EA /* MGS */,
 			);
 		};
 /* End PBXProject section */
@@ -909,6 +891,7 @@
 				"$(SRCROOT)/Frameworks/Carthage/Build/iOS/ColorSlider.framework",
 				"$(SRCROOT)/Frameworks/Carthage/Build/iOS/DZNEmptyDataSet.framework",
 				"$(SRCROOT)/Frameworks/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Frameworks/Carthage/Build/iOS/Realm.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -1240,7 +1223,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DBAF3C13219C901B003083EA /* Build configuration list for PBXNativeTarget "SFA" */ = {
+		DBAF3C13219C901B003083EA /* Build configuration list for PBXNativeTarget "MGS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DBAF3C14219C901B003083EA /* Debug */,
