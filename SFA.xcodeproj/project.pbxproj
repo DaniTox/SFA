@@ -31,6 +31,8 @@
 		DB32449122466F9000116FE3 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC63C452235BD8D003D888E /* Realm.framework */; };
 		DB32449222466F9400116FE3 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC63C432235BD51003D888E /* RealmSwift.framework */; };
 		DB32449422469AD100116FE3 /* TeenStarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB32449322469AD100116FE3 /* TeenStarCell.swift */; };
+		DB3244982246AE2300116FE3 /* QuickLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB3244962246AE2300116FE3 /* QuickLayout.framework */; };
+		DB3244992246AE2300116FE3 /* SwiftEntryKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB3244972246AE2300116FE3 /* SwiftEntryKit.framework */; };
 		DB325EDF21D422D7009ADEFC /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB325EDE21D422D7009ADEFC /* RegisterView.swift */; };
 		DB325EE121D5033C009ADEFC /* RotationLogicNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */; };
 		DB4F3BBC21F5C34C0040F4C4 /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F3BBB21F5C34C0040F4C4 /* Themes.swift */; };
@@ -166,6 +168,8 @@
 		DB323B14223D521300116FE3 /* SitoWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitoWeb.swift; sourceTree = "<group>"; };
 		DB32448E22443B7D00116FE3 /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DZNEmptyDataSet.framework; path = Frameworks/DZNEmptyDataSet.framework; sourceTree = SOURCE_ROOT; };
 		DB32449322469AD100116FE3 /* TeenStarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarCell.swift; sourceTree = "<group>"; };
+		DB3244962246AE2300116FE3 /* QuickLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLayout.framework; path = Frameworks/QuickLayout.framework; sourceTree = SOURCE_ROOT; };
+		DB3244972246AE2300116FE3 /* SwiftEntryKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftEntryKit.framework; path = Frameworks/SwiftEntryKit.framework; sourceTree = SOURCE_ROOT; };
 		DB325EDE21D422D7009ADEFC /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationLogicNavigationController.swift; sourceTree = "<group>"; };
 		DB4F3BBB21F5C34C0040F4C4 /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
@@ -290,6 +294,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB32449222466F9400116FE3 /* RealmSwift.framework in Frameworks */,
+				DB3244982246AE2300116FE3 /* QuickLayout.framework in Frameworks */,
+				DB3244992246AE2300116FE3 /* SwiftEntryKit.framework in Frameworks */,
 				DB8EC01521EE4456003B2A81 /* ColorSlider.framework in Frameworks */,
 				DB32449022443B9800116FE3 /* DZNEmptyDataSet.framework in Frameworks */,
 				DB32449122466F9000116FE3 /* Realm.framework in Frameworks */,
@@ -415,6 +421,8 @@
 		DB5751DF21DA75F600F97D25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DB3244962246AE2300116FE3 /* QuickLayout.framework */,
+				DB3244972246AE2300116FE3 /* SwiftEntryKit.framework */,
 				DB32448E22443B7D00116FE3 /* DZNEmptyDataSet.framework */,
 				DBC63C452235BD8D003D888E /* Realm.framework */,
 				DBC63C432235BD51003D888E /* RealmSwift.framework */,
@@ -895,6 +903,8 @@
 				"$(SRCROOT)/Frameworks/Carthage/Build/iOS/DZNEmptyDataSet.framework",
 				"$(SRCROOT)/Frameworks/Carthage/Build/iOS/RealmSwift.framework",
 				"$(SRCROOT)/Frameworks/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Frameworks/Carthage/Build/iOS/QuickLayout.framework",
+				"$(SRCROOT)/Frameworks/Carthage/Build/iOS/SwiftEntryKit.framework",
 			);
 			outputFileListPaths = (
 			);
