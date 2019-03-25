@@ -27,12 +27,7 @@
 		DB323B11223C645800116FE3 /* TeenStarDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB323B10223C645800116FE3 /* TeenStarDataSource.swift */; };
 		DB323B13223D35FB00116FE3 /* TeenStarListSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB323B12223D35FB00116FE3 /* TeenStarListSource.swift */; };
 		DB323B15223D521300116FE3 /* SitoWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB323B14223D521300116FE3 /* SitoWeb.swift */; };
-		DB32449022443B9800116FE3 /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB32448E22443B7D00116FE3 /* DZNEmptyDataSet.framework */; };
-		DB32449122466F9000116FE3 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC63C452235BD8D003D888E /* Realm.framework */; };
-		DB32449222466F9400116FE3 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC63C432235BD51003D888E /* RealmSwift.framework */; };
 		DB32449422469AD100116FE3 /* TeenStarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB32449322469AD100116FE3 /* TeenStarCell.swift */; };
-		DB3244982246AE2300116FE3 /* QuickLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB3244962246AE2300116FE3 /* QuickLayout.framework */; };
-		DB3244992246AE2300116FE3 /* SwiftEntryKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB3244972246AE2300116FE3 /* SwiftEntryKit.framework */; };
 		DB325EDF21D422D7009ADEFC /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB325EDE21D422D7009ADEFC /* RegisterView.swift */; };
 		DB325EE121D5033C009ADEFC /* RotationLogicNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */; };
 		DB4F3BBC21F5C34C0040F4C4 /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F3BBB21F5C34C0040F4C4 /* Themes.swift */; };
@@ -85,7 +80,6 @@
 		DB88DBFB21AB2C0D00B0699B /* DomandeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBFA21AB2C0D00B0699B /* DomandeView.swift */; };
 		DB88DBFF21AB315200B0699B /* RegolaCategorieVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBFE21AB315200B0699B /* RegolaCategorieVC.swift */; };
 		DB88DC0121AB318400B0699B /* RegoleCategorieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DC0021AB318400B0699B /* RegoleCategorieView.swift */; };
-		DB8EC01521EE4456003B2A81 /* ColorSlider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBFA255D21DAC970000785D0 /* ColorSlider.framework */; };
 		DB9A19BF21D5148E00C05755 /* NoteListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9A19BE21D5148E00C05755 /* NoteListVC.swift */; };
 		DB9A19C121D514A900C05755 /* NoteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9A19C021D514A900C05755 /* NoteListView.swift */; };
 		DBAAE2AD21A5ACCF00211CBF /* WelcomeVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBAAE2AC21A5ACCF00211CBF /* WelcomeVC.storyboard */; };
@@ -166,10 +160,7 @@
 		DB323B10223C645800116FE3 /* TeenStarDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarDataSource.swift; sourceTree = "<group>"; };
 		DB323B12223D35FB00116FE3 /* TeenStarListSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarListSource.swift; sourceTree = "<group>"; };
 		DB323B14223D521300116FE3 /* SitoWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitoWeb.swift; sourceTree = "<group>"; };
-		DB32448E22443B7D00116FE3 /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DZNEmptyDataSet.framework; path = Frameworks/DZNEmptyDataSet.framework; sourceTree = SOURCE_ROOT; };
 		DB32449322469AD100116FE3 /* TeenStarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarCell.swift; sourceTree = "<group>"; };
-		DB3244962246AE2300116FE3 /* QuickLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLayout.framework; path = Frameworks/QuickLayout.framework; sourceTree = SOURCE_ROOT; };
-		DB3244972246AE2300116FE3 /* SwiftEntryKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftEntryKit.framework; path = Frameworks/SwiftEntryKit.framework; sourceTree = SOURCE_ROOT; };
 		DB325EDE21D422D7009ADEFC /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationLogicNavigationController.swift; sourceTree = "<group>"; };
 		DB4F3BBB21F5C34C0040F4C4 /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
@@ -260,8 +251,6 @@
 		DBAF3C3C219CBF35003083EA /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQNSArray+Sort.swift"; sourceTree = "<group>"; };
 		DBBBDC4F21F5016D00C9F54A /* BouncyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncyView.swift; sourceTree = "<group>"; };
 		DBBE6FC521F8EEA80001875A /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
-		DBC63C432235BD51003D888E /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Frameworks/RealmSwift.framework; sourceTree = SOURCE_ROOT; };
-		DBC63C452235BD8D003D888E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Frameworks/Realm.framework; sourceTree = SOURCE_ROOT; };
 		DBC7F4C82218ACAB00C22945 /* OrderedFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedFlowCoordinator.swift; sourceTree = "<group>"; };
 		DBC7F4CA2219898100C22945 /* GradoScuolaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradoScuolaVC.swift; sourceTree = "<group>"; };
 		DBC7F4CC22198A0A00C22945 /* GradoScuolaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradoScuolaView.swift; sourceTree = "<group>"; };
@@ -284,7 +273,6 @@
 		DBF5C1A422330D070086E9E7 /* RegolaVita.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegolaVita.swift; sourceTree = "<group>"; };
 		DBF5C1A6223443870086E9E7 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		DBF67B232205B293002CF893 /* SitiPreghiereRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitiPreghiereRequest.swift; sourceTree = "<group>"; };
-		DBFA255D21DAC970000785D0 /* ColorSlider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ColorSlider.framework; path = Frameworks/ColorSlider.framework; sourceTree = SOURCE_ROOT; };
 		DBFE97F921D57CD500E82803 /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -293,12 +281,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB32449222466F9400116FE3 /* RealmSwift.framework in Frameworks */,
-				DB3244982246AE2300116FE3 /* QuickLayout.framework in Frameworks */,
-				DB3244992246AE2300116FE3 /* SwiftEntryKit.framework in Frameworks */,
-				DB8EC01521EE4456003B2A81 /* ColorSlider.framework in Frameworks */,
-				DB32449022443B9800116FE3 /* DZNEmptyDataSet.framework in Frameworks */,
-				DB32449122466F9000116FE3 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,19 +400,6 @@
 			path = Generic;
 			sourceTree = "<group>";
 		};
-		DB5751DF21DA75F600F97D25 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				DB3244962246AE2300116FE3 /* QuickLayout.framework */,
-				DB3244972246AE2300116FE3 /* SwiftEntryKit.framework */,
-				DB32448E22443B7D00116FE3 /* DZNEmptyDataSet.framework */,
-				DBC63C452235BD8D003D888E /* Realm.framework */,
-				DBC63C432235BD51003D888E /* RealmSwift.framework */,
-				DBFA255D21DAC970000785D0 /* ColorSlider.framework */,
-			);
-			path = Frameworks;
-			sourceTree = "<group>";
-		};
 		DB67643521F634C800651AD8 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -544,7 +513,6 @@
 			isa = PBXGroup;
 			children = (
 				DB217D5022188AD6003ED264 /* Coordinator */,
-				DB5751DF21DA75F600F97D25 /* Frameworks */,
 				DBAF3C22219C9F51003083EA /* Altro */,
 				DB88DBF121AAF17200B0699B /* Model */,
 				DBAF3C1F219C953D003083EA /* Views */,
