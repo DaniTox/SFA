@@ -80,6 +80,12 @@
 		DB88DBFB21AB2C0D00B0699B /* DomandeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBFA21AB2C0D00B0699B /* DomandeView.swift */; };
 		DB88DBFF21AB315200B0699B /* RegolaCategorieVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBFE21AB315200B0699B /* RegolaCategorieVC.swift */; };
 		DB88DC0121AB318400B0699B /* RegoleCategorieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DC0021AB318400B0699B /* RegoleCategorieView.swift */; };
+		DB8B860B224AA5A000C58055 /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC7F4E12219B8DE00C22945 /* DZNEmptyDataSet.framework */; };
+		DB8B8611224AA5A000C58055 /* ColorSlider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8B860C224AA5A000C58055 /* ColorSlider.framework */; };
+		DB8B8612224AA5A000C58055 /* SwiftEntryKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8B860D224AA5A000C58055 /* SwiftEntryKit.framework */; };
+		DB8B8613224AA5A000C58055 /* QuickLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8B860E224AA5A000C58055 /* QuickLayout.framework */; };
+		DB8B8614224AA5A000C58055 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8B860F224AA5A000C58055 /* RealmSwift.framework */; };
+		DB8B8615224AA5A000C58055 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8B8610224AA5A000C58055 /* Realm.framework */; };
 		DB9A19BF21D5148E00C05755 /* NoteListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9A19BE21D5148E00C05755 /* NoteListVC.swift */; };
 		DB9A19C121D514A900C05755 /* NoteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9A19C021D514A900C05755 /* NoteListView.swift */; };
 		DBAAE2AD21A5ACCF00211CBF /* WelcomeVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBAAE2AC21A5ACCF00211CBF /* WelcomeVC.storyboard */; };
@@ -213,6 +219,11 @@
 		DB88DBFA21AB2C0D00B0699B /* DomandeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomandeView.swift; sourceTree = "<group>"; };
 		DB88DBFE21AB315200B0699B /* RegolaCategorieVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegolaCategorieVC.swift; sourceTree = "<group>"; };
 		DB88DC0021AB318400B0699B /* RegoleCategorieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegoleCategorieView.swift; sourceTree = "<group>"; };
+		DB8B860C224AA5A000C58055 /* ColorSlider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ColorSlider.framework; path = Frameworks/Carthage/Build/iOS/ColorSlider.framework; sourceTree = "<group>"; };
+		DB8B860D224AA5A000C58055 /* SwiftEntryKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftEntryKit.framework; path = Frameworks/Carthage/Build/iOS/SwiftEntryKit.framework; sourceTree = "<group>"; };
+		DB8B860E224AA5A000C58055 /* QuickLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLayout.framework; path = Frameworks/Carthage/Build/iOS/QuickLayout.framework; sourceTree = "<group>"; };
+		DB8B860F224AA5A000C58055 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Frameworks/Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		DB8B8610224AA5A000C58055 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Frameworks/Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		DB9A19BE21D5148E00C05755 /* NoteListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListVC.swift; sourceTree = "<group>"; };
 		DB9A19C021D514A900C05755 /* NoteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListView.swift; sourceTree = "<group>"; };
 		DBAAE2AC21A5ACCF00211CBF /* WelcomeVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WelcomeVC.storyboard; sourceTree = "<group>"; };
@@ -281,6 +292,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB8B8611224AA5A000C58055 /* ColorSlider.framework in Frameworks */,
+				DB8B8612224AA5A000C58055 /* SwiftEntryKit.framework in Frameworks */,
+				DB8B8613224AA5A000C58055 /* QuickLayout.framework in Frameworks */,
+				DB8B8614224AA5A000C58055 /* RealmSwift.framework in Frameworks */,
+				DB8B8615224AA5A000C58055 /* Realm.framework in Frameworks */,
+				DB8B860B224AA5A000C58055 /* DZNEmptyDataSet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +504,11 @@
 		DB8EC01321EE4447003B2A81 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DB8B860C224AA5A000C58055 /* ColorSlider.framework */,
+				DB8B860E224AA5A000C58055 /* QuickLayout.framework */,
+				DB8B8610224AA5A000C58055 /* Realm.framework */,
+				DB8B860F224AA5A000C58055 /* RealmSwift.framework */,
+				DB8B860D224AA5A000C58055 /* SwiftEntryKit.framework */,
 				DBC7F4E12219B8DE00C22945 /* DZNEmptyDataSet.framework */,
 			);
 			name = Frameworks;

@@ -85,14 +85,14 @@ class TeenStarListVC<T: TeenStarDerivative & Object>: UITableViewController, DZN
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let entry = dataSource.getEntry(at: indexPath.row)
+        let entry = dataSource.getEntry(at: indexPath)
         let vc = TeenStarEditEntryVC<T>(table: entry)
         navigationController?.pushViewController(vc, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let entry = dataSource.getEntry(at: indexPath.row)
+            let entry = dataSource.getEntry(at: indexPath)
             dataSource.remove(table: entry)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }

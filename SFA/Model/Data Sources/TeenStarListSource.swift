@@ -10,6 +10,17 @@ import UIKit
 import RealmSwift
 import DZNEmptyDataSet
 
+class TeenStarWeek<T: TeenStarDerivative & Object> {    
+    var startOfWeek: Date
+    var tables: [T] = []
+    
+    init(startOfWeek : Date) {
+        self.startOfWeek = startOfWeek
+        self.tables = []
+    }
+    
+}
+
 class TeenStarListSource<T : TeenStarDerivative & Object> : NSObject, UITableViewDataSource, DZNEmptyDataSetSource {
 
     var errorHandler : ((String) -> Void)? {
@@ -18,7 +29,7 @@ class TeenStarListSource<T : TeenStarDerivative & Object> : NSObject, UITableVie
         }
     }
     var model : TeenStarModel<T>
-    var entries : [T] = []
+    var weeks : [TeenStarWeek<T>] = []
     
     var dataLoaded : (() -> Void)?
     
@@ -36,12 +47,26 @@ class TeenStarListSource<T : TeenStarDerivative & Object> : NSObject, UITableVie
     }
     
     func fetchEntries() {
-        self.entries = model.fetchEntries().map { $0 }
+        weeks.forEach({ $0.tables.removeAll(keepingCapacity: true) })
+        let allEntries = model.fetchEntries()
+        
+        for entry in allEntries {
+            let startOfWeek = entry.date.startOfWeek!
+            
+            if let existingWeek = weeks.first(where: { $0.startOfWeek == startOfWeek }) {
+                existingWeek.tables.append(entry)
+            } else {
+                let newWeek = TeenStarWeek<T>(startOfWeek: startOfWeek)
+                newWeek.tables.append(entry)
+                self.weeks.append(newWeek)
+            }
+        }
+        
         dataLoaded?()
     }
     
-    func getEntry(at index: Int) -> T {
-        return entries[index]
+    func getEntry(at indexPath: IndexPath) -> T {
+        return weeks[indexPath.section].tables[indexPath.row]
     }
     
     func remove(table: T) {
@@ -49,16 +74,30 @@ class TeenStarListSource<T : TeenStarDerivative & Object> : NSObject, UITableVie
         try? realm.write {
             realm.delete(table)
         }
-        self.entries.removeAll(where: { $0 == table })
+        self.weeks.first(where: { $0.tables.contains(table) })?.tables.removeAll(where: { $0 == table })
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return entries.count
+        return self.weeks[section].tables.count
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.weeks.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let week = self.weeks[section]
+        
+        if Date().startOfWeek == week.startOfWeek {
+            return "Questa settimana"
+        } else {
+            return "\(week.startOfWeek.stringValue) - \(week.startOfWeek.endOfWeek!.stringValue)"
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TeenStarCell
-        let entry = entries[indexPath.row]
+        let entry = self.weeks[indexPath.section].tables[indexPath.row]
         cell.accessoryType = .disclosureIndicator
         
         cell.mainLabel.text = "\(entry.date.dayOfWeek()) - \(entry.date.stringValue)"
