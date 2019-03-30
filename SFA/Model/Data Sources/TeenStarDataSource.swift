@@ -46,6 +46,7 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
     
     var entry : T
     var currentEntryMemory : EntryMemory
+    var newTitleReceived : ((String) -> Void)?
 
     init(entry: T) {
         self.entry = entry
@@ -81,7 +82,7 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (section == 0) ? 1 : 2
+        return 2//(section == 0) ? 1 : 2
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -95,10 +96,18 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: BASIC_CELL_ID) as! BoldCell
-            cell.selectionStyle = .none
-            cell.mainLabel.text = "Data: \(Date().dayOfWeek()) - \(Date().stringValue)"
-            return cell
+            if indexPath.row == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: BASIC_CELL_ID) as! BoldCell
+                cell.selectionStyle = .none
+                cell.mainLabel.text = "Seleziona la data:"
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: DATE_CELL_ID) as! DatePickerCell
+                cell.dateDidChange = { newDate in
+                    self.newTitleReceived?("\(newDate.dayOfWeek()) - \(newDate.stringValue)")
+                }
+                return cell
+            }
         case 1, 2, 3:
             switch indexPath.row {
             case 0:
@@ -148,6 +157,7 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
 }
 
 let BASIC_CELL_ID = "cell"
+let DATE_CELL_ID = "dateCell"
 let EMOZIONE_CELL_ID = "emozioneCell"
 let CICLO_CELL_ID = "ciclocell"
 

@@ -21,6 +21,12 @@ class TeenStarEditEntryVC<T : TeenStarDerivative & Object>: UIViewController, Ha
     init(table : T) {
         self.dataSource = TeenStarDataSource(entry: table)
         super.init(nibName: nil, bundle: nil)
+        
+        dataSource.newTitleReceived = { newTitle in
+            DispatchQueue.main.async {
+                self.title = newTitle
+            }
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -40,6 +46,7 @@ class TeenStarEditEntryVC<T : TeenStarDerivative & Object>: UIViewController, Ha
         rootView.tableView.register(BoldCell.self, forCellReuseIdentifier: BASIC_CELL_ID)
         rootView.tableView.register(EmozioneTableViewCell.self, forCellReuseIdentifier: EMOZIONE_CELL_ID)
         rootView.tableView.register(CicloTableViewCell.self, forCellReuseIdentifier: CICLO_CELL_ID)
+        rootView.tableView.register(DatePickerCell.self, forCellReuseIdentifier: DATE_CELL_ID)
         
         rootView.tableView.delegate = self
         rootView.tableView.dataSource = dataSource
@@ -61,6 +68,8 @@ class TeenStarEditEntryVC<T : TeenStarDerivative & Object>: UIViewController, Ha
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
+//        case 0:
+//            return EMOZIONE_ROW_HEIGHT
         case 0, 1, 2, 3:
             if indexPath.row == 0 { return BASIC_ROW_HEIGHT }
             else { return EMOZIONE_ROW_HEIGHT }

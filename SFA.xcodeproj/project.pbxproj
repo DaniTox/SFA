@@ -86,6 +86,7 @@
 		DB8B8613224AA5A000C58055 /* QuickLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8B860E224AA5A000C58055 /* QuickLayout.framework */; };
 		DB8B8614224AA5A000C58055 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8B860F224AA5A000C58055 /* RealmSwift.framework */; };
 		DB8B8615224AA5A000C58055 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8B8610224AA5A000C58055 /* Realm.framework */; };
+		DB8B8617224D1E7300C58055 /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8B8616224D1E7300C58055 /* DatePickerCell.swift */; };
 		DB9A19BF21D5148E00C05755 /* NoteListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9A19BE21D5148E00C05755 /* NoteListVC.swift */; };
 		DB9A19C121D514A900C05755 /* NoteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9A19C021D514A900C05755 /* NoteListView.swift */; };
 		DBAAE2AD21A5ACCF00211CBF /* WelcomeVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBAAE2AC21A5ACCF00211CBF /* WelcomeVC.storyboard */; };
@@ -224,6 +225,7 @@
 		DB8B860E224AA5A000C58055 /* QuickLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLayout.framework; path = Frameworks/Carthage/Build/iOS/QuickLayout.framework; sourceTree = "<group>"; };
 		DB8B860F224AA5A000C58055 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Frameworks/Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		DB8B8610224AA5A000C58055 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Frameworks/Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		DB8B8616224D1E7300C58055 /* DatePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
 		DB9A19BE21D5148E00C05755 /* NoteListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListVC.swift; sourceTree = "<group>"; };
 		DB9A19C021D514A900C05755 /* NoteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListView.swift; sourceTree = "<group>"; };
 		DBAAE2AC21A5ACCF00211CBF /* WelcomeVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WelcomeVC.storyboard; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				DBCF2F3F21F7C5050074E0AF /* SitoCell.swift */,
 				DBBE6FC521F8EEA80001875A /* TextCell.swift */,
 				DB32449322469AD100116FE3 /* TeenStarCell.swift */,
+				DB8B8616224D1E7300C58055 /* DatePickerCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -918,6 +921,7 @@
 				DB88DBDF21A96E6F00B0699B /* HomeViewController.swift in Sources */,
 				DB323B15223D521300116FE3 /* SitoWeb.swift in Sources */,
 				DB53C78621E0F7E40001054B /* CompagniaAgent.swift in Sources */,
+				DB8B8617224D1E7300C58055 /* DatePickerCell.swift in Sources */,
 				DB7BEF8D21D0172E007A550E /* URLs.swift in Sources */,
 				DBAAE2B721A5CCEB00211CBF /* LoginVC.swift in Sources */,
 				DBC7F4DC2219AEC500C22945 /* NotificheOnboardingVC.swift in Sources */,
