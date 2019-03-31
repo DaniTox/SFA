@@ -14,6 +14,7 @@ struct EntryMemory {
     var sentimento14 : Emozione?
     var sentimento20 : Emozione?
     var ciclo : CicloColor?
+    var date: Date = Date().startOfDay
     
     func getEmozione(from index: Int) -> Emozione? {
         switch index {
@@ -56,6 +57,7 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
         currentEntryMemory.sentimento8 = entry.sentimentiTable?.sentimentoOre8
         currentEntryMemory.sentimento14 = entry.sentimentiTable?.sentimentoOre14
         currentEntryMemory.sentimento20 = entry.sentimentiTable?.sentimentoOre20
+        currentEntryMemory.date = Date().startOfDay
         
         if let parsedEntry = entry as? TeenStarFemmina {
             currentEntryMemory.ciclo = parsedEntry.cicloTable?.cicloColor
@@ -78,12 +80,14 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
     }
     
     func isEntryDateAvailable() -> Bool {
-        return self.isDateAvailable(entry.date)
+        return self.isDateAvailable(currentEntryMemory.date)
     }
     
     func saveTeenStarTable() {
         let realm = try! Realm()
         try? realm.write {
+            entry.date = self.currentEntryMemory.date
+            
             if let emozione8 = self.currentEntryMemory.sentimento8 {
                 entry.sentimentiTable?.sentimentoOre8 = emozione8
             }
@@ -123,7 +127,7 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: DATE_CELL_ID) as! DatePickerCell
                 cell.dateDidChange = { newDate in
-                    self.entry.date = newDate
+                    self.currentEntryMemory.date = newDate
                     self.dateChanged?(newDate)
                 }
                 return cell

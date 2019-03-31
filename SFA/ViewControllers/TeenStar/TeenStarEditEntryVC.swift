@@ -32,7 +32,6 @@ class TeenStarEditEntryVC<T : TeenStarDerivative & Object>: UIViewController, Ha
         dataSource.dateChanged = { [weak self] newDate in
             guard let self = self else { return }
             DispatchQueue.main.async {
-                
                 self.title = "\(newDate.dayOfWeek()) - \(newDate.stringValue)"
             }
             

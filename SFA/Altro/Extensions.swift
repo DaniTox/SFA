@@ -135,7 +135,8 @@ extension Date {
     }
     
     var startOfWeek: Date? {
-        let gregorian = Calendar(identifier: .gregorian)
+        var gregorian = Calendar(identifier: .gregorian)
+        gregorian.locale = Locale(identifier: "it_IT")
         guard let sunday = gregorian.date(from: gregorian.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self)) else { return nil }
         return gregorian.date(byAdding: .day, value: 1, to: sunday)
     }

@@ -18,7 +18,7 @@ import RealmSwift
 
 class TeenStarMaschio : Object, TeenStarDerivative {
     @objc dynamic var id = UUID().uuidString
-    @objc dynamic var date = Date()
+    @objc dynamic var date = Date().startOfDay
     @objc dynamic var sentimentiTable : SentimentoTable? = SentimentoTable()
     
     var gender : Int {
@@ -31,7 +31,7 @@ class TeenStarMaschio : Object, TeenStarDerivative {
 
 class TeenStarFemmina : Object, TeenStarDerivative {
     @objc dynamic var id = UUID().uuidString
-    @objc dynamic var date = Date()
+    @objc dynamic var date = Date().startOfDay
     @objc dynamic var sentimentiTable : SentimentoTable? = SentimentoTable()
     @objc dynamic var cicloTable : CicloTable? = CicloTable()
     
