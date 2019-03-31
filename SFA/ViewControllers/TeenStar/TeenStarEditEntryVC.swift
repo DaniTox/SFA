@@ -18,13 +18,26 @@ class TeenStarEditEntryVC<T : TeenStarDerivative & Object>: UIViewController, Ha
 
     var dataSource : TeenStarDataSource<T>
     
-    init(table : T) {
-        self.dataSource = TeenStarDataSource(entry: table)
+    init(table : T? = nil) {
+        var selectedTable : T
+        if table == nil {
+            selectedTable = T()
+        } else {
+            selectedTable = table!
+        }
+        
+        self.dataSource = TeenStarDataSource<T>(entry: selectedTable)
         super.init(nibName: nil, bundle: nil)
         
-        dataSource.newTitleReceived = { newTitle in
+        dataSource.dateChanged = { [weak self] newDate in
+            guard let self = self else { return }
             DispatchQueue.main.async {
-                self.title = newTitle
+                
+                self.title = "\(newDate.dayOfWeek()) - \(newDate.stringValue)"
+            }
+            
+            if !self.dataSource.isEntryDateAvailable() {
+                self.showError(withTitle: "Errore", andMessage: "Questa data è già stata salvata.")
             }
         }
     }
@@ -54,22 +67,18 @@ class TeenStarEditEntryVC<T : TeenStarDerivative & Object>: UIViewController, Ha
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        saveTeenStarEntry()
+        if dataSource.isEntryDateAvailable() {
+            dataSource.saveTeenStarTable()
+        }
     }
     
     private func updateTheme() {
         self.rootView.tableView.backgroundColor = Theme.current.tableViewBackground
         self.rootView.tableView.reloadData()
     }
-    
-    private func saveTeenStarEntry() {
-        dataSource.saveTeenStarTable()
-    }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
-//        case 0:
-//            return EMOZIONE_ROW_HEIGHT
         case 0, 1, 2, 3:
             if indexPath.row == 0 { return BASIC_ROW_HEIGHT }
             else { return EMOZIONE_ROW_HEIGHT }

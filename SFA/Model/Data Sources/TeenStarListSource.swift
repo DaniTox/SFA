@@ -38,14 +38,6 @@ class TeenStarListSource<T : TeenStarDerivative & Object> : NSObject, UITableVie
         super.init()
     }
     
-    var isTodayTableEmpty : Bool {
-        return model.isTodayTableEmpty()
-    }
-    
-    func createNewTable() -> T {
-        return model.getNewEntry()
-    }
-    
     func fetchEntries() {
         weeks.forEach({ $0.tables.removeAll(keepingCapacity: true) })
         let allEntries = model.fetchEntries()
@@ -107,6 +99,20 @@ class TeenStarListSource<T : TeenStarDerivative & Object> : NSObject, UITableVie
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let entry = self.getEntry(at: indexPath)
+            self.remove(table: entry)
+        
+            if self.weeks[indexPath.section].tables.count == 0 {
+                self.weeks.remove(at: indexPath.section)
+                tableView.deleteSections(IndexSet(integer: indexPath.section), with: .fade)
+            } else {
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        }
     }
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {

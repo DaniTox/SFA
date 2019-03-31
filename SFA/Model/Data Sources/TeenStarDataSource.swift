@@ -46,7 +46,7 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
     
     var entry : T
     var currentEntryMemory : EntryMemory
-    var newTitleReceived : ((String) -> Void)?
+    var dateChanged : ((Date) -> Void)?
 
     init(entry: T) {
         self.entry = entry
@@ -60,6 +60,25 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
         if let parsedEntry = entry as? TeenStarFemmina {
             currentEntryMemory.ciclo = parsedEntry.cicloTable?.cicloColor
         }
+    }
+    
+    private func isDateAvailable(_ date: Date) -> Bool {
+        let realm = try! Realm()
+        let calendar = Calendar.current
+        
+        let dateFrom = calendar.startOfDay(for: date)
+        let dateTo = calendar.date(byAdding: .day, value: 1, to: dateFrom)!
+        
+        let fromPredicate = NSPredicate(format: "date > %@", dateFrom as NSDate)
+        let toPredicate = NSPredicate(format: "date < %@", dateTo as NSDate)
+        let fullPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [fromPredicate, toPredicate])
+        
+        let objects = realm.objects(T.self).filter(fullPredicate)
+        return objects.count == 0
+    }
+    
+    func isEntryDateAvailable() -> Bool {
+        return self.isDateAvailable(entry.date)
     }
     
     func saveTeenStarTable() {
@@ -82,7 +101,7 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2//(section == 0) ? 1 : 2
+        return 2
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -104,7 +123,8 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: DATE_CELL_ID) as! DatePickerCell
                 cell.dateDidChange = { newDate in
-                    self.newTitleReceived?("\(newDate.dayOfWeek()) - \(newDate.stringValue)")
+                    self.entry.date = newDate
+                    self.dateChanged?(newDate)
                 }
                 return cell
             }

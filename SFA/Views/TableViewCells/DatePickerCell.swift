@@ -37,16 +37,11 @@ class DatePickerCell: BoldCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         datePicker.addTarget(self, action: #selector(datePickerDidChangeValue(_:)), for: .valueChanged)
         
-//        containerView.addSubview(dateLabel)
         containerView.addSubview(datePicker)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-//        dateLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
-//        dateLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
-//        dateLabel.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
-//        dateLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         datePicker.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
         datePicker.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
@@ -59,7 +54,6 @@ class DatePickerCell: BoldCell {
     }
     
     @objc private func datePickerDidChangeValue(_ sender: UIDatePicker) {
-        dateLabel.text = datePicker.date.stringValue
         self.dateDidChange?(datePicker.date)
     }
 }

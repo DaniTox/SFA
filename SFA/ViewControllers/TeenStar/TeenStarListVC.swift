@@ -75,27 +75,14 @@ class TeenStarListVC<T: TeenStarDerivative & Object>: UITableViewController, DZN
     }
     
     @objc private func addEntryButtonTapped() {
-        if dataSource.isTodayTableEmpty {
-            let entry = dataSource.createNewTable()
-            let vc = TeenStarEditEntryVC<T>(table: entry)
-            navigationController?.pushViewController(vc, animated: true)
-        } else {
-            self.showError(withTitle: "Attenzione", andMessage: "Puoi inserire solo un dato al giorno. Riprova domani.")
-        }
+        let vc = TeenStarEditEntryVC<T>()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let entry = dataSource.getEntry(at: indexPath)
         let vc = TeenStarEditEntryVC<T>(table: entry)
         navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let entry = dataSource.getEntry(at: indexPath)
-            dataSource.remove(table: entry)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
