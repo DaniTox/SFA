@@ -31,7 +31,7 @@ class SettingsVC: UIViewController, HasCustomView {
     }
     
     deinit {
-        NotificationCenter.default.removeObserver(themeObserver)
+        NotificationCenter.default.removeObserver(themeObserver as Any)
     }
     
     private func updateTheme() {

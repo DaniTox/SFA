@@ -57,7 +57,7 @@ class TeenStarListVC<T: TeenStarDerivative & Object>: UITableViewController, DZN
     }
 
     deinit {
-        NotificationCenter.default.removeObserver(themeObserver)
+        NotificationCenter.default.removeObserver(themeObserver as Any)
     }
     
     override func viewWillAppear(_ animated: Bool) {
