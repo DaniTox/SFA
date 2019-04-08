@@ -26,7 +26,7 @@ class HomeViewController : UIViewController, HasCustomView {
     }
     
     @objc func showRegolaController() {
-        let vc = RegolaCategorieVC()
+        let vc = RiassuntoVC()
         navigationController?.pushViewController(vc, animated: true)
     }
     

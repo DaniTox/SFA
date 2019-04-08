@@ -57,8 +57,18 @@ extension RegolaCategorieVC : UITableViewDelegate, UITableViewDataSource {
         return categoria?.domande.count ?? 0
     }
 
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.regola?.categorie[section].nome
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return self.regola?.categorie[section].nome
+//    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 80
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let text = self.regola?.categorie[section].nome
+        let view = HeaderView()
+        view.mainLabel.text = text
+        return view
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

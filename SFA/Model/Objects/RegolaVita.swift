@@ -26,6 +26,7 @@ class RegolaVita : Object {
                 categoriaCD.domande.append(domandaCD)
                 domandaCD.domanda = domandaFile.domanda
                 domandaCD.risposta = domandaFile.rispsota
+                domandaCD.order = domandaFile.idDomanda
             }
         }
         return regolaCD

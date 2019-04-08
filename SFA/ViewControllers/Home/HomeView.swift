@@ -55,7 +55,7 @@ class HomeView : UIView {
     lazy var compagniaButton : UIBouncyButton = {
         let button = UIBouncyButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Compagnia", for: .normal)
+        button.setTitle("Il mio percorso formativo", for: .normal)
         button.backgroundColor = .orange
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         button.titleLabel?.adjustsFontSizeToFitWidth = true
