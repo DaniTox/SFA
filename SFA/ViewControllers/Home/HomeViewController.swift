@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import SafariServices
 
 class HomeViewController : UIViewController, HasCustomView {
     typealias CustomView = HomeView
@@ -23,6 +24,15 @@ class HomeViewController : UIViewController, HasCustomView {
         rootView.noteButton.addTarget(self, action: #selector(showNoteListController), for: .touchUpInside)
         rootView.teenStarButton.addTarget(self, action: #selector(showTeenStarController), for: .touchUpInside)
         rootView.compagniaButton.addTarget(self, action: #selector(showVerificaCompagniaController), for: .touchUpInside)
+        
+        let rightButton = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(calendarioButtonTapped))
+        self.navigationItem.setRightBarButton(rightButton, animated: true)
+    }
+    
+    @objc func calendarioButtonTapped() {
+        guard let url = URL(string: "\(URLs.calendarioURL)") else { fatalError() }
+        let vc = SFSafariViewController(url: url)
+        present(vc, animated: true)
     }
     
     @objc func showRegolaController() {
