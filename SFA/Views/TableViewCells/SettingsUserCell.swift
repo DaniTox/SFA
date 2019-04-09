@@ -39,26 +39,7 @@ class SettingsUserCell: BoldCell {
         stack.distribution = UIStackView.Distribution.fillProportionally
         return stack
     }()
-    
-    var userState: UserState? {
-        didSet {
-            guard let state = userState else { return }
-            if state == .loggedIn && userLogged != nil {
-                DispatchQueue.main.async {
-                    self.mainTitleLabel.text = "\(userLogged!.name) \(userLogged!.cognome)"
-                    self.descriptionLabel.text = "\(userLogged!.email)"
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.mainTitleLabel.text = "Accedi o Registrati"
-                    self.mainTitleLabel.font = UIFont.boldSystemFont(ofSize: 25)
-                    self.descriptionLabel.text = "Esegui l'accesso per salvare i tuoi dati"
-                    self.accessoryType = .disclosureIndicator
-                }
-            }
-        }
-    }
-    
+        
     override func prepareForReuse() {
         super.prepareForReuse()
         mainTitleLabel.textColor = Theme.current.cellTitleColor

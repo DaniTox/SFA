@@ -1,7 +1,7 @@
 {
     "categories" : [
         {
-            "id" : "ExampleID",
+            "id" : 0,
             "name" : "Generale",
             "domande" : [
                 {
@@ -37,7 +37,7 @@
             ]
         },
         {
-            "id" : "Examble2ID",
+            "id" : 1,
             "name" : "Preghiera personale e sacramenti",
             "domande" : [
                 {
@@ -58,7 +58,7 @@
             ]
         },
         {
-            "id" : "Examble3ID",
+            "id" : 2,
             "name" : "Formazione della fede e del pensiero",
             "domande" : [
                 {
@@ -79,7 +79,7 @@
             ]
         },
         {
-            "id" : "Examble4ID",
+            "id" : 3,
             "name" : "Vita comunitaria, gruppi",
             "domande" : [
                 {
@@ -100,7 +100,7 @@
             ]
         },
         {
-            "id" : "Examble5ID",
+            "id" : 4,
             "name" : "Servizio al prossimo, deidizione agli altri",
             "domande" : [
                 {
@@ -121,7 +121,7 @@
             ]
         },
         {
-            "id" : "Examble6ID",
+            "id" : 5,
             "name" : "Pensiero finale",
             "domande" : [
                 {

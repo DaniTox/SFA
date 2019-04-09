@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        print("Utente loggato: \(userLogged?.name ?? "NULL")")
         
         Theme.current = (theme == "dark") ? DarkTheme() : LightTheme()
         
@@ -45,19 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             onboardingCoordinator.start()
         }
         
-//        let r = try! Realm()
-//        try? r.write {
-//            r.deleteAll()
-//        }
-        
-//        let realm = try! Realm()
-//        try? realm.write {
-//            realm.delete(realm.objects(TeenStarFemmina.self))
-//        }
-        
-        
-        
-        RegolaFetcherModel.shared.persistentContainer = persistentContainer
         RegolaFetcherModel.shared.createIfNotPresent()
         
         let model = CompagniaAgent()

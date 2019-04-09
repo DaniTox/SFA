@@ -15,11 +15,6 @@ let GENDER_KEY = "gender"
 let GRADOSCUOLA_KEY = "gradoScuola"
 
 
-enum GradoScuola : Int,  Codable {
-    case medie = 0
-    case superiori = 1
-}
-
 var isAlreadyLaunched : Bool {
     get {
         return UserDefaults.standard.bool(forKey: IS_FIRST_LAUNCH)
@@ -38,16 +33,6 @@ var genderSaved : UserGender {
     }
 }
 
-var gradoScuolaSaved : GradoScuola {
-    get {
-        guard let data = UserDefaults.standard.data(forKey: GRADOSCUOLA_KEY) else { return .medie }
-        return (try? JSONDecoder().decode(GradoScuola.self, from: data)) ?? .medie
-    } set {
-        let dataToSave = try? JSONEncoder().encode(newValue)
-        UserDefaults.standard.set(dataToSave, forKey: GRADOSCUOLA_KEY)
-    }
-}
-
 var notificheDaRicevere : [String] {
     get {
         if let nots = UserDefaults.standard.array(forKey: NOTIFICHE_DA_RICEVERE) as? [String] {
@@ -63,11 +48,11 @@ var notificheDaRicevere : [String] {
 
 var userLogged : User? {
     get {
-        let data = KeychainWrapper.standard.data(forKey: "userLogged") ?? Data()
+        let data = UserDefaults.standard.data(forKey: "userLogged") ?? Data()
         return try? JSONDecoder().decode(User.self, from: data)
     } set {
         let data = try? JSONEncoder().encode(newValue)
-        KeychainWrapper.standard.set(data ?? Data(), forKey: "userLogged")
+        UserDefaults.standard.set(data ?? Data(), forKey: "userLogged")
     }
 }
 
@@ -76,7 +61,7 @@ class RegolaFile : Codable {
     init() {}
 }
 class RegolaCategoryFile : Codable {
-    var id : String
+    var id : Int
     var name : String
     var domande : [RegolaDomandaFile]
 }

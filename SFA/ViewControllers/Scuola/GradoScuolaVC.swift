@@ -27,16 +27,21 @@ class GradoScuolaVC: UIViewController, HasCustomView, OrderedFlowController {
         }
         
         rootView.medieButton.addTarget(self, action: #selector(medieTouched), for: .touchUpInside)
-        rootView.superioriButton.addTarget(self, action: #selector(superioriTouched), for: .touchUpInside)
+        rootView.biennioButton.addTarget(self, action: #selector(biennioTouched), for: .touchUpInside)
     }
 
     @objc private func medieTouched() {
-        gradoScuolaSaved = .medie
+        userLogged?.ageScuola = .medie
         workFinished()
     }
     
-    @objc private func superioriTouched() {
-        gradoScuolaSaved = .superiori
+    @objc private func biennioTouched() {
+        userLogged?.ageScuola = .biennio
+        workFinished()
+    }
+    
+    @objc private func triennioTouched() {
+        userLogged?.ageScuola = .triennio
         workFinished()
     }
     

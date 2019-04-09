@@ -20,6 +20,7 @@ class RegolaVita : Object {
             let categoriaCD = RegolaCategoria()
             regolaCD.categorie.append(categoriaCD)
             categoriaCD.nome = categoriaFile.name
+            categoriaCD.order = categoriaFile.id
             
             for domandaFile in categoriaFile.domande {
                 let domandaCD = RegolaDomanda()

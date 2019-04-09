@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DB060C8822149B13003E0C96 /* LoginNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB060C8722149B13003E0C96 /* LoginNetworkRequest.swift */; };
 		DB0D49EC21DFF13000887D3B /* SettingsUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D49EB21DFF13000887D3B /* SettingsUserCell.swift */; };
 		DB19C67F21E2870B0020357D /* VerificaCompagniaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB19C67E21E2870B0020357D /* VerificaCompagniaVC.swift */; };
 		DB19C68121E2877F0020357D /* VerificaCompagniaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB19C68021E2877F0020357D /* VerificaCompagniaView.swift */; };
@@ -53,12 +52,10 @@
 		DB61DA1921B9C81E006B308B /* SocialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1821B9C81E006B308B /* SocialVC.swift */; };
 		DB61DA1B21B9C834006B308B /* SocialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1A21B9C834006B308B /* SocialView.swift */; };
 		DB67643421F631A200651AD8 /* SitiNetworkAgentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67643321F631A200651AD8 /* SitiNetworkAgentModel.swift */; };
-		DB67643821F634F700651AD8 /* AuthNetworkAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67643721F634F700651AD8 /* AuthNetworkAgent.swift */; };
-		DB67643A21F6364E00651AD8 /* RegisterNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67643921F6364E00651AD8 /* RegisterNetworkRequest.swift */; };
 		DB67643D21F636D300651AD8 /* SitiMaterialiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67643C21F636D300651AD8 /* SitiMaterialiRequest.swift */; };
-		DB67643F21F6384F00651AD8 /* AuthNetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67643E21F6384F00651AD8 /* AuthNetworkResponse.swift */; };
 		DB67644121F6389000651AD8 /* SitiNetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67644021F6389000651AD8 /* SitiNetworkResponse.swift */; };
 		DB67644321F63CC400651AD8 /* SitiAgentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67644221F63CC400651AD8 /* SitiAgentModel.swift */; };
+		DB75F2EC225D2EE700EB62DF /* RiassuntoRDVDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB75F2EB225D2EE700EB62DF /* RiassuntoRDVDataSource.swift */; };
 		DB7BEF8621D006A0007A550E /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF8421D006A0007A550E /* KeychainItemAccessibility.swift */; };
 		DB7BEF8721D006A0007A550E /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF8521D006A0007A550E /* KeychainWrapper.swift */; };
 		DB7BEF8921D01442007A550E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF8821D01442007A550E /* User.swift */; };
@@ -67,7 +64,6 @@
 		DB7BEF8F21D01920007A550E /* ToxNetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF8E21D01920007A550E /* ToxNetworkResponse.swift */; };
 		DB7BEF9121D02128007A550E /* ToxNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF9021D02128007A550E /* ToxNetworkRequest.swift */; };
 		DB88DBDF21A96E6F00B0699B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBDE21A96E6F00B0699B /* HomeViewController.swift */; };
-		DB88DBE121A9718000B0699B /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBE021A9718000B0699B /* RegisterVC.swift */; };
 		DB88DBE821A975C100B0699B /* SpinerLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBE321A975C100B0699B /* SpinerLayer.swift */; };
 		DB88DBE921A975C100B0699B /* CGRectEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBE421A975C100B0699B /* CGRectEx.swift */; };
 		DB88DBEA21A975C100B0699B /* TransitionSubmitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBE521A975C100B0699B /* TransitionSubmitButton.swift */; };
@@ -92,7 +88,6 @@
 		DBAAE2AF21A5B3B000211CBF /* WelcomePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAAE2AE21A5B3B000211CBF /* WelcomePageVC.swift */; };
 		DBAAE2B121A5C3FA00211CBF /* NotificheVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBAAE2B021A5C3FA00211CBF /* NotificheVC.storyboard */; };
 		DBAAE2B321A5C53700211CBF /* NotificheVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAAE2B221A5C53700211CBF /* NotificheVC.swift */; };
-		DBAAE2B721A5CCEB00211CBF /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAAE2B621A5CCEB00211CBF /* LoginVC.swift */; };
 		DBAAE2BB21A5D26800211CBF /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAAE2BA21A5D26800211CBF /* WelcomeVC.swift */; };
 		DBAAE2BD21A5E9DA00211CBF /* CircularThings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAAE2BC21A5E9DA00211CBF /* CircularThings.swift */; };
 		DBAF3C02219C9019003083EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF3C01219C9019003083EA /* AppDelegate.swift */; };
@@ -201,6 +196,7 @@
 		DB67643E21F6384F00651AD8 /* AuthNetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNetworkResponse.swift; sourceTree = "<group>"; };
 		DB67644021F6389000651AD8 /* SitiNetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitiNetworkResponse.swift; sourceTree = "<group>"; };
 		DB67644221F63CC400651AD8 /* SitiAgentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitiAgentModel.swift; sourceTree = "<group>"; };
+		DB75F2EB225D2EE700EB62DF /* RiassuntoRDVDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiassuntoRDVDataSource.swift; sourceTree = "<group>"; };
 		DB7BEF8421D006A0007A550E /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
 		DB7BEF8521D006A0007A550E /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		DB7BEF8821D01442007A550E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -822,6 +818,7 @@
 			children = (
 				DBDC3B2F225B9CC600D019EA /* RiassuntoView.swift */,
 				DBDC3B31225BA88900D019EA /* RiassuntoVC.swift */,
+				DB75F2EB225D2EE700EB62DF /* RiassuntoRDVDataSource.swift */,
 			);
 			path = Riassunto;
 			sourceTree = "<group>";
@@ -938,7 +935,6 @@
 				DB53C78621E0F7E40001054B /* CompagniaAgent.swift in Sources */,
 				DB8B8617224D1E7300C58055 /* DatePickerCell.swift in Sources */,
 				DB7BEF8D21D0172E007A550E /* URLs.swift in Sources */,
-				DBAAE2B721A5CCEB00211CBF /* LoginVC.swift in Sources */,
 				DBC7F4DC2219AEC500C22945 /* NotificheOnboardingVC.swift in Sources */,
 				DBF3A2B421DD81F5008AE7D5 /* TeenStarEditEntryView.swift in Sources */,
 				DBAF3C4D219CBF35003083EA /* IQNSArray+Sort.swift in Sources */,
@@ -959,7 +955,6 @@
 				DB217D4B2218500B003ED264 /* GenderVCView.swift in Sources */,
 				DB53AB8C21DACA34001961EC /* ColorSliderAlert.swift in Sources */,
 				DBC7F4DF2219AFA900C22945 /* HomeView.swift in Sources */,
-				DB67643821F634F700651AD8 /* AuthNetworkAgent.swift in Sources */,
 				DB88DBFB21AB2C0D00B0699B /* DomandeView.swift in Sources */,
 				DB5751DE21DA719900F97D25 /* TextEditingBottomBar.swift in Sources */,
 				DB32449422469AD100116FE3 /* TeenStarCell.swift in Sources */,
@@ -983,6 +978,7 @@
 				DB88DBEC21A975C100B0699B /* TimerEx.swift in Sources */,
 				DBDC3B30225B9CC600D019EA /* RiassuntoView.swift in Sources */,
 				DB19C67F21E2870B0020357D /* VerificaCompagniaVC.swift in Sources */,
+				DB75F2EC225D2EE700EB62DF /* RiassuntoRDVDataSource.swift in Sources */,
 				DBAF3C44219CBF35003083EA /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 				DB53C77721DEB9E10001054B /* CicloTableViewCell.swift in Sources */,
 				DB88DBFF21AB315200B0699B /* RegolaCategorieVC.swift in Sources */,
@@ -997,9 +993,7 @@
 				DB5751DC21DA651C00F97D25 /* BoldCell.swift in Sources */,
 				DBF3A2B221DD81D1008AE7D5 /* TeenStarEditEntryVC.swift in Sources */,
 				DB88DBE921A975C100B0699B /* CGRectEx.swift in Sources */,
-				DB060C8822149B13003E0C96 /* LoginNetworkRequest.swift in Sources */,
 				DB88DBEE21A97F4400B0699B /* RootAppTabBarController.swift in Sources */,
-				DB67643A21F6364E00651AD8 /* RegisterNetworkRequest.swift in Sources */,
 				DBDC3B32225BA88900D019EA /* RiassuntoVC.swift in Sources */,
 				DBBE6FC621F8EEA80001875A /* TextCell.swift in Sources */,
 				DBD1DA3021CFE35100BFFBA5 /* LoginView.swift in Sources */,
@@ -1043,7 +1037,6 @@
 				DBCF2F4021F7C5050074E0AF /* SitoCell.swift in Sources */,
 				DBAF3C49219CBF35003083EA /* IQUIScrollView+Additions.swift in Sources */,
 				DBBBDC5021F5016D00C9F54A /* BouncyView.swift in Sources */,
-				DB88DBE121A9718000B0699B /* RegisterVC.swift in Sources */,
 				DB67643421F631A200651AD8 /* SitiNetworkAgentModel.swift in Sources */,
 				DB325EDF21D422D7009ADEFC /* RegisterView.swift in Sources */,
 				DB88DBEA21A975C100B0699B /* TransitionSubmitButton.swift in Sources */,
@@ -1052,7 +1045,6 @@
 				DBE6070921F27AA200E10422 /* WelcomeView.swift in Sources */,
 				DB7BEF9121D02128007A550E /* ToxNetworkRequest.swift in Sources */,
 				DB7BEF8621D006A0007A550E /* KeychainItemAccessibility.swift in Sources */,
-				DB67643F21F6384F00651AD8 /* AuthNetworkResponse.swift in Sources */,
 				DBAF3C3F219CBF35003083EA /* IQTitleBarButtonItem.swift in Sources */,
 				DBAF3C41219CBF35003083EA /* IQToolbar.swift in Sources */,
 			);

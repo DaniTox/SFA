@@ -41,16 +41,35 @@ class GradoScuolaView: UIView {
         return button
     }()
     
-    lazy var superioriButton : UIBouncyButton = {
+    lazy var biennioButton : UIBouncyButton = {
         let button = UIBouncyButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Superiori", for: .normal)
+        button.setTitle("Superiori (biennio)", for: .normal)
         button.setTitleColor(Theme.current.textColor, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.backgroundColor = Theme.current.backgroundColor
         
 //        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 10
+        button.layer.shadowColor = Theme.current.shadowColor.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 0)
+        button.layer.shadowOpacity = 1.0
+        button.layer.shadowRadius = 10
+        button.layer.masksToBounds = false
+        return button
+    }()
+    
+    lazy var triennioButton : UIBouncyButton = {
+        let button = UIBouncyButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Superiori (triennio)", for: .normal)
+        button.setTitleColor(Theme.current.textColor, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.backgroundColor = Theme.current.backgroundColor
+        
+        //        button.layer.masksToBounds = true
         button.layer.cornerRadius = 10
         button.layer.shadowColor = Theme.current.shadowColor.cgColor
         button.layer.shadowOffset = CGSize(width: 0, height: 0)
@@ -85,7 +104,8 @@ class GradoScuolaView: UIView {
         backgroundColor = Theme.current.tableViewBackground
         
         boxesStack.addArrangedSubview(medieButton)
-        boxesStack.addArrangedSubview(superioriButton)
+        boxesStack.addArrangedSubview(biennioButton)
+        boxesStack.addArrangedSubview(triennioButton)
         
         fullStack.addArrangedSubview(titleLabel)
         fullStack.addArrangedSubview(boxesStack)

@@ -85,8 +85,8 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell") as? SettingsUserCell
-            cell?.userState = (userLogged == nil) ? .empty : .loggedIn
+            let cell = tableView.dequeueReusableCell(withIdentifier: "boldCell") as? BoldCell
+            cell?.mainLabel.text = "Backup (ancora in sviluppo)"
             return cell!
         case 1:
             switch indexPath.row {
@@ -123,46 +123,7 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.section {
         case 0:
-            if userLogged == nil {
-                let alert = UIAlertController(title: "Quale azione vorresti compiere?", message: nil, preferredStyle: .actionSheet)
-                alert.addAction(UIAlertAction(title: "Annulla", style: .cancel, handler: nil))
-                alert.addAction(UIAlertAction(title: "Accedi", style: .default, handler: { (action) in
-                    let vc = LoginVC()
-                    vc.successCompletion = { loginVc in
-                        DispatchQueue.main.async {
-                            self.navigationController?.popViewController(animated: true)
-                        }
-                    }
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }))
-                alert.addAction(UIAlertAction(title: "Registrati", style: .default, handler: { (action) in
-                    let vc = RegisterVC()
-                    vc.successCompletion = { registerVC in
-                        DispatchQueue.main.async {
-                            self.navigationController?.popViewController(animated: true)
-                        }
-                    }
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }))
-                DispatchQueue.main.async {
-                    if let popover = alert.popoverPresentationController {
-                        let cell = tableView.cellForRow(at: indexPath)
-                        popover.sourceView = cell
-                        popover.sourceRect = cell?.bounds ?? .zero
-                    }
-                    self.present(alert, animated: true)
-                }
-            } else {
-                let alert = UIAlertController(title: "Vuoi veramente uscire dal tuo account?", message: nil, preferredStyle: .actionSheet)
-                alert.addAction(UIAlertAction(title: "Annulla", style: .cancel, handler: nil))
-                alert.addAction(UIAlertAction(title: "Esci", style: .destructive, handler: { (action) in
-                    userLogged = nil
-                    tableView.reloadData()
-                }))
-                DispatchQueue.main.async {
-                    self.present(alert, animated: true)
-                }
-            }
+           break
         case 1:
             switch indexPath.row {
             case 0:
@@ -182,7 +143,6 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
                 navigationController?.pushViewController(vc, animated: true)
             default:
                 break
-//                fatalError()
             }
         default:
             fatalError()

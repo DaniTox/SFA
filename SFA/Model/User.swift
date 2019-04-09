@@ -8,14 +8,16 @@
 
 import Foundation
 
+enum ScuolaType : Int,  Codable {
+    case medie = 1
+    case biennio = 2
+    case triennio = 3
+}
+
 class User : Codable {
-    var name: String = ""
-    var cognome : String = ""
-    var age : Int = -1
-    var gender : UserGender?
-    var email : String = ""
-    var token : String = ""
-    var password: String?
+    var gender : UserGender
+    var ageScuola : ScuolaType
+    var apnsToken : String = ""
 }
 
 enum UserGender : Int, Codable {

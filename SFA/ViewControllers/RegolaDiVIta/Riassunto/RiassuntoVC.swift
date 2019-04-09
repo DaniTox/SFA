@@ -9,20 +9,20 @@
 import UIKit
 
 class RiassuntoVC : UITableViewController {
-    
-    var regola: RegolaVita?
-    let categoriesIndexes : [Int] = []
+
+    let dataSource = RiassuntoDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "La tua Regola"
+        self.view.backgroundColor = Theme.current.tableViewBackground
         
         let rightButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(regolaViewWasTapped))
         self.navigationItem.setRightBarButton(rightButton, animated: true)
         
-        self.regola = RegolaFetcherModel.shared.getRegola()
-        
+        self.tableView.dataSource = dataSource
         self.tableView.register(BoldCell.self, forCellReuseIdentifier: "cell")
+        self.tableView.reloadData()
     }
     
     @objc func regolaViewWasTapped() {
@@ -40,14 +40,17 @@ class RiassuntoVC : UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = HeaderView()
-        
+        let domanda = dataSource.getDomanda(at: section)
+        view.mainLabel.text = "\(domanda?.categoria.first?.nome ?? "Errore titolo...")"
         return view
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! BoldCell
-        
-        return cell
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 70
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
     }
     
 }

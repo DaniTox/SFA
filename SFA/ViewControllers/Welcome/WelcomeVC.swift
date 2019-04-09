@@ -22,25 +22,11 @@ class WelcomeVC: UIViewController, HasCustomView, OrderedFlowController {
         self.title = "Benvenuto in MGS!"
         rootView.backgroundColor = UIColor.black.lighter(by: 10)
         
-        rootView.registerButton.addTarget(self, action: #selector(registerAction(_:)), for: .touchUpInside)
-        rootView.loginButton.addTarget(self, action: #selector(loginAction(_:)), for: .touchUpInside)
         rootView.ignoraButton.addTarget(self, action: #selector(ignoraAction(_:)), for: .touchUpInside)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         rootView.ignoraButton.isEnabled = true
-    }
-    
-    @objc func registerAction(_ sender: UIButton) {
-        let vc = RegisterVC()
-        let nav = RotationLogicNavigationController(rootViewController: vc)
-        present(nav, animated: true)
-    }
-    
-    @objc func loginAction(_ sender: UIButton) {
-        let vc = LoginVC()
-        let nav = RotationLogicNavigationController(rootViewController: vc)
-        present(nav, animated: true)
     }
     
     @objc func ignoraAction(_ sender: UIButton) {
