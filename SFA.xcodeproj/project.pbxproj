@@ -56,6 +56,7 @@
 		DB67644121F6389000651AD8 /* SitiNetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67644021F6389000651AD8 /* SitiNetworkResponse.swift */; };
 		DB67644321F63CC400651AD8 /* SitiAgentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67644221F63CC400651AD8 /* SitiAgentModel.swift */; };
 		DB75F2EC225D2EE700EB62DF /* RiassuntoRDVDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB75F2EB225D2EE700EB62DF /* RiassuntoRDVDataSource.swift */; };
+		DB75F2EF225D3C0300EB62DF /* DebugVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB75F2EE225D3C0300EB62DF /* DebugVC.swift */; };
 		DB7BEF8621D006A0007A550E /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF8421D006A0007A550E /* KeychainItemAccessibility.swift */; };
 		DB7BEF8721D006A0007A550E /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF8521D006A0007A550E /* KeychainWrapper.swift */; };
 		DB7BEF8921D01442007A550E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF8821D01442007A550E /* User.swift */; };
@@ -197,6 +198,7 @@
 		DB67644021F6389000651AD8 /* SitiNetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitiNetworkResponse.swift; sourceTree = "<group>"; };
 		DB67644221F63CC400651AD8 /* SitiAgentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitiAgentModel.swift; sourceTree = "<group>"; };
 		DB75F2EB225D2EE700EB62DF /* RiassuntoRDVDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiassuntoRDVDataSource.swift; sourceTree = "<group>"; };
+		DB75F2EE225D3C0300EB62DF /* DebugVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugVC.swift; sourceTree = "<group>"; };
 		DB7BEF8421D006A0007A550E /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
 		DB7BEF8521D006A0007A550E /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		DB7BEF8821D01442007A550E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -455,6 +457,14 @@
 			path = Siti;
 			sourceTree = "<group>";
 		};
+		DB75F2ED225D3BF000EB62DF /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				DB75F2EE225D3C0300EB62DF /* DebugVC.swift */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
 		DB7BEF8321D006A0007A550E /* Keychain */ = {
 			isa = PBXGroup;
 			children = (
@@ -566,6 +576,7 @@
 		DBAF3C1A219C942E003083EA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DB75F2ED225D3BF000EB62DF /* Debug */,
 				DB53C77C21DFCAE10001054B /* WelcomePage */,
 				DBC7F4D92219AE8A00C22945 /* Welcome */,
 				DB53C77E21DFCBC90001054B /* Generic */,
@@ -1044,6 +1055,7 @@
 				DB5751E821DA808000F97D25 /* SizeSliderAlert.swift in Sources */,
 				DBE6070921F27AA200E10422 /* WelcomeView.swift in Sources */,
 				DB7BEF9121D02128007A550E /* ToxNetworkRequest.swift in Sources */,
+				DB75F2EF225D3C0300EB62DF /* DebugVC.swift in Sources */,
 				DB7BEF8621D006A0007A550E /* KeychainItemAccessibility.swift in Sources */,
 				DBAF3C3F219CBF35003083EA /* IQTitleBarButtonItem.swift in Sources */,
 				DBAF3C41219CBF35003083EA /* IQToolbar.swift in Sources */,

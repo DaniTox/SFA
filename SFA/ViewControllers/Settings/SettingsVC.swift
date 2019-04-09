@@ -65,7 +65,7 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
         case 0:
             return 1
         case 1:
-            return 4
+            return 5
         default:
             fatalError()
         }
@@ -111,6 +111,11 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
                 cell.mainLabel.text = "Tipo di scuola"
                 cell.accessoryType = .disclosureIndicator
                 return cell
+            case 4:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "boldCell") as! BoldCell
+                cell.mainLabel.text = "Debug"
+                cell.accessoryType = .disclosureIndicator
+                return cell
             default:
                 fatalError()
             }
@@ -140,6 +145,9 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
                         self?.navigationController?.popViewController(animated: true)
                     }
                 }
+                navigationController?.pushViewController(vc, animated: true)
+            case 4:
+                let vc = DebugVC()
                 navigationController?.pushViewController(vc, animated: true)
             default:
                 break
