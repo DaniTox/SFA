@@ -16,6 +16,7 @@ class HeaderView : UIView {
         label.font = UIFont.boldSystemFont(ofSize: 30)
         label.textColor = .red
         label.textAlignment = .center
+        label.numberOfLines = 0
         label.adjustsFontSizeToFitWidth = true
         return label
     }()

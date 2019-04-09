@@ -48,5 +48,16 @@ extension VerificaCompagniaVC : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = HeaderView()
+        let categoria = dataSource.getCategoria(at: section)
+        view.mainLabel.text = "\(categoria.name)"
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 70
+    }
 }
 

@@ -28,6 +28,10 @@ class VerificaCompagniaDataSource : NSObject, UITableViewDataSource {
         self.storage = self.verifica.categorie
     }
     
+    func getCategoria(at index: Int) -> VerificaCategoria {
+        return self.storage[index]
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return storage[section].domande.count
     }

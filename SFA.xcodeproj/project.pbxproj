@@ -380,6 +380,8 @@
 				DBF3A2AB21DD723B008AE7D5 /* TeenStarListVC.swift */,
 				DBF3A2B121DD81D1008AE7D5 /* TeenStarEditEntryVC.swift */,
 				DBF3A2B321DD81F5008AE7D5 /* TeenStarEditEntryView.swift */,
+				DB323B10223C645800116FE3 /* TeenStarDataSource.swift */,
+				DB323B12223D35FB00116FE3 /* TeenStarListSource.swift */,
 			);
 			path = TeenStar;
 			sourceTree = "<group>";
@@ -679,6 +681,7 @@
 			children = (
 				DBCF2F3921F79E410074E0AF /* SitiVC.swift */,
 				DBCF2F3B21F79E7E0074E0AF /* SitiListView.swift */,
+				DBCF2F3D21F7BC410074E0AF /* SitiDataSource.swift */,
 			);
 			path = Siti;
 			sourceTree = "<group>";
@@ -697,6 +700,7 @@
 			children = (
 				DB9A19BE21D5148E00C05755 /* NoteListVC.swift */,
 				DB9A19C021D514A900C05755 /* NoteListView.swift */,
+				DBD901192235AB9E007F37F0 /* NotesDataSource.swift */,
 			);
 			path = NoteList;
 			sourceTree = "<group>";
@@ -761,6 +765,7 @@
 			children = (
 				DB19C67E21E2870B0020357D /* VerificaCompagniaVC.swift */,
 				DB19C68021E2877F0020357D /* VerificaCompagniaView.swift */,
+				DBCE9ECF21EFB247005B286A /* VerificaCompagniaDataSource.swift */,
 			);
 			path = Compagnia;
 			sourceTree = "<group>";
@@ -804,11 +809,6 @@
 		DBCE9ECE21EFB227005B286A /* Data Sources */ = {
 			isa = PBXGroup;
 			children = (
-				DBCE9ECF21EFB247005B286A /* VerificaCompagniaDataSource.swift */,
-				DBCF2F3D21F7BC410074E0AF /* SitiDataSource.swift */,
-				DBD901192235AB9E007F37F0 /* NotesDataSource.swift */,
-				DB323B10223C645800116FE3 /* TeenStarDataSource.swift */,
-				DB323B12223D35FB00116FE3 /* TeenStarListSource.swift */,
 			);
 			path = "Data Sources";
 			sourceTree = "<group>";
