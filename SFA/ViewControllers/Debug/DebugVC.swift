@@ -24,7 +24,7 @@ class DebugVC : UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 3
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -32,6 +32,10 @@ class DebugVC : UITableViewController {
         switch indexPath.row {
         case 0:
             cell.mainLabel.text = "Resetta Regola di Vita"
+        case 1:
+            cell.mainLabel.text = "Resetta TeenStar"
+        case 2:
+            cell.mainLabel.text = "Resetta 'Il mio percorso formativo'"
         default:
             break
         }
