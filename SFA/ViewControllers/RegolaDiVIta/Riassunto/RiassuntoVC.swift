@@ -20,6 +20,7 @@ class RiassuntoVC : UITableViewController {
         let rightButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(regolaViewWasTapped))
         self.navigationItem.setRightBarButton(rightButton, animated: true)
         
+        self.tableView.separatorStyle = .none   
         self.tableView.dataSource = dataSource
         self.tableView.register(BoldCell.self, forCellReuseIdentifier: "cell")
         self.tableView.reloadData()
