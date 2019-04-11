@@ -32,7 +32,7 @@ class TeenStarModel<T: TeenStarDerivative & Object> {
     
     public func getThemAll() -> [TeenStarWeek<T>] {
         let realm = try! Realm()
-        let allDates = realm.objects(T.self).compactMap { $0.date }
+        let allDates = realm.objects(T.self).map { $0.date }
         
         var weeks: Set<TeenStarWeek<T>> = []
         
