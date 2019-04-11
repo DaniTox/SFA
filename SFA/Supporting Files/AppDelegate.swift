@@ -48,6 +48,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let model = CompagniaAgent()
         model.createIfNotPresent()
+        
+        let realm = try! Realm()
+        print(realm.configuration.fileURL ?? "")
     
         return true
     }

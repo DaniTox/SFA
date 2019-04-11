@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class DebugVC : UITableViewController {
     
@@ -47,6 +48,12 @@ class DebugVC : UITableViewController {
         switch indexPath.row {
         case 0:
             break
+        case 1:
+            let realm = try! Realm()
+            try? realm.write {
+                realm.delete(realm.objects(TeenStarMaschio.self))
+                realm.delete(realm.objects(TeenStarFemmina.self))
+            }
         default:
             break
         }

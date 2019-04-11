@@ -10,9 +10,19 @@ import UIKit
 import RealmSwift
 import DZNEmptyDataSet
 
-class TeenStarWeek<T: TeenStarDerivative & Object> {    
+class TeenStarWeek<T: TeenStarDerivative & Object> : Hashable {
+    static func == (lhs: TeenStarWeek<T>, rhs: TeenStarWeek<T>) -> Bool {
+        return lhs.startOfWeek == rhs.startOfWeek //&& lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(startOfWeek)
+//        hasher.combine(id)
+    }
+    
+    var id: UUID = UUID()
     var startOfWeek: Date
-    var tables: [T] = []
+    var tables : [T]
     
     init(startOfWeek : Date) {
         self.startOfWeek = startOfWeek
@@ -39,21 +49,7 @@ class TeenStarListSource<T : TeenStarDerivative & Object> : NSObject, UITableVie
     }
     
     func fetchEntries() {
-        weeks.forEach({ $0.tables.removeAll(keepingCapacity: true) })
-        let allEntries = model.fetchEntries()
-        
-        for entry in allEntries {
-            let startOfWeek = entry.date.startOfWeek!
-            
-            if let existingWeek = weeks.first(where: { $0.startOfWeek == startOfWeek }) {
-                existingWeek.tables.append(entry)
-            } else {
-                let newWeek = TeenStarWeek<T>(startOfWeek: startOfWeek)
-                newWeek.tables.append(entry)
-                self.weeks.append(newWeek)
-            }
-        }
-        
+        self.weeks = model.getThemAll().map { $0 }
         dataLoaded?()
     }
     

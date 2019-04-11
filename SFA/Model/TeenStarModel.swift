@@ -30,6 +30,34 @@ class TeenStarModel<T: TeenStarDerivative & Object> {
         
     }
     
+    public func getThemAll() -> [TeenStarWeek<T>] {
+        let realm = try! Realm()
+        let allDates = realm.objects(T.self).compactMap { $0.date }
+        
+        var weeks: Set<TeenStarWeek<T>> = []
+        
+        for date in allDates {
+            let newWeek = TeenStarWeek<T>(startOfWeek: date.startOfWeek!)
+            weeks.insert(newWeek)
+        }
+        
+        for week in weeks {
+            var calendar = Calendar.current
+            calendar.locale = NSLocale.current
+            
+            let dateFrom = calendar.startOfDay(for: week.startOfWeek)
+            let dateTo = dateFrom.endOfWeek!
+            
+            let fromPredicate = NSPredicate(format: "date >= %@", dateFrom as NSDate)
+            let toPredicate = NSPredicate(format: "date < %@", dateTo as NSDate)
+            let fullPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [fromPredicate, toPredicate])
+            
+            week.tables = realm.objects(T.self).filter(fullPredicate).map { $0 }
+        }
+        
+        return weeks.sorted(by: { $0.startOfWeek > $1.startOfWeek })
+    }
+    
     public func fetchEntries() -> Results<T> {
         let realm = try! Realm()
         let entries = realm.objects(T.self).sorted(byKeyPath: "date", ascending: false)

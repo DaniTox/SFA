@@ -380,10 +380,10 @@
 			isa = PBXGroup;
 			children = (
 				DBF3A2AB21DD723B008AE7D5 /* TeenStarListVC.swift */,
+				DB323B12223D35FB00116FE3 /* TeenStarListSource.swift */,
 				DBF3A2B121DD81D1008AE7D5 /* TeenStarEditEntryVC.swift */,
 				DBF3A2B321DD81F5008AE7D5 /* TeenStarEditEntryView.swift */,
 				DB323B10223C645800116FE3 /* TeenStarDataSource.swift */,
-				DB323B12223D35FB00116FE3 /* TeenStarListSource.swift */,
 			);
 			path = TeenStar;
 			sourceTree = "<group>";

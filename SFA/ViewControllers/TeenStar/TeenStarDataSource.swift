@@ -126,6 +126,7 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: DATE_CELL_ID) as! DatePickerCell
+                cell.datePicker.date = entry.date
                 cell.dateDidChange = { newDate in
                     self.currentEntryMemory.date = newDate
                     self.dateChanged?(newDate)

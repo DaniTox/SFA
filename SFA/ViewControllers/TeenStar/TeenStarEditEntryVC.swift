@@ -62,6 +62,8 @@ class TeenStarEditEntryVC<T : TeenStarDerivative & Object>: UIViewController, Ha
         
         rootView.tableView.delegate = self
         rootView.tableView.dataSource = dataSource
+        
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
