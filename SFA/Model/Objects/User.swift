@@ -44,7 +44,6 @@ class User : Object {
     static func currentUser() -> User {
         let realm = try! Realm()
         let users = realm.objects(User.self)
-        print("getting/creating user in Main Thread? \(Thread.isMainThread ? "Yes" : "No")")
         if let savedUser = users.first {
             return savedUser
         } else {
