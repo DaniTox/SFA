@@ -52,7 +52,7 @@ class TeenStarModel<T: TeenStarDerivative & Object> {
             let toPredicate = NSPredicate(format: "date < %@", dateTo as NSDate)
             let fullPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [fromPredicate, toPredicate])
             
-            week.tables = realm.objects(T.self).filter(fullPredicate).map { $0 }
+            week.tables = realm.objects(T.self).filter(fullPredicate).map { $0 }.sorted(by: { $0.date > $1.date })
         }
         
         return weeks.sorted(by: { $0.startOfWeek > $1.startOfWeek })

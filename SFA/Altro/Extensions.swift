@@ -138,13 +138,27 @@ extension Date {
         var gregorian = Calendar(identifier: .gregorian)
         gregorian.locale = Locale(identifier: "it_IT")
         guard let sunday = gregorian.date(from: gregorian.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self)) else { return nil }
-        return gregorian.date(byAdding: .day, value: 1, to: sunday)
+        return sunday //gregorian.date(byAdding: .day, value: 1, to: sunday)
     }
     
     var endOfWeek: Date? {
         let gregorian = Calendar(identifier: .gregorian)
         guard let sunday = gregorian.date(from: gregorian.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self)) else { return nil }
-        return gregorian.date(byAdding: .day, value: 7, to: sunday)
+        
+        guard let nextSunday = gregorian.date(byAdding: .day, value: 7, to: sunday) else { return nil }
+        let day = gregorian.component(.day, from: nextSunday)
+        let month = gregorian.component(.month, from: nextSunday)
+        let year = gregorian.component(.year, from: nextSunday)
+        
+        var components = DateComponents()
+        components.day = day
+        components.month = month
+        components.year = year
+        components.hour = 23
+        components.minute = 59
+        components.second = 59
+        
+        return gregorian.date(from: components)
     }
     
     enum WeekDays : Int {
