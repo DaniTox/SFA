@@ -57,7 +57,7 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
         currentEntryMemory.sentimento8 = entry.sentimentiTable?.sentimentoOre8
         currentEntryMemory.sentimento14 = entry.sentimentiTable?.sentimentoOre14
         currentEntryMemory.sentimento20 = entry.sentimentiTable?.sentimentoOre20
-        currentEntryMemory.date = Date().startOfDay
+        currentEntryMemory.date = entry.date.startOfDay
         
         if let parsedEntry = entry as? TeenStarFemmina {
             currentEntryMemory.ciclo = parsedEntry.cicloTable?.cicloColor
