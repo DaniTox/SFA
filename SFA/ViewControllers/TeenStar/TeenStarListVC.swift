@@ -17,7 +17,7 @@ class TeenStarListVC<T: TeenStarDerivative & Object>: UITableViewController, DZN
     var dataSource : TeenStarListSource<T>
     init() {
         self.dataSource = TeenStarListSource()
-        super.init(nibName: nil, bundle: nil)
+        super.init(style: .grouped)
     }
     
     required init?(coder aDecoder: NSCoder) {
