@@ -23,16 +23,6 @@ var isAlreadyLaunched : Bool {
     }
 }
 
-var genderSaved : UserGender {
-    get {
-        guard let data = UserDefaults.standard.data(forKey: GENDER_KEY) else { return .boy }
-        return (try? JSONDecoder().decode(UserGender.self, from: data)) ?? .boy
-    } set {
-        let dataToSave = try? JSONEncoder().encode(newValue)
-        UserDefaults.standard.set(dataToSave, forKey: GENDER_KEY)
-    }
-}
-
 var notificheDaRicevere : [String] {
     get {
         if let nots = UserDefaults.standard.array(forKey: NOTIFICHE_DA_RICEVERE) as? [String] {
@@ -45,20 +35,10 @@ var notificheDaRicevere : [String] {
     }
 }
 
-
-var userLogged : User? {
-    get {
-        let data = UserDefaults.standard.data(forKey: "userLogged") ?? Data()
-        return try? JSONDecoder().decode(User.self, from: data)
-    } set {
-        let data = try? JSONEncoder().encode(newValue)
-        UserDefaults.standard.set(data ?? Data(), forKey: "userLogged")
-    }
-}
-
 class RegolaFile : Codable {
+    var scuolaType: ScuolaType
     var categories : [RegolaCategoryFile] = []
-    init() {}
+    init(scuolaType: ScuolaType) { self.scuolaType = scuolaType }
 }
 class RegolaCategoryFile : Codable {
     var id : Int

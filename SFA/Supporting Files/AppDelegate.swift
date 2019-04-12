@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
         Theme.current = (theme == "dark") ? DarkTheme() : LightTheme()
         
         IQKeyboardManager.shared.enable = true
@@ -43,6 +42,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             homeVC.present(onboardingCoordinator.navigationController, animated: true)
             onboardingCoordinator.start()
         }
+        
+        
+        let realmConfig = Realm.Configuration(schemaVersion: 2, migrationBlock: { migration, oldSchemaVersion in
+            
+        })
+        Realm.Configuration.defaultConfiguration = realmConfig
         
         RegolaFetcherModel.shared.createIfNotPresent()
         

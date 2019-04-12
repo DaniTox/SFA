@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class GradoScuolaVC: UIViewController, HasCustomView, OrderedFlowController {
     typealias CustomView = GradoScuolaView
@@ -28,20 +29,43 @@ class GradoScuolaVC: UIViewController, HasCustomView, OrderedFlowController {
         
         rootView.medieButton.addTarget(self, action: #selector(medieTouched), for: .touchUpInside)
         rootView.biennioButton.addTarget(self, action: #selector(biennioTouched), for: .touchUpInside)
+        rootView.triennioButton.addTarget(self, action: #selector(triennioTouched), for: .touchUpInside)
+        
+        checkButton()
     }
 
+    func checkButton() {
+        switch User.currentUser().ageScuola {
+        case .medie:
+            rootView.medieButton.backgroundColor = UIColor.green
+        case .biennio:
+            rootView.biennioButton.backgroundColor = UIColor.green
+        case .triennio:
+            rootView.triennioButton.backgroundColor = UIColor.green
+        }
+    }
+    
     @objc private func medieTouched() {
-        userLogged?.ageScuola = .medie
+        let realm = try! Realm()
+        try? realm.write {
+            User.currentUser().ageScuola = .medie
+        }
         workFinished()
     }
     
     @objc private func biennioTouched() {
-        userLogged?.ageScuola = .biennio
+        let realm = try! Realm()
+        try? realm.write {
+            User.currentUser().ageScuola = .biennio
+        }
         workFinished()
     }
     
     @objc private func triennioTouched() {
-        userLogged?.ageScuola = .triennio
+        let realm = try! Realm()
+        try? realm.write {
+            User.currentUser().ageScuola = .triennio
+        }
         workFinished()
     }
     

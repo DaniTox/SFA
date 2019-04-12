@@ -34,12 +34,12 @@ class GenderVC: UIViewController, HasCustomView, OrderedFlowController {
     }
     
     @objc private func maleTouched() {
-        genderSaved = .boy
+        User.currentUser().gender = .boy
         workFinished()
     }
     
     @objc private func girlTouched() {
-        genderSaved = .girl
+        User.currentUser().gender = .girl
         workFinished()
     }
     

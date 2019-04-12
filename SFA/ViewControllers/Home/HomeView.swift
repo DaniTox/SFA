@@ -13,12 +13,13 @@ class HomeView : UIView {
     lazy var regolaButton : UIBouncyButton = {
         let button = UIBouncyButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Regola di Vita", for: .normal)
+        button.titleLabel?.numberOfLines = 0
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.titleLabel?.minimumScaleFactor = 0.8
         button.backgroundColor = .green
         
+        //updateRDVTitle()
         //        button.layer.masksToBounds = true
         //        button.layer.cornerRadius = 10
         return button
@@ -98,6 +99,17 @@ class HomeView : UIView {
         //        stackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         //        stackView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.70).isActive = true
         //        stackView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7).isActive = true
+    }
+    
+    func updateRDVTitle() {
+        switch User.currentUser().ageScuola {
+        case .medie:
+            regolaButton.setTitle("Agenda dell'allegria e della serenità", for: .normal)
+        case .biennio:
+            regolaButton.setTitle("Il preogetto delle 3S", for: .normal)
+        case .triennio:
+            regolaButton.setTitle("Regola di Vita", for: .normal)
+        }
     }
     
     

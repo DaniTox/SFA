@@ -10,11 +10,22 @@ import UIKit
 
 class RiassuntoVC : UITableViewController {
 
-    let dataSource = RiassuntoDataSource()
+    var dataSource : RiassuntoDataSource
+    var regolaType: ScuolaType
+    
+    init(style: UITableView.Style, regolaType: ScuolaType) {
+        self.regolaType = regolaType
+        self.dataSource = RiassuntoDataSource(regolaType: regolaType)
+        super.init(style: style)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "La tua Regola"
+        self.title = "Riassunto"
         self.view.backgroundColor = Theme.current.tableViewBackground
         
         let rightButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(regolaViewWasTapped))
@@ -27,7 +38,7 @@ class RiassuntoVC : UITableViewController {
     }
     
     @objc func regolaViewWasTapped() {
-        let vc = RegolaCategorieVC()
+        let vc = RegolaCategorieVC(regolaType: regolaType)
         navigationController?.pushViewController(vc, animated: true)
     }
     

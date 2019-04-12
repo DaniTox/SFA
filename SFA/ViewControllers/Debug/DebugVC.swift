@@ -47,13 +47,20 @@ class DebugVC : UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            break
+            let realm = try! Realm()
+            try? realm.write {
+                realm.delete(realm.objects(RegolaVita.self))
+                realm.delete(realm.objects(RegolaCategoria.self))
+                realm.delete(realm.objects(RegolaDomanda.self))
+            }
+            self.showError(withTitle: "Completato", andMessage: "La regola di vita è stata resettata")
         case 1:
             let realm = try! Realm()
             try? realm.write {
                 realm.delete(realm.objects(TeenStarMaschio.self))
                 realm.delete(realm.objects(TeenStarFemmina.self))
             }
+            self.showError(withTitle: "Completato", andMessage: "TeenSTAR è stato resettato")
         default:
             break
         }

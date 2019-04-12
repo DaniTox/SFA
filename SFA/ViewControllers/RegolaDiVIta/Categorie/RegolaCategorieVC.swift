@@ -20,6 +20,15 @@ class RegolaCategorieVC: UIViewController, HasCustomView {
     
     var observer : NSObjectProtocol!
     
+    init(regolaType: ScuolaType) {
+        super.init(nibName: nil, bundle: nil)
+        self.regola = regolaFetcherModel.getRegola(type: regolaType)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,7 +42,6 @@ class RegolaCategorieVC: UIViewController, HasCustomView {
         rootView.tableView.dataSource = self
         rootView.refreshControl.addTarget(self, action: #selector(tablePulled), for: .valueChanged)
         
-        self.regola = regolaFetcherModel.getRegola()
     }
     
     private func updateTheme() {

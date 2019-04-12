@@ -27,14 +27,16 @@ class RiassuntoDataSource : NSObject, UITableViewDataSource {
         .init(categoriaIndex: 5, domandaIndex: 21)
     ]
     
-    override init() {
+    init(regolaType: ScuolaType) {
         super.init()
-        self.regola = RegolaFetcherModel.shared.getRegola()
+        self.regola = RegolaFetcherModel.shared.getRegola(type: regolaType)
         
         let realm = try! Realm()
         for indice in self.categoriesIndexes {
             let predicate = NSPredicate(format: "order == %d", indice.domandaIndex)
-            domande.append(contentsOf: realm.objects(RegolaDomanda.self).filter(predicate).map { $0 })
+            let typePredicate = NSPredicate(format: "ANY categoria.regola.scuolaTypeID == %d", regolaType.rawValue)
+            let fullPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate, typePredicate])
+            domande.append(contentsOf: realm.objects(RegolaDomanda.self).filter(fullPredicate).map { $0 })
         }
     }
     
@@ -59,6 +61,8 @@ class RiassuntoDataSource : NSObject, UITableViewDataSource {
         case 0:
             cell.mainLabel.text = "\(domanda.domanda)"
         case 1:
+            cell.mainLabel.numberOfLines = 0
+            cell.mainLabel.textColor = UIColor.lightGray
             cell.mainLabel.text = "\(domanda.risposta ?? "Nessuna risposta")"
         default:
             break

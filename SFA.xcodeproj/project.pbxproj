@@ -29,6 +29,8 @@
 		DB32449422469AD100116FE3 /* TeenStarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB32449322469AD100116FE3 /* TeenStarCell.swift */; };
 		DB325EDF21D422D7009ADEFC /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB325EDE21D422D7009ADEFC /* RegisterView.swift */; };
 		DB325EE121D5033C009ADEFC /* RotationLogicNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */; };
+		DB4DAC552260FFF700730B2A /* regolaBiennio.json in Resources */ = {isa = PBXBuildFile; fileRef = DB4DAC542260FFF700730B2A /* regolaBiennio.json */; };
+		DB4DAC59226124B300730B2A /* regolaMedie.json in Resources */ = {isa = PBXBuildFile; fileRef = DB4DAC58226124B300730B2A /* regolaMedie.json */; };
 		DB4F3BBC21F5C34C0040F4C4 /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F3BBB21F5C34C0040F4C4 /* Themes.swift */; };
 		DB4F3BBE21F5CE220040F4C4 /* BasicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F3BBD21F5CE220040F4C4 /* BasicCell.swift */; };
 		DB4F3BC321F5F2D90040F4C4 /* ThemedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F3BC221F5F2D90040F4C4 /* ThemedNavigationController.swift */; };
@@ -71,7 +73,7 @@
 		DB88DBEB21A975C100B0699B /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBE621A975C100B0699B /* FadeTransition.swift */; };
 		DB88DBEC21A975C100B0699B /* TimerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBE721A975C100B0699B /* TimerEx.swift */; };
 		DB88DBEE21A97F4400B0699B /* RootAppTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBED21A97F4400B0699B /* RootAppTabBarController.swift */; };
-		DB88DBF721AAF3AD00B0699B /* regola.json in Resources */ = {isa = PBXBuildFile; fileRef = DB88DBF621AAF3AD00B0699B /* regola.json */; };
+		DB88DBF721AAF3AD00B0699B /* regolaTriennio.json in Resources */ = {isa = PBXBuildFile; fileRef = DB88DBF621AAF3AD00B0699B /* regolaTriennio.json */; };
 		DB88DBF921AB2BE000B0699B /* DomandeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBF821AB2BE000B0699B /* DomandeVC.swift */; };
 		DB88DBFB21AB2C0D00B0699B /* DomandeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBFA21AB2C0D00B0699B /* DomandeView.swift */; };
 		DB88DBFF21AB315200B0699B /* RegolaCategorieVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBFE21AB315200B0699B /* RegolaCategorieVC.swift */; };
@@ -168,6 +170,8 @@
 		DB32449322469AD100116FE3 /* TeenStarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarCell.swift; sourceTree = "<group>"; };
 		DB325EDE21D422D7009ADEFC /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationLogicNavigationController.swift; sourceTree = "<group>"; };
+		DB4DAC542260FFF700730B2A /* regolaBiennio.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = regolaBiennio.json; sourceTree = "<group>"; };
+		DB4DAC58226124B300730B2A /* regolaMedie.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = regolaMedie.json; sourceTree = "<group>"; };
 		DB4F3BBB21F5C34C0040F4C4 /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
 		DB4F3BBD21F5CE220040F4C4 /* BasicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicCell.swift; sourceTree = "<group>"; };
 		DB4F3BC221F5F2D90040F4C4 /* ThemedNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemedNavigationController.swift; sourceTree = "<group>"; };
@@ -214,7 +218,7 @@
 		DB88DBE621A975C100B0699B /* FadeTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
 		DB88DBE721A975C100B0699B /* TimerEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerEx.swift; sourceTree = "<group>"; };
 		DB88DBED21A97F4400B0699B /* RootAppTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAppTabBarController.swift; sourceTree = "<group>"; };
-		DB88DBF621AAF3AD00B0699B /* regola.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = regola.json; sourceTree = "<group>"; };
+		DB88DBF621AAF3AD00B0699B /* regolaTriennio.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = regolaTriennio.json; sourceTree = "<group>"; };
 		DB88DBF821AB2BE000B0699B /* DomandeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomandeVC.swift; sourceTree = "<group>"; };
 		DB88DBFA21AB2C0D00B0699B /* DomandeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomandeView.swift; sourceTree = "<group>"; };
 		DB88DBFE21AB315200B0699B /* RegolaCategorieVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegolaCategorieVC.swift; sourceTree = "<group>"; };
@@ -321,6 +325,7 @@
 		DB323B0D223C558700116FE3 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				DB7BEF8821D01442007A550E /* User.swift */,
 				DBF5C1A422330D070086E9E7 /* RegolaVita.swift */,
 				DBF5C1A6223443870086E9E7 /* Note.swift */,
 				DB323B0B223C4A7C00116FE3 /* VerificaCompagnia.swift */,
@@ -495,7 +500,6 @@
 				DB67643521F634C800651AD8 /* Network */,
 				DBCE9ECE21EFB227005B286A /* Data Sources */,
 				DB61DA1221B5B9ED006B308B /* RegolaFetcherModel.swift */,
-				DB7BEF8821D01442007A550E /* User.swift */,
 				DB7BEF8C21D0172E007A550E /* URLs.swift */,
 				DBFE97F921D57CD500E82803 /* NoteModel.swift */,
 				DBF3A2AF21DD73D0008AE7D5 /* TeenStarModel.swift */,
@@ -611,7 +615,9 @@
 		DBAF3C22219C9F51003083EA /* Altro */ = {
 			isa = PBXGroup;
 			children = (
-				DB88DBF621AAF3AD00B0699B /* regola.json */,
+				DB4DAC58226124B300730B2A /* regolaMedie.json */,
+				DB88DBF621AAF3AD00B0699B /* regolaTriennio.json */,
+				DB4DAC542260FFF700730B2A /* regolaBiennio.json */,
 				DB53C7AA21E103C90001054B /* compagnie.json */,
 				DBAF3C18219C9203003083EA /* Costanti.swift */,
 				DBAF3C1D219C9478003083EA /* Protocolli.swift */,
@@ -894,11 +900,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB4DAC552260FFF700730B2A /* regolaBiennio.json in Resources */,
 				DBAAE2B121A5C3FA00211CBF /* NotificheVC.storyboard in Resources */,
 				DB53C7AB21E103C90001054B /* compagnie.json in Resources */,
 				DBAAE2AD21A5ACCF00211CBF /* WelcomeVC.storyboard in Resources */,
 				DBAF3C0F219C901B003083EA /* LaunchScreen.storyboard in Resources */,
-				DB88DBF721AAF3AD00B0699B /* regola.json in Resources */,
+				DB88DBF721AAF3AD00B0699B /* regolaTriennio.json in Resources */,
+				DB4DAC59226124B300730B2A /* regolaMedie.json in Resources */,
 				DBAF3C0C219C901B003083EA /* Assets.xcassets in Resources */,
 				DBAF3C46219CBF35003083EA /* IQKeyboardManager.bundle in Resources */,
 			);

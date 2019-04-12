@@ -12,10 +12,21 @@ import RealmSwift
 class RegolaVita : Object {
     @objc dynamic var id = UUID().uuidString
     @objc dynamic var dateOfModification = Date()
+    @objc dynamic var scuolaTypeID: Int  = -1
     let categorie = List<RegolaCategoria>()
+    
+    var scuolaType: ScuolaType {
+        get {
+            return ScuolaType(rawValue: self.scuolaTypeID)!
+        } set {
+            self.scuolaTypeID = newValue.rawValue
+        }
+    }
     
     static func createFromFile(regolaFile: RegolaFile) -> RegolaVita {
         let regolaCD = RegolaVita()
+        regolaCD.scuolaType = regolaFile.scuolaType
+        
         for categoriaFile in regolaFile.categories {
             let categoriaCD = RegolaCategoria()
             regolaCD.categorie.append(categoriaCD)

@@ -11,24 +11,37 @@ import CoreData
 import RealmSwift
 
 class RegolaFetcherModel {
+
+    enum RegoleFileNames: String, CaseIterable {
+        case medie = "regolaMedie"
+        case biennio = "regolaBiennio"
+        case triennio = "regolaTriennio"
+    }
     
     static let shared = RegolaFetcherModel()
     private init() { }
-
-    public var persistentContainer: NSPersistentContainer?
-    
-//    public var regola : Regola?
     
     func createIfNotPresent() {
         let realm = try! Realm()
-        let allRegole = realm.objects(RegolaVita.self)
-        if allRegole.count < 1 {
-            createRegolaModel()
+        for type in ScuolaType.allCases {
+            let allRegole = realm.objects(RegolaVita.self).filter(NSPredicate(format: "scuolaTypeID == %d", type.rawValue))
+            if allRegole.count < 1 {
+                var fileName: RegoleFileNames
+                switch type {
+                case .medie:
+                    fileName = .medie
+                case .biennio:
+                    fileName = .biennio
+                case .triennio:
+                    fileName = .triennio
+                }
+                createRegolaModel(fileName: fileName.rawValue)
+            }
         }
     }
 
-    public func createRegolaModel() {
-        let path = Bundle.main.path(forResource: "regola", ofType: "json")!
+    public func createRegolaModel(fileName: String) {
+        let path = Bundle.main.path(forResource: fileName, ofType: "json")!
         let data = try! Data(contentsOf: URL(fileURLWithPath: path))
         let regolaFile = try! JSONDecoder().decode(RegolaFile.self, from: data)
         
@@ -39,9 +52,9 @@ class RegolaFetcherModel {
         }
     }
     
-    private func getLatestRegola() throws -> RegolaVita {
+    private func getLatestRegola(type: ScuolaType) throws -> RegolaVita {
         let realm = try! Realm()
-        let regole = realm.objects(RegolaVita.self)
+        let regole = realm.objects(RegolaVita.self).filter(NSPredicate(format: "scuolaTypeID == %d", type.rawValue))
         if let regola = regole.first {
             return regola
         } else {
@@ -49,16 +62,18 @@ class RegolaFetcherModel {
         }
     }
     
-    public func getRegola() -> RegolaVita? {
-        return try? self.getLatestRegola()
+    public func getRegola(type: ScuolaType) -> RegolaVita? {
+        return try? self.getLatestRegola(type: type)
     }
     
-    
-    
-    public func getDomande(from category: RegolaCategoria) -> [RegolaDomanda] {
-        let realm = try! Realm()
-        let domande = realm.objects(RegolaDomanda.self).filter(NSPredicate(format: "categoria = %@", category))
-        return domande.compactMap { $0 }
-    }
+//    public func getDomande(from category: RegolaCategoria, regolaType: ScuolaType) -> [RegolaDomanda] {
+//        let realm = try! Realm()
+//        let scuolaPredicate = NSPredicate(format: "regola.scuolaTypeID == %d", regolaType.rawValue)
+//        let categoriaPredicate = NSPredicate(format: "categoria = %@", category)
+//        let newPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [scuolaPredicate, categoriaPredicate])
+//
+//        let domande = realm.objects(RegolaDomanda.self).filter(newPredicate)
+//        return domande.compactMap { $0 }
+//    }
     
 }

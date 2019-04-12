@@ -29,6 +29,12 @@ class HomeViewController : UIViewController, HasCustomView {
         self.navigationItem.setRightBarButton(rightButton, animated: true)
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.rootView.updateRDVTitle()
+    }
+    
     @objc func calendarioButtonTapped() {
         guard let url = URL(string: "\(URLs.calendarioURL)") else { fatalError() }
         let vc = SFSafariViewController(url: url)
@@ -36,8 +42,17 @@ class HomeViewController : UIViewController, HasCustomView {
     }
     
     @objc func showRegolaController() {
-        let vc = RiassuntoVC(style: .grouped)
-        navigationController?.pushViewController(vc, animated: true)
+        switch User.currentUser().ageScuola {
+        case .medie:
+            let vc = RegolaCategorieVC(regolaType: .medie)
+            navigationController?.pushViewController(vc, animated: true)
+        case .biennio:
+            let vc = RegolaCategorieVC(regolaType: .biennio)
+            navigationController?.pushViewController(vc, animated: true)
+        case .triennio:
+            let vc = RiassuntoVC(style: .grouped, regolaType: ScuolaType.triennio)
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     @objc private func showNoteListController() {
@@ -46,16 +61,12 @@ class HomeViewController : UIViewController, HasCustomView {
     }
     
     @objc private func showTeenStarController() {
-        if let userGender = userLogged?.gender {
-            if userGender == .boy {
-                let vc = TeenStarListVC<TeenStarMaschio>()
-                navigationController?.pushViewController(vc, animated: true)
-            } else if userGender == .girl {
-                let vc = TeenStarListVC<TeenStarFemmina>()
-                navigationController?.pushViewController(vc, animated: true)
-            }
-        } else {
+        let userGender = User.currentUser().gender
+        if userGender == .boy {
             let vc = TeenStarListVC<TeenStarMaschio>()
+            navigationController?.pushViewController(vc, animated: true)
+        } else if userGender == .girl {
+            let vc = TeenStarListVC<TeenStarFemmina>()
             navigationController?.pushViewController(vc, animated: true)
         }
         
