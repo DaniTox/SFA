@@ -57,6 +57,10 @@ class TeenStarListSource<T : TeenStarDerivative & Object> : NSObject, UITableVie
         return weeks[indexPath.section].tables[indexPath.row]
     }
     
+    func getWeek(at index: Int) -> TeenStarWeek<T> {
+        return self.weeks[index]
+    }
+    
     func remove(table: T) {
         let realm = try! Realm()
         try? realm.write {
@@ -73,15 +77,15 @@ class TeenStarListSource<T : TeenStarDerivative & Object> : NSObject, UITableVie
         return self.weeks.count
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let week = self.weeks[section]
-        
-        if Date().startOfWeek == week.startOfWeek {
-            return "Questa settimana"
-        } else {
-            return "\(week.startOfWeek.stringValue) - \(week.startOfWeek.endOfWeek!.stringValue)"
-        }
-    }
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        let week = self.weeks[section]
+//
+//        if Date().startOfWeek == week.startOfWeek {
+//            return "Questa settimana"
+//        } else {
+//            return "\(week.startOfWeek.stringValue) - \(week.startOfWeek.endOfWeek!.stringValue)"
+//        }
+//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TeenStarCell

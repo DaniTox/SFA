@@ -8,11 +8,11 @@
   "tvOS" : [
 
   ],
-  "commitish" : "4.3",
+  "commitish" : "4.4",
   "iOS" : [
     {
       "name" : "ColorSlider",
-      "hash" : "5c450e0da7688a198922f01f434b2eaf78d442aa53eebda169163f0ee0a9d90a"
+      "hash" : "05ba6d5506c5c663dedd255581dc197a6d67062648e72ea82ca7eba57f0968eb"
     }
   ]
 }

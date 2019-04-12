@@ -1,5 +1,5 @@
 github "dzenbot/DZNEmptyDataSet" "v1.8.1"
-github "gizmosachin/ColorSlider" "4.3"
+github "gizmosachin/ColorSlider" "4.4"
 github "huri000/QuickLayout" "2.1.1"
 github "huri000/SwiftEntryKit" "0.8.9"
-github "realm/realm-cocoa" "v3.14.0"
+github "realm/realm-cocoa" "v3.14.1"

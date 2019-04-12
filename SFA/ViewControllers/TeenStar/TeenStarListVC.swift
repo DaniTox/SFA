@@ -88,4 +88,25 @@ class TeenStarListVC<T: TeenStarDerivative & Object>: UITableViewController, DZN
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 170
     }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = HeaderView()
+        let week = dataSource.getWeek(at: section)
+        let now = Date()
+        let endDate = week.startOfWeek
+        
+        let components = Calendar.current.dateComponents([.weekOfYear], from: endDate, to: now)
+        if components.weekOfYear ?? 0 == 0 {
+            view.mainLabel.text = "Questa settimana"
+        } else if components.weekOfYear ?? 0 == 1 {
+            view.mainLabel.text = "1 settimana fa"
+        } else {
+            view.mainLabel.text = "\(components.weekOfYear ?? 0) settimane fa"
+        }        
+        return view
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 70
+    }
 }
