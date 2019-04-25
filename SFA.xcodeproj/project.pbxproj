@@ -31,6 +31,8 @@
 		DB325EE121D5033C009ADEFC /* RotationLogicNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */; };
 		DB4DAC552260FFF700730B2A /* regolaBiennio.json in Resources */ = {isa = PBXBuildFile; fileRef = DB4DAC542260FFF700730B2A /* regolaBiennio.json */; };
 		DB4DAC59226124B300730B2A /* regolaMedie.json in Resources */ = {isa = PBXBuildFile; fileRef = DB4DAC58226124B300730B2A /* regolaMedie.json */; };
+		DB4DFBC72272662000FAF396 /* verificaBiennio.json in Resources */ = {isa = PBXBuildFile; fileRef = DB4DFBC62272662000FAF396 /* verificaBiennio.json */; };
+		DB4DFBC92272688800FAF396 /* verificaTriennio.json in Resources */ = {isa = PBXBuildFile; fileRef = DB4DFBC82272688800FAF396 /* verificaTriennio.json */; };
 		DB4F3BBC21F5C34C0040F4C4 /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F3BBB21F5C34C0040F4C4 /* Themes.swift */; };
 		DB4F3BBE21F5CE220040F4C4 /* BasicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F3BBD21F5CE220040F4C4 /* BasicCell.swift */; };
 		DB4F3BC321F5F2D90040F4C4 /* ThemedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F3BC221F5F2D90040F4C4 /* ThemedNavigationController.swift */; };
@@ -172,6 +174,8 @@
 		DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationLogicNavigationController.swift; sourceTree = "<group>"; };
 		DB4DAC542260FFF700730B2A /* regolaBiennio.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = regolaBiennio.json; sourceTree = "<group>"; };
 		DB4DAC58226124B300730B2A /* regolaMedie.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = regolaMedie.json; sourceTree = "<group>"; };
+		DB4DFBC62272662000FAF396 /* verificaBiennio.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = verificaBiennio.json; sourceTree = "<group>"; };
+		DB4DFBC82272688800FAF396 /* verificaTriennio.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = verificaTriennio.json; sourceTree = "<group>"; };
 		DB4F3BBB21F5C34C0040F4C4 /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
 		DB4F3BBD21F5CE220040F4C4 /* BasicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicCell.swift; sourceTree = "<group>"; };
 		DB4F3BC221F5F2D90040F4C4 /* ThemedNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemedNavigationController.swift; sourceTree = "<group>"; };
@@ -618,6 +622,8 @@
 				DB4DAC58226124B300730B2A /* regolaMedie.json */,
 				DB88DBF621AAF3AD00B0699B /* regolaTriennio.json */,
 				DB4DAC542260FFF700730B2A /* regolaBiennio.json */,
+				DB4DFBC62272662000FAF396 /* verificaBiennio.json */,
+				DB4DFBC82272688800FAF396 /* verificaTriennio.json */,
 				DB53C7AA21E103C90001054B /* compagnie.json */,
 				DBAF3C18219C9203003083EA /* Costanti.swift */,
 				DBAF3C1D219C9478003083EA /* Protocolli.swift */,
@@ -903,12 +909,14 @@
 				DB4DAC552260FFF700730B2A /* regolaBiennio.json in Resources */,
 				DBAAE2B121A5C3FA00211CBF /* NotificheVC.storyboard in Resources */,
 				DB53C7AB21E103C90001054B /* compagnie.json in Resources */,
+				DB4DFBC72272662000FAF396 /* verificaBiennio.json in Resources */,
 				DBAAE2AD21A5ACCF00211CBF /* WelcomeVC.storyboard in Resources */,
 				DBAF3C0F219C901B003083EA /* LaunchScreen.storyboard in Resources */,
 				DB88DBF721AAF3AD00B0699B /* regolaTriennio.json in Resources */,
 				DB4DAC59226124B300730B2A /* regolaMedie.json in Resources */,
 				DBAF3C0C219C901B003083EA /* Assets.xcassets in Resources */,
 				DBAF3C46219CBF35003083EA /* IQKeyboardManager.bundle in Resources */,
+				DB4DFBC92272688800FAF396 /* verificaTriennio.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

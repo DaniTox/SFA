@@ -1,0 +1,40 @@
+{
+    "categorie" : [
+        {
+            "nome" : "Presenza, Interesse e Stile",
+            "domande" : [
+                "E' costante nella partecipazione e puntuale agli incontri, utilizza in modo appropriato le risorse (materiali, attrezzature e strumenti, spazi, strutture)",
+                "Dimostra impegno e interesse per il percorso e le attività proposte; vive volentieri i momenti e le attività assegnate (gioco, condivisione, preghiera, riflessione, laboratori)"
+            ]
+        },
+        {
+            "nome" : "Priorità, organizzazione e CONFRONTO",
+            "domande" : [
+                "Organizza lo spazio di lavoro e le attività (es. studio, sport, formazione) pianificando i propri impegni (priorità, tempi) in base alle disposizioni ricevute",
+                "Sa confrontarsi e interagire con i responsabili dei settori (Docenti, formatori, rappresentanti) per ottenere consigli e pareri"
+            ]
+        },
+        {
+            "nome" : "COMUNIONE e spirito di gruppo",
+            "domande" : [
+                "Collabora con le altre persone del gruppo al conseguimento degli obiettivi, rispettando lo stile e le regole comuni",
+                "Sa esprimere il proprio contributo nel gruppo, rispettando idee e apporti degli altri membri del team"
+            ]
+        },
+        {
+            "nome" : "SERVIZIO e attenzione al prossimo",
+            "domande" : [
+                "Si mostra disponibile a svolgere lavori e servizi su indicazione dei responsabili",
+                "Sa accorgersi dei bisogni ordinari dell’ambiente e se ne fa carico"
+            ]
+        },
+        {
+            "nome" : "CARISMA SALESIANO",
+            "domande" : [
+                "In questa scuola si sente a mio agio, si sente “a casa”",
+                "Accetta consegne extra e piccoli compiti di responsabilità verso i più giovani, in continuità con il percorso di formazione ricevuto"
+            ]
+        }
+    ]
+}
+
