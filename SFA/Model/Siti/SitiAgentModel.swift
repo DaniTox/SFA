@@ -70,6 +70,7 @@ class SitiAgent : NetworkAgent<SitiNetworkResponse> {
             newSito.descrizione = sito.descrizione ?? ""
             newSito.order = sito.order ?? 0
             newSito.url = URL(string: sito.urlString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlFragmentAllowed) ?? "")
+            newSito.scuolaType = sito.scuolaType
             
             newSites.append(newSito)
         }

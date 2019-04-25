@@ -28,11 +28,33 @@ class SitoWeb : Object {
     @objc dynamic var nome = ""
     @objc dynamic var descrizione = ""
     @objc private dynamic var urlString = ""
+    @objc private dynamic var scuolaTypeRaw = 0
     let categoria = LinkingObjects(fromType: SitoWebCategoria.self, property: "siti")
     
     var url : URL? {
         get { return URL(string: urlString) }
         set { urlString = newValue?.absoluteString ?? "" }
+    }
+    
+    var scuolaType: ScuolaType? {
+        get {
+            switch scuolaTypeRaw {
+            case 1:
+                return ScuolaType.medie
+            case 2:
+                return ScuolaType.biennio
+            case 3:
+                return ScuolaType.triennio
+            default:
+                return nil
+            }
+        } set {
+            if let val = newValue {
+                scuolaTypeRaw = val.rawValue
+            } else {
+                scuolaTypeRaw = 0
+            }
+        }
     }
     
     override static func primaryKey() -> String {
@@ -47,6 +69,7 @@ struct SitoObject : Codable {
     var descrizione : String?
     var urlString : String
     var categoriaID: Int?
+    var scuolaType: ScuolaType?
 }
 
 struct SitoCategoriaObject : Codable {

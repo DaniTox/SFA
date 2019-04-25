@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         
-        let realmConfig = Realm.Configuration(schemaVersion: 2, migrationBlock: { migration, oldSchemaVersion in
+        let realmConfig = Realm.Configuration(schemaVersion: 3, migrationBlock: { migration, oldSchemaVersion in
             
         })
         Realm.Configuration.defaultConfiguration = realmConfig

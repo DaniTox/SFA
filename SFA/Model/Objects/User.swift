@@ -13,6 +13,14 @@ enum ScuolaType : Int, Codable, CaseIterable {
     case medie = 1
     case biennio = 2
     case triennio = 3
+    
+    var stringValue: String {
+        switch self {
+        case .medie: return "Medie"
+        case .biennio: return "Biennio Superiori"
+        case .triennio: return "Triennio Superiori"
+        }
+    }
 }
 
 class User : Object {

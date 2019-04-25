@@ -47,7 +47,15 @@ class SitiDataSource : NSObject, UITableViewDataSource {
     }
     
     private func fetchLocalWebsistes() {
-        self.sites =  model.fetchLocalWebsites(type: type)
+        let scuolaType = User.currentUser().ageScuola
+        var sites = model.fetchLocalWebsites(type: type)
+        let siteScuolaType = sites.filter { $0.scuolaType == scuolaType }
+        let siteNotScuolaType = sites.filter { $0.scuolaType != scuolaType }
+        
+        sites.removeAll(keepingCapacity: true)
+        sites.append(contentsOf: siteScuolaType)
+        sites.append(contentsOf: siteNotScuolaType)
+        self.sites = sites
     }
     
     public func fetchSitesFromNetwork(completion: (() -> Void)? = nil) {
@@ -72,7 +80,11 @@ class SitiDataSource : NSObject, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "sitoCell") as! SitoCell
         
         let site = self.sites[indexPath.row]
-        cell.nomeSitoLabel.text = site.nome
+        var nomeSito = site.nome
+        if let scuolaType = site.scuolaType {
+            nomeSito.append(" (\(scuolaType.stringValue))")
+        }
+        cell.nomeSitoLabel.text = nomeSito
         cell.urlLabel.text = site.url?.absoluteString
         cell.accessoryType = .disclosureIndicator
         
