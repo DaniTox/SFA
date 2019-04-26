@@ -73,7 +73,8 @@ class HomeViewController : UIViewController, HasCustomView {
     }
     
     @objc private func showVerificaCompagniaController() {
-        let vc = VerificaCompagniaVC()
+        let ageScuola = User.currentUser().ageScuola
+        let vc = VerificaCompagniaVC(type: ageScuola)
         navigationController?.pushViewController(vc, animated: true)
     }
     

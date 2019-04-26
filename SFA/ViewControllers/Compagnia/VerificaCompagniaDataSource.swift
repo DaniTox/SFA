@@ -17,13 +17,13 @@ import RealmSwift
 class VerificaCompagniaDataSource : NSObject, UITableViewDataSource {
     
     public var verifica : VerificaCompagnia
-    private let model : CompagniaAgent!
+    private var model : CompagniaAgent
     
     private var storage = List<VerificaCategoria>()
     
-    override init() {
+    init(scuolaType: ScuolaType) {
         self.model = CompagniaAgent()
-        self.verifica = model.getLatestVerifica()
+        self.verifica = model.getLatestVerifica(of: scuolaType)!
         
         self.storage = self.verifica.categorie
     }

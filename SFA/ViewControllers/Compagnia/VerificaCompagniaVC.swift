@@ -17,7 +17,16 @@ class VerificaCompagniaVC: UIViewController, HasCustomView {
     }
     
     var model : CompagniaAgent = CompagniaAgent()
-    var dataSource : VerificaCompagniaDataSource = VerificaCompagniaDataSource()
+    var dataSource : VerificaCompagniaDataSource
+    
+    init(type: ScuolaType) {
+        self.dataSource = VerificaCompagniaDataSource(scuolaType: type)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +38,6 @@ class VerificaCompagniaVC: UIViewController, HasCustomView {
         rootView.tableView.register(CompagniaDomandaCell.self, forCellReuseIdentifier: "cell")
         rootView.tableView.delegate = self
         
-        dataSource.verifica = model.getLatestVerifica()
         rootView.tableView.dataSource = dataSource
         
     }

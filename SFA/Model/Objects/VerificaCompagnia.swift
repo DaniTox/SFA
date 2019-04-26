@@ -12,10 +12,44 @@ import RealmSwift
 class VerificaCompagnia : Object {
     @objc dynamic var id = UUID().uuidString
     @objc dynamic var name = ""
+    @objc dynamic var scuolaTypeID = 0
     let categorie = List<VerificaCategoria>()
     
     override static func primaryKey() -> String? {
         return "id"
+    }
+    
+    var scuolaType: ScuolaType {
+        get {
+            return ScuolaType(rawValue: scuolaTypeID)!
+        } set {
+            self.scuolaTypeID = newValue.rawValue
+        }
+    }
+    
+    static func create(from file: CompagniaFile) -> VerificaCompagnia {
+        //creo una verifica vuota in CoreData
+        let verifica = VerificaCompagnia()
+        verifica.scuolaType = file.scuolaType
+        
+        //per ogni categoria che c'è nel file, la creo in CoreData e la aggiungo alla verifica in CoreData
+        for categoria in file.categorie {
+            let cdCategoria = VerificaCategoria()
+            cdCategoria.name = categoria.nome
+            
+            //per ogni domanda nel file, creo una domanda CoreData e la aggiungo alla categoria CoreData
+            for domandaString in categoria.domande {
+                let cdDomanda = VerificaDomanda()
+                cdDomanda.domanda = domandaString
+                
+                cdCategoria.domande.append(cdDomanda)
+            }
+            
+            //qua aggiungo la categoria alla verifica come detto in precedenza
+            verifica.categorie.append(cdCategoria)
+        }
+        
+        return verifica
     }
 }
 

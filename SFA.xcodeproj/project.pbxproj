@@ -46,7 +46,7 @@
 		DB53C78021DFCBF90001054B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C77F21DFCBF90001054B /* SettingsView.swift */; };
 		DB53C78221DFCC3D0001054B /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C78121DFCC3D0001054B /* SettingsVC.swift */; };
 		DB53C78621E0F7E40001054B /* CompagniaAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C78521E0F7E40001054B /* CompagniaAgent.swift */; };
-		DB53C7AB21E103C90001054B /* compagnie.json in Resources */ = {isa = PBXBuildFile; fileRef = DB53C7AA21E103C90001054B /* compagnie.json */; };
+		DB53C7AB21E103C90001054B /* verificaMedie.json in Resources */ = {isa = PBXBuildFile; fileRef = DB53C7AA21E103C90001054B /* verificaMedie.json */; };
 		DB53C7AD21E3D8380001054B /* CompagniaDomandaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C7AC21E3D8380001054B /* CompagniaDomandaCell.swift */; };
 		DB5751DC21DA651C00F97D25 /* BoldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5751DB21DA651C00F97D25 /* BoldCell.swift */; };
 		DB5751DE21DA719900F97D25 /* TextEditingBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5751DD21DA719900F97D25 /* TextEditingBottomBar.swift */; };
@@ -189,7 +189,7 @@
 		DB53C77F21DFCBF90001054B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		DB53C78121DFCC3D0001054B /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		DB53C78521E0F7E40001054B /* CompagniaAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompagniaAgent.swift; sourceTree = "<group>"; };
-		DB53C7AA21E103C90001054B /* compagnie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = compagnie.json; sourceTree = "<group>"; };
+		DB53C7AA21E103C90001054B /* verificaMedie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = verificaMedie.json; sourceTree = "<group>"; };
 		DB53C7AC21E3D8380001054B /* CompagniaDomandaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompagniaDomandaCell.swift; sourceTree = "<group>"; };
 		DB5751DB21DA651C00F97D25 /* BoldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldCell.swift; sourceTree = "<group>"; };
 		DB5751DD21DA719900F97D25 /* TextEditingBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditingBottomBar.swift; sourceTree = "<group>"; };
@@ -622,9 +622,9 @@
 				DB4DAC58226124B300730B2A /* regolaMedie.json */,
 				DB88DBF621AAF3AD00B0699B /* regolaTriennio.json */,
 				DB4DAC542260FFF700730B2A /* regolaBiennio.json */,
+				DB53C7AA21E103C90001054B /* verificaMedie.json */,
 				DB4DFBC62272662000FAF396 /* verificaBiennio.json */,
 				DB4DFBC82272688800FAF396 /* verificaTriennio.json */,
-				DB53C7AA21E103C90001054B /* compagnie.json */,
 				DBAF3C18219C9203003083EA /* Costanti.swift */,
 				DBAF3C1D219C9478003083EA /* Protocolli.swift */,
 				DBAF3C23219C9F6A003083EA /* Extensions.swift */,
@@ -908,7 +908,7 @@
 			files = (
 				DB4DAC552260FFF700730B2A /* regolaBiennio.json in Resources */,
 				DBAAE2B121A5C3FA00211CBF /* NotificheVC.storyboard in Resources */,
-				DB53C7AB21E103C90001054B /* compagnie.json in Resources */,
+				DB53C7AB21E103C90001054B /* verificaMedie.json in Resources */,
 				DB4DFBC72272662000FAF396 /* verificaBiennio.json in Resources */,
 				DBAAE2AD21A5ACCF00211CBF /* WelcomeVC.storyboard in Resources */,
 				DBAF3C0F219C901B003083EA /* LaunchScreen.storyboard in Resources */,
@@ -1227,7 +1227,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.danitox.igio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1251,7 +1251,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.danitox.igio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
