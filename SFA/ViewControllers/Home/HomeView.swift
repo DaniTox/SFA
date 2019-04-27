@@ -104,7 +104,7 @@ class HomeView : UIView {
     func updateRDVTitle() {
         switch User.currentUser().ageScuola {
         case .medie:
-            regolaButton.setTitle("Agenda dell'allegria e della serenità", for: .normal)
+            regolaButton.setTitle("Agenda dell'allegria e della santità", for: .normal)
         case .biennio:
             regolaButton.setTitle("Il preogetto delle 3S", for: .normal)
         case .triennio:
@@ -112,6 +112,16 @@ class HomeView : UIView {
         }
     }
     
+    func setBlocksAppearance(for type: ScuolaType) {
+        if type == .medie {
+            self.stackView.removeArrangedSubview(compagniaButton)
+            compagniaButton.removeFromSuperview()
+        } else {
+            if !self.stackView.arrangedSubviews.contains(compagniaButton) {
+                self.stackView.insertArrangedSubview(compagniaButton, at: 1)
+            }
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

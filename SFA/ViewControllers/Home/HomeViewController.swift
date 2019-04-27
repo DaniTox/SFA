@@ -33,6 +33,7 @@ class HomeViewController : UIViewController, HasCustomView {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.rootView.updateRDVTitle()
+        self.rootView.setBlocksAppearance(for: User.currentUser().ageScuola)
     }
     
     @objc func calendarioButtonTapped() {

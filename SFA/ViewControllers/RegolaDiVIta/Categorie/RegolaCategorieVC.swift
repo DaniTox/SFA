@@ -36,12 +36,17 @@ class RegolaCategorieVC: UIViewController, HasCustomView {
             self.updateTheme()
         })
         
-        title = "Regola di Vita"
-        rootView.tableView.register(BoldCell.self, forCellReuseIdentifier: "cell")
+        title = "Agenda dell'allegria e della santità"
+        rootView.tableView.register(RegolaDomandaCell.self, forCellReuseIdentifier: "cell")
         rootView.tableView.delegate = self
         rootView.tableView.dataSource = self
         rootView.refreshControl.addTarget(self, action: #selector(tablePulled), for: .valueChanged)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        rootView.tableView.reloadData()
     }
     
     private func updateTheme() {
@@ -80,10 +85,11 @@ extension RegolaCategorieVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! BoldCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! RegolaDomandaCell
         let categoria = self.regola?.categorie[indexPath.section]
         if let domanda = categoria?.domande[indexPath.row] {
             cell.mainLabel.text = domanda.domanda
+            cell.answerLabel.text = (domanda.risposta != nil && !domanda.risposta!.isEmpty) ? domanda.risposta : "Nessuna risposta"
         }
         cell.accessoryType = .disclosureIndicator
         return cell

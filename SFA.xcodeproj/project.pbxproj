@@ -55,6 +55,7 @@
 		DB61DA1521B9BA81006B308B /* SitoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1421B9BA81006B308B /* SitoView.swift */; };
 		DB61DA1921B9C81E006B308B /* SocialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1821B9C81E006B308B /* SocialVC.swift */; };
 		DB61DA1B21B9C834006B308B /* SocialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1A21B9C834006B308B /* SocialView.swift */; };
+		DB644E4D227513310049CB3B /* RegolaDomandaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB644E4C227513310049CB3B /* RegolaDomandaCell.swift */; };
 		DB67643421F631A200651AD8 /* SitiNetworkAgentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67643321F631A200651AD8 /* SitiNetworkAgentModel.swift */; };
 		DB67643D21F636D300651AD8 /* SitiMaterialiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67643C21F636D300651AD8 /* SitiMaterialiRequest.swift */; };
 		DB67644121F6389000651AD8 /* SitiNetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67644021F6389000651AD8 /* SitiNetworkResponse.swift */; };
@@ -198,6 +199,7 @@
 		DB61DA1421B9BA81006B308B /* SitoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitoView.swift; sourceTree = "<group>"; };
 		DB61DA1821B9C81E006B308B /* SocialVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialVC.swift; sourceTree = "<group>"; };
 		DB61DA1A21B9C834006B308B /* SocialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialView.swift; sourceTree = "<group>"; };
+		DB644E4C227513310049CB3B /* RegolaDomandaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegolaDomandaCell.swift; sourceTree = "<group>"; };
 		DB67643321F631A200651AD8 /* SitiNetworkAgentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitiNetworkAgentModel.swift; sourceTree = "<group>"; };
 		DB67643721F634F700651AD8 /* AuthNetworkAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNetworkAgent.swift; sourceTree = "<group>"; };
 		DB67643921F6364E00651AD8 /* RegisterNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNetworkRequest.swift; sourceTree = "<group>"; };
@@ -743,6 +745,7 @@
 				DB88DBFE21AB315200B0699B /* RegolaCategorieVC.swift */,
 				DB88DC0021AB318400B0699B /* RegoleCategorieView.swift */,
 				DBDC3B2C225B988200D019EA /* HeaderView.swift */,
+				DB644E4C227513310049CB3B /* RegolaDomandaCell.swift */,
 			);
 			path = Categorie;
 			sourceTree = "<group>";
@@ -955,6 +958,7 @@
 			files = (
 				DBCF2F3C21F79E7E0074E0AF /* SitiListView.swift in Sources */,
 				DB217D4D22185124003ED264 /* UIBox.swift in Sources */,
+				DB644E4D227513310049CB3B /* RegolaDomandaCell.swift in Sources */,
 				DBAF3C4C219CBF35003083EA /* IQUIView+Hierarchy.swift in Sources */,
 				DBAF3C02219C9019003083EA /* AppDelegate.swift in Sources */,
 				DB88DBDF21A96E6F00B0699B /* HomeViewController.swift in Sources */,
