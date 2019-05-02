@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TeenStarCell : BoldCell {
+class TeenStarMaschioCell : BoldCell {
     
     lazy private var emozione8Label : UILabel = {
         let label = UILabel()

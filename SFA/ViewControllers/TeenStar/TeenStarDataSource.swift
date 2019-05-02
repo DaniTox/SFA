@@ -217,9 +217,9 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
         cell.set(color: color)
         
         if color == self.currentEntryMemory.ciclo {
-            cell.backgroundColor = .green
+            cell.containerView.backgroundColor = .green
         } else {
-            cell.backgroundColor = Theme.current.backgroundColor
+            cell.containerView.backgroundColor = Theme.current.backgroundColor
         }
         
         return cell

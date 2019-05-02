@@ -93,7 +93,7 @@ class TeenStarListSource<T : TeenStarDerivative & Object> : NSObject, UITableVie
             
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TeenStarCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TeenStarMaschioCell
             let entry = self.weeks[indexPath.section].tables[indexPath.row] as! TeenStarMaschio
             cell.accessoryType = .disclosureIndicator
             

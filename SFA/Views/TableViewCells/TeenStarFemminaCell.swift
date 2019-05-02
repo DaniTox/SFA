@@ -30,11 +30,22 @@ class TeenStarFemminaCell : BoldCell {
         return label
     }()
     
+    lazy var fullStack : UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .horizontal
+        stack.distribution = .fillProportionally
+        stack.alignment = .fill
+        stack.spacing = 10
+        return stack
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+        containerView.addSubview(colorView)
+        containerView.addSubview(descriptionLabel)
         
-        addSubview(colorView)
-        addSubview(descriptionLabel)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -44,15 +55,16 @@ class TeenStarFemminaCell : BoldCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        colorView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
-        colorView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
-        colorView.topAnchor.constraint(equalTo: mainLabel.bottomAnchor, constant: 10).isActive = true
+        
+        colorView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
+        colorView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10).isActive = true
+        colorView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10).isActive = true
         colorView.widthAnchor.constraint(equalTo: colorView.heightAnchor).isActive = true
         
         descriptionLabel.leadingAnchor.constraint(equalTo: colorView.trailingAnchor, constant: 10).isActive = true
-        descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
-        descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
-        descriptionLabel.topAnchor.constraint(equalTo: mainLabel.bottomAnchor, constant: 10).isActive = true
+        descriptionLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
+        descriptionLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10).isActive = true
+        descriptionLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10).isActive = true
     }
     
     func set(color: CicloColor) {
