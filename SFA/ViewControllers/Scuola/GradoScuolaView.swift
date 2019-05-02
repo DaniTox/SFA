@@ -123,6 +123,23 @@ class GradoScuolaView: UIView {
         fullStack.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7).isActive = true
     }
     
+    func updateView(for grado: ScuolaType) {
+        switch grado {
+        case .medie:
+            medieButton.backgroundColor = UIColor.green
+            biennioButton.backgroundColor = Theme.current.backgroundColor
+            triennioButton.backgroundColor = Theme.current.backgroundColor
+        case .biennio:
+            medieButton.backgroundColor = Theme.current.backgroundColor
+            biennioButton.backgroundColor = UIColor.green
+            triennioButton.backgroundColor = Theme.current.backgroundColor
+        case .triennio:
+            medieButton.backgroundColor = Theme.current.backgroundColor
+            biennioButton.backgroundColor = Theme.current.backgroundColor
+            triennioButton.backgroundColor = UIColor.green
+        }
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

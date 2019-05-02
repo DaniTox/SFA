@@ -57,7 +57,7 @@ class TeenStarEditEntryVC<T : TeenStarDerivative & Object>: UIViewController, Ha
         
         rootView.tableView.register(BoldCell.self, forCellReuseIdentifier: BASIC_CELL_ID)
         rootView.tableView.register(EmozioneTableViewCell.self, forCellReuseIdentifier: EMOZIONE_CELL_ID)
-        rootView.tableView.register(CicloTableViewCell.self, forCellReuseIdentifier: CICLO_CELL_ID)
+        rootView.tableView.register(TeenStarFemminaCell.self, forCellReuseIdentifier: CICLO_CELL_ID)
         rootView.tableView.register(DatePickerCell.self, forCellReuseIdentifier: DATE_CELL_ID)
         
         rootView.tableView.delegate = self
@@ -78,17 +78,26 @@ class TeenStarEditEntryVC<T : TeenStarDerivative & Object>: UIViewController, Ha
         self.rootView.tableView.reloadData()
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        dataSource.cellWasSelected(tableView: tableView, indexPath: indexPath)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.section {
-        case 0, 1, 2, 3:
-            if indexPath.row == 0 { return BASIC_ROW_HEIGHT }
-            else { return EMOZIONE_ROW_HEIGHT }
-        case 4:
-            if indexPath.row == 0 { return BASIC_ROW_HEIGHT }
-            else { return CICLO_ROW_HEIGHT }
-        default:
-            return 0
+        if dataSource.teenStarType == .femmina {
+            return femaleHeight(indexPath: indexPath)
+        } else {
+            return maleHeight(indexPath: indexPath)
         }
+    }
+    
+    func maleHeight(indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 { return BASIC_ROW_HEIGHT }
+        else { return EMOZIONE_ROW_HEIGHT }
+    }
+    
+    func femaleHeight(indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 && indexPath.row == 1 { return CICLO_ROW_HEIGHT }
+        else { return 100 }
     }
     
 }

@@ -80,14 +80,6 @@ let CICLO_COLORS : [String] = ["rosso",
                                "bianco",
                                "croce"]
 
-let COLORS_DESCRIPTIONS : [CicloColor : String] = [
-    .rosso : "Presenza di sangue nei genitali sia che provenga dalla mestruazione o da perdite intermestruali",
-    .verde : "Giorni senza muco o con sensazione di secchezza",
-    .giallo : "Giorni con presenza di muco appiccicoso e opaco, o una mucosità spessa senza variazioni",
-    .bianco : "Giorni di muco cervicale trasparente, elastico, vulva bagnata o sensazione di umidità",
-    .croce : "Giorno in cui è avvenuta la mestruazione"
-]
-
 var theme : String {
     get {
         return UserDefaults.standard.string(forKey: THEME_KEY) ?? "light"

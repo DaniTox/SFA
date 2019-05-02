@@ -15,8 +15,8 @@ class TeenStarListVC<T: TeenStarDerivative & Object>: UITableViewController, DZN
     var themeObserver : NSObjectProtocol!
     
     var dataSource : TeenStarListSource<T>
-    init() {
-        self.dataSource = TeenStarListSource()
+    init(type: TeenStarType) {
+        self.dataSource = TeenStarListSource(type: type)
         super.init(style: .grouped)
     }
     
@@ -47,6 +47,7 @@ class TeenStarListVC<T: TeenStarDerivative & Object>: UITableViewController, DZN
         tableView.separatorStyle = .none
         tableView.backgroundColor = Theme.current.tableViewBackground
         tableView.register(TeenStarCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(TeenStarFemminaCell.self, forCellReuseIdentifier: "femaleCell")
         tableView.delegate = self
         tableView.dataSource = dataSource
         tableView.emptyDataSetDelegate = self

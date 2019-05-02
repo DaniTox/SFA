@@ -11,7 +11,7 @@ import UIKit
 let DEFAULT_CICLO_CELL_COLOR = UIColor.black.lighter(by: 8)!
 let SELECTED_CICLO_CELL_COLOR = UIColor.orange//UIColor.green.darker(by: 20)!
 
-class CicloTableViewCell: UITableViewCell {
+class TeenStarListFemminaCell: UITableViewCell {
 
     var colorSelected : CicloColor!
     
@@ -51,7 +51,7 @@ class CicloTableViewCell: UITableViewCell {
     }
 }
 
-extension CicloTableViewCell : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension TeenStarListFemminaCell : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }

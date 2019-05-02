@@ -7,13 +7,12 @@
 //
 
 import Foundation
+import UIKit
 import RealmSwift
 
 @objc protocol TeenStarDerivative {
     @objc var id : String { get set }
     @objc var date : Date { get set }
-    @objc var sentimentiTable : SentimentoTable? { get set }
-    var gender : Int { get }
 }
 
 class TeenStarMaschio : Object, TeenStarDerivative {
@@ -21,9 +20,6 @@ class TeenStarMaschio : Object, TeenStarDerivative {
     @objc dynamic var date = Date().startOfDay
     @objc dynamic var sentimentiTable : SentimentoTable? = SentimentoTable()
     
-    var gender : Int {
-        return 0
-    }
     override static func primaryKey() -> String {
         return "id"
     }
@@ -32,12 +28,7 @@ class TeenStarMaschio : Object, TeenStarDerivative {
 class TeenStarFemmina : Object, TeenStarDerivative {
     @objc dynamic var id = UUID().uuidString
     @objc dynamic var date = Date().startOfDay
-    @objc dynamic var sentimentiTable : SentimentoTable? = SentimentoTable()
     @objc dynamic var cicloTable : CicloTable? = CicloTable()
-    
-    var gender : Int {
-        return 1
-    }
     
     override static func primaryKey() -> String {
         return "id"
@@ -73,8 +64,16 @@ class CicloTable : Object {
         get { return CicloColor(rawValue: cicloColorSelected)! }
         set { cicloColorSelected = newValue.rawValue }
     }
+    
+    static var colorDescriptions: [CicloColor : String] {
+        return descriptionsCiclo
+    }
 }
 
+enum TeenStarType {
+    case maschio
+    case femmina
+}
 
 enum CicloColor : Int, Codable {
     case none = -1
@@ -101,4 +100,38 @@ enum CicloColor : Int, Codable {
             fatalError("Errore CicloColor con questa stringa non esiste")
         }
     }
+    
+    func getViewColor() -> UIColor {
+        switch self {
+        case .none:
+            return Theme.current.backgroundColor
+        case .rosso:
+            return .red
+        case .verde:
+            return .green
+        case .giallo:
+            return .yellow
+        case .bianco:
+            return .white
+        case .croce:
+            return .cyan
+        }
+    }
+    
+    func getDescriptionText() -> String {
+        if let str = descriptionsCiclo[self] {
+            return str
+        } else {
+            return ""
+        }
+    }
 }
+
+
+fileprivate let descriptionsCiclo : [CicloColor : String] = [
+    .rosso : "Presenza di sangue nei genitali sia che provenga dalla mestruazione o da perdite intermestruali",
+    .verde : "Giorni senza muco o con sensazione di secchezza",
+    .giallo : "Giorni con presenza di muco appiccicoso e opaco, o una mucosità spessa senza variazioni",
+    .bianco : "Giorni di muco cervicale trasparente, elastico, vulva bagnata o sensazione di umidità",
+    .croce : "Giorno in cui è avvenuta la mestruazione"
+]

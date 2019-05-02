@@ -65,7 +65,7 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
         case 0:
             return 1
         case 1:
-            return 5
+            return 6
         default:
             fatalError()
         }
@@ -82,6 +82,13 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    fileprivate func makeDisclosureCell(with text: String, in tableView: UITableView) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "boldCell") as! BoldCell
+        cell.mainLabel.text = text
+        cell.accessoryType = .disclosureIndicator
+        return cell
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
@@ -91,15 +98,9 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
         case 1:
             switch indexPath.row {
             case 0:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "boldCell") as! BoldCell
-                cell.mainLabel.text = "Notifiche"
-                cell.accessoryType = .disclosureIndicator
-                return cell
+                return makeDisclosureCell(with: "Notifiche", in: tableView)
             case 1:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "boldCell") as! BoldCell
-                cell.mainLabel.text = "I nostri Social"
-                cell.accessoryType = .disclosureIndicator
-                return cell
+                return makeDisclosureCell(with: "I nostri social", in: tableView)
             case 2:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "switchCell") as! SwitchCell
                 cell.cellSwitch.isOn = (Theme.current is DarkTheme) ? true : false
@@ -107,15 +108,11 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
                 cell.mainLabel.text = "Tema scuro"
                 return cell
             case 3:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "boldCell") as! BoldCell
-                cell.mainLabel.text = "Tipo di scuola"
-                cell.accessoryType = .disclosureIndicator
-                return cell
+                return makeDisclosureCell(with: "Tipo di scuola", in: tableView)
             case 4:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "boldCell") as! BoldCell
-                cell.mainLabel.text = "Debug"
-                cell.accessoryType = .disclosureIndicator
-                return cell
+                return makeDisclosureCell(with: "Sesso", in: tableView)
+            case 5:
+                return makeDisclosureCell(with: "Debug", in: tableView)
             default:
                 fatalError()
             }
@@ -147,6 +144,9 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
                 }
                 navigationController?.pushViewController(vc, animated: true)
             case 4:
+                let vc = GenderVC()
+                navigationController?.pushViewController(vc, animated: true)
+            case 5:
                 let vc = DebugVC()
                 navigationController?.pushViewController(vc, animated: true)
             default:

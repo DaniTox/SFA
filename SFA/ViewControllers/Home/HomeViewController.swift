@@ -62,13 +62,18 @@ class HomeViewController : UIViewController, HasCustomView {
     }
     
     @objc private func showTeenStarController() {
-        let userGender = User.currentUser().gender
-        if userGender == .boy {
-            let vc = TeenStarListVC<TeenStarMaschio>()
+        let user = User.currentUser()
+        if user.gender == .boy {
+            let vc = TeenStarListVC<TeenStarMaschio>(type: .maschio)
             navigationController?.pushViewController(vc, animated: true)
-        } else if userGender == .girl {
-            let vc = TeenStarListVC<TeenStarFemmina>()
-            navigationController?.pushViewController(vc, animated: true)
+        } else if user.gender == .girl {
+            if user.ageScuola == .medie {
+                let vc = TeenStarListVC<TeenStarMaschio>(type: .maschio)
+                navigationController?.pushViewController(vc, animated: true)
+            } else {
+                let vc = TeenStarListVC<TeenStarFemmina>(type: .femmina)
+                navigationController?.pushViewController(vc, animated: true)
+            }
         }
         
     }

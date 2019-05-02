@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-struct EntryMemory {
+class TSMemory {
     var sentimento8 : Emozione?
     var sentimento14 : Emozione?
     var sentimento20 : Emozione?
@@ -29,7 +29,7 @@ struct EntryMemory {
         }
     }
     
-    mutating func set(emozione: Emozione, at index: Int) {
+    func set(emozione: Emozione, at index: Int) {
         switch index {
         case 1:
             self.sentimento8 = emozione
@@ -46,22 +46,31 @@ struct EntryMemory {
 class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableViewDataSource {
     
     var entry : T
-    var currentEntryMemory : EntryMemory
+    var currentEntryMemory : TSMemory
     var dateChanged : ((Date) -> Void)?
+    var teenStarType : TeenStarType
+    
+    let cicloColors: [CicloColor] = Array(CicloTable.colorDescriptions.keys)
 
     init(entry: T) {
         self.entry = entry
-        self.currentEntryMemory = EntryMemory()
+        self.currentEntryMemory = TSMemory()
+        self.teenStarType = (entry is TeenStarFemmina) ? .femmina : .maschio
         super.init()
         
-        currentEntryMemory.sentimento8 = entry.sentimentiTable?.sentimentoOre8
-        currentEntryMemory.sentimento14 = entry.sentimentiTable?.sentimentoOre14
-        currentEntryMemory.sentimento20 = entry.sentimentiTable?.sentimentoOre20
-        currentEntryMemory.date = entry.date.startOfDay
-        
-        if let parsedEntry = entry as? TeenStarFemmina {
-            currentEntryMemory.ciclo = parsedEntry.cicloTable?.cicloColor
+        if let femminaEntry = entry as? TeenStarFemmina {
+            currentEntryMemory.ciclo = femminaEntry.cicloTable?.cicloColor
+            self.teenStarType = .femmina
+        } else if let maschioEntry = entry as? TeenStarMaschio {
+            currentEntryMemory.sentimento8 = maschioEntry.sentimentiTable?.sentimentoOre8
+            currentEntryMemory.sentimento14 = maschioEntry.sentimentiTable?.sentimentoOre14
+            currentEntryMemory.sentimento20 = maschioEntry.sentimentiTable?.sentimentoOre20
+            self.teenStarType = .maschio
+        } else {
+            fatalError()
         }
+        
+        currentEntryMemory.date = entry.date.startOfDay
     }
     
     private func isDateAvailable(_ date: Date) -> Bool {
@@ -88,23 +97,39 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
         try? realm.write {
             entry.date = self.currentEntryMemory.date
             
-            if let emozione8 = self.currentEntryMemory.sentimento8 {
-                entry.sentimentiTable?.sentimentoOre8 = emozione8
+            if let femminaEntry = entry as? TeenStarFemmina, let cicloColor = self.currentEntryMemory.ciclo {
+                femminaEntry.cicloTable?.cicloColor = cicloColor
+            } else if let maschioEntry = entry as? TeenStarMaschio {
+                if let emozione8 = self.currentEntryMemory.sentimento8 {
+                    maschioEntry.sentimentiTable?.sentimentoOre8 = emozione8
+                }
+                if let emozione14 = self.currentEntryMemory.sentimento14 {
+                    maschioEntry.sentimentiTable?.sentimentoOre14 = emozione14
+                }
+                if let emozione20 = self.currentEntryMemory.sentimento20 {
+                    maschioEntry.sentimentiTable?.sentimentoOre20 = emozione20
+                }
             }
-            if let emozione14 = self.currentEntryMemory.sentimento14 {
-                entry.sentimentiTable?.sentimentoOre14 = emozione14
-            }
-            if let emozione20 = self.currentEntryMemory.sentimento20 {
-                entry.sentimentiTable?.sentimentoOre20 = emozione20
-            }
-            if let parsedEntry = entry as? TeenStarFemmina, let cicloColor = self.currentEntryMemory.ciclo {
-                parsedEntry.cicloTable?.cicloColor = cicloColor
-            }
+            
             realm.add(entry, update: true)
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (teenStarType == .femmina) ? femaleRowsModel(section: section) : maleRowsModel(section: section)
+    }
+    
+    func femaleRowsModel(section: Int) -> Int {
+        switch section {
+        case 0:
+            return 2
+        case 1:
+            return self.cicloColors.count
+        default: fatalError()
+        }
+    }
+    
+    func maleRowsModel(section: Int) -> Int {
         return 2
     }
     
@@ -116,69 +141,106 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
         }
     }
     
+    fileprivate func makeEmozioneCell(_ tableView: UITableView, _ indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: EMOZIONE_CELL_ID) as? EmozioneTableViewCell
+        
+        cell?.newValueSelected = { [weak self] newValue in
+            self?.currentEntryMemory.set(emozione: newValue, at: indexPath.section)
+        }
+        
+        if let emozione = self.currentEntryMemory.getEmozione(from: indexPath.section) {
+            cell?.select(newEmotion: emozione)
+        }
+        
+        return cell!
+    }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if self.teenStarType == .femmina {
+            return femaleModel(tableView: tableView, indexPath: indexPath)
+        } else {
+            return maleModel(tableView: tableView, indexPath: indexPath)
+        }
+    }
+    
+    //called from the tableViewDelegate
+    func cellWasSelected(tableView: UITableView, indexPath: IndexPath) {
+        if self.teenStarType == .femmina && indexPath.section == 1 {
+            let color = cicloColors[indexPath.row]
+            self.currentEntryMemory.ciclo = color
+            tableView.reloadData()
+        }
+    }
+    
+    func maleModel(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            if indexPath.row == 0 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: BASIC_CELL_ID) as! BoldCell
-                cell.selectionStyle = .none
-                cell.mainLabel.text = "Seleziona la data:"
-                return cell
-            } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: DATE_CELL_ID) as! DatePickerCell
-                cell.datePicker.date = entry.date
-                cell.dateDidChange = { newDate in
-                    self.currentEntryMemory.date = newDate
-                    self.dateChanged?(newDate)
-                }
-                return cell
+            switch indexPath.row {
+            case 0:
+                return makeHeaderCell(with: "Seleziona la data;", in: tableView)
+            case 1:
+                return makeDateCell(in: tableView)
+            default: fatalError()
             }
         case 1, 2, 3:
             switch indexPath.row {
             case 0:
-                let cell = tableView.dequeueReusableCell(withIdentifier: BASIC_CELL_ID)  as! BoldCell
-                cell.selectionStyle = .none
-                cell.mainLabel.text = TEENSTAR_INDICES[GET_INDEX(indexPath.section)]
-                return cell
+                return makeHeaderCell(with: TEENSTAR_INDICES[GET_INDEX(indexPath.section)], in: tableView)
             case 1:
-                let cell = tableView.dequeueReusableCell(withIdentifier: EMOZIONE_CELL_ID) as? EmozioneTableViewCell
-                
-                cell?.newValueSelected = { [weak self] newValue in
-                    self?.currentEntryMemory.set(emozione: newValue, at: indexPath.section)
-                }
-                
-                if let emozione = self.currentEntryMemory.getEmozione(from: indexPath.section) {
-                    cell?.select(newEmotion: emozione)
-                }
-                
-                return cell!
-            default:
-                fatalError("row inesistente in una di queste sezioni: [1, 2, 3]")
+                return makeEmozioneCell(tableView, indexPath)
+            default: fatalError()
             }
-        case 4:
-            switch indexPath.row {
-            case 0:
-                let cell = tableView.dequeueReusableCell(withIdentifier: BASIC_CELL_ID) as! BoldCell
-                cell.selectionStyle = .none
-                cell.mainLabel.text = TEENSTAR_INDICES[GET_INDEX(indexPath.section)]
-                return cell
-            case 1:
-                let cell = tableView.dequeueReusableCell(withIdentifier: CICLO_CELL_ID) as? CicloTableViewCell
-                cell?.newValueSelected = { [weak self] newValue in
-                    self?.currentEntryMemory.ciclo = newValue
-                }
-                if let cicloColor = self.currentEntryMemory.ciclo {
-                    cell?.select(cicloColor: cicloColor)
-                }
-                return cell!
-            default:
-                fatalError("row inesistente in section 4")
-            }
-        default:
-            fatalError("Section inesistente")
+        default: fatalError()
         }
     }
     
+    func femaleModel(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.section {
+        case 0:
+            switch indexPath.row {
+            case 0:
+                return makeHeaderCell(with: "Seleziona la data", in: tableView)
+            case 1:
+                return makeDateCell(in: tableView)
+            default: fatalError()
+            }
+        case 1:
+            return makeCicloCell(tableView: tableView, indexPath: indexPath)
+        default: fatalError()
+        }
+    }
+    
+    fileprivate func makeCicloCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CICLO_CELL_ID) as! TeenStarFemminaCell
+        let color = self.cicloColors[indexPath.row]
+        cell.set(color: color)
+        
+        if color == self.currentEntryMemory.ciclo {
+            cell.backgroundColor = .green
+        } else {
+            cell.backgroundColor = Theme.current.backgroundColor
+        }
+        
+        return cell
+    }
+    
+    fileprivate func makeDateCell(in tableView: UITableView) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: DATE_CELL_ID) as! DatePickerCell
+        cell.datePicker.date = entry.date
+        cell.dateDidChange = { newDate in
+            self.currentEntryMemory.date = newDate
+            self.dateChanged?(newDate)
+        }
+        return cell
+    }
+    
+    func makeHeaderCell(with text: String, in tableView: UITableView) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: BASIC_CELL_ID) as! BoldCell
+        cell.selectionStyle = .none
+        cell.mainLabel.text = text
+        return cell
+    }
 }
 
 let BASIC_CELL_ID = "cell"
@@ -191,6 +253,6 @@ let EMOZIONE_ROW_HEIGHT : CGFloat = 200
 let CICLO_ROW_HEIGHT : CGFloat = 500 //350
 
 let TSBOY_SECTIONS = 4
-let TSGIRL_SECTIONS = 5
+let TSGIRL_SECTIONS = 2
 
 func GET_INDEX(_ index: Int) -> Int { return index - 1 }

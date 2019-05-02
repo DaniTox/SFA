@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class GenderVC: UIViewController, HasCustomView, OrderedFlowController {
     typealias CustomView = GenderVCView
@@ -28,24 +29,39 @@ class GenderVC: UIViewController, HasCustomView, OrderedFlowController {
         
 //        rootView.continueButton.addTarget(self, action: #selector(continueOnBoarding), for: .touchUpInside)
         
-        rootView.maleButton.addTarget(self, action: #selector(maleTouched), for: .touchUpInside)
-        rootView.girlButton.addTarget(self, action: #selector(girlTouched), for: .touchUpInside)
+        rootView.maleButton.addTarget(self, action: #selector(maleButtonTouched), for: .touchUpInside)
+        rootView.girlButton.addTarget(self, action: #selector(girlButtonTouched), for: .touchUpInside)
+        checkButton()
+    }
+    
+    
+    func checkButton() {
+        self.rootView.updateView(for: User.currentUser().gender)
+    }
+    
+    @objc private func maleButtonTouched() {
+        let realm = try! Realm()
+        try? realm.write {
+            User.currentUser().gender = .boy
+        }
         
+        workFinished()
+        rootView.updateView(for: .boy)
     }
     
-    @objc private func maleTouched() {
-        User.currentUser().gender = .boy
+    @objc private func girlButtonTouched() {
+        let realm = try! Realm()
+        try? realm.write {
+            User.currentUser().gender = .girl
+        }
         workFinished()
-    }
-    
-    @objc private func girlTouched() {
-        User.currentUser().gender = .girl
-        workFinished()
+        rootView.updateView(for: .girl)
     }
     
     func workFinished() {
         orderingCoordinator?.next()
         finishAction?()
+        checkButton()
     }
     
     private func updateTheme() {

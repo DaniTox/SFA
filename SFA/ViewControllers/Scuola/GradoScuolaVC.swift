@@ -35,14 +35,7 @@ class GradoScuolaVC: UIViewController, HasCustomView, OrderedFlowController {
     }
 
     func checkButton() {
-        switch User.currentUser().ageScuola {
-        case .medie:
-            rootView.medieButton.backgroundColor = UIColor.green
-        case .biennio:
-            rootView.biennioButton.backgroundColor = UIColor.green
-        case .triennio:
-            rootView.triennioButton.backgroundColor = UIColor.green
-        }
+        self.rootView.updateView(for: User.currentUser().ageScuola)
     }
     
     @objc private func medieTouched() {

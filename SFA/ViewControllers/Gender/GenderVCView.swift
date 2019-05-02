@@ -101,6 +101,16 @@ class GenderVCView: UIView {
         fullStack.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7).isActive = true
     }
     
+    func updateView(for gender: UserGender) {
+        if gender == .boy {
+            maleButton.backgroundColor = .green
+            girlButton.backgroundColor = Theme.current.backgroundColor
+        } else {
+            maleButton.backgroundColor = Theme.current.backgroundColor
+            girlButton.backgroundColor = .green
+        }
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

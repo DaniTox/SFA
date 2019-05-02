@@ -32,7 +32,8 @@ class TeenStarWeek<T: TeenStarDerivative & Object> : Hashable {
 }
 
 class TeenStarListSource<T : TeenStarDerivative & Object> : NSObject, UITableViewDataSource, DZNEmptyDataSetSource {
-
+    var entryType: TeenStarType
+    
     var errorHandler : ((String) -> Void)? {
         didSet {
             self.model.errorHandler = errorHandler
@@ -43,7 +44,8 @@ class TeenStarListSource<T : TeenStarDerivative & Object> : NSObject, UITableVie
     
     var dataLoaded : (() -> Void)?
     
-    override init() {
+    init(type: TeenStarType) {
+        self.entryType = type
         self.model = TeenStarModel()
         super.init()
     }
@@ -76,29 +78,33 @@ class TeenStarListSource<T : TeenStarDerivative & Object> : NSObject, UITableVie
     func numberOfSections(in tableView: UITableView) -> Int {
         return self.weeks.count
     }
-    
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        let week = self.weeks[section]
-//
-//        if Date().startOfWeek == week.startOfWeek {
-//            return "Questa settimana"
-//        } else {
-//            return "\(week.startOfWeek.stringValue) - \(week.startOfWeek.endOfWeek!.stringValue)"
-//        }
-//    }
-    
+        
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TeenStarCell
-        let entry = self.weeks[indexPath.section].tables[indexPath.row]
-        cell.accessoryType = .disclosureIndicator
-        
-        cell.mainLabel.text = "\(entry.date.dayOfWeek()) - \(entry.date.stringValue)"
-        
-        if let sentimentiTable = entry.sentimentiTable {
-            cell.setSentimenti(table: sentimentiTable)
+        if self.entryType == .femmina {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "femaleCell") as! TeenStarFemminaCell
+            let entry = self.weeks[indexPath.section].tables[indexPath.row] as! TeenStarFemmina
+            cell.accessoryType = .disclosureIndicator
+            
+            cell.mainLabel.text = "\(entry.date.dayOfWeek()) - \(entry.date.stringValue)"
+            
+            if let cicloTable = entry.cicloTable {
+                cell.set(color: cicloTable.cicloColor)
+            }
+            
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TeenStarCell
+            let entry = self.weeks[indexPath.section].tables[indexPath.row] as! TeenStarMaschio
+            cell.accessoryType = .disclosureIndicator
+            
+            cell.mainLabel.text = "\(entry.date.dayOfWeek()) - \(entry.date.stringValue)"
+            
+            if let sentimentiTable = entry.sentimentiTable {
+                cell.setSentimenti(table: sentimentiTable)
+            }
+            
+            return cell
         }
-        
-        return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
