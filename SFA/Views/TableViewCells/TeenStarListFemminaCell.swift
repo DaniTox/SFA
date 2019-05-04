@@ -11,101 +11,82 @@ import UIKit
 let DEFAULT_CICLO_CELL_COLOR = UIColor.black.lighter(by: 8)!
 let SELECTED_CICLO_CELL_COLOR = UIColor.orange//UIColor.green.darker(by: 20)!
 
-class TeenStarListFemminaCell: UITableViewCell {
-
-    var colorSelected : CicloColor!
+class TeenStarListFemminaCell: BoldCell {
     
-    var newValueSelected : ((CicloColor) -> Void)?
+    lazy var dateLabel : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.boldSystemFont(ofSize: 30)
+        label.textColor = .white
+        label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
+        return label
+    }()
     
-    var colorCollectionView : UICollectionView = {
-        let collection = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        collection.translatesAutoresizingMaskIntoConstraints = false
-        collection.backgroundColor = .clear
-        return collection
+    var colorView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.layer.masksToBounds = true
+        view.layer.cornerRadius = 10
+        view.layer.borderColor = UIColor.black.cgColor
+        return view
+    }()
+    
+    lazy var descriptionLabel : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.textColor = Theme.current.textColor
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    var fullStack : UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .horizontal
+        stack.distribution = .fillProportionally
+        stack.alignment = .fill
+        stack.spacing = 10
+        return stack
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.selectionStyle = .none
-        colorCollectionView.register(CicloColorCollectionCell.self, forCellWithReuseIdentifier: "cell")
-        colorCollectionView.delegate = self
-        colorCollectionView.dataSource = self
-        addSubview(colorCollectionView)
+        fullStack.addArrangedSubview(colorView)
+        fullStack.addArrangedSubview(descriptionLabel)
+        
+        containerView.addSubview(dateLabel)
+        containerView.addSubview(fullStack)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        colorCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
-        colorCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
-        colorCollectionView.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
-        colorCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
+        
+        dateLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10).isActive = true
+        dateLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
+        dateLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
+        dateLabel.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.2).isActive = true
+        
+        colorView.widthAnchor.constraint(equalTo: fullStack.heightAnchor).isActive = true
+        
+        fullStack.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 10).isActive = true
+        fullStack.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
+        fullStack.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -15).isActive = true
+        fullStack.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10).isActive = true
+        
+        
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func select(cicloColor: CicloColor) {
-        self.colorSelected = cicloColor
-        colorCollectionView.reloadData()
+    func set(color: CicloColor) {
+        self.colorView.backgroundColor = color.getViewColor()
+        self.descriptionLabel.text = color.getDescriptionText()
     }
-}
-
-extension TeenStarListFemminaCell : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CicloColorCollectionCell
-        
-        let colorString : String = CICLO_COLORS[indexPath.row]
-        let color : CicloColor = CicloColor.getColorFrom(str: colorString)
-        cell?.cicloColor = color
-        cell?.descriptionLabel.text = COLORS_DESCRIPTIONS[color]
-        
-        if let selectedColor = self.colorSelected {
-            if selectedColor == color {
-                cell?.backgroundColor = SELECTED_CICLO_CELL_COLOR
-            } else {
-                cell?.backgroundColor = DEFAULT_CICLO_CELL_COLOR
-            }
-        } else {
-            cell?.backgroundColor = DEFAULT_CICLO_CELL_COLOR
-        }
-        
-        cell?.layer.masksToBounds = true
-        cell?.layer.cornerRadius = 10
-        return cell!
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width : CGFloat = collectionView.bounds.width
-        let height : CGFloat = 80
-        return CGSize(width: width, height: height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) else {
-            fatalError("Toccata una cella che non esiste")
-        }
-        
-        guard let cicloCell = cell as? CicloColorCollectionCell else {
-            fatalError("errore nell'ottenere una cella di tipo CicloTableViewCell")
-        }
-        
-        guard let color = cicloCell.cicloColor else {
-            fatalError("Errore nell'ottenere il colore della cella")
-        }
-        
-        self.colorSelected = color
-        self.newValueSelected?(color)
-        print("Selezionato il colore: \(String(describing: color))")
-        collectionView.reloadData()
-    }
-    
 }

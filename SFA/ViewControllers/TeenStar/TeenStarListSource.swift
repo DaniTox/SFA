@@ -81,11 +81,11 @@ class TeenStarListSource<T : TeenStarDerivative & Object> : NSObject, UITableVie
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if self.entryType == .femmina {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "femaleCell") as! TeenStarFemminaCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "femaleCell") as! TeenStarListFemminaCell
             let entry = self.weeks[indexPath.section].tables[indexPath.row] as! TeenStarFemmina
             cell.accessoryType = .disclosureIndicator
             
-            cell.mainLabel.text = "\(entry.date.dayOfWeek()) - \(entry.date.stringValue)"
+            cell.dateLabel.text = "\(entry.date.dayOfWeek()) - \(entry.date.stringValue)"
             
             if let cicloTable = entry.cicloTable {
                 cell.set(color: cicloTable.cicloColor)

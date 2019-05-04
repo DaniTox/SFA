@@ -121,6 +121,7 @@
 		DBAF3C4D219CBF35003083EA /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF3C3C219CBF35003083EA /* IQNSArray+Sort.swift */; };
 		DBBBDC5021F5016D00C9F54A /* BouncyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBDC4F21F5016D00C9F54A /* BouncyView.swift */; };
 		DBBE6FC621F8EEA80001875A /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBE6FC521F8EEA80001875A /* TextCell.swift */; };
+		DBC42ED6227C704A006FDAFE /* TeenStarListFemminaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C77621DEB9E10001054B /* TeenStarListFemminaCell.swift */; };
 		DBC7F4C92218ACAB00C22945 /* OrderedFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4C82218ACAB00C22945 /* OrderedFlowCoordinator.swift */; };
 		DBC7F4CB2219898100C22945 /* GradoScuolaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4CA2219898100C22945 /* GradoScuolaVC.swift */; };
 		DBC7F4CD22198A0A00C22945 /* GradoScuolaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4CC22198A0A00C22945 /* GradoScuolaView.swift */; };
@@ -981,6 +982,7 @@
 				DB53C7AD21E3D8380001054B /* CompagniaDomandaCell.swift in Sources */,
 				DB217D5222188C2D003ED264 /* Coordinator.swift in Sources */,
 				DBAF3C1E219C9478003083EA /* Protocolli.swift in Sources */,
+				DBC42ED6227C704A006FDAFE /* TeenStarListFemminaCell.swift in Sources */,
 				DBAF3C4A219CBF35003083EA /* IQUIViewController+Additions.swift in Sources */,
 				DBAAE2BB21A5D26800211CBF /* WelcomeVC.swift in Sources */,
 				DBCF2F3A21F79E410074E0AF /* SitiVC.swift in Sources */,

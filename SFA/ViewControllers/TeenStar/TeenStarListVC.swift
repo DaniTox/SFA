@@ -47,7 +47,7 @@ class TeenStarListVC<T: TeenStarDerivative & Object>: UITableViewController, DZN
         tableView.separatorStyle = .none
         tableView.backgroundColor = Theme.current.tableViewBackground
         tableView.register(TeenStarMaschioCell.self, forCellReuseIdentifier: "cell")
-        tableView.register(TeenStarFemminaCell.self, forCellReuseIdentifier: "femaleCell")
+        tableView.register(TeenStarListFemminaCell.self, forCellReuseIdentifier: "femaleCell")
         tableView.delegate = self
         tableView.dataSource = dataSource
         tableView.emptyDataSetDelegate = self
