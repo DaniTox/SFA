@@ -18,6 +18,7 @@ class SocialVC: UIViewController, HasCustomView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Social"
         NotificationCenter.default.addObserver(forName: .updateTheme, object: nil, queue: .main) { (notification) in
             self.updateTheme()
         }

@@ -52,12 +52,12 @@ class SettingsVC: UIViewController, HasCustomView {
 extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let headers = ["Account", "Generale"]
+        let headers = ["Account", "Utente", "Generale"]
         return headers[section]
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,7 +65,9 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
         case 0:
             return 1
         case 1:
-            return 6
+            return 3
+        case 2:
+            return 3
         default:
             fatalError()
         }
@@ -75,7 +77,7 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             return 130
-        case 1:
+        case 1, 2:
             return 100
         default:
             fatalError()
@@ -89,32 +91,31 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    fileprivate func makeThemeSwitchCell(_ tableView: UITableView) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "switchCell") as! SwitchCell
+        cell.cellSwitch.isOn = (Theme.current is DarkTheme) ? true : false
+        cell.cellSwitch.addTarget(self, action: #selector(themeSwitchChanged(_:)), for: .valueChanged)
+        cell.mainLabel.text = "Tema scuro"
+        return cell
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "boldCell") as? BoldCell
-            cell?.mainLabel.text = "Backup (ancora in sviluppo)"
-            return cell!
+            return makeDisclosureCell(with: "Backup (ancora in sviluppo)", in: tableView)
         case 1:
             switch indexPath.row {
-            case 0:
-                return makeDisclosureCell(with: "Notifiche", in: tableView)
-            case 1:
-                return makeDisclosureCell(with: "I nostri social", in: tableView)
-            case 2:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "switchCell") as! SwitchCell
-                cell.cellSwitch.isOn = (Theme.current is DarkTheme) ? true : false
-                cell.cellSwitch.addTarget(self, action: #selector(themeSwitchChanged(_:)), for: .valueChanged)
-                cell.mainLabel.text = "Tema scuro"
-                return cell
-            case 3:
-                return makeDisclosureCell(with: "Tipo di scuola", in: tableView)
-            case 4:
-                return makeDisclosureCell(with: "Sesso", in: tableView)
-            case 5:
-                return makeDisclosureCell(with: "Debug", in: tableView)
-            default:
-                fatalError()
+            case 0: return makeDisclosureCell(with: "Tipo di scuola", in: tableView)
+            case 1: return makeDisclosureCell(with: "Sesso", in: tableView)
+            case 2: return makeDisclosureCell(with: "Notifiche", in: tableView)
+            default: fatalError()
+            }
+        case 2:
+            switch indexPath.row {
+            case 0: return makeThemeSwitchCell(tableView)
+            case 1: return makeDisclosureCell(with: "I nostri social", in: tableView)
+            case 2: return makeDisclosureCell(with: "Debug", in: tableView)
+            default: fatalError()
             }
         default:
             fatalError()
@@ -124,36 +125,22 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.section {
-        case 0:
-           break
+        case 0: break
         case 1:
             switch indexPath.row {
-            case 0:
-                let vc = NotificheVC()
-                navigationController?.pushViewController(vc, animated: true)
-            case 1:
-                let vc = SocialVC()
-                vc.title = "Social"
-                navigationController?.pushViewController(vc, animated: true)
-            case 3:
-                let vc = GradoScuolaVC()
-                vc.finishAction = { [weak self] in
-                    DispatchQueue.main.async {
-                        self?.navigationController?.popViewController(animated: true)
-                    }
-                }
-                navigationController?.pushViewController(vc, animated: true)
-            case 4:
-                let vc = GenderVC()
-                navigationController?.pushViewController(vc, animated: true)
-            case 5:
-                let vc = DebugVC()
-                navigationController?.pushViewController(vc, animated: true)
-            default:
-                break
+            case 0: navigationController?.pushViewController(GradoScuolaVC(), animated: true)
+            case 1: navigationController?.pushViewController(GenderVC(), animated: true)
+            case 2: navigationController?.pushViewController(NotificheVC(), animated: true)
+            default: break
             }
-        default:
-            fatalError()
+        case 2:
+            switch indexPath.row {
+            case 0: break
+            case 1: navigationController?.pushViewController(SocialVC(), animated: true)
+            case 2: navigationController?.pushViewController(DebugVC(), animated: true)
+            default: break
+            }
+        default: fatalError()
         }
     }
 }

@@ -80,6 +80,8 @@
 		DB88DBFB21AB2C0D00B0699B /* DomandeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBFA21AB2C0D00B0699B /* DomandeView.swift */; };
 		DB88DBFF21AB315200B0699B /* RegolaCategorieVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBFE21AB315200B0699B /* RegolaCategorieVC.swift */; };
 		DB88DC0121AB318400B0699B /* RegoleCategorieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DC0021AB318400B0699B /* RegoleCategorieView.swift */; };
+		DB8B4E08227D911000AFF716 /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8B4E07227D911000AFF716 /* InfoVC.swift */; };
+		DB8B4E0A227D912A00AFF716 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8B4E09227D912A00AFF716 /* InfoView.swift */; };
 		DB8B860B224AA5A000C58055 /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC7F4E12219B8DE00C22945 /* DZNEmptyDataSet.framework */; };
 		DB8B8611224AA5A000C58055 /* ColorSlider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8B860C224AA5A000C58055 /* ColorSlider.framework */; };
 		DB8B8612224AA5A000C58055 /* SwiftEntryKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8B860D224AA5A000C58055 /* SwiftEntryKit.framework */; };
@@ -230,6 +232,8 @@
 		DB88DBFA21AB2C0D00B0699B /* DomandeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomandeView.swift; sourceTree = "<group>"; };
 		DB88DBFE21AB315200B0699B /* RegolaCategorieVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegolaCategorieVC.swift; sourceTree = "<group>"; };
 		DB88DC0021AB318400B0699B /* RegoleCategorieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegoleCategorieView.swift; sourceTree = "<group>"; };
+		DB8B4E07227D911000AFF716 /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
+		DB8B4E09227D912A00AFF716 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		DB8B860C224AA5A000C58055 /* ColorSlider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ColorSlider.framework; path = Frameworks/Carthage/Build/iOS/ColorSlider.framework; sourceTree = "<group>"; };
 		DB8B860D224AA5A000C58055 /* SwiftEntryKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftEntryKit.framework; path = Frameworks/Carthage/Build/iOS/SwiftEntryKit.framework; sourceTree = "<group>"; };
 		DB8B860E224AA5A000C58055 /* QuickLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLayout.framework; path = Frameworks/Carthage/Build/iOS/QuickLayout.framework; sourceTree = "<group>"; };
@@ -529,6 +533,15 @@
 			path = RegolaDiVIta;
 			sourceTree = "<group>";
 		};
+		DB8B4E06227D90F700AFF716 /* InfoVC */ = {
+			isa = PBXGroup;
+			children = (
+				DB8B4E07227D911000AFF716 /* InfoVC.swift */,
+				DB8B4E09227D912A00AFF716 /* InfoView.swift */,
+			);
+			path = InfoVC;
+			sourceTree = "<group>";
+		};
 		DB8EC01321EE4447003B2A81 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -589,6 +602,7 @@
 		DBAF3C1A219C942E003083EA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DB8B4E06227D90F700AFF716 /* InfoVC */,
 				DB75F2ED225D3BF000EB62DF /* Debug */,
 				DB53C77C21DFCAE10001054B /* WelcomePage */,
 				DBC7F4D92219AE8A00C22945 /* Welcome */,
@@ -993,6 +1007,7 @@
 				DB88DBFB21AB2C0D00B0699B /* DomandeView.swift in Sources */,
 				DB5751DE21DA719900F97D25 /* TextEditingBottomBar.swift in Sources */,
 				DB32449422469AD100116FE3 /* TeenStarMaschioCell.swift in Sources */,
+				DB8B4E0A227D912A00AFF716 /* InfoView.swift in Sources */,
 				DBC7F4CB2219898100C22945 /* GradoScuolaVC.swift in Sources */,
 				DBC7F4C92218ACAB00C22945 /* OrderedFlowCoordinator.swift in Sources */,
 				DBAF3C40219CBF35003083EA /* IQBarButtonItem.swift in Sources */,
@@ -1018,6 +1033,7 @@
 				DBAF3C44219CBF35003083EA /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 				DB88DBFF21AB315200B0699B /* RegolaCategorieVC.swift in Sources */,
 				DBAF3C48219CBF35003083EA /* IQKeyboardManager.swift in Sources */,
+				DB8B4E08227D911000AFF716 /* InfoVC.swift in Sources */,
 				DBAAE2B321A5C53700211CBF /* NotificheVC.swift in Sources */,
 				DB53C77121DE75E70001054B /* EmozioneTableViewCell.swift in Sources */,
 				DB217D4F2218557D003ED264 /* GenderBox.swift in Sources */,
