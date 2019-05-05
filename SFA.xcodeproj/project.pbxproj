@@ -82,6 +82,7 @@
 		DB88DC0121AB318400B0699B /* RegoleCategorieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DC0021AB318400B0699B /* RegoleCategorieView.swift */; };
 		DB8B4E08227D911000AFF716 /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8B4E07227D911000AFF716 /* InfoVC.swift */; };
 		DB8B4E0A227D912A00AFF716 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8B4E09227D912A00AFF716 /* InfoView.swift */; };
+		DB8B4E0C227D962E00AFF716 /* welcomeText.rtf in Resources */ = {isa = PBXBuildFile; fileRef = DB8B4E0B227D962E00AFF716 /* welcomeText.rtf */; };
 		DB8B860B224AA5A000C58055 /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC7F4E12219B8DE00C22945 /* DZNEmptyDataSet.framework */; };
 		DB8B8611224AA5A000C58055 /* ColorSlider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8B860C224AA5A000C58055 /* ColorSlider.framework */; };
 		DB8B8612224AA5A000C58055 /* SwiftEntryKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8B860D224AA5A000C58055 /* SwiftEntryKit.framework */; };
@@ -234,6 +235,7 @@
 		DB88DC0021AB318400B0699B /* RegoleCategorieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegoleCategorieView.swift; sourceTree = "<group>"; };
 		DB8B4E07227D911000AFF716 /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
 		DB8B4E09227D912A00AFF716 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		DB8B4E0B227D962E00AFF716 /* welcomeText.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = welcomeText.rtf; sourceTree = "<group>"; };
 		DB8B860C224AA5A000C58055 /* ColorSlider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ColorSlider.framework; path = Frameworks/Carthage/Build/iOS/ColorSlider.framework; sourceTree = "<group>"; };
 		DB8B860D224AA5A000C58055 /* SwiftEntryKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftEntryKit.framework; path = Frameworks/Carthage/Build/iOS/SwiftEntryKit.framework; sourceTree = "<group>"; };
 		DB8B860E224AA5A000C58055 /* QuickLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLayout.framework; path = Frameworks/Carthage/Build/iOS/QuickLayout.framework; sourceTree = "<group>"; };
@@ -638,6 +640,7 @@
 		DBAF3C22219C9F51003083EA /* Altro */ = {
 			isa = PBXGroup;
 			children = (
+				DB8B4E0B227D962E00AFF716 /* welcomeText.rtf */,
 				DB4DAC58226124B300730B2A /* regolaMedie.json */,
 				DB88DBF621AAF3AD00B0699B /* regolaTriennio.json */,
 				DB4DAC542260FFF700730B2A /* regolaBiennio.json */,
@@ -932,6 +935,7 @@
 				DB4DFBC72272662000FAF396 /* verificaBiennio.json in Resources */,
 				DBAAE2AD21A5ACCF00211CBF /* WelcomeVC.storyboard in Resources */,
 				DBAF3C0F219C901B003083EA /* LaunchScreen.storyboard in Resources */,
+				DB8B4E0C227D962E00AFF716 /* welcomeText.rtf in Resources */,
 				DB88DBF721AAF3AD00B0699B /* regolaTriennio.json in Resources */,
 				DB4DAC59226124B300730B2A /* regolaMedie.json in Resources */,
 				DBAF3C0C219C901B003083EA /* Assets.xcassets in Resources */,
