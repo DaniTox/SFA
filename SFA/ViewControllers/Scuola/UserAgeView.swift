@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GradoScuolaView: UIView {
+class UserAgeView: UIView {
 
     lazy var titleLabel : UILabel = {
         let label = UILabel()
@@ -16,7 +16,7 @@ class GradoScuolaView: UIView {
         label.font = UIFont.boldSystemFont(ofSize: 30)
         label.textColor = Theme.current.textColor
         label.textAlignment = .center
-        label.text = "Che scuola fai?"
+        label.text = "Quanti anni hai?"
         label.adjustsFontSizeToFitWidth = true
         return label
     }()
@@ -24,7 +24,7 @@ class GradoScuolaView: UIView {
     lazy var medieButton : UIBouncyButton = {
         let button = UIBouncyButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Medie", for: .normal)
+        button.setTitle("11-14 (Medie)", for: .normal)
         button.setTitleColor(Theme.current.textColor, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         button.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -44,7 +44,7 @@ class GradoScuolaView: UIView {
     lazy var biennioButton : UIBouncyButton = {
         let button = UIBouncyButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Superiori (biennio)", for: .normal)
+        button.setTitle("14-16 (Biennio Superiori)", for: .normal)
         button.setTitleColor(Theme.current.textColor, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         button.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -63,7 +63,7 @@ class GradoScuolaView: UIView {
     lazy var triennioButton : UIBouncyButton = {
         let button = UIBouncyButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Superiori (triennio)", for: .normal)
+        button.setTitle("16-19 (Triennio Superiori)", for: .normal)
         button.setTitleColor(Theme.current.textColor, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         button.titleLabel?.adjustsFontSizeToFitWidth = true

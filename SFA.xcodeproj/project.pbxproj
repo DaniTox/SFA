@@ -126,8 +126,8 @@
 		DBBE6FC621F8EEA80001875A /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBE6FC521F8EEA80001875A /* TextCell.swift */; };
 		DBC42ED6227C704A006FDAFE /* TeenStarListFemminaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C77621DEB9E10001054B /* TeenStarListFemminaCell.swift */; };
 		DBC7F4C92218ACAB00C22945 /* OrderedFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4C82218ACAB00C22945 /* OrderedFlowCoordinator.swift */; };
-		DBC7F4CB2219898100C22945 /* GradoScuolaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4CA2219898100C22945 /* GradoScuolaVC.swift */; };
-		DBC7F4CD22198A0A00C22945 /* GradoScuolaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4CC22198A0A00C22945 /* GradoScuolaView.swift */; };
+		DBC7F4CB2219898100C22945 /* UserAgeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4CA2219898100C22945 /* UserAgeVC.swift */; };
+		DBC7F4CD22198A0A00C22945 /* UserAgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4CC22198A0A00C22945 /* UserAgeView.swift */; };
 		DBC7F4DC2219AEC500C22945 /* NotificheOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4DB2219AEC500C22945 /* NotificheOnboardingVC.swift */; };
 		DBC7F4DF2219AFA900C22945 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4DE2219AFA900C22945 /* HomeView.swift */; };
 		DBCE9ED021EFB247005B286A /* VerificaCompagniaDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE9ECF21EFB247005B286A /* VerificaCompagniaDataSource.swift */; };
@@ -281,8 +281,8 @@
 		DBBBDC4F21F5016D00C9F54A /* BouncyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncyView.swift; sourceTree = "<group>"; };
 		DBBE6FC521F8EEA80001875A /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
 		DBC7F4C82218ACAB00C22945 /* OrderedFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedFlowCoordinator.swift; sourceTree = "<group>"; };
-		DBC7F4CA2219898100C22945 /* GradoScuolaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradoScuolaVC.swift; sourceTree = "<group>"; };
-		DBC7F4CC22198A0A00C22945 /* GradoScuolaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradoScuolaView.swift; sourceTree = "<group>"; };
+		DBC7F4CA2219898100C22945 /* UserAgeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAgeVC.swift; sourceTree = "<group>"; };
+		DBC7F4CC22198A0A00C22945 /* UserAgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAgeView.swift; sourceTree = "<group>"; };
 		DBC7F4DB2219AEC500C22945 /* NotificheOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificheOnboardingVC.swift; sourceTree = "<group>"; };
 		DBC7F4DE2219AFA900C22945 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DBC7F4E12219B8DE00C22945 /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DZNEmptyDataSet.framework; path = Frameworks/Carthage/Build/iOS/DZNEmptyDataSet.framework; sourceTree = "<group>"; };
@@ -819,8 +819,8 @@
 		DBC7F4D82219AE6E00C22945 /* Scuola */ = {
 			isa = PBXGroup;
 			children = (
-				DBC7F4CA2219898100C22945 /* GradoScuolaVC.swift */,
-				DBC7F4CC22198A0A00C22945 /* GradoScuolaView.swift */,
+				DBC7F4CA2219898100C22945 /* UserAgeVC.swift */,
+				DBC7F4CC22198A0A00C22945 /* UserAgeView.swift */,
 			);
 			path = Scuola;
 			sourceTree = "<group>";
@@ -1012,12 +1012,12 @@
 				DB5751DE21DA719900F97D25 /* TextEditingBottomBar.swift in Sources */,
 				DB32449422469AD100116FE3 /* TeenStarMaschioCell.swift in Sources */,
 				DB8B4E0A227D912A00AFF716 /* InfoView.swift in Sources */,
-				DBC7F4CB2219898100C22945 /* GradoScuolaVC.swift in Sources */,
+				DBC7F4CB2219898100C22945 /* UserAgeVC.swift in Sources */,
 				DBC7F4C92218ACAB00C22945 /* OrderedFlowCoordinator.swift in Sources */,
 				DBAF3C40219CBF35003083EA /* IQBarButtonItem.swift in Sources */,
 				DB4F3BC521F5FBC80040F4C4 /* SwitchCell.swift in Sources */,
 				DB323B0C223C4A7C00116FE3 /* VerificaCompagnia.swift in Sources */,
-				DBC7F4CD22198A0A00C22945 /* GradoScuolaView.swift in Sources */,
+				DBC7F4CD22198A0A00C22945 /* UserAgeView.swift in Sources */,
 				DBAF3C4B219CBF35003083EA /* IQUITextFieldView+Additions.swift in Sources */,
 				DB88DBEB21A975C100B0699B /* FadeTransition.swift in Sources */,
 				DBAAE2AF21A5B3B000211CBF /* WelcomePageVC.swift in Sources */,

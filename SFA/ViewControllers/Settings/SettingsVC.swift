@@ -105,7 +105,7 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
             return makeDisclosureCell(with: "Backup (ancora in sviluppo)", in: tableView)
         case 1:
             switch indexPath.row {
-            case 0: return makeDisclosureCell(with: "Tipo di scuola", in: tableView)
+            case 0: return makeDisclosureCell(with: "Età", in: tableView)
             case 1: return makeDisclosureCell(with: "Sesso", in: tableView)
             case 2: return makeDisclosureCell(with: "Notifiche", in: tableView)
             default: fatalError()
@@ -129,7 +129,7 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
         case 0: break
         case 1:
             switch indexPath.row {
-            case 0: navigationController?.pushViewController(GradoScuolaVC(), animated: true)
+            case 0: navigationController?.pushViewController(UserAgeVC(), animated: true)
             case 1: navigationController?.pushViewController(GenderVC(), animated: true)
             case 2: navigationController?.pushViewController(NotificheVC(), animated: true)
             default: break

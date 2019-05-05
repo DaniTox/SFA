@@ -9,8 +9,8 @@
 import UIKit
 import RealmSwift
 
-class GradoScuolaVC: UIViewController, HasCustomView, OrderedFlowController {
-    typealias CustomView = GradoScuolaView
+class UserAgeVC: UIViewController, HasCustomView, OrderedFlowController {
+    typealias CustomView = UserAgeView
     override func loadView() {
         super.loadView()
         view = CustomView()
@@ -21,7 +21,7 @@ class GradoScuolaVC: UIViewController, HasCustomView, OrderedFlowController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Scuola"
+        self.title = "Età"
         
         NotificationCenter.default.addObserver(forName: .updateTheme, object: nil, queue: .main) { (notification) in
             self.updateTheme()
