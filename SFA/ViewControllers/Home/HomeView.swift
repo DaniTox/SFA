@@ -53,6 +53,20 @@ class HomeView : UIView {
         return button
     }()
     
+    lazy var gioProNetButton : UIBouncyButton = {
+        let button = UIBouncyButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("GioProNet", for: .normal)
+        button.backgroundColor = .red
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleLabel?.minimumScaleFactor = 0.8
+        
+        //        button.layer.masksToBounds = true
+        //        button.layer.cornerRadius = 10
+        return button
+    }()
+    
     lazy var compagniaButton : UIBouncyButton = {
         let button = UIBouncyButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -84,6 +98,7 @@ class HomeView : UIView {
         stackView.addArrangedSubview(noteButton)
         stackView.addArrangedSubview(compagniaButton)
         stackView.addArrangedSubview(teenStarButton)
+        stackView.addArrangedSubview(gioProNetButton)
         stackView.addArrangedSubview(regolaButton)
         
         addSubview(stackView)

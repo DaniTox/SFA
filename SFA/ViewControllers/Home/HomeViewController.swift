@@ -23,6 +23,7 @@ class HomeViewController : UIViewController, HasCustomView {
         rootView.regolaButton.addTarget(self, action: #selector(showRegolaController), for: .touchUpInside)
         rootView.noteButton.addTarget(self, action: #selector(showNoteListController), for: .touchUpInside)
         rootView.teenStarButton.addTarget(self, action: #selector(showTeenStarController), for: .touchUpInside)
+        rootView.gioProNetButton.addTarget(self, action: #selector(showGioProNetController), for: .touchUpInside)
         rootView.compagniaButton.addTarget(self, action: #selector(showVerificaCompagniaController), for: .touchUpInside)
         
         let rightButton = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(calendarioButtonTapped))
@@ -76,6 +77,10 @@ class HomeViewController : UIViewController, HasCustomView {
             }
         }
         
+    }
+    
+    @objc private func showGioProNetController() {
+        navigationController?.pushViewController(GioProListVC(), animated: true)
     }
     
     @objc private func showVerificaCompagniaController() {

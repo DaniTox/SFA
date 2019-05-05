@@ -90,6 +90,14 @@
 		DB8B8614224AA5A000C58055 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8B860F224AA5A000C58055 /* RealmSwift.framework */; };
 		DB8B8615224AA5A000C58055 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8B8610224AA5A000C58055 /* Realm.framework */; };
 		DB8B8617224D1E7300C58055 /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8B8616224D1E7300C58055 /* DatePickerCell.swift */; };
+		DB9846F5227F2FBC0033D12F /* GioProListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9846F4227F2FBC0033D12F /* GioProListVC.swift */; };
+		DB9846F7227F2FD50033D12F /* GioProEditorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9846F6227F2FD50033D12F /* GioProEditorVC.swift */; };
+		DB9846F9227F30160033D12F /* GioProListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9846F8227F30160033D12F /* GioProListDataSource.swift */; };
+		DB9846FB227F30590033D12F /* GioProEditorDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9846FA227F30590033D12F /* GioProEditorDataSource.swift */; };
+		DB9846FD227F31660033D12F /* GioProNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9846FC227F31660033D12F /* GioProNet.swift */; };
+		DB9846FF227F39E80033D12F /* GioProNetAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9846FE227F39E80033D12F /* GioProNetAgent.swift */; };
+		DB984701227F54940033D12F /* GioProNetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB984700227F54940033D12F /* GioProNetCell.swift */; };
+		DB984703227F5C970033D12F /* TaskButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB984702227F5C970033D12F /* TaskButton.swift */; };
 		DB9A19BF21D5148E00C05755 /* NoteListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9A19BE21D5148E00C05755 /* NoteListVC.swift */; };
 		DB9A19C121D514A900C05755 /* NoteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9A19C021D514A900C05755 /* NoteListView.swift */; };
 		DBAAE2AD21A5ACCF00211CBF /* WelcomeVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBAAE2AC21A5ACCF00211CBF /* WelcomeVC.storyboard */; };
@@ -242,6 +250,14 @@
 		DB8B860F224AA5A000C58055 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Frameworks/Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		DB8B8610224AA5A000C58055 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Frameworks/Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		DB8B8616224D1E7300C58055 /* DatePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
+		DB9846F4227F2FBC0033D12F /* GioProListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GioProListVC.swift; sourceTree = "<group>"; };
+		DB9846F6227F2FD50033D12F /* GioProEditorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GioProEditorVC.swift; sourceTree = "<group>"; };
+		DB9846F8227F30160033D12F /* GioProListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GioProListDataSource.swift; sourceTree = "<group>"; };
+		DB9846FA227F30590033D12F /* GioProEditorDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GioProEditorDataSource.swift; sourceTree = "<group>"; };
+		DB9846FC227F31660033D12F /* GioProNet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GioProNet.swift; sourceTree = "<group>"; };
+		DB9846FE227F39E80033D12F /* GioProNetAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GioProNetAgent.swift; sourceTree = "<group>"; };
+		DB984700227F54940033D12F /* GioProNetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GioProNetCell.swift; sourceTree = "<group>"; };
+		DB984702227F5C970033D12F /* TaskButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskButton.swift; sourceTree = "<group>"; };
 		DB9A19BE21D5148E00C05755 /* NoteListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListVC.swift; sourceTree = "<group>"; };
 		DB9A19C021D514A900C05755 /* NoteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListView.swift; sourceTree = "<group>"; };
 		DBAAE2AC21A5ACCF00211CBF /* WelcomeVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WelcomeVC.storyboard; sourceTree = "<group>"; };
@@ -345,6 +361,7 @@
 				DB323B0B223C4A7C00116FE3 /* VerificaCompagnia.swift */,
 				DB323B0E223C56BB00116FE3 /* TeenStar.swift */,
 				DB323B14223D521300116FE3 /* SitoWeb.swift */,
+				DB9846FC227F31660033D12F /* GioProNet.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -365,6 +382,7 @@
 				DB8B8616224D1E7300C58055 /* DatePickerCell.swift */,
 				DBFA57432279CFC100D60E8E /* TeenStarFemminaCell.swift */,
 				DB32449322469AD100116FE3 /* TeenStarMaschioCell.swift */,
+				DB984700227F54940033D12F /* GioProNetCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -520,6 +538,7 @@
 				DBF3A2AF21DD73D0008AE7D5 /* TeenStarModel.swift */,
 				DB53C76E21DE699B0001054B /* Emozione.swift */,
 				DB53C78521E0F7E40001054B /* CompagniaAgent.swift */,
+				DB9846FE227F39E80033D12F /* GioProNetAgent.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -555,6 +574,17 @@
 				DBC7F4E12219B8DE00C22945 /* DZNEmptyDataSet.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DB9846F3227F2F940033D12F /* GioProNet */ = {
+			isa = PBXGroup;
+			children = (
+				DB9846F4227F2FBC0033D12F /* GioProListVC.swift */,
+				DB9846F8227F30160033D12F /* GioProListDataSource.swift */,
+				DB9846F6227F2FD50033D12F /* GioProEditorVC.swift */,
+				DB9846FA227F30590033D12F /* GioProEditorDataSource.swift */,
+			);
+			path = GioProNet;
 			sourceTree = "<group>";
 		};
 		DBAF3BF5219C9019003083EA = {
@@ -614,6 +644,7 @@
 				DBC7F4D02219ACE400C22945 /* NoteList */,
 				DB53C77B21DFCAC30001054B /* Note */,
 				DB53C77A21DFCAAD0001054B /* TeenStar */,
+				DB9846F3227F2F940033D12F /* GioProNet */,
 				DBC7F4D72219AE4E00C22945 /* Compagnia */,
 				DBC7F4CE2219AC7800C22945 /* Siti */,
 				DBC7F4D52219ADCE00C22945 /* Social */,
@@ -633,6 +664,7 @@
 				DB53C77421DEB7C60001054B /* Legacy */,
 				DB53C77221DEB7870001054B /* TableViewCells */,
 				DB53C77521DEB8400001054B /* Custom */,
+				DB984702227F5C970033D12F /* TaskButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -983,6 +1015,7 @@
 				DBAF3C4C219CBF35003083EA /* IQUIView+Hierarchy.swift in Sources */,
 				DBAF3C02219C9019003083EA /* AppDelegate.swift in Sources */,
 				DB88DBDF21A96E6F00B0699B /* HomeViewController.swift in Sources */,
+				DB9846F5227F2FBC0033D12F /* GioProListVC.swift in Sources */,
 				DB323B15223D521300116FE3 /* SitoWeb.swift in Sources */,
 				DB53C78621E0F7E40001054B /* CompagniaAgent.swift in Sources */,
 				DB8B8617224D1E7300C58055 /* DatePickerCell.swift in Sources */,
@@ -994,6 +1027,8 @@
 				DB4F3BBC21F5C34C0040F4C4 /* Themes.swift in Sources */,
 				DBF3A2AC21DD723B008AE7D5 /* TeenStarListVC.swift in Sources */,
 				DBD9011A2235AB9E007F37F0 /* NotesDataSource.swift in Sources */,
+				DB9846FD227F31660033D12F /* GioProNet.swift in Sources */,
+				DB984701227F54940033D12F /* GioProNetCell.swift in Sources */,
 				DB53C78221DFCC3D0001054B /* SettingsVC.swift in Sources */,
 				DBF5C1A7223443870086E9E7 /* Note.swift in Sources */,
 				DBF5C1A522330D070086E9E7 /* RegolaVita.swift in Sources */,
@@ -1038,7 +1073,10 @@
 				DB88DBFF21AB315200B0699B /* RegolaCategorieVC.swift in Sources */,
 				DBAF3C48219CBF35003083EA /* IQKeyboardManager.swift in Sources */,
 				DB8B4E08227D911000AFF716 /* InfoVC.swift in Sources */,
+				DB9846F9227F30160033D12F /* GioProListDataSource.swift in Sources */,
 				DBAAE2B321A5C53700211CBF /* NotificheVC.swift in Sources */,
+				DB9846FF227F39E80033D12F /* GioProNetAgent.swift in Sources */,
+				DB9846F7227F2FD50033D12F /* GioProEditorVC.swift in Sources */,
 				DB53C77121DE75E70001054B /* EmozioneTableViewCell.swift in Sources */,
 				DB217D4F2218557D003ED264 /* GenderBox.swift in Sources */,
 				DBAF3C47219CBF35003083EA /* IQKeyboardReturnKeyHandler.swift in Sources */,
@@ -1081,6 +1119,7 @@
 				DB7BEF8F21D01920007A550E /* ToxNetworkResponse.swift in Sources */,
 				DB7BEF8721D006A0007A550E /* KeychainWrapper.swift in Sources */,
 				DB88DBF921AB2BE000B0699B /* DomandeVC.swift in Sources */,
+				DB984703227F5C970033D12F /* TaskButton.swift in Sources */,
 				DB88DC0121AB318400B0699B /* RegoleCategorieView.swift in Sources */,
 				DB67644321F63CC400651AD8 /* SitiAgentModel.swift in Sources */,
 				DB9A19C121D514A900C05755 /* NoteListView.swift in Sources */,
@@ -1099,6 +1138,7 @@
 				DB5751E821DA808000F97D25 /* SizeSliderAlert.swift in Sources */,
 				DBE6070921F27AA200E10422 /* WelcomeView.swift in Sources */,
 				DB7BEF9121D02128007A550E /* ToxNetworkRequest.swift in Sources */,
+				DB9846FB227F30590033D12F /* GioProEditorDataSource.swift in Sources */,
 				DB75F2EF225D3C0300EB62DF /* DebugVC.swift in Sources */,
 				DB7BEF8621D006A0007A550E /* KeychainItemAccessibility.swift in Sources */,
 				DBAF3C3F219CBF35003083EA /* IQTitleBarButtonItem.swift in Sources */,
