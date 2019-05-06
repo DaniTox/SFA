@@ -103,32 +103,32 @@ enum GioProNetTask: Int, Codable, CaseIterable {
 
 
 class GioProMemory {
-    var sentimento7 : GioProNetTask?
-    var sentimento11 : GioProNetTask?
-    var sentimento14 : GioProNetTask?
-    var sentimento17 : GioProNetTask?
-    var sentimento20 : GioProNetTask?
-    var sentimento23 : GioProNetTask?
-    var sentimento2 : GioProNetTask?
+    var task7 : GioProNetTask?
+    var task11 : GioProNetTask?
+    var task14 : GioProNetTask?
+    var task17 : GioProNetTask?
+    var task20 : GioProNetTask?
+    var task23 : GioProNetTask?
+    var task2 : GioProNetTask?
     
     var date: Date = Date().startOfDay
     
     func getTask(from index: Int) -> GioProNetTask? {
         switch index {
         case 1:
-            return sentimento7
+            return task7
         case 2:
-            return sentimento11
+            return task11
         case 3:
-            return sentimento14
+            return task14
         case 4:
-            return sentimento17
+            return task17
         case 5:
-            return sentimento20
+            return task20
         case 6:
-            return sentimento23
+            return task23
         case 7:
-            return sentimento2
+            return task2
         default:
             return nil
         }
@@ -137,19 +137,19 @@ class GioProMemory {
     func set(task: GioProNetTask, at index: Int) {
         switch index {
         case 1:
-            self.sentimento7 = task
+            self.task7 = task
         case 2:
-            self.sentimento11 = task
+            self.task11 = task
         case 3:
-            self.sentimento14 = task
+            self.task14 = task
         case 4:
-            self.sentimento17 = task
+            self.task17 = task
         case 5:
-            self.sentimento20 = task
+            self.task20 = task
         case 6:
-            self.sentimento23 = task
+            self.task23 = task
         case 7:
-            self.sentimento2 = task
+            self.task2 = task
         default:
             break
         }
