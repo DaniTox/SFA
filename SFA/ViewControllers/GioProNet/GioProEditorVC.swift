@@ -9,24 +9,31 @@
 import UIKit
 
 class GioProEditorVC: UITableViewController {
-    
-    
-    
+
     var dataSource : GioProEditorDataSource
     
     init(taskTable: GioProNet? = nil) {
-        self.dataSource = GioProEditorDataSource(taskTable: taskTable)
-        super.init(nibName: nil, bundle: nil)
+        var selectedTable : GioProNet
+        if taskTable == nil {
+            selectedTable = GioProNet()
+        } else {
+            selectedTable = taskTable!
+        }
         
-        
+        self.dataSource = GioProEditorDataSource(taskTable: selectedTable)
+        super.init(style: .grouped)
+    
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "\(dataSource.taskTable.date.dayOfWeek()) - \(dataSource.taskTable.date.stringValue)"
+        self.tableView.backgroundColor = Theme.current.tableViewBackground
+        self.tableView.separatorStyle = .none
         
         tableView.register(BoldCell.self, forCellReuseIdentifier: "boldCell")
-        tableView.register(GioProNetCell.self, forCellReuseIdentifier: "gioproCell")
+        tableView.register(GioProNetCell.self, forCellReuseIdentifier: "taskCell")
+        tableView.register(DatePickerCell.self, forCellReuseIdentifier: "dateCell")
         tableView.delegate = self
         tableView.dataSource = dataSource
     }
@@ -38,7 +45,7 @@ class GioProEditorVC: UITableViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if dataSource.isEntryDateAvailable() {
-            dataSource.saveTeenStarTable()
+            dataSource.saveTable()
         }
     }
 }
@@ -49,6 +56,7 @@ extension GioProEditorVC {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        if indexPath.row == 1 { return 150 }
+        else { return 80 }
     }
 }

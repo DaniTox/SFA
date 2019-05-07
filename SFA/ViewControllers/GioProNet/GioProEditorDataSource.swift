@@ -99,20 +99,57 @@ class GioProEditorDataSource: NSObject, UITableViewDataSource {
                 return makeDateCell(in: tableView)
             default: fatalError()
             }
-        case 1, 2, 3:
+        case 1, 2, 3, 4, 5, 6, 7:
             switch indexPath.row {
             case 0:
-                return makeHeaderCell(with: TEENSTAR_INDICES[GET_INDEX(indexPath.section)], in: tableView)
+                return makeHeaderCell(with: GIOPRONET_INDICES[GET_INDEX(indexPath.section)], in: tableView)
             case 1:
-                return makeEmozioneCell(tableView, indexPath)
+                return makeTaskCell(in: tableView, indexPath: indexPath)
             default: fatalError()
             }
         default: fatalError()
         }
     }
     
+    fileprivate func makeTaskCell(in tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell") as! GioProNetCell
+        switch indexPath.row {
+        case 1:
+            if let task = objectMemory.task7 {
+                cell.setTask(task)
+            }
+        case 2:
+            if let task = objectMemory.task11 {
+                cell.setTask(task)
+            }
+        case 3:
+            if let task = objectMemory.task14 {
+                cell.setTask(task)
+            }
+        case 4:
+            if let task = objectMemory.task17 {
+                cell.setTask(task)
+            }
+        case 5:
+            if let task = objectMemory.task20 {
+                cell.setTask(task)
+            }
+        case 6:
+            if let task = objectMemory.task23 {
+                cell.setTask(task)
+            }
+        case 7:
+            if let task = objectMemory.task2 {
+                cell.setTask(task)
+            }
+        default: fatalError()
+        }
+        return cell
+    }
+    
+    
     fileprivate func makeDateCell(in tableView: UITableView) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: DATE_CELL_ID) as! DatePickerCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell") as! DatePickerCell
         cell.datePicker.date = taskTable.date
         cell.dateDidChange = { newDate in
             self.objectMemory.date = newDate
@@ -122,7 +159,7 @@ class GioProEditorDataSource: NSObject, UITableViewDataSource {
     }
     
     func makeHeaderCell(with text: String, in tableView: UITableView) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: BASIC_CELL_ID) as! BoldCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "boldCell") as! BoldCell
         cell.selectionStyle = .none
         cell.mainLabel.text = text
         return cell

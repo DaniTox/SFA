@@ -22,7 +22,7 @@ class GioProNetCell: BoldCell {
     
     var taskSelected: GioProNetTask?
     
-    var firstStack : UIStackView = {
+    private var firstStack : UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
@@ -32,7 +32,7 @@ class GioProNetCell: BoldCell {
         return stack
     }()
     
-    var secondStack : UIStackView = {
+    private var secondStack : UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
@@ -42,7 +42,7 @@ class GioProNetCell: BoldCell {
         return stack
     }()
     
-    var thirdStack : UIStackView = {
+    private var thirdStack : UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
@@ -52,7 +52,7 @@ class GioProNetCell: BoldCell {
         return stack
     }()
     
-    var fullStack : UIStackView = {
+    private var fullStack : UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
@@ -73,7 +73,7 @@ class GioProNetCell: BoldCell {
             secondStack.addArrangedSubview(getButton(index: index))
         }
         
-        for index in 4...7 {
+        for index in 8...11 {
             thirdStack.addArrangedSubview(getButton(index: index))
         }
         
@@ -113,6 +113,11 @@ class GioProNetCell: BoldCell {
             }
         }
         
+    }
+    
+    public func setTask(_ task: GioProNetTask) {
+        self.taskSelected = task
+        updateView(for: task)
     }
     
     @objc private func taskButtonTouched(_ sender: TaskButton) {

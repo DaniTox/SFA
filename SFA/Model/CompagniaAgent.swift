@@ -38,6 +38,14 @@ class CompagniaAgent {
 
     }
     
+    public func removeAll() {
+        let realm = try! Realm()
+        let allObjects = realm.objects(VerificaCompagnia.self)
+        try? realm.write {
+            realm.delete(allObjects)
+        }
+    }
+    
     private func createCompagniaModel(fileName: String) {
         let path = Bundle.main.path(forResource: fileName, ofType: "json")!
         let data = try! Data(contentsOf: URL(fileURLWithPath: path))

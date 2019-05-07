@@ -48,7 +48,10 @@ class GioProListDataSource: NSObject, UITableViewDataSource, DZNEmptyDataSetSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "boldCell") as! BoldCell
+        let task = self.weeks[indexPath.section].tables[indexPath.row]
+        cell.mainLabel.text = "\(task.date)"
+        return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

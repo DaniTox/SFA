@@ -674,8 +674,8 @@
 			children = (
 				DB8B4E0B227D962E00AFF716 /* welcomeText.rtf */,
 				DB4DAC58226124B300730B2A /* regolaMedie.json */,
-				DB88DBF621AAF3AD00B0699B /* regolaTriennio.json */,
 				DB4DAC542260FFF700730B2A /* regolaBiennio.json */,
+				DB88DBF621AAF3AD00B0699B /* regolaTriennio.json */,
 				DB53C7AA21E103C90001054B /* verificaMedie.json */,
 				DB4DFBC62272662000FAF396 /* verificaBiennio.json */,
 				DB4DFBC82272688800FAF396 /* verificaTriennio.json */,

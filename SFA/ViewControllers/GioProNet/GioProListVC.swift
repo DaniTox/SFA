@@ -32,8 +32,8 @@ class GioProListVC : UITableViewController, DZNEmptyDataSetDelegate {
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
         tableView.backgroundColor = Theme.current.tableViewBackground
-        tableView.register(TeenStarMaschioCell.self, forCellReuseIdentifier: "cell")
-        tableView.register(TeenStarListFemminaCell.self, forCellReuseIdentifier: "femaleCell")
+        tableView.register(BoldCell.self, forCellReuseIdentifier: "boldCell")
+        tableView.register(GioProNetCell.self, forCellReuseIdentifier: "taskCell")
         tableView.delegate = self
         tableView.dataSource = dataSource
         tableView.emptyDataSetDelegate = self

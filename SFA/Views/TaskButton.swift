@@ -24,6 +24,7 @@ class TaskButton: UIButton {
         //da usare mentre non si hanno le immagini
         
         self.setTitle(imageNamed, for: .normal)
+        self.setTitleColor(Theme.current.textColor, for: .normal)
         
     }
     

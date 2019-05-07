@@ -61,6 +61,12 @@ class DebugVC : UITableViewController {
                 realm.delete(realm.objects(TeenStarFemmina.self))
             }
             self.showError(withTitle: "Completato", andMessage: "TeenSTAR è stato resettato")
+        case 2:
+            let agent = CompagniaAgent()
+            agent.removeAll()
+            agent.createIfNotPresent()
+            
+            self.showError(withTitle: "Completato", andMessage: "Percorso formativo resettato")
         default:
             break
         }
