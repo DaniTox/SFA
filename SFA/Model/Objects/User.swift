@@ -21,6 +21,10 @@ enum ScuolaType : Int, Codable, CaseIterable {
         case .triennio: return "Triennio Superiori"
         }
     }
+    
+    static var allCases: [ScuolaType] {
+        return [.medie, .biennio, .triennio]
+    }
 }
 
 class User : Object {
@@ -64,7 +68,7 @@ class User : Object {
     }
 }
 
-enum UserGender : Int, Codable {
+enum UserGender : Int, Codable, CaseIterable {
     case boy = 0
     case girl = 1
     
@@ -74,5 +78,9 @@ enum UserGender : Int, Codable {
         } else {
             return UserGender.girl
         }
+    }
+    
+    static var allCases: [UserGender] {
+        return [.boy, .girl]
     }
 }

@@ -131,6 +131,7 @@
 		DBAF3C4C219CBF35003083EA /* IQUIView+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF3C3B219CBF35003083EA /* IQUIView+Hierarchy.swift */; };
 		DBAF3C4D219CBF35003083EA /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF3C3C219CBF35003083EA /* IQNSArray+Sort.swift */; };
 		DBBBDC5021F5016D00C9F54A /* BouncyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBDC4F21F5016D00C9F54A /* BouncyView.swift */; };
+		DBBE476022AD952500959E45 /* HomeItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBE475F22AD952500959E45 /* HomeItems.swift */; };
 		DBBE6FC621F8EEA80001875A /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBE6FC521F8EEA80001875A /* TextCell.swift */; };
 		DBC42ED6227C704A006FDAFE /* TeenStarListFemminaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C77621DEB9E10001054B /* TeenStarListFemminaCell.swift */; };
 		DBC7F4C92218ACAB00C22945 /* OrderedFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4C82218ACAB00C22945 /* OrderedFlowCoordinator.swift */; };
@@ -295,6 +296,7 @@
 		DBAF3C3B219CBF35003083EA /* IQUIView+Hierarchy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIView+Hierarchy.swift"; sourceTree = "<group>"; };
 		DBAF3C3C219CBF35003083EA /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQNSArray+Sort.swift"; sourceTree = "<group>"; };
 		DBBBDC4F21F5016D00C9F54A /* BouncyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncyView.swift; sourceTree = "<group>"; };
+		DBBE475F22AD952500959E45 /* HomeItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItems.swift; sourceTree = "<group>"; };
 		DBBE6FC521F8EEA80001875A /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
 		DBC7F4C82218ACAB00C22945 /* OrderedFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedFlowCoordinator.swift; sourceTree = "<group>"; };
 		DBC7F4CA2219898100C22945 /* UserAgeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAgeVC.swift; sourceTree = "<group>"; };
@@ -880,6 +882,7 @@
 			children = (
 				DB88DBDE21A96E6F00B0699B /* HomeViewController.swift */,
 				DBC7F4DE2219AFA900C22945 /* HomeView.swift */,
+				DBBE475F22AD952500959E45 /* HomeItems.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1094,6 +1097,7 @@
 				DB53C76D21DE69620001054B /* EmozioneButton.swift in Sources */,
 				DB0D49EC21DFF13000887D3B /* SettingsUserCell.swift in Sources */,
 				DBAF3C42219CBF35003083EA /* IQUIView+IQKeyboardToolbar.swift in Sources */,
+				DBBE476022AD952500959E45 /* HomeItems.swift in Sources */,
 				DBAF3C19219C9203003083EA /* Costanti.swift in Sources */,
 				DBAF3C3E219CBF35003083EA /* IQPreviousNextView.swift in Sources */,
 				DB7BEF8921D01442007A550E /* User.swift in Sources */,
