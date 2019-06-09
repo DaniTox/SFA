@@ -10,31 +10,70 @@ import UIKit
 import RealmSwift
 import SafariServices
 
-class HomeViewController : UIViewController, HasCustomView {
-    typealias CustomView = HomeView
-    override func loadView() {
-        super.loadView()
-        self.view = CustomView()
+class HomeViewController : UICollectionViewController, UICollectionViewDelegateFlowLayout {
+    
+    let dataSource = HomeViewDataSource()
+    
+    init() {
+        super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Home"
-        rootView.regolaButton.addTarget(self, action: #selector(showRegolaController), for: .touchUpInside)
-        rootView.noteButton.addTarget(self, action: #selector(showNoteListController), for: .touchUpInside)
-        rootView.teenStarButton.addTarget(self, action: #selector(showTeenStarController), for: .touchUpInside)
-        rootView.gioProNetButton.addTarget(self, action: #selector(showGioProNetController), for: .touchUpInside)
-        rootView.compagniaButton.addTarget(self, action: #selector(showVerificaCompagniaController), for: .touchUpInside)
+        self.view.backgroundColor = Theme.current.tableViewBackground
         
         let rightButton = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(calendarioButtonTapped))
         self.navigationItem.setRightBarButton(rightButton, animated: true)
+        
+        collectionView.register(HomeItemCell.self, forCellWithReuseIdentifier: "mainCell")
+        collectionView.dataSource = dataSource
+        collectionView.delegate = self
+        collectionView.backgroundColor = .clear
+        
+        dataSource.update()
+        collectionView.reloadData()
+        
+        NotificationCenter.default.addObserver(forName: .updateTheme, object: nil, queue: .main) { (notif) in
+            self.view.backgroundColor = Theme.current.tableViewBackground
+        }
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.rootView.updateRDVTitle()
-        self.rootView.setBlocksAppearance(for: User.currentUser().ageScuola)
+        dataSource.update()
+        collectionView.reloadData()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.width
+        let height = collectionView.frame.height
+        
+        return .init(width: width / 2 - 15, height: height / 5)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .init(top: 10, left: 10, bottom: 10, right: 10)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = dataSource.items[indexPath.row]
+        print("Selected \(item.name)")
+        
+        switch item.idNumber {
+        case 0: showNoteListController()
+        case 1: showTeenStarController()
+        case 2: showGioProNetController()
+        case 3: showRegolaController()
+        case 4: showVerificaCompagniaController()
+        case 5: showRegolaController()
+        case 6: showRegolaController()
+        default: break
+        }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     @objc func calendarioButtonTapped() {
@@ -57,12 +96,12 @@ class HomeViewController : UIViewController, HasCustomView {
         }
     }
     
-    @objc private func showNoteListController() {
+    private func showNoteListController() {
         let noteListVC = NoteListVC()
         navigationController?.pushViewController(noteListVC, animated: true)
     }
     
-    @objc private func showTeenStarController() {
+    private func showTeenStarController() {
         let user = User.currentUser()
         if user.gender == .boy {
             let vc = TeenStarListVC<TeenStarMaschio>(type: .maschio)
@@ -91,9 +130,4 @@ class HomeViewController : UIViewController, HasCustomView {
     
 }
 
-extension HomeViewController: UISplitViewControllerDelegate {
-    func splitViewController(_ svc: UISplitViewController, collapseSecondary vc2: UIViewController, onto vc1: UIViewController) -> Bool {
-        return true
-    }
-}
 

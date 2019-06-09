@@ -132,6 +132,8 @@
 		DBAF3C4D219CBF35003083EA /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF3C3C219CBF35003083EA /* IQNSArray+Sort.swift */; };
 		DBBBDC5021F5016D00C9F54A /* BouncyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBDC4F21F5016D00C9F54A /* BouncyView.swift */; };
 		DBBE476022AD952500959E45 /* HomeItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBE475F22AD952500959E45 /* HomeItems.swift */; };
+		DBBE476222AD9C0F00959E45 /* HomeViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBE476122AD9C0F00959E45 /* HomeViewDataSource.swift */; };
+		DBBE476422AD9DA500959E45 /* HomeItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBE476322AD9DA500959E45 /* HomeItemCell.swift */; };
 		DBBE6FC621F8EEA80001875A /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBE6FC521F8EEA80001875A /* TextCell.swift */; };
 		DBC42ED6227C704A006FDAFE /* TeenStarListFemminaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53C77621DEB9E10001054B /* TeenStarListFemminaCell.swift */; };
 		DBC7F4C92218ACAB00C22945 /* OrderedFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4C82218ACAB00C22945 /* OrderedFlowCoordinator.swift */; };
@@ -297,6 +299,8 @@
 		DBAF3C3C219CBF35003083EA /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQNSArray+Sort.swift"; sourceTree = "<group>"; };
 		DBBBDC4F21F5016D00C9F54A /* BouncyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncyView.swift; sourceTree = "<group>"; };
 		DBBE475F22AD952500959E45 /* HomeItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItems.swift; sourceTree = "<group>"; };
+		DBBE476122AD9C0F00959E45 /* HomeViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewDataSource.swift; sourceTree = "<group>"; };
+		DBBE476322AD9DA500959E45 /* HomeItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemCell.swift; sourceTree = "<group>"; };
 		DBBE6FC521F8EEA80001875A /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
 		DBC7F4C82218ACAB00C22945 /* OrderedFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedFlowCoordinator.swift; sourceTree = "<group>"; };
 		DBC7F4CA2219898100C22945 /* UserAgeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAgeVC.swift; sourceTree = "<group>"; };
@@ -883,6 +887,8 @@
 				DB88DBDE21A96E6F00B0699B /* HomeViewController.swift */,
 				DBC7F4DE2219AFA900C22945 /* HomeView.swift */,
 				DBBE475F22AD952500959E45 /* HomeItems.swift */,
+				DBBE476122AD9C0F00959E45 /* HomeViewDataSource.swift */,
+				DBBE476322AD9DA500959E45 /* HomeItemCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1038,6 +1044,7 @@
 				DB53C7AD21E3D8380001054B /* CompagniaDomandaCell.swift in Sources */,
 				DB217D5222188C2D003ED264 /* Coordinator.swift in Sources */,
 				DBAF3C1E219C9478003083EA /* Protocolli.swift in Sources */,
+				DBBE476222AD9C0F00959E45 /* HomeViewDataSource.swift in Sources */,
 				DBC42ED6227C704A006FDAFE /* TeenStarListFemminaCell.swift in Sources */,
 				DBAF3C4A219CBF35003083EA /* IQUIViewController+Additions.swift in Sources */,
 				DBAAE2BB21A5D26800211CBF /* WelcomeVC.swift in Sources */,
@@ -1107,6 +1114,7 @@
 				DB9A19BF21D5148E00C05755 /* NoteListVC.swift in Sources */,
 				DB325EE121D5033C009ADEFC /* RotationLogicNavigationController.swift in Sources */,
 				DBAAE2BD21A5E9DA00211CBF /* CircularThings.swift in Sources */,
+				DBBE476422AD9DA500959E45 /* HomeItemCell.swift in Sources */,
 				DBAF3C3D219CBF35003083EA /* IQTextView.swift in Sources */,
 				DB61DA1321B5B9ED006B308B /* RegolaFetcherModel.swift in Sources */,
 				DBAF3C43219CBF35003083EA /* IQInvocation.swift in Sources */,
