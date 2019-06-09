@@ -106,15 +106,15 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
         case 1:
             switch indexPath.row {
             case 0: return makeDisclosureCell(with: "Età", in: tableView)
-            case 1: return makeDisclosureCell(with: "Sesso", in: tableView)
+            case 1: return makeDisclosureCell(with: "Maschio/Femmina", in: tableView)
             case 2: return makeDisclosureCell(with: "Notifiche", in: tableView)
             default: fatalError()
             }
         case 2:
             switch indexPath.row {
-            case 0: return makeThemeSwitchCell(tableView)
-            case 1: return makeDisclosureCell(with: "I nostri social", in: tableView)
-            case 2: return makeDisclosureCell(with: "Info", in: tableView)
+            case 0: return makeDisclosureCell(with: "Info", in: tableView)
+            case 1: return makeThemeSwitchCell(tableView)
+            case 2: return makeDisclosureCell(with: "Città", in: tableView)
             case 3: return makeDisclosureCell(with: "Debug", in: tableView)
             default: fatalError()
             }
@@ -136,9 +136,9 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
             }
         case 2:
             switch indexPath.row {
-            case 0: break
-            case 1: navigationController?.pushViewController(SocialVC(), animated: true)
-            case 2: navigationController?.pushViewController(InfoVC(), animated: true)
+            case 0: navigationController?.pushViewController(InfoVC(), animated: true)
+            case 1: break
+            case 2: break
             case 3: navigationController?.pushViewController(DebugVC(), animated: true)
             default: break
             }

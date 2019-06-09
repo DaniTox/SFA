@@ -121,7 +121,7 @@ class HomeView : UIView {
         case .medie:
             regolaButton.setTitle("Agenda dell'allegria e della santità", for: .normal)
         case .biennio:
-            regolaButton.setTitle("Il preogetto delle 3S", for: .normal)
+            regolaButton.setTitle("Il progetto delle 3S", for: .normal)
         case .triennio:
             regolaButton.setTitle("Regola di Vita", for: .normal)
         }

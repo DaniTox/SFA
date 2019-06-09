@@ -30,7 +30,7 @@ class VerificaCompagniaVC: UIViewController, HasCustomView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Verifica Compagnia"
+        self.title = "Il mio percorso formativo"
         
         rootView.tableView.estimatedRowHeight = 250
         rootView.tableView.rowHeight = UITableView.automaticDimension
