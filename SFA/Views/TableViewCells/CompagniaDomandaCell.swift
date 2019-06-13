@@ -31,15 +31,16 @@ class CompagniaDomandaCell: UITableViewCell {
         label.minimumScaleFactor = 0.7
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline).withSize(25)
+        label.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body).withSize(20)
         return label
     }()
     
     public lazy var slider : UISlider = {
         let slider = UISlider()
-        slider.maximumValue = 100.0
-        slider.value = 0.0
+        slider.maximumValue = 10
+        slider.value = 0
         slider.translatesAutoresizingMaskIntoConstraints = false
+        slider.tintColor = .green
         return slider
     }()
     
@@ -96,6 +97,8 @@ class CompagniaDomandaCell: UITableViewCell {
     }
     
     @objc private func sliderValueChanged(_ sender: UISlider) {
+        sender.value = roundf(sender.value)
+        
         self.sliderLabel.text = "\(Int(sender.value))"
         self.valueChanged?(Int(sender.value))
         let realm = try! Realm()
