@@ -14,13 +14,18 @@ class GioProNetCell: BoldCell {
                                  "internet", "giochi", "musica", "sport",
                                  "scuola", "famiglia", "amici", "notte"
                                  ]
-
-    private var tasks: [GioProNetTask] = [ .facebook, .instagram, .youtube, .whatsapp,
-                                   .internet, .videogiochi, .musica, .sport,
-                                   .scuola, .famiglia, .amici, .notte
-                                ]
     
-    var taskSelected: GioProNetTask?
+    var cellTask: GioProNetTask? {
+        didSet {
+            DispatchQueue.main.async {
+                self.updateView()
+            }
+        }
+    }
+    
+    var cellTime: GioProNetTask.GioProTime?
+    
+    var taskSelectedHandler: ((GioProNetTask.GioProTime, GioProNetTask.TaskType) -> Void)? = nil
     
     private var firstStack : UIStackView = {
         let stack = UIStackView()
@@ -85,7 +90,7 @@ class GioProNetCell: BoldCell {
     }
     
     private func getButton(index: Int) -> TaskButton {
-        let button = TaskButton(imageNamed: imagesNames[index], task: tasks[index])
+        let button = TaskButton(imageNamed: imagesNames[index], taskType: GioProNetTask.TaskType.allCases[index])
         button.addTarget(self, action: #selector(taskButtonTouched(_:)), for: .touchUpInside)
         return button
     }
@@ -99,13 +104,13 @@ class GioProNetCell: BoldCell {
         super.layoutSubviews()
     }
     
-    private func updateView(for task: GioProNetTask) {
+    private func updateView() {
         let stacks = [firstStack, secondStack, thirdStack]
         for stack in stacks {
             for button in stack.arrangedSubviews {
                 guard let taskButton = button as? TaskButton else { continue }
                 
-                if taskButton.task == task {
+                if taskButton.taskType == cellTask?.taskType {
                     taskButton.backgroundColor = UIColor.green
                 } else {
                     taskButton.backgroundColor = UIColor.clear
@@ -115,51 +120,10 @@ class GioProNetCell: BoldCell {
         
     }
     
-    public func setTask(_ task: GioProNetTask) {
-        self.taskSelected = task
-        updateView(for: task)
-    }
-    
     @objc private func taskButtonTouched(_ sender: TaskButton) {
-        self.taskSelected = sender.task
-        updateView(for: sender.task)
+        if let time = self.cellTime {
+            taskSelectedHandler?(time, sender.taskType)
+        }
     }
-    
-//    @objc func facebookTouched(_ sender: UIButton) {
-//
-//    }
-//    @objc func instagramTouched(_ sender: UIButton) {
-//
-//    }
-//    @objc func youtubeTouched(_ sender: UIButton) {
-//
-//    }
-//    @objc func whatsappTouched(_ sender: UIButton) {
-//
-//    }
-//    @objc func internetTouched(_ sender: UIButton) {
-//
-//    }
-//    @objc func giochiTouched(_ sender: UIButton) {
-//
-//    }
-//    @objc func musicaTouched(_ sender: UIButton) {
-//
-//    }
-//    @objc func sportTouched(_ sender: UIButton) {
-//
-//    }
-//    @objc func scuolaTouched(_ sender: UIButton) {
-//
-//    }
-//    @objc func famigliaTouched(_ sender: UIButton) {
-//
-//    }
-//    @objc func amiciTouched(_ sender: UIButton) {
-//
-//    }
-//    @objc func notteTouched(_ sender: UIButton) {
-//
-//    }
     
 }

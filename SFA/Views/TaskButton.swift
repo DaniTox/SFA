@@ -9,10 +9,10 @@
 import UIKit
 
 class TaskButton: UIButton {
-    var task: GioProNetTask
+    var taskType: GioProNetTask.TaskType
     
-    init(imageNamed: String, task: GioProNetTask) {
-        self.task = task
+    init(imageNamed: String, taskType: GioProNetTask.TaskType) {
+        self.taskType = task
         super.init(frame: .zero)
 //
 //        guard let path = Bundle.main.url(forResource: imageNamed, withExtension: "png") else { fatalError() }

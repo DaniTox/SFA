@@ -7,27 +7,28 @@
 //
 
 import UIKit
+import RealmSwift
 
 class GioProEditorVC: UITableViewController {
 
     var dataSource : GioProEditorDataSource
+    var gioItem: GioProNet
     
     init(taskTable: GioProNet? = nil) {
-        var selectedTable : GioProNet
         if taskTable == nil {
-            selectedTable = GioProNet()
+            gioItem = GioProNet()
         } else {
-            selectedTable = taskTable!
+            gioItem = taskTable!
         }
         
-        self.dataSource = GioProEditorDataSource(taskTable: selectedTable)
+        self.dataSource = GioProEditorDataSource(item: gioItem)
         super.init(style: .grouped)
     
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "\(dataSource.taskTable.date.dayOfWeek()) - \(dataSource.taskTable.date.stringValue)"
+        self.title = "\(dataSource.gioNetItem.date.dayOfWeek()) - \(dataSource.gioNetItem.date.stringValue)"
         self.tableView.backgroundColor = Theme.current.tableViewBackground
         self.tableView.separatorStyle = .none
         
@@ -44,8 +45,11 @@ class GioProEditorVC: UITableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if dataSource.isEntryDateAvailable() {
-            dataSource.saveTable()
+        if !self.gioItem.isConsideredEmpty {
+            let realm = try! Realm()
+            try? realm.write {
+                realm.add(gioItem, update: true)
+            }
         }
     }
 }

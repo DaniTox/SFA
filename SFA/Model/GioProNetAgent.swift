@@ -10,25 +10,27 @@ import Foundation
 import RealmSwift
 
 class GioProNetAgent {
-    var errorHandler : ((String)->Void)?
+    public var errorHandler : ((String)->Void)?
     
-    public func isTodayTableEmpty() -> Bool {
+    public static var isTodayAvailable: Bool {
+        return GioProNetAgent.isDateAvailable(Date())
+    }
+    
+   static func isDateAvailable(_ date: Date) -> Bool {
         let realm = try! Realm()
+        let calendar = Calendar.current
         
-        var calendar = Calendar.current
-        calendar.locale = NSLocale.current
-        
-        let dateFrom = calendar.startOfDay(for: Date())
+        let dateFrom = calendar.startOfDay(for: date)
         let dateTo = calendar.date(byAdding: .day, value: 1, to: dateFrom)!
         
         let fromPredicate = NSPredicate(format: "date > %@", dateFrom as NSDate)
         let toPredicate = NSPredicate(format: "date < %@", dateTo as NSDate)
         let fullPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [fromPredicate, toPredicate])
         
-        let tables = realm.objects(GioProNet.self).filter(fullPredicate)
-        return tables.count == 0
-        
+        let objects = realm.objects(GioProNet.self).filter(fullPredicate)
+        return objects.count == 0
     }
+    
     
     func getThemAll() -> [GioProNetWeek] {
         let realm = try! Realm()
