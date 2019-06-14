@@ -29,9 +29,9 @@ class OnboardingCoordinator: NSObject, OrderedFlowCoordinator {
     }
     
     func start() {
-        var vc = controllers.first!
+        let vc = controllers.first!
         vc.orderingCoordinator = self
-        navigationController.pushViewController(vc as! UIViewController, animated: false)
+        navigationController.pushViewController(vc, animated: false)
     }
     
     func next() {
@@ -39,9 +39,9 @@ class OnboardingCoordinator: NSObject, OrderedFlowCoordinator {
         if currentShowingControllerIndex >= controllers.count {
             end()
         } else {
-            var vc = controllers[currentShowingControllerIndex]
+            let vc = controllers[currentShowingControllerIndex]
             vc.orderingCoordinator = self
-            navigationController.pushViewController(vc as! UIViewController, animated: true)
+            navigationController.pushViewController(vc, animated: true)
 //            navigationController.navigationItem.backBarButtonItem?.isEnabled = false
         }
     }
@@ -54,7 +54,7 @@ class OnboardingCoordinator: NSObject, OrderedFlowCoordinator {
 
 extension OnboardingCoordinator : UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        if let index = controllers.firstIndex(where: { ($0 as! UIViewController) == (viewController) }) {
+        if let index = controllers.firstIndex(where: { $0 == viewController }) {
             currentShowingControllerIndex = index
         }
     }
