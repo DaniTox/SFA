@@ -21,7 +21,7 @@ class GioProNet : Object {
     ///Ritorna il task nella lista dei tasks che ha come time quello passato come argomento.
     ///Se non esiste, lo crea e lo aggiunge alla lista
     func getTask(at time: GioProNetTask.GioProTime) -> GioProNetTask {
-        if let taskObject = self.tasks.filter(.init(format: "_time == %d", time.rawValue)).first {
+        if let taskObject = Array(self.tasks).filter({ $0.time == time }).first {
             return taskObject
         } else {
             let newTask = GioProNetTask()
@@ -86,6 +86,7 @@ class GioProNetTask: Object {
         }
     }
     
+    let gioProItem = LinkingObjects(fromType: GioProNet.self, property: "tasks")
     @objc private dynamic var _taskType = 0
     @objc private dynamic var _time = 0
     

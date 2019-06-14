@@ -17,6 +17,7 @@ class GioProNetCell: BoldCell {
     
     var cellTask: GioProNetTask? {
         didSet {
+            cellTime = cellTask?.time
             DispatchQueue.main.async {
                 self.updateView()
             }
@@ -124,6 +125,7 @@ class GioProNetCell: BoldCell {
         if let time = self.cellTime {
             taskSelectedHandler?(time, sender.taskType)
         }
+        updateView()
     }
     
 }

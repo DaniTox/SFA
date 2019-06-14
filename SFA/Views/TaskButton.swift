@@ -12,7 +12,7 @@ class TaskButton: UIButton {
     var taskType: GioProNetTask.TaskType
     
     init(imageNamed: String, taskType: GioProNetTask.TaskType) {
-        self.taskType = task
+        self.taskType = taskType
         super.init(frame: .zero)
 //
 //        guard let path = Bundle.main.url(forResource: imageNamed, withExtension: "png") else { fatalError() }
