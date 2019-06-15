@@ -33,7 +33,8 @@ class GioProListVC : UITableViewController, DZNEmptyDataSetDelegate {
         tableView.separatorStyle = .none
         tableView.backgroundColor = Theme.current.tableViewBackground
         tableView.register(BoldCell.self, forCellReuseIdentifier: "boldCell")
-        tableView.register(GioProNetCell.self, forCellReuseIdentifier: "taskCell")
+        tableView.register(GioProListCell.self, forCellReuseIdentifier: "listCell")
+//        tableView.register(GioProNetCell.self, forCellReuseIdentifier: "taskCell")
         tableView.delegate = self
         tableView.dataSource = dataSource
         tableView.emptyDataSetDelegate = self
@@ -66,7 +67,7 @@ class GioProListVC : UITableViewController, DZNEmptyDataSetDelegate {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return tableView.frame.width
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

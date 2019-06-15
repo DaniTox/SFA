@@ -72,6 +72,24 @@ class GioProNetTask: Object {
                 .musica, .sport, .scuola, .famiglia, .amici, .notte
             ]
         }
+        
+        var stringValue: String {
+            switch self {
+            case .none:         return "NULL"
+            case .facebook:     return "Facebook"
+            case .instagram:    return "Instagram"
+            case .youtube:      return "YouTube"
+            case .whatsapp:     return "WhatsApp"
+            case .internet:     return "Internet"
+            case .videogiochi:  return "Videogiochi"
+            case .musica:       return "Musica"
+            case .sport:        return "Sport"
+            case .scuola:       return "Scuola"
+            case .famiglia:     return "Famiglia"
+            case .amici:        return "Amici"
+            case .notte:        return "Notte"
+            }
+        }
     }
     
     enum GioProTime: Int, Codable, CaseIterable {
@@ -86,6 +104,19 @@ class GioProNetTask: Object {
         
         static var allCases: [GioProTime] {
             return [.seven, .eleven, .fourteen, .seventeen, .twenty, .twentythree, .two]
+        }
+        
+        var stringValue: String {
+            switch self {
+            case .none: return "NULL"
+            case .two: return "2:00"
+            case .seven: return "7:00"
+            case .eleven: return "11:00"
+            case .fourteen: return "14:00"
+            case .seventeen: return "17:00"
+            case .twenty: return "20:00"
+            case .twentythree: return "23:00"
+            }
         }
     }
     
