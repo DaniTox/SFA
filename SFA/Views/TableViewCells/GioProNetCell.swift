@@ -103,6 +103,11 @@ class GioProNetCell: BoldCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        fullStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        fullStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        fullStack.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
+        fullStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
     }
     
     private func updateView() {
