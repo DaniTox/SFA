@@ -44,6 +44,15 @@ class GioCollectionListCell : UICollectionViewCell {
             guard let task = task else { return }
             timeLabel.text = "\(task.time.stringValue)"
             taskLabel.text = "\(task.taskType.stringValue)"
+            
+            DispatchQueue.main.async {
+                if task.taskType == .none {
+                    self.backgroundColor = UIColor.red
+                } else {
+                    self.backgroundColor = UIColor.green.darker()
+                }
+            }
+            
         }
     }
     

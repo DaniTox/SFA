@@ -13,6 +13,14 @@ class GioProListVC : UITableViewController, DZNEmptyDataSetDelegate {
     
     var dataSource = GioProListDataSource()
     
+    init() {
+        super.init(style: .grouped)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Storico"
@@ -34,7 +42,6 @@ class GioProListVC : UITableViewController, DZNEmptyDataSetDelegate {
         tableView.backgroundColor = Theme.current.tableViewBackground
         tableView.register(BoldCell.self, forCellReuseIdentifier: "boldCell")
         tableView.register(GioProListCell.self, forCellReuseIdentifier: "listCell")
-//        tableView.register(GioProNetCell.self, forCellReuseIdentifier: "taskCell")
         tableView.delegate = self
         tableView.dataSource = dataSource
         tableView.emptyDataSetDelegate = self
@@ -67,7 +74,7 @@ class GioProListVC : UITableViewController, DZNEmptyDataSetDelegate {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.width
+        return tableView.frame.width + 60
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
