@@ -45,6 +45,11 @@ class GioProListVC : UITableViewController, DZNEmptyDataSetDelegate {
         dataSource.fetchEntries()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        dataSource.fetchEntries()
+    }
+    
     @objc private func tableViewWasPulled() {
         dataSource.fetchEntries()
     }

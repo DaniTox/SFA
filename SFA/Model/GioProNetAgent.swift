@@ -16,6 +16,26 @@ class GioProNetAgent {
         return GioProNetAgent.isDateAvailable(Date())
     }
     
+    static func isDateAvailable(for item: GioProNet) -> Bool {
+        let realm = try! Realm()
+        let calendar = Calendar.current
+        
+        let dateFrom = calendar.startOfDay(for: item.date)
+        let dateTo = calendar.date(byAdding: .day, value: 1, to: dateFrom)!
+        
+        let fromPredicate = NSPredicate(format: "date >= %@", dateFrom as NSDate)
+        let toPredicate = NSPredicate(format: "date < %@", dateTo as NSDate)
+        let fullPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [fromPredicate, toPredicate])
+        
+        let objects = realm.objects(GioProNet.self).filter(fullPredicate)
+        if objects.contains(item) {
+            return true
+        } else {
+            return objects.count == 0
+        }
+        
+    }
+    
    static func isDateAvailable(_ date: Date) -> Bool {
         let realm = try! Realm()
         let calendar = Calendar.current
