@@ -45,8 +45,15 @@ class GioProEditorVC: UITableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if !self.gioItem.isConsideredEmpty {
-            let realm = try! Realm()
+        let realm = try! Realm()
+        
+        if self.gioItem.isConsideredEmpty || !GioProNetAgent.isDateAvailable(self.gioItem.date) {
+            try? realm.write {
+                if realm.objects(GioProNet.self).contains(self.gioItem) {
+                    realm.delete(self.gioItem)
+                }
+            }
+        } else {
             try? realm.write {
                 realm.add(gioItem, update: true)
             }

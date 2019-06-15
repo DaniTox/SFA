@@ -25,7 +25,7 @@ class DebugVC : UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -37,6 +37,8 @@ class DebugVC : UITableViewController {
             cell.mainLabel.text = "Resetta TeenStar"
         case 2:
             cell.mainLabel.text = "Resetta 'Il mio percorso formativo'"
+        case 3:
+            cell.mainLabel.text = "Resetta GioProNet"
         default:
             break
         }
@@ -67,6 +69,13 @@ class DebugVC : UITableViewController {
             agent.createIfNotPresent()
             
             self.showError(withTitle: "Completato", andMessage: "Percorso formativo resettato")
+        case 3:
+            let realm = try! Realm()
+            try? realm.write {
+                realm.delete(realm.objects(GioProNet.self))
+                realm.delete(realm.objects(GioProNetTask.self))
+            }
+            self.showError(withTitle: "Completato", andMessage: "GioProNet resettato")
         default:
             break
         }

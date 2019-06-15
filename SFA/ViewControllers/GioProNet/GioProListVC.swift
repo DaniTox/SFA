@@ -41,6 +41,8 @@ class GioProListVC : UITableViewController, DZNEmptyDataSetDelegate {
         
         let rightButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addEntryButtonTapped))
         navigationItem.setRightBarButton(rightButton, animated: true)
+        
+        dataSource.fetchEntries()
     }
     
     @objc private func tableViewWasPulled() {

@@ -28,7 +28,10 @@ class GioProNet : Object {
             newTask.time = time
             newTask.taskType = .none
             
-            self.tasks.append(newTask)
+            let realm = try! Realm()
+            try? realm.write {
+                self.tasks.append(newTask)
+            }
             return newTask
         }
     }
@@ -120,58 +123,3 @@ class GioProNetWeek: Hashable {
     }
     
 }
-
-
-//class GioProMemory {
-//    var task7 : GioProNetTask?
-//    var task11 : GioProNetTask?
-//    var task14 : GioProNetTask?
-//    var task17 : GioProNetTask?
-//    var task20 : GioProNetTask?
-//    var task23 : GioProNetTask?
-//    var task2 : GioProNetTask?
-//
-//    var date: Date = Date().startOfDay
-//
-//    func getTask(from index: Int) -> GioProNetTask? {
-//        switch index {
-//        case 1:
-//            return task7
-//        case 2:
-//            return task11
-//        case 3:
-//            return task14
-//        case 4:
-//            return task17
-//        case 5:
-//            return task20
-//        case 6:
-//            return task23
-//        case 7:
-//            return task2
-//        default:
-//            return nil
-//        }
-//    }
-//
-//    func set(task: GioProNetTask, at index: Int) {
-//        switch index {
-//        case 1:
-//            self.task7 = task
-//        case 2:
-//            self.task11 = task
-//        case 3:
-//            self.task14 = task
-//        case 4:
-//            self.task17 = task
-//        case 5:
-//            self.task20 = task
-//        case 6:
-//            self.task23 = task
-//        case 7:
-//            self.task2 = task
-//        default:
-//            break
-//        }
-//    }
-//}
