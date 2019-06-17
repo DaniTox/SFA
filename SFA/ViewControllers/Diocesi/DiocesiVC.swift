@@ -24,6 +24,7 @@ class DiocesiVC: UITableViewController {
         tableView.backgroundColor = Theme.current.tableViewBackground
         tableView.tableFooterView = UIView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(BoldCell.self, forCellReuseIdentifier: "boldCell")
         
         dataSource.errorHandler = self.errorHandler
         dataSource.updateHandler = self.updateOccurred
@@ -32,7 +33,7 @@ class DiocesiVC: UITableViewController {
     }
     
     func errorHandler(err: Error) {
-        self.showError(withTitle: "Errore", andMessage: "\(err)")
+        self.showError(withTitle: "Errore", andMessage: "\(err.localizedDescription)")
     }
     
     @objc private func refreshed() {
@@ -52,5 +53,9 @@ class DiocesiVC: UITableViewController {
 extension DiocesiVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75
     }
 }

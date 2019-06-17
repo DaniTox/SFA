@@ -13,6 +13,7 @@ class DiocesiDataSource: NSObject, UITableViewDataSource {
     
     var allDiocesi: [Diocesi] = [] {
         didSet {
+            if allDiocesi.isEmpty { return }
             self.updateHandler?()
         }
     }
@@ -27,6 +28,7 @@ class DiocesiDataSource: NSObject, UITableViewDataSource {
     
     
     func load() {
+        allDiocesi.removeAll(keepingCapacity: true)
         agent.getDiocesi(saveRecords: true) { _ in
             DispatchQueue.main.async {
                 let realm = try! Realm()
@@ -40,13 +42,11 @@ class DiocesiDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "boldCell") as! BoldCell
         let diocesi = allDiocesi[indexPath.row]
         cell.backgroundColor = Theme.current.backgroundColor
-        cell.textLabel?.textColor = Theme.current.textColor
-        cell.textLabel?.text = diocesi.name
+        cell.mainLabel.text = diocesi.name
         return cell
     }
-
     
 }
