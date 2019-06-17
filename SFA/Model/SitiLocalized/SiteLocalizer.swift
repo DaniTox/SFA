@@ -14,38 +14,38 @@ class SiteLocalizer {
     var errorHandler: ((Error) -> Void)?
 
     
-    /// Ottiene la lista delle diocesi dal server in modo asyncrono. Se non viene data nessuna completionHandler, questa funzione salverò le diocesi direttamente su Realm. Altrimenti, viene solo eseguita la completionHandler senza salvare
+    /// Ottiene la lista delle diocesi dal server in modo asyncrono.
     ///
+    /// - Parameter saveRecords: se true, salva le diocesi in realm altrimenti no. True di default
     /// - Parameter completion: handler che ritorna le diocesi ottenute
-    func getDiocesi(completion: (([DiocesiCodable]) -> Void)? = nil) {
-        let completionHandler = (completion == nil) ? save : completion!
-        
+    func getDiocesi(saveRecords: Bool = true, completion: (([DiocesiCodable]) -> Void)? = nil) {
         let request = BasicRequest(requestType: .diocesi)
         
         let networkAgent = NetworkAgent<[DiocesiCodable]>()
         networkAgent.executeNetworkRequest(with: request) { (result) in
             switch result {
             case .success(let diocesi):
-                completionHandler(diocesi)
+                if saveRecords { self.save(diocesi: diocesi) }
+                completion?(diocesi)
             case .failure(let err):
                 self.errorHandler?(err)
             }
         }
     }
     
-    /// Ottiene la lista delle città dal server in modo asyncrono. Se non viene data nessuna completionHandler, questa funzione salverò le città direttamente su Realm. Altrimenti, viene solo eseguita la completionHandler senza salvare
+    /// Ottiene la lista delle città dal server in modo asyncrono.
     ///
+    /// - Parameter saveRecords: se true, salva le città in realm altrimenti no. True di default
     /// - Parameter completion: handler che ritorna le città ottenute
-    func getCitta(completion: (([CityCodable]) -> Void)? = nil) {
-        let completionHandler = (completion == nil) ? save : completion!
-        
+    func getCitta(saveRecords: Bool = true, completion: (([CityCodable]) -> Void)? = nil) {
         let request = BasicRequest(requestType: .cities)
         
         let networkAgent = NetworkAgent<[CityCodable]>()
         networkAgent.executeNetworkRequest(with: request) { (result) in
             switch result {
             case .success(let cities):
-                completionHandler(cities)
+                if saveRecords { self.save(cities: cities) }
+                completion?(cities)
             case .failure(let err):
                 self.errorHandler?(err)
             }
@@ -53,7 +53,7 @@ class SiteLocalizer {
     }
     
     
-    /// Salva su Realm le diocesi che gli vengono passate. Prima di farlo, viene creata la loro versione di Realm e poi vengono salvate.
+    /// Elimina tutte le diocesi salvate in Realm e poi salva quelle nuove passate come parametro convertendole a oggetti Realm.
     ///
     /// - Parameter diocesi: lista delle diocesi che ottieni dal server (quindi in formato Codable)
     private func save(diocesi: [DiocesiCodable]) {
@@ -70,7 +70,7 @@ class SiteLocalizer {
         try? realm.commitWrite()
     }
     
-    /// Salva su Realm le città che gli vengono passate. Prima di farlo, viene creata la loro versione di Realm e poi vengono salvate.
+    /// Elimina tutte le città salvate in Realm e poi salva quelle nuove passate come parametro convertendole a oggetti Realm.
     ///
     /// - Parameter cities: lista delle città che ottieni dal server (quindi in formato Codable)
     private func save(cities: [CityCodable]) {

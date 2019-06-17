@@ -138,7 +138,7 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
             switch indexPath.row {
             case 0: navigationController?.pushViewController(InfoVC(), animated: true)
             case 1: break
-            case 2: break
+            case 2: navigationController?.pushViewController(LocationVC(), animated: true)
             case 3: navigationController?.pushViewController(DebugVC(), animated: true)
             default: break
             }

@@ -36,6 +36,12 @@ extension String {
 }
 
 extension UIViewController {
+    
+    /// Mostra un alert con titolo e messaggio custom. Questa funzione agisce già nella MainQueue
+    ///
+    /// - Parameters:
+    ///   - title: titolo dell'alert
+    ///   - message: messaggio dell'alert
     func showError(withTitle title: String, andMessage message : String) {
         DispatchQueue.main.async {
             var attributes = EKAttributes.topNote

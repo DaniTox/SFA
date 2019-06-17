@@ -144,6 +144,10 @@
 		DBD2379E22B6B2A600C9A2D1 /* SiteLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD2379D22B6B2A600C9A2D1 /* SiteLocalizer.swift */; };
 		DBD2386622B7FAF400C9A2D1 /* MGSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD2386522B7FAF400C9A2D1 /* MGSTests.swift */; };
 		DBD2387F22B7FB5400C9A2D1 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8B860F224AA5A000C58055 /* RealmSwift.framework */; };
+		DBD2388522B81B7700C9A2D1 /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD2388422B81B7700C9A2D1 /* LocationVC.swift */; };
+		DBD2388722B81BA400C9A2D1 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD2388622B81BA400C9A2D1 /* LocationView.swift */; };
+		DBD2388A22B821E400C9A2D1 /* DiocesiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD2388922B821E400C9A2D1 /* DiocesiVC.swift */; };
+		DBD2388C22B8221500C9A2D1 /* DiocesiDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD2388B22B8221500C9A2D1 /* DiocesiDataSource.swift */; };
 		DBD9011A2235AB9E007F37F0 /* NotesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD901192235AB9E007F37F0 /* NotesDataSource.swift */; };
 		DBDC3B2D225B988200D019EA /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC3B2C225B988200D019EA /* HeaderView.swift */; };
 		DBDC3B30225B9CC600D019EA /* RiassuntoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC3B2F225B9CC600D019EA /* RiassuntoView.swift */; };
@@ -315,6 +319,10 @@
 		DBD2386322B7FAF400C9A2D1 /* MGSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MGSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBD2386522B7FAF400C9A2D1 /* MGSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSTests.swift; sourceTree = "<group>"; };
 		DBD2386722B7FAF400C9A2D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBD2388422B81B7700C9A2D1 /* LocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationVC.swift; sourceTree = "<group>"; };
+		DBD2388622B81BA400C9A2D1 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
+		DBD2388922B821E400C9A2D1 /* DiocesiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiocesiVC.swift; sourceTree = "<group>"; };
+		DBD2388B22B8221500C9A2D1 /* DiocesiDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiocesiDataSource.swift; sourceTree = "<group>"; };
 		DBD901192235AB9E007F37F0 /* NotesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesDataSource.swift; sourceTree = "<group>"; };
 		DBDC3B2C225B988200D019EA /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		DBDC3B2F225B9CC600D019EA /* RiassuntoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiassuntoView.swift; sourceTree = "<group>"; };
@@ -621,6 +629,8 @@
 		DBAF3C1A219C942E003083EA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DBD2388822B821D100C9A2D1 /* Diocesi */,
+				DBD2388322B81B4300C9A2D1 /* Location */,
 				DB8B4E06227D90F700AFF716 /* InfoVC */,
 				DB75F2ED225D3BF000EB62DF /* Debug */,
 				DB53C77C21DFCAE10001054B /* WelcomePage */,
@@ -887,6 +897,24 @@
 			path = MGSTests;
 			sourceTree = "<group>";
 		};
+		DBD2388322B81B4300C9A2D1 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				DBD2388422B81B7700C9A2D1 /* LocationVC.swift */,
+				DBD2388622B81BA400C9A2D1 /* LocationView.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		DBD2388822B821D100C9A2D1 /* Diocesi */ = {
+			isa = PBXGroup;
+			children = (
+				DBD2388922B821E400C9A2D1 /* DiocesiVC.swift */,
+				DBD2388B22B8221500C9A2D1 /* DiocesiDataSource.swift */,
+			);
+			path = Diocesi;
+			sourceTree = "<group>";
+		};
 		DBDC3B2E225B9CAE00D019EA /* Riassunto */ = {
 			isa = PBXGroup;
 			children = (
@@ -1056,6 +1084,7 @@
 				DB53C78621E0F7E40001054B /* CompagniaAgent.swift in Sources */,
 				DB8B8617224D1E7300C58055 /* DatePickerCell.swift in Sources */,
 				DB7BEF8D21D0172E007A550E /* URLs.swift in Sources */,
+				DBD2388A22B821E400C9A2D1 /* DiocesiVC.swift in Sources */,
 				DBC7F4DC2219AEC500C22945 /* NotificheOnboardingVC.swift in Sources */,
 				DBF3A2B421DD81F5008AE7D5 /* TeenStarEditEntryView.swift in Sources */,
 				DBAF3C4D219CBF35003083EA /* IQNSArray+Sort.swift in Sources */,
@@ -1065,6 +1094,7 @@
 				DBD9011A2235AB9E007F37F0 /* NotesDataSource.swift in Sources */,
 				DB9846FD227F31660033D12F /* GioProNet.swift in Sources */,
 				DBD2379E22B6B2A600C9A2D1 /* SiteLocalizer.swift in Sources */,
+				DBD2388522B81B7700C9A2D1 /* LocationVC.swift in Sources */,
 				DB984701227F54940033D12F /* GioProNetCell.swift in Sources */,
 				DB53C78221DFCC3D0001054B /* SettingsVC.swift in Sources */,
 				DBF5C1A7223443870086E9E7 /* Note.swift in Sources */,
@@ -1101,6 +1131,7 @@
 				DB7BEF8B21D01670007A550E /* NetworkAgent.swift in Sources */,
 				DBCE9ED021EFB247005B286A /* VerificaCompagniaDataSource.swift in Sources */,
 				DB53C78021DFCBF90001054B /* SettingsView.swift in Sources */,
+				DBD2388722B81BA400C9A2D1 /* LocationView.swift in Sources */,
 				DB88DBEC21A975C100B0699B /* TimerEx.swift in Sources */,
 				DBDC3B30225B9CC600D019EA /* RiassuntoView.swift in Sources */,
 				DB19C67F21E2870B0020357D /* VerificaCompagniaVC.swift in Sources */,
@@ -1153,6 +1184,7 @@
 				DB61DA1521B9BA81006B308B /* SitoView.swift in Sources */,
 				DBF13C4722B5868C00A588EC /* GioCollectionCell.swift in Sources */,
 				DB4F3BC321F5F2D90040F4C4 /* ThemedNavigationController.swift in Sources */,
+				DBD2388C22B8221500C9A2D1 /* DiocesiDataSource.swift in Sources */,
 				DB61DA1921B9C81E006B308B /* SocialVC.swift in Sources */,
 				DBFE97FA21D57CD500E82803 /* NoteModel.swift in Sources */,
 				DB7BEF8F21D01920007A550E /* ToxNetworkResponse.swift in Sources */,
