@@ -15,7 +15,6 @@ class RootAppController : UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.delegate = self
         fillController()
         
         NotificationCenter.default.addObserver(forName: .updateTheme, object: nil, queue: .main, using: { (notification) in
@@ -35,23 +34,17 @@ class RootAppController : UITabBarController {
         self.addChild(nav1)
         
 //        let vc2 = SitoVC()
-        let vc2 = SitiVC(type: WebsiteType.materiali)
+        let vc2 = SitiVC(type: SitoCategoria.materiali)
         let nav2 = ThemedNavigationController(rootViewController: vc2)
         vc2.title = "Materiali"
         self.addChild(nav2)
         
         
-        let vc5 = SitiVC(type: WebsiteType.preghiere)
+        let vc5 = SitiVC(type: SitoCategoria.preghiere)
         let nav5 = ThemedNavigationController(rootViewController: vc5)
         vc5.title = "Preghiere"
         self.addChild(nav5)
         
-//        let vc3 = SocialVC()
-//        let nav3 = UINavigationController(rootViewController: vc3)
-//        nav3.navigationBar.prefersLargeTitles = true
-//        nav3.navigationItem.title = "I nostri social"
-//        vc3.title = "Social"
-//        self.addChild(nav3)
         let vc3 = SocialVC()
         let nav3 = ThemedNavigationController(rootViewController: vc3)
         vc3.title = "Social"
@@ -66,25 +59,4 @@ class RootAppController : UITabBarController {
         
     }
     
-//    private func presentSitoVC() {
-//        let url = URL(string: "https://sites.google.com/salesiani.it/giopro/")!
-//        let sitoVC = SFSafariViewController(url: url)
-//        sitoVC.title = "Sito"
-//        sitoVC.dismissButtonStyle = .close
-//        DispatchQueue.main.async {
-//            self.present(sitoVC, animated: true, completion: nil)
-//        }
-//    }
-    
-}
-
-extension RootAppController : UITabBarControllerDelegate {
-    
-//    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-//        if viewController is SitoVC {
-//            self.presentSitoVC()
-//            return false
-//        }
-//        return true
-//    }
 }

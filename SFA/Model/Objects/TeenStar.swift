@@ -135,3 +135,25 @@ fileprivate let descriptionsCiclo : [CicloColor : String] = [
     .bianco : "Giorni di muco cervicale trasparente, elastico, vulva bagnata o sensazione di umidità",
     .croce : "Giorno in cui è avvenuta la mestruazione"
 ]
+
+
+class TeenStarWeek<T: TeenStarDerivative & Object> : Hashable {
+    static func == (lhs: TeenStarWeek<T>, rhs: TeenStarWeek<T>) -> Bool {
+        return lhs.startOfWeek == rhs.startOfWeek //&& lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(startOfWeek)
+        //        hasher.combine(id)
+    }
+    
+    var id: UUID = UUID()
+    var startOfWeek: Date
+    var tables : [T]
+    
+    init(startOfWeek : Date) {
+        self.startOfWeek = startOfWeek
+        self.tables = []
+    }
+    
+}

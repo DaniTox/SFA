@@ -10,14 +10,18 @@ import Foundation
 
 class NetworkAgent<Response: Decodable> {
     
-    public var errorHandler : ((String) -> Void)?
-    
-    public func executeNetworkRequest<RequestType : ToxNetworkRequest> (with toxRequest: RequestType, responseCompletion: @escaping (Result<Response, Error>) -> Void)  {
+    /// Esegue una richiesta HTTP alla path che gli dai tramite il parametro 'toxRequest'. Poi ritorna l'oggetto ricevuto dal server tramite il responseCompletion. Il tipo dell'oggetto lo decidi tu quando crei un'istanza di NetworkAgent con un Generic Type. Il generic type deve essere Decodable.
+    ///
+    /// - Parameters:
+    ///   - toxRequest: Richiesta da esguire. Deve conformare al protocollo ToxNetworkRequest
+    ///   - responseCompletion: la closure che viene chiamata ritornando un Swift.Result type contenente o l'errore o il tipo response che decidi te quando crei l'istanza di NetworkAgent
+    public func executeNetworkRequest<RequestType : ToxNetworkRequest> (with toxRequest: RequestType, responseCompletion: @escaping (Result<Response, ToxException>) -> Void)  {
         
-        let pathComponent = toxRequest.requestType
+        let pathComponent = toxRequest.requestType.rawValue
         let urlString = "\(URLs.mainUrl)/\(pathComponent)"
+        
         guard let url = URL(string: urlString) else {
-            errorHandler?("Errore generico di quest'app (Codice: -1)")
+            responseCompletion(.failure(ToxException.genericError("Errore generico di quest'app (Codice: -1)")))
             return
         }
 
@@ -26,12 +30,12 @@ class NetworkAgent<Response: Decodable> {
 
         let session = URLSession.shared.dataTask(with: request) { (data, responseWeb, error) in
             if error != nil {
-                responseCompletion(.failure(error!))
+                responseCompletion(.failure(.localError(error!)))
                 return
             }
             
             guard let data = data else {
-                self.errorHandler?("Il server ha risposto con un contenuto vuoto (Codice errore -2)")
+                responseCompletion(.failure(.errorFromServer("Il server ha risposto con un contenuto vuoto (Codice errore -2")))
                 return
             }
             
@@ -39,7 +43,7 @@ class NetworkAgent<Response: Decodable> {
                 let response = try JSONDecoder().decode(Response.self, from: data)
                 responseCompletion(.success(response))
             } catch {
-                responseCompletion(.failure(error))
+                responseCompletion(.failure(.localError(error)))
             }
         }
     

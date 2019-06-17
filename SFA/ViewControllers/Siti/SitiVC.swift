@@ -15,7 +15,7 @@ class SitiVC: UITableViewController {
     var themeObserver : NSObjectProtocol?
     
     init(type: SitoCategoria) {
-        self.dataSource = SitiDataSource(type: type)
+        self.dataSource = SitiDataSource(categoria: type)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -27,13 +27,6 @@ class SitiVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        dataSource.errorHandler = { errStr in
-            self.showError(withTitle: "Errore", andMessage: errStr) //already in mainqueue
-            DispatchQueue.main.async { [weak self] in
-                self?.tableView.refreshControl?.endRefreshing()
-            }
-        }
         
         themeObserver = NotificationCenter.default.addObserver(forName: .updateTheme, object: nil, queue: .main, using: { (notification) in
             UIView.animate(withDuration: 0.3, animations: { self.updateTheme() })
@@ -49,22 +42,10 @@ class SitiVC: UITableViewController {
         tableView.register(SitoCell.self, forCellReuseIdentifier: "sitoCell")
         tableView.dataSource = self.dataSource
         
-        dataSource.fetchData {
-            DispatchQueue.main.async { [weak self] in
-                self?.tableView.reloadData()
-                self?.tableView.refreshControl?.endRefreshing()
-            }
-        }
     }
     
     @objc private func refreshPulled() {
         tableView.refreshControl?.beginRefreshing()
-        dataSource.fetchSitesFromNetwork {
-            DispatchQueue.main.async { [weak self] in
-                self?.tableView.reloadData()
-                self?.tableView.refreshControl?.endRefreshing()
-            }
-        }
     }
     
     private func updateTheme() {

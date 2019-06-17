@@ -14,7 +14,9 @@ protocol ToxNetworkResponse {
     var errorCode : String? { get set }
 }
 
-struct NetworkResponse<T: Decodable>: ToxNetworkResponse {
+
+/// Semplice Response con oggetto generico (deve conformare a Decodable).
+struct NetworkResponse<T: Decodable>: ToxNetworkResponse, Decodable {
     var code: String
     var message: String
     var errorCode: String?

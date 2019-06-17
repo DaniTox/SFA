@@ -12,59 +12,18 @@ import RealmSwift
 class SitiDataSource : NSObject, UITableViewDataSource {
     
     public var sites : [SitoWeb] = []
-    private var model : SitiAgent
+
+    private let agent: SiteLocalizer = SiteLocalizer()
+    private var categoria : SitoCategoria
     
-    public var databaseUpdated : (() -> Void)?
-    public var networkSitesUpdated : (() -> Void)?
-    
-    private var type : SitoCategoria
-    
-    public var errorHandler : ((String) -> Void)? {
-        didSet {
-            guard let handler = errorHandler else { return }
-            self.model.errorHandler = handler
-        }
-    }
-    
-    init(type: SitoCategoria) {
-        self.type = type
-        self.model = SitiAgent()
+    init(categoria: SitoCategoria) {
+        self.categoria = categoria
         super.init()
-    }
-    
-    public func fetchData(completion: (() -> Void)? = nil) {
-        self.fetchLocalWebsistes()
-        if self.sites.count == 0 {
-            model.fetchFromNetwork(type: self.type) { [weak self] in
-                DispatchQueue.main.async {
-                    self?.fetchLocalWebsistes()
-                    completion?()
-                }
-            }
-        } else {
-            completion?()
-        }
     }
     
     private func fetchLocalWebsistes() {
         let scuolaType = User.currentUser().ageScuola
-        var sites = model.fetchLocalWebsites(type: type)
-        let siteScuolaType = sites.filter { $0.scuolaType == scuolaType }
-        let siteNotScuolaType = sites.filter { $0.scuolaType != scuolaType }
-        
-        sites.removeAll(keepingCapacity: true)
-        sites.append(contentsOf: siteScuolaType)
-        sites.append(contentsOf: siteNotScuolaType)
-        self.sites = sites
-    }
-    
-    public func fetchSitesFromNetwork(completion: (() -> Void)? = nil) {
-        model.fetchFromNetwork(type: self.type) {
-            DispatchQueue.main.async {
-                self.fetchLocalWebsistes()
-                completion?()
-            }
-        }
+        self.sites = agent.fetchLocalWebsites(type: categoria).filter { $0.scuolaType == scuolaType }
     }
     
     public func getSiteFrom(_ indexPath : IndexPath) -> SitoWeb? {

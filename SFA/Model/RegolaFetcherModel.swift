@@ -58,7 +58,7 @@ class RegolaFetcherModel {
         if let regola = regole.first {
             return regola
         } else {
-            throw ToxException.regola("Errore regola database. Contatta lo sviluppatore")
+            throw ToxException.genericError("Errore regola database. Contatta lo sviluppatore")
         }
     }
     

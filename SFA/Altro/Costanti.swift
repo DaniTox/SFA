@@ -59,9 +59,11 @@ enum LocalDBError: Error {
 }
 
 enum ToxException : Error {
-    case generic
-    case noteRelated(String)
-    case regola(String)
+    case systemError(Error)
+    case localError(Error)
+    case genericError(String)
+    case networkRelated(String)
+    case errorFromServer(String)
 }
 
 let genderArray : [String] = ["Maschio", "Femmina"]

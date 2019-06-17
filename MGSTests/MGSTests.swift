@@ -6,6 +6,7 @@
 //  Copyright © 2019 Dani Tox. All rights reserved.
 //
 
+@testable import MGS
 import XCTest
 
 class MGSTests: XCTestCase {
@@ -19,17 +20,37 @@ class MGSTests: XCTestCase {
     }
 
     func testGetDiocesi() {
+        let semaphore = DispatchSemaphore(value: 1)
+        
         let siteLocalizer = SiteLocalizer()
         siteLocalizer.getDiocesi { (diocesi) in
+            print(diocesi.count)
             XCTAssert(diocesi.count > 0)
+            semaphore.signal()
         }
+        semaphore.wait()
+        
     }
     
     func testGetCities() {
+        var arr: [CityCodable] = []
+        
         let siteLocalizer = SiteLocalizer()
-        siteLocalizer.getCitta { (cities) in
-            XCTAssert(cities.count > 0)
+        let expect = self.expectation(description: "Fetching")
+        
+        siteLocalizer.errorHandler = { err in
+            XCTFail("SiteLocalizer ha ritornato un errore: \(err)")
         }
+        
+        siteLocalizer.getCitta { (cities) in
+            arr = cities
+            expect.fulfill()
+        }
+        
+        waitForExpectations(timeout: 5, handler: nil)
+        
+        print(arr.count)
+        XCTAssert(arr.count > 0)
     }
 
     func testPerformanceExample() {
