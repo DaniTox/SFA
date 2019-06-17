@@ -17,7 +17,7 @@ class SitiDataSource : NSObject, UITableViewDataSource {
     public var databaseUpdated : (() -> Void)?
     public var networkSitesUpdated : (() -> Void)?
     
-    private var type : WebsiteType
+    private var type : SitoCategoria
     
     public var errorHandler : ((String) -> Void)? {
         didSet {
@@ -26,7 +26,7 @@ class SitiDataSource : NSObject, UITableViewDataSource {
         }
     }
     
-    init(type: WebsiteType) {
+    init(type: SitoCategoria) {
         self.type = type
         self.model = SitiAgent()
         super.init()

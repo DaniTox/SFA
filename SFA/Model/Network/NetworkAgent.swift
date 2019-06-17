@@ -8,32 +8,25 @@
 
 import Foundation
 
-class NetworkAgent<Response> where Response: ToxNetworkResponse & Codable {
+class NetworkAgent<Response: Decodable> {
     
     public var errorHandler : ((String) -> Void)?
     
-    public func executeNetworkRequest<RequestType : ToxNetworkRequest> (with toxRequest: RequestType, responseCompletion: @escaping (Response)->Void)  {
+    public func executeNetworkRequest<RequestType : ToxNetworkRequest> (with toxRequest: RequestType, responseCompletion: @escaping (Result<Response, Error>) -> Void)  {
+        
         let pathComponent = toxRequest.requestType
         let urlString = "\(URLs.mainUrl)/\(pathComponent)"
         guard let url = URL(string: urlString) else {
             errorHandler?("Errore generico di quest'app (Codice: -1)")
             return
         }
-        
-//        guard let jsonData = try? JSONEncoder().encode(toxRequest) else {
-//            errorHandler?("Errore mentre mi stavo preparando per comunicare con il server (Codice errore: -3)")
-//            return
-//        }
+
         
         let request = URLRequest(url: url)
-//        request.httpMethod = "POST"
-//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//        request.addValue("application/json", forHTTPHeaderField: "Accept")
-//        request.httpBody = jsonData
-        
+
         let session = URLSession.shared.dataTask(with: request) { (data, responseWeb, error) in
             if error != nil {
-                self.errorHandler?("\(error!.localizedDescription)")
+                responseCompletion(.failure(error!))
                 return
             }
             
@@ -44,17 +37,9 @@ class NetworkAgent<Response> where Response: ToxNetworkResponse & Codable {
             
             do {
                 let response = try JSONDecoder().decode(Response.self, from: data)
-                if response.code == "OK" {
-                    responseCompletion(response)
-                } else {
-                    self.errorHandler?(response.message)
-                    return
-                }
-
+                responseCompletion(.success(response))
             } catch {
-                print(error)
-                self.errorHandler?("\(error)")
-                return
+                responseCompletion(.failure(error))
             }
         }
     

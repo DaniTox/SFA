@@ -12,12 +12,8 @@ struct SitiNetworkResponse : ToxNetworkResponse, Codable {
     var code: String
     var message: String
     var siti : [SitoObject] = []
-    var categoria: SitoCategoriaObject
+    var categoria: SitoCategoria
 
     var errorCode: String?
     
-//    init() {
-//        code = "NO"
-//        message = "Default error message after initialization"
-//    }
 }

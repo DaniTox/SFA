@@ -58,7 +58,6 @@
 		DB67643421F631A200651AD8 /* SitiNetworkAgentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67643321F631A200651AD8 /* SitiNetworkAgentModel.swift */; };
 		DB67643D21F636D300651AD8 /* SitiMaterialiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67643C21F636D300651AD8 /* SitiMaterialiRequest.swift */; };
 		DB67644121F6389000651AD8 /* SitiNetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67644021F6389000651AD8 /* SitiNetworkResponse.swift */; };
-		DB67644321F63CC400651AD8 /* SitiAgentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB67644221F63CC400651AD8 /* SitiAgentModel.swift */; };
 		DB75F2EC225D2EE700EB62DF /* RiassuntoRDVDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB75F2EB225D2EE700EB62DF /* RiassuntoRDVDataSource.swift */; };
 		DB75F2EF225D3C0300EB62DF /* DebugVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB75F2EE225D3C0300EB62DF /* DebugVC.swift */; };
 		DB7BEF8621D006A0007A550E /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF8421D006A0007A550E /* KeychainItemAccessibility.swift */; };
@@ -147,6 +146,17 @@
 		DBCF2F3E21F7BC410074E0AF /* SitiDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF2F3D21F7BC410074E0AF /* SitiDataSource.swift */; };
 		DBCF2F4021F7C5050074E0AF /* SitoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF2F3F21F7C5050074E0AF /* SitoCell.swift */; };
 		DBD1DA3021CFE35100BFFBA5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1DA2F21CFE35100BFFBA5 /* LoginView.swift */; };
+		DBD2379E22B6B2A600C9A2D1 /* SiteLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD2379D22B6B2A600C9A2D1 /* SiteLocalizer.swift */; };
+		DBD237A822B7B14700C9A2D1 /* MGSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD237A722B7B14700C9A2D1 /* MGSTests.swift */; };
+		DBD237AF22B7B18A00C9A2D1 /* SitoWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB323B14223D521300116FE3 /* SitoWeb.swift */; };
+		DBD237B022B7B18E00C9A2D1 /* SiteLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD2379D22B6B2A600C9A2D1 /* SiteLocalizer.swift */; };
+		DBD237B122B7B1C900C9A2D1 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8B860F224AA5A000C58055 /* RealmSwift.framework */; };
+		DBD237B222B7B1CC00C9A2D1 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8B8610224AA5A000C58055 /* Realm.framework */; };
+		DBD237B322B7B1D100C9A2D1 /* QuickLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8B860E224AA5A000C58055 /* QuickLayout.framework */; };
+		DBD237B422B7B1E700C9A2D1 /* NetworkAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF8A21D01670007A550E /* NetworkAgent.swift */; };
+		DBD237B522B7B1E700C9A2D1 /* ToxNetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF8E21D01920007A550E /* ToxNetworkResponse.swift */; };
+		DBD237B622B7B1E700C9A2D1 /* ToxNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF9021D02128007A550E /* ToxNetworkRequest.swift */; };
+		DBD237B722B7B1F700C9A2D1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF8821D01442007A550E /* User.swift */; };
 		DBD9011A2235AB9E007F37F0 /* NotesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD901192235AB9E007F37F0 /* NotesDataSource.swift */; };
 		DBDC3B2D225B988200D019EA /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC3B2C225B988200D019EA /* HeaderView.swift */; };
 		DBDC3B30225B9CC600D019EA /* RiassuntoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC3B2F225B9CC600D019EA /* RiassuntoView.swift */; };
@@ -166,6 +176,16 @@
 		DBFA57442279CFC100D60E8E /* TeenStarFemminaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA57432279CFC100D60E8E /* TeenStarFemminaCell.swift */; };
 		DBFE97FA21D57CD500E82803 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE97F921D57CD500E82803 /* NoteModel.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DBD237AA22B7B14700C9A2D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DBAF3BF6219C9019003083EA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DBAF3BFD219C9019003083EA;
+			remoteInfo = MGS;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		DB060C8722149B13003E0C96 /* LoginNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNetworkRequest.swift; sourceTree = "<group>"; };
@@ -224,7 +244,6 @@
 		DB67643C21F636D300651AD8 /* SitiMaterialiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitiMaterialiRequest.swift; sourceTree = "<group>"; };
 		DB67643E21F6384F00651AD8 /* AuthNetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNetworkResponse.swift; sourceTree = "<group>"; };
 		DB67644021F6389000651AD8 /* SitiNetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitiNetworkResponse.swift; sourceTree = "<group>"; };
-		DB67644221F63CC400651AD8 /* SitiAgentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitiAgentModel.swift; sourceTree = "<group>"; };
 		DB75F2EB225D2EE700EB62DF /* RiassuntoRDVDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiassuntoRDVDataSource.swift; sourceTree = "<group>"; };
 		DB75F2EE225D3C0300EB62DF /* DebugVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugVC.swift; sourceTree = "<group>"; };
 		DB7BEF8421D006A0007A550E /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
@@ -317,6 +336,10 @@
 		DBCF2F3D21F7BC410074E0AF /* SitiDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitiDataSource.swift; sourceTree = "<group>"; };
 		DBCF2F3F21F7C5050074E0AF /* SitoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitoCell.swift; sourceTree = "<group>"; };
 		DBD1DA2F21CFE35100BFFBA5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		DBD2379D22B6B2A600C9A2D1 /* SiteLocalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteLocalizer.swift; sourceTree = "<group>"; };
+		DBD237A522B7B14700C9A2D1 /* MGSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MGSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBD237A722B7B14700C9A2D1 /* MGSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSTests.swift; sourceTree = "<group>"; };
+		DBD237A922B7B14700C9A2D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBD901192235AB9E007F37F0 /* NotesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesDataSource.swift; sourceTree = "<group>"; };
 		DBDC3B2C225B988200D019EA /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		DBDC3B2F225B9CC600D019EA /* RiassuntoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiassuntoView.swift; sourceTree = "<group>"; };
@@ -348,6 +371,16 @@
 				DB8B8614224AA5A000C58055 /* RealmSwift.framework in Frameworks */,
 				DB8B8615224AA5A000C58055 /* Realm.framework in Frameworks */,
 				DB8B860B224AA5A000C58055 /* DZNEmptyDataSet.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBD237A222B7B14700C9A2D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBD237B222B7B1CC00C9A2D1 /* Realm.framework in Frameworks */,
+				DBD237B322B7B1D100C9A2D1 /* QuickLayout.framework in Frameworks */,
+				DBD237B122B7B1C900C9A2D1 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,7 +534,6 @@
 				DB67643321F631A200651AD8 /* SitiNetworkAgentModel.swift */,
 				DB67643C21F636D300651AD8 /* SitiMaterialiRequest.swift */,
 				DB67644021F6389000651AD8 /* SitiNetworkResponse.swift */,
-				DB67644221F63CC400651AD8 /* SitiAgentModel.swift */,
 				DBF67B232205B293002CF893 /* SitiPreghiereRequest.swift */,
 			);
 			path = Siti;
@@ -540,6 +572,7 @@
 			isa = PBXGroup;
 			children = (
 				DB323B0D223C558700116FE3 /* Objects */,
+				DBD2379C22B6B28200C9A2D1 /* SitiLocalized */,
 				DB67643B21F636BA00651AD8 /* Siti */,
 				DB67643621F634E200651AD8 /* Login+Register */,
 				DB67643521F634C800651AD8 /* Network */,
@@ -604,6 +637,7 @@
 			isa = PBXGroup;
 			children = (
 				DBAF3C00219C9019003083EA /* SFA */,
+				DBD237A622B7B14700C9A2D1 /* MGSTests */,
 				DBAF3BFF219C9019003083EA /* Products */,
 				DB8EC01321EE4447003B2A81 /* Frameworks */,
 			);
@@ -613,6 +647,7 @@
 			isa = PBXGroup;
 			children = (
 				DBAF3BFE219C9019003083EA /* MGS.app */,
+				DBD237A522B7B14700C9A2D1 /* MGSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -907,6 +942,23 @@
 			path = "Data Sources";
 			sourceTree = "<group>";
 		};
+		DBD2379C22B6B28200C9A2D1 /* SitiLocalized */ = {
+			isa = PBXGroup;
+			children = (
+				DBD2379D22B6B2A600C9A2D1 /* SiteLocalizer.swift */,
+			);
+			path = SitiLocalized;
+			sourceTree = "<group>";
+		};
+		DBD237A622B7B14700C9A2D1 /* MGSTests */ = {
+			isa = PBXGroup;
+			children = (
+				DBD237A722B7B14700C9A2D1 /* MGSTests.swift */,
+				DBD237A922B7B14700C9A2D1 /* Info.plist */,
+			);
+			path = MGSTests;
+			sourceTree = "<group>";
+		};
 		DBDC3B2E225B9CAE00D019EA /* Riassunto */ = {
 			isa = PBXGroup;
 			children = (
@@ -948,19 +1000,41 @@
 			productReference = DBAF3BFE219C9019003083EA /* MGS.app */;
 			productType = "com.apple.product-type.application";
 		};
+		DBD237A422B7B14700C9A2D1 /* MGSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBD237AC22B7B14700C9A2D1 /* Build configuration list for PBXNativeTarget "MGSTests" */;
+			buildPhases = (
+				DBD237A122B7B14700C9A2D1 /* Sources */,
+				DBD237A222B7B14700C9A2D1 /* Frameworks */,
+				DBD237A322B7B14700C9A2D1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DBD237AB22B7B14700C9A2D1 /* PBXTargetDependency */,
+			);
+			name = MGSTests;
+			productName = MGSTests;
+			productReference = DBD237A522B7B14700C9A2D1 /* MGSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		DBAF3BF6219C9019003083EA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Dani Tox";
 				TargetAttributes = {
 					DBAF3BFD219C9019003083EA = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1020;
+					};
+					DBD237A422B7B14700C9A2D1 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = DBAF3BFD219C9019003083EA;
 					};
 				};
 			};
@@ -978,6 +1052,7 @@
 			projectRoot = "";
 			targets = (
 				DBAF3BFD219C9019003083EA /* MGS */,
+				DBD237A422B7B14700C9A2D1 /* MGSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -999,6 +1074,13 @@
 				DBAF3C0C219C901B003083EA /* Assets.xcassets in Resources */,
 				DBAF3C46219CBF35003083EA /* IQKeyboardManager.bundle in Resources */,
 				DB4DFBC92272688800FAF396 /* verificaTriennio.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBD237A322B7B14700C9A2D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1054,6 +1136,7 @@
 				DBF3A2AC21DD723B008AE7D5 /* TeenStarListVC.swift in Sources */,
 				DBD9011A2235AB9E007F37F0 /* NotesDataSource.swift in Sources */,
 				DB9846FD227F31660033D12F /* GioProNet.swift in Sources */,
+				DBD2379E22B6B2A600C9A2D1 /* SiteLocalizer.swift in Sources */,
 				DB984701227F54940033D12F /* GioProNetCell.swift in Sources */,
 				DB53C78221DFCC3D0001054B /* SettingsVC.swift in Sources */,
 				DBF5C1A7223443870086E9E7 /* Note.swift in Sources */,
@@ -1153,7 +1236,6 @@
 				DB88DBF921AB2BE000B0699B /* DomandeVC.swift in Sources */,
 				DB984703227F5C970033D12F /* TaskButton.swift in Sources */,
 				DB88DC0121AB318400B0699B /* RegoleCategorieView.swift in Sources */,
-				DB67644321F63CC400651AD8 /* SitiAgentModel.swift in Sources */,
 				DB9A19C121D514A900C05755 /* NoteListView.swift in Sources */,
 				DB53C76F21DE699B0001054B /* Emozione.swift in Sources */,
 				DB19C68121E2877F0020357D /* VerificaCompagniaView.swift in Sources */,
@@ -1178,7 +1260,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DBD237A122B7B14700C9A2D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBD237A822B7B14700C9A2D1 /* MGSTests.swift in Sources */,
+				DBD237B522B7B1E700C9A2D1 /* ToxNetworkResponse.swift in Sources */,
+				DBD237B622B7B1E700C9A2D1 /* ToxNetworkRequest.swift in Sources */,
+				DBD237B022B7B18E00C9A2D1 /* SiteLocalizer.swift in Sources */,
+				DBD237B422B7B1E700C9A2D1 /* NetworkAgent.swift in Sources */,
+				DBD237AF22B7B18A00C9A2D1 /* SitoWeb.swift in Sources */,
+				DBD237B722B7B1F700C9A2D1 /* User.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DBD237AB22B7B14700C9A2D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DBAF3BFD219C9019003083EA /* MGS */;
+			targetProxy = DBD237AA22B7B14700C9A2D1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DBAF3C0D219C901B003083EA /* LaunchScreen.storyboard */ = {
@@ -1356,6 +1460,56 @@
 			};
 			name = Release;
 		};
+		DBD237AD22B7B14700C9A2D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R779A64KR9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = MGSTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.danitox.MGSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MGS.app/MGS";
+			};
+			name = Debug;
+		};
+		DBD237AE22B7B14700C9A2D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R779A64KR9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = MGSTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.danitox.MGSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MGS.app/MGS";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1373,6 +1527,15 @@
 			buildConfigurations = (
 				DBAF3C14219C901B003083EA /* Debug */,
 				DBAF3C15219C901B003083EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBD237AC22B7B14700C9A2D1 /* Build configuration list for PBXNativeTarget "MGSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBD237AD22B7B14700C9A2D1 /* Debug */,
+				DBD237AE22B7B14700C9A2D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

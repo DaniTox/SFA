@@ -14,7 +14,7 @@ class SitiVC: UITableViewController {
     var dataSource : SitiDataSource
     var themeObserver : NSObjectProtocol?
     
-    init(type: WebsiteType) {
+    init(type: SitoCategoria) {
         self.dataSource = SitiDataSource(type: type)
         super.init(nibName: nil, bundle: nil)
     }

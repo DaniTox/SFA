@@ -13,3 +13,10 @@ protocol ToxNetworkResponse {
     var message : String { get set }
     var errorCode : String? { get set }
 }
+
+struct NetworkResponse<T: Decodable>: ToxNetworkResponse {
+    var code: String
+    var message: String
+    var errorCode: String?
+    var object: T
+}

@@ -65,15 +65,5 @@ class RegolaFetcherModel {
     public func getRegola(type: ScuolaType) -> RegolaVita? {
         return try? self.getLatestRegola(type: type)
     }
-    
-//    public func getDomande(from category: RegolaCategoria, regolaType: ScuolaType) -> [RegolaDomanda] {
-//        let realm = try! Realm()
-//        let scuolaPredicate = NSPredicate(format: "regola.scuolaTypeID == %d", regolaType.rawValue)
-//        let categoriaPredicate = NSPredicate(format: "categoria = %@", category)
-//        let newPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [scuolaPredicate, categoriaPredicate])
-//
-//        let domande = realm.objects(RegolaDomanda.self).filter(newPredicate)
-//        return domande.compactMap { $0 }
-//    }
-    
+
 }
