@@ -1,5 +1,5 @@
 //
-//  DiocesiDataSource.swift
+//  CityDataSource.swift
 //  MGS
 //
 //  Created by Dani Tox on 17/06/2019.
@@ -9,11 +9,11 @@
 import UIKit
 import RealmSwift
 
-class DiocesiDataSource: NSObject, UITableViewDataSource {
+class CityDataSource: NSObject, UITableViewDataSource {
     
-    var allDiocesi: [DiocesiCodable] = [] {
+    var allCities: [CityCodable] = [] {
         didSet {
-            if allDiocesi.isEmpty { return }
+            if allCities.isEmpty { return }
             self.updateHandler?()
         }
     }
@@ -23,24 +23,24 @@ class DiocesiDataSource: NSObject, UITableViewDataSource {
             self.agent.errorHandler = self.errorHandler
         }
     }
-
+    
     var agent: SiteLocalizer = SiteLocalizer()
     
     
     func load() {
-        allDiocesi.removeAll(keepingCapacity: true)
-        agent.getDiocesi(saveRecords: true) { diocesiCodable in
-            self.allDiocesi = diocesiCodable
+        allCities.removeAll(keepingCapacity: true)
+        agent.getCitta(saveRecords: true) { codableCities in
+            self.allCities = codableCities
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allDiocesi.count
+        return allCities.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "boldCell") as! BoldCell
-        let diocesi = allDiocesi[indexPath.row]
+        let diocesi = allCities[indexPath.row]
         cell.backgroundColor = Theme.current.backgroundColor
         cell.mainLabel.text = diocesi.name
         return cell

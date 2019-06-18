@@ -12,6 +12,7 @@ import RealmSwift
 class Diocesi: Object {
     @objc dynamic var id = 0
     @objc dynamic var name = ""
+    @objc dynamic var isSelected: Bool = false
     let cities = List<City>()
     
     static func initWith(codable: DiocesiCodable) -> Diocesi {
@@ -29,6 +30,7 @@ class Diocesi: Object {
 class City: Object {
     @objc dynamic var id = 0
     @objc dynamic var name = ""
+    @objc dynamic var isSelected: Bool = false
     let diocesi = LinkingObjects(fromType: Diocesi.self, property: "cities")
     
     static func initWith(codable: CityCodable) -> City {

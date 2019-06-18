@@ -52,7 +52,7 @@ extension LocationVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0: navigationController?.pushViewController(DiocesiVC(), animated: true)
-        case 1: break
+        case 1: navigationController?.pushViewController(CityVC(), animated: true)
         default: break
         }
     }

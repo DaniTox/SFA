@@ -53,36 +53,58 @@ class SiteLocalizer {
     }
     
     
-    /// Elimina tutte le diocesi salvate in Realm e poi salva quelle nuove passate come parametro convertendole a oggetti Realm.
+    /// Aggiorna le diocesi salvate in Realm: aggiunge quelle nuove ed elimina quelle che non servono più.
     ///
     /// - Parameter diocesi: lista delle diocesi che ottieni dal server (quindi in formato Codable)
     private func save(diocesi: [DiocesiCodable]) {
         let realm = try! Realm()
         realm.beginWrite()
         
-        realm.delete(realm.objects(Diocesi.self))
-        
-        for dCodable in diocesi {
-            let newDiocesi = Diocesi.initWith(codable: dCodable)
-            realm.add(newDiocesi)
+//        realm.delete(realm.objects(Diocesi.self))
+        for codable in diocesi {
+            if let savedObject = realm.object(ofType: Diocesi.self, forPrimaryKey: codable.id) {
+                savedObject.name = codable.name
+            } else {
+                let newObject = Diocesi.initWith(codable: codable)
+                realm.add(newObject)
+            }
         }
+        
+        let currentSavedIDs = realm.objects(Diocesi.self).map { $0.id }
+        let newIDs = diocesi.map { $0.id }
+        
+        let filtered = newIDs.filter { !currentSavedIDs.contains($0) }
+        
+        let objectsToRemove = filtered.compactMap { realm.object(ofType: Diocesi.self, forPrimaryKey: $0) }
+        realm.delete(objectsToRemove)
         
         try? realm.commitWrite()
     }
     
-    /// Elimina tutte le città salvate in Realm e poi salva quelle nuove passate come parametro convertendole a oggetti Realm.
+    /// Aggiorna le città salvate in Realm: aggiunge quelle nuove ed elimina quelle che non servono più.
     ///
     /// - Parameter cities: lista delle città che ottieni dal server (quindi in formato Codable)
     private func save(cities: [CityCodable]) {
         let realm = try! Realm()
         realm.beginWrite()
         
-        realm.delete(realm.objects(City.self))
-        
-        for dCodable in cities {
-            let newCity = City.initWith(codable: dCodable)
-            realm.add(newCity)
+        //        realm.delete(realm.objects(Diocesi.self))
+        for codable in cities {
+            if let savedObject = realm.object(ofType: City.self, forPrimaryKey: codable.id) {
+                savedObject.name = codable.name
+            } else {
+                let newObject = City.initWith(codable: codable)
+                realm.add(newObject)
+            }
         }
+        
+        let currentSavedIDs = realm.objects(City.self).map { $0.id }
+        let newIDs = cities.map { $0.id }
+        
+        let filtered = newIDs.filter { !currentSavedIDs.contains($0) }
+        
+        let objectsToRemove = filtered.compactMap { realm.object(ofType: City.self, forPrimaryKey: $0) }
+        realm.delete(objectsToRemove)
         
         try? realm.commitWrite()
     }

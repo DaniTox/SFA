@@ -165,6 +165,8 @@
 		DBF5C1A7223443870086E9E7 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5C1A6223443870086E9E7 /* Note.swift */; };
 		DBFA57442279CFC100D60E8E /* TeenStarFemminaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA57432279CFC100D60E8E /* TeenStarFemminaCell.swift */; };
 		DBFE97FA21D57CD500E82803 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE97F921D57CD500E82803 /* NoteModel.swift */; };
+		DBFFDE8922B840CE00C2CDBD /* CityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFFDE8822B840CE00C2CDBD /* CityVC.swift */; };
+		DBFFDE8B22B840F200C2CDBD /* CityDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFFDE8A22B840F200C2CDBD /* CityDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -340,6 +342,8 @@
 		DBF5C1A6223443870086E9E7 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		DBFA57432279CFC100D60E8E /* TeenStarFemminaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarFemminaCell.swift; sourceTree = "<group>"; };
 		DBFE97F921D57CD500E82803 /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
+		DBFFDE8822B840CE00C2CDBD /* CityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityVC.swift; sourceTree = "<group>"; };
+		DBFFDE8A22B840F200C2CDBD /* CityDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -629,6 +633,7 @@
 		DBAF3C1A219C942E003083EA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DBFFDE8722B840B000C2CDBD /* Città */,
 				DBD2388822B821D100C9A2D1 /* Diocesi */,
 				DBD2388322B81B4300C9A2D1 /* Location */,
 				DB8B4E06227D90F700AFF716 /* InfoVC */,
@@ -935,6 +940,16 @@
 			path = ListCell;
 			sourceTree = "<group>";
 		};
+		DBFFDE8722B840B000C2CDBD /* Città */ = {
+			isa = PBXGroup;
+			children = (
+				DBFFDE8822B840CE00C2CDBD /* CityVC.swift */,
+				DBFFDE8A22B840F200C2CDBD /* CityDataSource.swift */,
+			);
+			name = "Città";
+			path = "Città";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1107,6 +1122,7 @@
 				DBAF3C4A219CBF35003083EA /* IQUIViewController+Additions.swift in Sources */,
 				DBAAE2BB21A5D26800211CBF /* WelcomeVC.swift in Sources */,
 				DBCF2F3A21F79E410074E0AF /* SitiVC.swift in Sources */,
+				DBFFDE8922B840CE00C2CDBD /* CityVC.swift in Sources */,
 				DB2C316321AC88E20009EC14 /* EditRispostaVC.swift in Sources */,
 				DB217D4B2218500B003ED264 /* GenderVCView.swift in Sources */,
 				DB53AB8C21DACA34001961EC /* ColorSliderAlert.swift in Sources */,
@@ -1175,6 +1191,7 @@
 				DBAF3C3D219CBF35003083EA /* IQTextView.swift in Sources */,
 				DB61DA1321B5B9ED006B308B /* RegolaFetcherModel.swift in Sources */,
 				DBAF3C43219CBF35003083EA /* IQInvocation.swift in Sources */,
+				DBFFDE8B22B840F200C2CDBD /* CityDataSource.swift in Sources */,
 				DB2C316121AC87580009EC14 /* EditRispostaView.swift in Sources */,
 				DBDC3B2D225B988200D019EA /* HeaderView.swift in Sources */,
 				DBAF3C0A219C9019003083EA /* SFA.xcdatamodeld in Sources */,
