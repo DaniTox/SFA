@@ -39,7 +39,7 @@ class CityDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "boldCell") as! BoldCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "locCell") as! LocationCell
         let diocesi = allCities[indexPath.row]
         cell.backgroundColor = Theme.current.backgroundColor
         cell.mainLabel.text = diocesi.name

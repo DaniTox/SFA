@@ -141,6 +141,7 @@
 		DBCF2F3C21F79E7E0074E0AF /* SitiListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF2F3B21F79E7E0074E0AF /* SitiListView.swift */; };
 		DBCF2F3E21F7BC410074E0AF /* SitiDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF2F3D21F7BC410074E0AF /* SitiDataSource.swift */; };
 		DBCF2F4021F7C5050074E0AF /* SitoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF2F3F21F7C5050074E0AF /* SitoCell.swift */; };
+		DBD1E21B22BA8E2C00C64B44 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1E21A22BA8E2C00C64B44 /* LocationCell.swift */; };
 		DBD2379E22B6B2A600C9A2D1 /* SiteLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD2379D22B6B2A600C9A2D1 /* SiteLocalizer.swift */; };
 		DBD2386622B7FAF400C9A2D1 /* MGSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD2386522B7FAF400C9A2D1 /* MGSTests.swift */; };
 		DBD2387F22B7FB5400C9A2D1 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8B860F224AA5A000C58055 /* RealmSwift.framework */; };
@@ -317,6 +318,7 @@
 		DBCF2F3B21F79E7E0074E0AF /* SitiListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitiListView.swift; sourceTree = "<group>"; };
 		DBCF2F3D21F7BC410074E0AF /* SitiDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitiDataSource.swift; sourceTree = "<group>"; };
 		DBCF2F3F21F7C5050074E0AF /* SitoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitoCell.swift; sourceTree = "<group>"; };
+		DBD1E21A22BA8E2C00C64B44 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		DBD2379D22B6B2A600C9A2D1 /* SiteLocalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteLocalizer.swift; sourceTree = "<group>"; };
 		DBD2386322B7FAF400C9A2D1 /* MGSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MGSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBD2386522B7FAF400C9A2D1 /* MGSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSTests.swift; sourceTree = "<group>"; };
@@ -907,6 +909,7 @@
 			children = (
 				DBD2388422B81B7700C9A2D1 /* LocationVC.swift */,
 				DBD2388622B81BA400C9A2D1 /* LocationView.swift */,
+				DBD1E21A22BA8E2C00C64B44 /* LocationCell.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -1088,6 +1091,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBD1E21B22BA8E2C00C64B44 /* LocationCell.swift in Sources */,
 				DBCF2F3C21F79E7E0074E0AF /* SitiListView.swift in Sources */,
 				DB217D4D22185124003ED264 /* UIBox.swift in Sources */,
 				DB644E4D227513310049CB3B /* RegolaDomandaCell.swift in Sources */,

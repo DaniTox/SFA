@@ -17,6 +17,9 @@ class DiocesiDataSource: NSObject, UITableViewDataSource {
             self.updateHandler?()
         }
     }
+    
+    var loadingDiocesi: [DiocesiCodable] = []
+    
     var updateHandler: (() -> Void)? = nil
     var errorHandler: ((Error) -> Void)? = nil {
         didSet {
@@ -39,10 +42,23 @@ class DiocesiDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "boldCell") as! BoldCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "locCell") as! LocationCell
         let diocesi = allDiocesi[indexPath.row]
         cell.backgroundColor = Theme.current.backgroundColor
         cell.mainLabel.text = diocesi.name
+        
+        if diocesi.isSelected {
+            cell.accessoryType = .checkmark
+            cell.loadingIndicator.stopAnimating()
+        } else {
+            if self.loadingDiocesi.contains(diocesi) {
+                cell.loadingIndicator.startAnimating()
+            } else {
+                cell.loadingIndicator.stopAnimating()
+            }
+            cell.accessoryType = .none
+        }
+        
         return cell
     }
     

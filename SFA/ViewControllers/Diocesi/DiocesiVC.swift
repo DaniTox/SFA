@@ -24,6 +24,7 @@ class DiocesiVC: UITableViewController {
         tableView.backgroundColor = Theme.current.tableViewBackground
         tableView.tableFooterView = UIView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(LocationCell.self, forCellReuseIdentifier: "locCell")
         tableView.register(BoldCell.self, forCellReuseIdentifier: "boldCell")
         
         dataSource.errorHandler = self.errorHandler
@@ -52,6 +53,32 @@ class DiocesiVC: UITableViewController {
 
 extension DiocesiVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let diocesi = dataSource.allDiocesi[indexPath.row]
+        
+        if diocesi.isSelected {
+            //
+        } else {
+            self.dataSource.loadingDiocesi.append(diocesi)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
+            let agent = dataSource.agent
+            
+            agent.fetchLocalizedWebsites(for: diocesi) { (list) in
+                print("\n\nINIZIO\n")
+                for site in list.siti {
+                    print(site.urlString)
+                }
+                print("\nFINEEE\n\n")
+                self.dataSource.loadingDiocesi.removeAll { $0 == diocesi }
+                agent.toggle(diocesi: diocesi)
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
         
     }
     

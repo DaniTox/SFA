@@ -24,6 +24,7 @@ class CityVC: UITableViewController {
         tableView.backgroundColor = Theme.current.tableViewBackground
         tableView.tableFooterView = UIView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(LocationCell.self, forCellReuseIdentifier: "locCell")
         tableView.register(BoldCell.self, forCellReuseIdentifier: "boldCell")
         
         dataSource.errorHandler = self.errorHandler

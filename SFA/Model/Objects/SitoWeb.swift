@@ -52,7 +52,7 @@ class City: Object {
 }
 
 class SitoWeb : Object {
-    @objc dynamic var id = UUID().uuidString
+    @objc dynamic var id : Int = -1
     @objc dynamic var order = -1
     @objc dynamic var nome = ""
     @objc dynamic var descrizione = ""
@@ -62,6 +62,34 @@ class SitoWeb : Object {
     
     @objc dynamic var diocesi: Diocesi? = nil
     @objc dynamic var city: City? = nil
+    
+    static func initFrom(codable: SitoObject) -> SitoWeb {
+        let newSite = SitoWeb()
+        newSite.id = codable.id
+        
+        newSite.updateContents(from: codable)
+        
+        return newSite
+    }
+    
+    func updateContents(from codable: SitoObject) {
+        let realm = try! Realm()
+        
+        self.categoria = codable.type
+        
+        self.nome = codable.nome
+        self.descrizione = codable.descrizione ?? ""
+        self.order = codable.order ?? -1
+        self.scuolaType = codable.scuolaType
+        self.urlString = codable.urlString
+        
+        if let cityID = codable.cittaID {
+            self.city = realm.objects(City.self).filter(NSPredicate(format: "id == %d", cityID)).first
+        }
+        if let diocesiID = codable.diocesiID {
+            self.diocesi = realm.objects(Diocesi.self).filter(NSPredicate(format: "id == %d", diocesiID)).first
+        }
+    }
     
     var profileName: String? {
         let availableCategories : [SitoCategoria] = [.facebook, .instagram, .youtube]
@@ -107,41 +135,61 @@ class SitoWeb : Object {
 }
 
 enum SitoCategoria: Int, Codable {
-    case none = -1
-    case materiali = 0
-    case preghiere = 1
-    case facebook = 2
-    case instagram = 3
-    case youtube = 4
+    case none = 0
+    case materiali = 1
+    case preghiere = 2
+    case facebook = 3
+    case instagram = 4
+    case youtube = 5
+    case calendario = 6
 }
 
 struct SitoObject : Codable {
-    var id: Int?
+    var id: Int
     var nome : String
-    var order : Int?
-    var descrizione : String?
     var urlString : String
-    var categoriaID: SitoCategoria?
+    
+    var type: SitoCategoria
     var scuolaType: ScuolaType?
     
     var diocesiID: Int?
     var cittaID: Int?
+    
+    //probabilemnte inutili
+    var descrizione : String?
+    var order : Int?
+    
+    enum CodingKeys: String, CodingKey {
+        case id, urlString, type, scuolaType, diocesiID, cittaID, descrizione, order
+        case nome = "name"
+    }
 }
 
-struct DiocesiCodable: Codable {
+struct DiocesiCodable: Codable, Equatable {
     var id: Int
     var name: String
+    
+    var isSelected: Bool = false
+    
+    enum CodingKeys: String, CodingKey {
+        case id, name
+    }
 }
 
-struct CityCodable: Codable {
+struct CityCodable: Codable, Equatable {
     var id: Int
     var name: String
     var diocesiID: Int
+    
+    var isSelected: Bool = false
+    
+    enum CodingKeys: String, CodingKey {
+        case id, name, diocesiID
+    }
 }
 
 
 /// Struttura che si ottiene dal server. Contiene la lista dei siti e social in base alla città/diocesi scelta
 struct LocalizedList: Codable {
     var siti: [SitoObject]
-    var social: [SitoObject]
 }
