@@ -30,7 +30,7 @@ class CityDataSource: NSObject, UITableViewDataSource {
     func load() {
         allCities.removeAll(keepingCapacity: true)
         agent.getCitta(saveRecords: true) { codableCities in
-            self.allCities = codableCities
+            self.allCities = self.agent.updateFromLocal(cities: codableCities)
         }
     }
     

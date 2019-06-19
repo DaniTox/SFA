@@ -52,6 +52,45 @@ class SiteLocalizer {
         }
     }
     
+    /// Aggiorna le diocesi che gli vengono passate prendendo i dati da Realm e le restituisce indietro
+    ///
+    /// - Parameter diocesis: [DiocesiCodable] - la lista delle diocesi non aggiornate
+    /// - Return type - Ritorna indietro i dati aggiornati
+    func updateFromLocal(diocesis: [DiocesiCodable]) -> [DiocesiCodable] {
+        let realm = try! Realm()
+        var allDiocesi : [DiocesiCodable] = []
+        
+        diocesis.forEach {
+            let savedObj = realm.objects(Diocesi.self).filter(NSPredicate(format: "id == %d", $0.id)).first
+            
+            var newObj = $0
+            newObj.isSelected = savedObj?.isSelected ?? false
+            allDiocesi.append(newObj)
+        }
+        
+        return allDiocesi
+    }
+    
+    
+    /// Aggiorna le città che gli vengono passate prendendo i dati da Realm e le restituisce indietro
+    ///
+    /// - Parameter diocesis: [CityCodable] - la lista delle città non aggiornate
+    /// - Return type - Ritorna indietro i dati aggiornati
+    func updateFromLocal(cities: [CityCodable]) -> [CityCodable] {
+        let realm = try! Realm()
+        var allCities : [CityCodable] = []
+        
+        cities.forEach {
+            let savedObj = realm.objects(City.self).filter(NSPredicate(format: "id == %d", $0.id)).first
+            
+            var newObj = $0
+            newObj.isSelected = savedObj?.isSelected ?? false
+            allCities.append(newObj)
+        }
+        
+        return allCities
+    }
+    
     
     /// Aggiorna le diocesi salvate in Realm: aggiunge quelle nuove ed elimina quelle che non servono più.
     ///

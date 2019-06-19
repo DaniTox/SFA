@@ -33,7 +33,7 @@ class DiocesiDataSource: NSObject, UITableViewDataSource {
     func load() {
         allDiocesi.removeAll(keepingCapacity: true)
         agent.getDiocesi(saveRecords: true) { diocesiCodable in
-            self.allDiocesi = diocesiCodable
+            self.allDiocesi = self.agent.updateFromLocal(diocesis: diocesiCodable) 
         }
     }
     
