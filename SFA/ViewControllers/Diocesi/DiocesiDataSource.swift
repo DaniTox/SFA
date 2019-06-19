@@ -18,7 +18,14 @@ class DiocesiDataSource: NSObject, UITableViewDataSource {
         }
     }
     
-    var loadingDiocesi: [DiocesiCodable] = []
+    var tableView: UITableView?
+    var loadingDiocesi: [DiocesiCodable] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView?.reloadData()
+            }
+        }
+    }
     
     var updateHandler: (() -> Void)? = nil
     var errorHandler: ((Error) -> Void)? = nil {
@@ -33,8 +40,12 @@ class DiocesiDataSource: NSObject, UITableViewDataSource {
     func load() {
         allDiocesi.removeAll(keepingCapacity: true)
         agent.getDiocesi(saveRecords: true) { diocesiCodable in
-            self.allDiocesi = self.agent.updateFromLocal(diocesis: diocesiCodable) 
+            self.allDiocesi = self.agent.updateFromLocal(diocesis: diocesiCodable)
         }
+    }
+    
+    func reloadFromLocal() {
+        self.allDiocesi =  agent.fetchLocalDiocesi()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

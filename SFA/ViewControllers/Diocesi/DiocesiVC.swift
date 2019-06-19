@@ -17,6 +17,8 @@ class DiocesiVC: UITableViewController {
         super.viewDidLoad()
         self.title = "Diocesi"
         
+        dataSource.tableView = tableView
+        
         cRefreshControl.addTarget(self, action: #selector(refreshed), for: .valueChanged)
         tableView.refreshControl = cRefreshControl
         
@@ -56,27 +58,33 @@ extension DiocesiVC {
         let diocesi = dataSource.allDiocesi[indexPath.row]
         
         if diocesi.isSelected {
-            //
+            
+            self.dataSource.agent.removeSites(for: diocesi)
+            self.dataSource.agent.toggle(diocesi: diocesi)
+            self.dataSource.reloadFromLocal()
+            
         } else {
             self.dataSource.loadingDiocesi.append(diocesi)
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
             
-            let agent = dataSource.agent
             
-            agent.fetchLocalizedWebsites(for: diocesi) { (list) in
+            dataSource.agent.fetchLocalizedWebsites(for: diocesi) { (list) in
                 print("\n\nINIZIO\n")
                 for site in list.siti {
                     print(site.urlString)
                 }
                 print("\nFINEEE\n\n")
-                self.dataSource.loadingDiocesi.removeAll { $0 == diocesi }
-                agent.toggle(diocesi: diocesi)
                 
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+                self.dataSource.loadingDiocesi.removeAll { $0 == diocesi }
+                self.dataSource.agent.toggle(diocesi: diocesi)
+                
+                self.dataSource.reloadFromLocal()
+                
+//                DispatchQueue.main.async {
+//                    self.tableView.reloadData()
+//                }
             }
         }
         

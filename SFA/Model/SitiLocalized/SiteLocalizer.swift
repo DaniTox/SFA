@@ -156,6 +156,36 @@ class SiteLocalizer {
         return realm.objects(SitoWeb.self).filter(predicate).map { $0 }
     }
     
+    /// Ottiene tutte le diocesi da Realm, le trasforma in codable e le ritorna
+    public func fetchLocalDiocesi() -> [DiocesiCodable] {
+        let realm = try! Realm()
+        
+        let objects = realm.objects(Diocesi.self).map { $0 }
+        var allDiocesiCodable: [DiocesiCodable] = []
+        
+        objects.forEach {
+            let newCodable = DiocesiCodable(id: $0.id, name: $0.name, isSelected: $0.isSelected)
+            allDiocesiCodable.append(newCodable)
+        }
+        
+        return allDiocesiCodable
+    }
+    
+    /// Ottiene tutte le città da Realm, le trasforma in codable e le ritorna
+    public func fetchLocalCities() -> [CityCodable] {
+        let realm = try! Realm()
+        
+        let objects = realm.objects(City.self).map { $0 }
+        var allCitiesCodable: [CityCodable] = []
+        
+        objects.forEach {
+            let newCodable = CityCodable(id: $0.id, name: $0.name, diocesiID: $0.diocesi.first?.id ?? -1, isSelected: $0.isSelected)
+            allCitiesCodable.append(newCodable)
+        }
+        
+        return allCitiesCodable
+    }
+    
     
     /// Rimuove da Realm tutti i tipi di siti salvati in locale
     private func removeAllLocalSites() {
@@ -164,6 +194,27 @@ class SiteLocalizer {
             realm.delete(realm.objects(SitoWeb.self))
         }
     }
+    
+    /// Rimuove da Realm tutti i siti di una certa diocesi
+    public func removeSites(for obj: DiocesiCodable) {
+        let realm = try! Realm()
+        let objects = realm.objects(SitoWeb.self).filter(NSPredicate(format: "diocesi.id == %d", obj.id))
+        
+        try? realm.write {
+            realm.delete(objects)
+        }
+    }
+    
+    /// Rimuove da Realm tutti i siti di una certa città
+    public func removeSites(for obj: CityCodable) {
+        let realm = try! Realm()
+        let objects = realm.objects(SitoWeb.self).filter(NSPredicate(format: "city.id == %d", obj.id))
+        
+        try? realm.write {
+            realm.delete(objects)
+        }
+    }
+    
     
     /// Otttiene i siti custom dal server in base alla diocesi
     ///
@@ -230,7 +281,8 @@ class SiteLocalizer {
         try? realm.commitWrite()
     }
     
-    /// Salva nel database lo stato della diocesi
+    /// Salva nel database lo stato della diocesi passata come parametro
+    /// - Parameter diocesi: La diocesi di cui bisogna aggiornare lo stato su Realm
     public func toggle(diocesi: DiocesiCodable) {
         let realm = try! Realm()
         if let savedDiocesi = realm.objects(Diocesi.self).filter(NSPredicate(format: "id == %d", diocesi.id)).first {
@@ -240,10 +292,11 @@ class SiteLocalizer {
         }
     }
     
-    /// Salva nel database lo stato della città
-    public func toggle(diocesi: CityCodable) {
+    /// Salva nel database lo stato della città passata come parametro
+    /// - Parameter city: La città di cui bisogna aggiornare lo stato su Realm
+    public func toggle(city: CityCodable) {
         let realm = try! Realm()
-        if let savedDiocesi = realm.objects(City.self).filter(NSPredicate(format: "id == %d", diocesi.id)).first {
+        if let savedDiocesi = realm.objects(City.self).filter(NSPredicate(format: "id == %d", city.id)).first {
             try! realm.write {
                 savedDiocesi.isSelected.toggle()
             }
