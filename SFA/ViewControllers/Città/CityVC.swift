@@ -17,6 +17,8 @@ class CityVC: UITableViewController {
         super.viewDidLoad()
         self.title = "Città"
         
+        dataSource.tableView = tableView
+        
         cRefreshControl.addTarget(self, action: #selector(refreshed), for: .valueChanged)
         tableView.refreshControl = cRefreshControl
         
@@ -49,4 +51,31 @@ class CityVC: UITableViewController {
         }
     }
     
+}
+
+extension CityVC {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let city = dataSource.allCities[indexPath.row]
+        
+        if city.isSelected {
+            self.dataSource.agent.removeSites(for: city)
+            self.dataSource.agent.toggle(city: city)
+            self.dataSource.reloadFromLocal()
+        } else {
+            self.dataSource.loadingCities.append(city)
+            
+            dataSource.agent.fetchLocalizedWebsites(for: city) { list in
+                print("\n\nINIZIO\n")
+                for site in list.siti {
+                    print(site.urlString)
+                }
+                print("\nFINEEE\n\n")
+                
+                self.dataSource.loadingCities.removeAll { $0 == city }
+                self.dataSource.agent.toggle(city: city)
+                
+                self.dataSource.reloadFromLocal()
+            }
+        }
+    }
 }

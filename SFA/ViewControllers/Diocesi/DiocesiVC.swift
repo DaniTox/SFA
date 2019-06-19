@@ -71,20 +71,12 @@ extension DiocesiVC {
             
             
             dataSource.agent.fetchLocalizedWebsites(for: diocesi) { (list) in
-                print("\n\nINIZIO\n")
-                for site in list.siti {
-                    print(site.urlString)
-                }
-                print("\nFINEEE\n\n")
                 
                 self.dataSource.loadingDiocesi.removeAll { $0 == diocesi }
                 self.dataSource.agent.toggle(diocesi: diocesi)
                 
                 self.dataSource.reloadFromLocal()
-                
-//                DispatchQueue.main.async {
-//                    self.tableView.reloadData()
-//                }
+
             }
         }
         
