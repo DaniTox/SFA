@@ -23,7 +23,7 @@ class MGSTests: XCTestCase {
         let semaphore = DispatchSemaphore(value: 1)
         
         let siteLocalizer = SiteLocalizer()
-        siteLocalizer.getDiocesi { (diocesi) in
+        siteLocalizer.getDiocesi(saveRecords: false) { (diocesi) in
             print(diocesi.count)
             XCTAssert(diocesi.count > 0)
             semaphore.signal()
@@ -42,7 +42,7 @@ class MGSTests: XCTestCase {
             XCTFail("SiteLocalizer ha ritornato un errore: \(err)")
         }
         
-        siteLocalizer.getCitta { (cities) in
+        siteLocalizer.getCitta(saveRecords: false) { (cities) in
             arr = cities
             expect.fulfill()
         }
@@ -53,11 +53,46 @@ class MGSTests: XCTestCase {
         XCTAssert(arr.count > 0)
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testPathGen() {
+        let baseUrl: String = "http://localhost:5000/example"
+        
+        let right1 = "http://localhost:5000/example?testKey=testValue&key2=0"
+        let right2 = "http://localhost:5000/example?key2=0&testKey=testValue"
+        
+        let args: [String: String] = ["testKey":"testValue", "key2":"0" ]
+        
+        let fullPath = NetworkAgent<String>.getFullPath(from: baseUrl, with: args)
+        
+        print(fullPath)
+        XCTAssert(fullPath == right1 || fullPath == right2)
+        
     }
+    
+    func testPathGenEmptyArgs() {
+        let baseUrl: String = "http://localhost:5000/example"
+        
+        let right1 = "http://localhost:5000/example?key=value"
+        
+        let args: [String: String] = ["key":"value", "":"0" ]
+        
+        let fullPath = NetworkAgent<String>.getFullPath(from: baseUrl, with: args)
+        
+        print(fullPath)
+        XCTAssert(fullPath == right1)
+    }
+    
+    func testPathGenEmptyArgs2() {
+        let baseUrl: String = "http://localhost:5000/example"
+        
+        let right1 = "http://localhost:5000/example"
+        
+        let args: [String: String] = ["key":"", "":"0" ]
+        
+        let fullPath = NetworkAgent<String>.getFullPath(from: baseUrl, with: args)
+        
+        print(fullPath)
+        XCTAssert(fullPath == right1)
+    }
+    
 
 }

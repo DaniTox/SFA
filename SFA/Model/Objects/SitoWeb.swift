@@ -138,3 +138,10 @@ struct CityCodable: Codable {
     var name: String
     var diocesiID: Int
 }
+
+
+/// Struttura che si ottiene dal server. Contiene la lista dei siti e social in base alla città/diocesi scelta
+struct LocalizedList: Codable {
+    var siti: [SitoObject]
+    var social: [SitoObject]
+}

@@ -18,7 +18,12 @@ class NetworkAgent<Response: Decodable> {
     public func executeNetworkRequest<RequestType : ToxNetworkRequest> (with toxRequest: RequestType, responseCompletion: @escaping (Result<Response, ToxException>) -> Void)  {
         
         let pathComponent = toxRequest.requestType.rawValue
-        let urlString = "\(URLs.mainUrl)/\(pathComponent)"
+        var urlString: String = "\(URLs.mainUrl)/\(pathComponent)"
+        
+        if let args = toxRequest.args {
+            urlString = NetworkAgent.getFullPath(from: urlString, with: args)
+        }
+        
         
         guard let url = URL(string: urlString) else {
             responseCompletion(.failure(ToxException.genericError("Errore generico di quest'app (Codice: -1)")))
@@ -52,6 +57,25 @@ class NetworkAgent<Response: Decodable> {
     }
     
     
+    static func getFullPath(from url: String, with args: [String: String]) -> String {
+        var urlString = url
+        urlString.append("?")
+        
+        for (key, value) in args {
+            if key.isEmpty || value.isEmpty { continue }
+            urlString.append("\(key)=\(value)")
+            urlString.append("&")
+        }
+        
+        if urlString.hasSuffix("&") {
+            urlString.removeLast()
+        }
+        if urlString.hasSuffix("?") {
+            urlString.removeLast()
+        }
+        
+        return urlString
+    }
     
     
     

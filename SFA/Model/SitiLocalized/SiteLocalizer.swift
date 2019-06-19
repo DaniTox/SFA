@@ -60,7 +60,6 @@ class SiteLocalizer {
         let realm = try! Realm()
         realm.beginWrite()
         
-//        realm.delete(realm.objects(Diocesi.self))
         for codable in diocesi {
             if let savedObject = realm.object(ofType: Diocesi.self, forPrimaryKey: codable.id) {
                 savedObject.name = codable.name
@@ -88,7 +87,6 @@ class SiteLocalizer {
         let realm = try! Realm()
         realm.beginWrite()
         
-        //        realm.delete(realm.objects(Diocesi.self))
         for codable in cities {
             if let savedObject = realm.object(ofType: City.self, forPrimaryKey: codable.id) {
                 savedObject.name = codable.name
@@ -125,6 +123,48 @@ class SiteLocalizer {
         let realm = try! Realm()
         try? realm.write {
             realm.delete(realm.objects(SitoWeb.self))
+        }
+    }
+    
+    /// Otttiene i siti custom dal server in base alla diocesi
+    ///
+    /// - Parameter diocesi: [DiocesiCodable] la diocesi scelta per i siti
+    /// - Parameter completion: closure che viene eseguita quando si ottengono i siti con successo.
+    public func fetchLocalizedWebsites(for diocesi: DiocesiCodable, completion: @escaping (LocalizedList) -> Void) {
+        let idDiocesi = diocesi.id
+        
+        let req = BasicRequest(requestType: .localizedSites, args: ["diocesiID" : "\(idDiocesi)"])
+        self.fetchFromServer(req: req) { list in
+            completion(list)
+        }
+    }
+
+    /// Otttiene i siti custom dal server in base alla città
+    ///
+    /// - Parameter city: [CityCodable] la città scelta per i siti
+    /// - Parameter completion: closure che viene eseguita quando si ottengono i siti con successo.
+    public func fetchLocalizedWebsites(for city: CityCodable, completion: @escaping (LocalizedList) -> Void) {
+        let idCity = city.id
+        
+        let req = BasicRequest(requestType: .localizedSites, args: ["cittaID" : "\(idCity)"])
+        self.fetchFromServer(req: req) { list in
+            completion(list)
+        }
+    }
+    
+    /// Questa funzione è quella che effettivamente chiede la lista localizzata dei siti/social al server.
+    /// Poi li ritorna al chiamante tramite una completionHandler. Se invece fallisce, chiama l'errorHandler dell'istanza
+    ///
+    /// - Parameter req: [BasicRequest] la richiesta contenente gli args da mandare al server
+    /// - Parameter completion: manda la lista dei siti localizzati ottenuti
+    private func fetchFromServer(req: BasicRequest, completion: @escaping (LocalizedList) -> Void) {
+        let agent = NetworkAgent<NetworkResponse<LocalizedList>>()
+        agent.executeNetworkRequest(with: req) { (result) in
+            switch result {
+            case .success(let localizedResponse):
+                completion(localizedResponse.object)
+            case .failure(let error): self.errorHandler?(error)
+            }
         }
     }
 }

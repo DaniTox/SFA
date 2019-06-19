@@ -10,6 +10,12 @@ import Foundation
 
 protocol ToxNetworkRequest : Codable {
     var requestType : RequestType { get set }
+    var args: [String: String]? { get set }
+}
+extension ToxNetworkRequest {
+    var args: [String: String]? {
+        return nil
+    }
 }
 
 /// Liste dei tipi di richieste
@@ -23,15 +29,18 @@ enum RequestType: String, Codable {
     case materiali = "materiali"
     case diocesi = "diocesi"
     case cities = "citta"
+    case localizedSites = "localized_sites"
 }
 
 /// Struttura di una richiesta. Contiene solo la requestType che è la path del server.
 /// - Esempio: requestType = "example" --> suppstudenti.com:5000/example
 struct BasicRequest: ToxNetworkRequest {
     var requestType: RequestType
+    var args: [String : String]? = nil
     
-    init(requestType: RequestType) {
+    init(requestType: RequestType, args: [String:String]? = nil) {
         self.requestType = requestType
+        self.args = args
     }
     
     enum CodingKeys: String, CodingKey {
