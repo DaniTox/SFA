@@ -11,22 +11,32 @@ import RealmSwift
 
 class SitiDataSource : NSObject, UITableViewDataSource {
     
-    public var sites : [SitoWeb] = []
+    public var sites : [SitoObject] = [] {
+        didSet {
+            self.updateHandler?()
+        }
+    }
 
     private let agent: SiteLocalizer = SiteLocalizer()
     private var categoria : SitoCategoria
+    var updateHandler: (() -> Void)?
     
     init(categoria: SitoCategoria) {
         self.categoria = categoria
         super.init()
+        
+        fetchLocalWebsistes()
     }
     
-    private func fetchLocalWebsistes() {
-        let scuolaType = User.currentUser().ageScuola
-        self.sites = agent.fetchLocalWebsites(type: categoria).filter { $0.scuolaType == scuolaType }
+    public func fetchLocalWebsistes() {
+//        let scuolaType = User.currentUser().ageScuola
+//        self.sites = agent.fetchLocalWebsites(type: categoria).filter { $0.scuolaType == scuolaType }
+        
+        self.sites = agent.fetchLocalWebsites(type: categoria)
+        
     }
     
-    public func getSiteFrom(_ indexPath : IndexPath) -> SitoWeb? {
+    public func getSiteFrom(_ indexPath : IndexPath) -> SitoObject? {
         return self.sites[indexPath.row]
     }
     
@@ -44,7 +54,7 @@ class SitiDataSource : NSObject, UITableViewDataSource {
             nomeSito.append(" (\(scuolaType.stringValue))")
         }
         cell.nomeSitoLabel.text = nomeSito
-        cell.urlLabel.text = site.url?.absoluteString
+        cell.urlLabel.text = site.urlString
         cell.accessoryType = .disclosureIndicator
         
         return cell

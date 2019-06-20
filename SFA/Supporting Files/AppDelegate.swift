@@ -21,6 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = false
         
+        let realmConfig = Realm.Configuration(schemaVersion: 10, migrationBlock: { migration, oldSchemaVersion in
+            
+        })
+        Realm.Configuration.defaultConfiguration = realmConfig
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         
         if !isAlreadyLaunched {
@@ -44,10 +49,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         
-        let realmConfig = Realm.Configuration(schemaVersion: 9, migrationBlock: { migration, oldSchemaVersion in
-            
-        })
-        Realm.Configuration.defaultConfiguration = realmConfig
+        
+        
+        
         
         RegolaFetcherModel.shared.createIfNotPresent()
         
@@ -56,7 +60,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let realm = try! Realm()
         print(realm.configuration.fileURL ?? "")
-    
+        
+        
+        
         return true
     }
 

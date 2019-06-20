@@ -56,7 +56,7 @@ class SitoWeb : Object {
     @objc dynamic var order = -1
     @objc dynamic var nome = ""
     @objc dynamic var descrizione = ""
-    @objc private dynamic var urlString = ""
+    @objc public dynamic var urlString = ""
     @objc private dynamic var scuolaTypeRaw = 0
     @objc private dynamic var _categoria = 0
     
@@ -155,6 +155,18 @@ struct SitoObject : Codable {
     var diocesiID: Int?
     var cittaID: Int?
     
+    var profileName: String? {
+        let availableCategories : [SitoCategoria] = [.facebook, .instagram, .youtube]
+        guard availableCategories.contains(self.type) else { return nil }
+        
+        return self.urlString
+    }
+    
+    var url : URL? {
+        get { return URL(string: urlString) }
+        set { urlString = newValue?.absoluteString ?? "" }
+    }
+    
     //probabilemnte inutili
     var descrizione : String?
     var order : Int?
@@ -162,6 +174,15 @@ struct SitoObject : Codable {
     enum CodingKeys: String, CodingKey {
         case id, urlString, type, scuolaType, diocesiID, cittaID, descrizione, order
         case nome = "name"
+    }
+    
+    static func initFrom(obj: SitoWeb) -> SitoObject {
+        let newCodable = SitoObject(id: obj.id, nome: obj.nome,
+                                    urlString: obj.urlString, type: obj.categoria,
+                                    scuolaType: obj.scuolaType, diocesiID: obj.diocesi?.id,
+                                    cittaID: obj.city?.id, descrizione: obj.descrizione,
+                                    order: obj.order)
+        return newCodable
     }
 }
 

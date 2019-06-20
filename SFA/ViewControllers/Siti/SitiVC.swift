@@ -42,6 +42,18 @@ class SitiVC: UITableViewController {
         tableView.register(SitoCell.self, forCellReuseIdentifier: "sitoCell")
         tableView.dataSource = self.dataSource
         
+        dataSource.updateHandler = self.updateOccurred
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        dataSource.fetchLocalWebsistes()
+    }
+    
+    func updateOccurred() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     @objc private func refreshPulled() {

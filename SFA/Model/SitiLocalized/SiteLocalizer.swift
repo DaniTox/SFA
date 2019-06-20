@@ -146,14 +146,14 @@ class SiteLocalizer {
         try? realm.commitWrite()
     }
     
-    /// Ottiene i siti dal Realm locale
+    /// Ottiene i siti dal Realm locale in base alla categoria passata com arg
     ///
-    /// - Parameter type: [SitoCategoria] il tipo di siti da ottenere
-    /// - Returns: [SitoWeb] ritorna i siti richiesti presi da Realm
-    public func fetchLocalWebsites(type: SitoCategoria) -> [SitoWeb]  {
+    /// - Parameter type: SitoCategoria - il tipo di siti da ottenere
+    /// - Returns: [SitoObject] ritorna i siti richiesti presi da Realm
+    public func fetchLocalWebsites(type: SitoCategoria) -> [SitoObject]  {
         let realm = try! Realm()
         let predicate = NSPredicate(format: "_categoria == %d", type.rawValue)
-        return realm.objects(SitoWeb.self).filter(predicate).map { $0 }
+        return realm.objects(SitoWeb.self).filter(predicate).map { SitoObject.initFrom(obj: $0) }
     }
     
     /// Ottiene tutte le diocesi da Realm, le trasforma in codable e le ritorna

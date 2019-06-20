@@ -27,7 +27,7 @@ class LocalizedButton: UIBouncyButton {
         self.addTarget(self, action: #selector(tapped), for: .touchUpInside)
     }
     
-    func fetchWebsites() -> [SitoWeb] {
+    func fetchWebsites() -> [SitoObject] {
         let agent = SiteLocalizer()
         return agent.fetchLocalWebsites(type: categoria)
     }
