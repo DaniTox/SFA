@@ -10,8 +10,8 @@ import UIKit
 
 class SocialView: UIView {
 
-    var instagranmButton : UIBouncyButton = {
-        let b = UIBouncyButton()
+    var instagranmButton : LocalizedButton = {
+        let b = LocalizedButton(category: .instagram)
         b.setTitle("Instagram", for: .normal)
         b.backgroundColor = .purple
         b.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
@@ -28,8 +28,8 @@ class SocialView: UIView {
         return b
     }()
     
-    var facebookButton : UIBouncyButton = {
-        let b = UIBouncyButton()
+    var facebookButton : LocalizedButton = {
+        let b = LocalizedButton(category: .facebook)
         b.translatesAutoresizingMaskIntoConstraints = false
         b.backgroundColor = .blue
         b.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
@@ -46,8 +46,8 @@ class SocialView: UIView {
         return b
     }()
     
-    var youtubeButton : UIBouncyButton = {
-        let b = UIBouncyButton()
+    var youtubeButton : LocalizedButton = {
+        let b = LocalizedButton(category: .youtube)
         b.translatesAutoresizingMaskIntoConstraints = false
         b.backgroundColor = UIColor.red
         b.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)

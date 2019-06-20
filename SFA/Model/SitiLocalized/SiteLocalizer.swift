@@ -152,7 +152,7 @@ class SiteLocalizer {
     /// - Returns: [SitoWeb] ritorna i siti richiesti presi da Realm
     public func fetchLocalWebsites(type: SitoCategoria) -> [SitoWeb]  {
         let realm = try! Realm()
-        let predicate = NSPredicate(format: "ANY _categoria == %d", type.rawValue)
+        let predicate = NSPredicate(format: "_categoria == %d", type.rawValue)
         return realm.objects(SitoWeb.self).filter(predicate).map { $0 }
     }
     

@@ -95,6 +95,7 @@
 		DB984703227F5C970033D12F /* TaskButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB984702227F5C970033D12F /* TaskButton.swift */; };
 		DB9A19BF21D5148E00C05755 /* NoteListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9A19BE21D5148E00C05755 /* NoteListVC.swift */; };
 		DB9A19C121D514A900C05755 /* NoteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9A19C021D514A900C05755 /* NoteListView.swift */; };
+		DBA6378C22BAFF2C00AE5061 /* LocalizedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6378B22BAFF2C00AE5061 /* LocalizedButton.swift */; };
 		DBAAE2AD21A5ACCF00211CBF /* WelcomeVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBAAE2AC21A5ACCF00211CBF /* WelcomeVC.storyboard */; };
 		DBAAE2AF21A5B3B000211CBF /* WelcomePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAAE2AE21A5B3B000211CBF /* WelcomePageVC.swift */; };
 		DBAAE2B121A5C3FA00211CBF /* NotificheVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBAAE2B021A5C3FA00211CBF /* NotificheVC.storyboard */; };
@@ -269,6 +270,7 @@
 		DB984702227F5C970033D12F /* TaskButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskButton.swift; sourceTree = "<group>"; };
 		DB9A19BE21D5148E00C05755 /* NoteListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListVC.swift; sourceTree = "<group>"; };
 		DB9A19C021D514A900C05755 /* NoteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListView.swift; sourceTree = "<group>"; };
+		DBA6378B22BAFF2C00AE5061 /* LocalizedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedButton.swift; sourceTree = "<group>"; };
 		DBAAE2AC21A5ACCF00211CBF /* WelcomeVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WelcomeVC.storyboard; sourceTree = "<group>"; };
 		DBAAE2AE21A5B3B000211CBF /* WelcomePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageVC.swift; sourceTree = "<group>"; };
 		DBAAE2B021A5C3FA00211CBF /* NotificheVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NotificheVC.storyboard; sourceTree = "<group>"; };
@@ -667,6 +669,7 @@
 				DB53C77221DEB7870001054B /* TableViewCells */,
 				DB53C77521DEB8400001054B /* Custom */,
 				DB984702227F5C970033D12F /* TaskButton.swift */,
+				DBA6378B22BAFF2C00AE5061 /* LocalizedButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1212,6 +1215,7 @@
 				DB7BEF8721D006A0007A550E /* KeychainWrapper.swift in Sources */,
 				DB88DBF921AB2BE000B0699B /* DomandeVC.swift in Sources */,
 				DB984703227F5C970033D12F /* TaskButton.swift in Sources */,
+				DBA6378C22BAFF2C00AE5061 /* LocalizedButton.swift in Sources */,
 				DB88DC0121AB318400B0699B /* RegoleCategorieView.swift in Sources */,
 				DB9A19C121D514A900C05755 /* NoteListView.swift in Sources */,
 				DB53C76F21DE699B0001054B /* Emozione.swift in Sources */,
