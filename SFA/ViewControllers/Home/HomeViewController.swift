@@ -77,9 +77,31 @@ class HomeViewController : UICollectionViewController, UICollectionViewDelegateF
     }
     
     @objc func calendarioButtonTapped() {
-        guard let url = URL(string: "\(URLs.calendarioURL)") else { fatalError() }
-        let vc = SFSafariViewController(url: url)
-        present(vc, animated: true)
+        let agent = SiteLocalizer()
+        let sites = agent.fetchLocalWebsites(type: .calendario)
+        
+        if sites.isEmpty {
+            guard let url = URL(string: "\(URLs.calendarioURL)") else { return }
+            let vc = SFSafariViewController(url: url)
+            present(vc, animated: true)
+        } else if sites.count == 1 {
+            guard let url = sites.first?.url else { return }
+            let vc = SFSafariViewController(url: url)
+            present(vc, animated: true)
+        } else {
+            let alert = UIAlertController(title: "Pià opzioni", message: "Quale calendario vuoi raggiungere?", preferredStyle: .actionSheet)
+            for site in sites {
+                alert.addAction(UIAlertAction(title: "\(site.nome)", style: .default, handler: { (action) in
+                    DispatchQueue.main.async {
+                        guard let url = site.url else { return }
+                        let vc = SFSafariViewController(url: url)
+                        self.present(vc, animated: true)
+                    }
+                }))
+            }
+            self.present(alert, animated: true)
+        }
+        
     }
     
     @objc func showRegolaController() {
