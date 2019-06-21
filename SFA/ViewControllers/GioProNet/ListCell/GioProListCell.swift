@@ -20,11 +20,17 @@ class GioProListCell: UITableViewCell {
         return label
     }()
     
-    var collectionView: UICollectionView = {
-        let c = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        c.translatesAutoresizingMaskIntoConstraints = false
-        return c
+    var hStack : UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .horizontal
+        stack.distribution = .fillEqually
+        stack.alignment = .fill
+        stack.spacing = 10
+        return stack
     }()
+    
+    
     
     var containerView: UIView = {
         let view = UIView()
@@ -37,30 +43,33 @@ class GioProListCell: UITableViewCell {
     
     var gioItem: GioProNet? {
         didSet {
-            dataSource.gioItem = gioItem
             DispatchQueue.main.async {
                 self.titleLabel.text = self.gioItem?.date.stringValue
-                self.collectionView.reloadData()
+                self.updateView()
             }
         }
     }
-    var dataSource = GioNetListCellDataSource()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = .none
-        collectionView.backgroundColor = .clear
-        collectionView.delegate = self
-        collectionView.dataSource = dataSource
-        collectionView.register(GioCollectionListCell.self, forCellWithReuseIdentifier: "cell")
+
         
         containerView.addSubview(titleLabel)
-        containerView.addSubview(collectionView)
+        containerView.addSubview(hStack)
         addSubview(containerView)
     
         self.backgroundColor = .clear
         self.layer.masksToBounds = true
         self.layer.cornerRadius = 10
+    }
+    
+    func updateView() {
+        guard let item = self.gioItem else { return }
+        for time in GioProNetTask.GioProTime.allCases {
+            let taskView = GioTaskTimeView(time: time, task: item.getTask(at: time).taskType)
+            hStack.addArrangedSubview(taskView)
+        }
     }
     
     override func layoutSubviews() {
@@ -76,10 +85,6 @@ class GioProListCell: UITableViewCell {
         titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        collectionView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
-        collectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10).isActive = true
         
     }
     
@@ -87,14 +92,4 @@ class GioProListCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-}
-
-extension GioProListCell: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let width = collectionView.frame.width / 3 - 10
-        let height = width
-        
-        return .init(width: width, height: height)
-    }
 }

@@ -11,20 +11,84 @@ import UIKit
 class TaskButton: UIButton {
     var taskType: GioProNetTask.TaskType
     
-    init(imageNamed: String, taskType: GioProNetTask.TaskType) {
+    lazy var descriptionLabel : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.textColor = Theme.current.textColor
+        label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
+        label.isUserInteractionEnabled = true
+        return label
+    }()
+    
+//    var iconView: UIImageView = {
+//        let view = UIImageView()
+//        view.translatesAutoresizingMaskIntoConstraints = true
+//        return view
+//    }()
+    
+    
+
+    lazy var iconButton : UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    lazy var fullStack : UIStackView = {
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.distribution = .fillProportionally
+        stack.alignment = .fill
+        stack.spacing = 10
+        return stack
+    }()
+    
+    init(taskType: GioProNetTask.TaskType) {
         self.taskType = taskType
         super.init(frame: .zero)
+
 //
-//        guard let path = Bundle.main.url(forResource: imageNamed, withExtension: "png") else { fatalError() }
-//        guard let image = UIImage(contentsOfFile: path.path) else { fatalError() }
+        fullStack.addArrangedSubview(iconButton)
+        fullStack.addArrangedSubview(descriptionLabel)
 //
-//
-//        self.setImage(image, for: .normal)
+        addSubview(fullStack)
         
-        //da usare mentre non si hanno le immagini
+        descriptionLabel.text = taskType.stringValue
+        if let emoji = taskType.emoji {
+            iconButton.setTitle(emoji, for: .normal)
+            iconButton.titleLabel?.font = UIFont.systemFont(ofSize: 40)
+        } else {
+            iconButton.setImage((taskType.imageName == nil) ? UIImage() : UIImage(named: taskType.imageName!), for: .normal)
+        }
         
-        self.setTitle(imageNamed, for: .normal)
-        self.setTitleColor(Theme.current.textColor, for: .normal)
+        iconButton.addTarget(self, action: #selector(emojiTouched), for: .touchUpInside)
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(emojiTouched))
+        descriptionLabel.addGestureRecognizer(tapRecognizer)
+    }
+    
+    @objc private func emojiTouched() {
+        print("Touched")
+        self.sendActions(for: .touchUpInside)
+    }
+    
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+//        descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+//        descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+//        descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+//        descriptionLabel.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        
+        
+        fullStack.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        fullStack.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        fullStack.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        fullStack.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        
         
     }
     

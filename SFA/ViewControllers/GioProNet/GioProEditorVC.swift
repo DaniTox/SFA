@@ -61,7 +61,7 @@ extension GioProEditorVC {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 1 { return 150 }
+        if indexPath.row == 1 { return 200 }
         else { return 80 }
     }
 }

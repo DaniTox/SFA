@@ -53,69 +53,70 @@ class GioProNet : Object {
 class GioProNetTask: Object {
     enum TaskType: Int, Codable, CaseIterable {
         case none = 0
-        case facebook = 1
+        case whatsapp = 1
         case instagram = 2
-        case youtube = 3
-        case whatsapp = 4
-        case internet = 5
-        case videogiochi = 6
-        case musica = 7
-        case sport = 8
-        case scuola = 9
-        case famiglia = 10
-        case amici = 11
-        case notte = 12
+        case amici = 3
+        case libri = 4
+        case sport = 5
+        case notte = 6
         
         static var allCases: [TaskType] {
             return [
-                .facebook, .instagram, .youtube, . whatsapp, . internet, .videogiochi,
-                .musica, .sport, .scuola, .famiglia, .amici, .notte
+                .whatsapp, .instagram, .amici, .libri, .sport, .notte
             ]
+        }
+        
+        var imageName: String? {
+            switch self {
+            case .whatsapp:     return "wa_icon"
+            case .instagram:    return "ig_icon"
+            default: return nil
+            }
+        }
+        
+        var emoji: String? {
+            switch self {
+            case .none:         return "NULL"
+            case .whatsapp:     return nil
+            case .instagram:    return nil
+            case .amici:        return "👫"
+            case .libri:        return "📚"
+            case .sport:        return "⚽️"
+            case .notte:        return "🌝"
+            }
         }
         
         var stringValue: String {
             switch self {
             case .none:         return "NULL"
-            case .facebook:     return "Facebook"
             case .instagram:    return "Instagram"
-            case .youtube:      return "YouTube"
             case .whatsapp:     return "WhatsApp"
-            case .internet:     return "Internet"
-            case .videogiochi:  return "Videogiochi"
-            case .musica:       return "Musica"
             case .sport:        return "Sport"
-            case .scuola:       return "Scuola"
-            case .famiglia:     return "Famiglia"
             case .amici:        return "Amici"
             case .notte:        return "Notte"
+            case .libri:        return "Libri"
             }
         }
     }
     
     enum GioProTime: Int, Codable, CaseIterable {
         case none = 0
-        case two = 1
-        case seven = 2
-        case eleven = 3
-        case fourteen = 4
-        case seventeen = 5
-        case twenty = 6
-        case twentythree = 7
+        case otto = 1
+        case tredici = 2
+        case diciotto = 3
+        case ventiquattro = 4
         
         static var allCases: [GioProTime] {
-            return [.seven, .eleven, .fourteen, .seventeen, .twenty, .twentythree, .two]
+            return [.otto, .tredici, .diciotto, .ventiquattro]
         }
         
         var stringValue: String {
             switch self {
             case .none: return "NULL"
-            case .two: return "2:00"
-            case .seven: return "7:00"
-            case .eleven: return "11:00"
-            case .fourteen: return "14:00"
-            case .seventeen: return "17:00"
-            case .twenty: return "20:00"
-            case .twentythree: return "23:00"
+            case .otto: return "8:00"
+            case .tredici: return "13:00"
+            case .diciotto: return "18:00"
+            case .ventiquattro: return "24:00"
             }
         }
     }

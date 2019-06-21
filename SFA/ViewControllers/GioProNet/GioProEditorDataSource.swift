@@ -28,7 +28,7 @@ class GioProEditorDataSource: NSObject, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 8
+        return GioProNetTask.GioProTime.allCases.count + 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
