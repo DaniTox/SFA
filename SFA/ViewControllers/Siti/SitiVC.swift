@@ -44,6 +44,9 @@ class SitiVC: UITableViewController {
         tableView.dataSource = self.dataSource
         
         dataSource.updateHandler = self.updateOccurred
+        
+        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshPulled))
+        self.navigationItem.setRightBarButton(refreshButton, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -244,17 +244,22 @@ class SiteLocalizer {
         }
     }
     
-    
+    /// Ottiene tutte le diocesi salvate su Realm che l'utente ha scelto di seguire (isSelected == true)
     private func getLocalSelectedDiocesi() -> [DiocesiCodable] {
         let realm = try! Realm()
         return realm.objects(Diocesi.self).filter(NSPredicate(format: "isSelected == YES")).map { DiocesiCodable.initFrom(realmObject: $0) }
     }
     
+    /// Ottiene tutte le città salvate su Realm che l'utente ha scelto di seguire (isSelected == true)
     private func getLocalSelectedCities() -> [CityCodable] {
         let realm = try! Realm()
         return realm.objects(City.self).filter(NSPredicate(format: "isSelected == YES")).map { CityCodable.initFrom(realmObject: $0) }
     }
     
+    
+    /// Aggiorna dal server tutti i siti in base alle diocesi/città selezionate, aggiungendo i siti preghiere e ritornando il risultato nella completionHandler. La completion può contenere o la lista di tutti i siti scaricati o eventuale errore
+    /// - Parameter saveRecords: se true, salva i siti scaricati su Realm. true di default.
+    /// - Parameter completion: handler che riporta o eventuali siti scaricati o errore
     public func fetchAllWebsites(saveRecords: Bool = true, completion: @escaping (Result<LocalizedList, Error>) -> Void) {
         let diocesiArray = getLocalSelectedDiocesi()
         let citiesArray = getLocalSelectedCities()
