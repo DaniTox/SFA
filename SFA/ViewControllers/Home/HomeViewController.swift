@@ -89,7 +89,7 @@ class HomeViewController : UICollectionViewController, UICollectionViewDelegateF
             let vc = SFSafariViewController(url: url)
             present(vc, animated: true)
         } else {
-            let alert = UIAlertController(title: "Pià opzioni", message: "Quale calendario vuoi raggiungere?", preferredStyle: .actionSheet)
+            let alert = UIAlertController(title: "Più opzioni", message: "Quale calendario vuoi raggiungere?", preferredStyle: .actionSheet)
             for site in sites {
                 alert.addAction(UIAlertAction(title: "\(site.nome)", style: .default, handler: { (action) in
                     DispatchQueue.main.async {

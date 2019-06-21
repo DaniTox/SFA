@@ -18,28 +18,30 @@ class SitiDataSource : NSObject, UITableViewDataSource {
     }
 
     private let agent: SiteLocalizer = SiteLocalizer()
-    private var categoria : SitoCategoria
+    private var categorie : [SitoCategoria]
     var updateHandler: (() -> Void)?
     
-    init(categoria: SitoCategoria) {
-        self.categoria = categoria
+    init(categorie: [SitoCategoria]) {
+        self.categorie = categorie
         super.init()
         
         fetchLocalWebsistes()
     }
     
     public func fetchLocalWebsistes() {
-//        let scuolaType = User.currentUser().ageScuola
-//        self.sites = agent.fetchLocalWebsites(type: categoria).filter { $0.scuolaType == scuolaType }
-        
-        self.sites = agent.fetchLocalWebsites(type: categoria)
-        
+        self.sites.removeAll(keepingCapacity: true)
+        for categoria in self.categorie {
+            self.sites.append(contentsOf: agent.fetchLocalWebsites(type: categoria))
+        }
     }
     
     public func getSiteFrom(_ indexPath : IndexPath) -> SitoObject? {
         return self.sites[indexPath.row]
     }
     
+    public func updateFromServer() {
+        
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.sites.count

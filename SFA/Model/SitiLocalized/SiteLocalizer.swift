@@ -244,6 +244,18 @@ class SiteLocalizer {
         }
     }
     
+    /// Otttiene i siti delle preghiere dal server.
+    ///
+    /// - Parameter saveRecords: dice se salvare i siti su Realm. True di default
+    /// - Parameter completion: closure che viene eseguita quando si ottengono i siti con successo.
+    public func fetchPreghiereSites(saveRecords: Bool = true, completion: @escaping (LocalizedList) -> Void) {
+        let req = BasicRequest(requestType: .preghiere)
+        self.fetchFromServer(saveRecords: saveRecords, req: req) { (list) in
+            completion(list)
+        }
+    }
+    
+    
     /// Questa funzione è quella che effettivamente chiede la lista localizzata dei siti/social al server.
     /// Poi li ritorna al chiamante tramite una completionHandler. Se invece fallisce, chiama l'errorHandler dell'istanza
     ///
