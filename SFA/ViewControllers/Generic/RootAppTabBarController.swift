@@ -33,17 +33,11 @@ class RootAppController : UITabBarController {
         nav1.tabBarItem.image = UIImage(named: "verifiche")
         self.addChild(nav1)
         
-//        let vc2 = SitoVC()
-        let vc2 = SitiVC(type: SitoCategoria.materiali)
+        let vc2 = SitiVC(types: [.materiali, .preghiere])
         let nav2 = ThemedNavigationController(rootViewController: vc2)
-        vc2.title = "Materiali"
+        vc2.title = "Risorse"
         self.addChild(nav2)
         
-        
-        let vc5 = SitiVC(type: SitoCategoria.preghiere)
-        let nav5 = ThemedNavigationController(rootViewController: vc5)
-        vc5.title = "Preghiere"
-        self.addChild(nav5)
         
         let vc3 = SocialVC()
         let nav3 = ThemedNavigationController(rootViewController: vc3)

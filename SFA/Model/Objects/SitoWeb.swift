@@ -192,6 +192,10 @@ struct DiocesiCodable: Codable, Equatable {
     
     var isSelected: Bool = false
     
+    static func initFrom(realmObject: Diocesi) -> DiocesiCodable {
+        return DiocesiCodable(id: realmObject.id, name: realmObject.name, isSelected: realmObject.isSelected)
+    }
+    
     enum CodingKeys: String, CodingKey {
         case id, name
     }
@@ -203,6 +207,11 @@ struct CityCodable: Codable, Equatable {
     var diocesiID: Int
     
     var isSelected: Bool = false
+    
+    static func initFrom(realmObject: City) -> CityCodable {
+        let diocesiID = realmObject.diocesi.first?.id ?? -1
+        return CityCodable(id: realmObject.id, name: realmObject.name, diocesiID: diocesiID, isSelected: realmObject.isSelected)
+    }
     
     enum CodingKeys: String, CodingKey {
         case id, name, diocesiID

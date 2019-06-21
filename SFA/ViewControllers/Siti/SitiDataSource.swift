@@ -21,11 +21,13 @@ class SitiDataSource : NSObject, UITableViewDataSource {
     private var categorie : [SitoCategoria]
     var updateHandler: (() -> Void)?
     
+    var errorHandler: ((Error) -> Void)?
+    
     init(categorie: [SitoCategoria]) {
         self.categorie = categorie
         super.init()
         
-        fetchLocalWebsistes()
+//        fetchLocalWebsistes()
     }
     
     public func fetchLocalWebsistes() {
@@ -40,7 +42,14 @@ class SitiDataSource : NSObject, UITableViewDataSource {
     }
     
     public func updateFromServer() {
-        
+        agent.fetchAllWebsites { (result) in
+            switch result {
+            case .success(let list):
+                self.sites = list.siti.filter { self.categorie.contains($0.type) }
+            case .failure(let err):
+                self.errorHandler?(err)
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

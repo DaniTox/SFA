@@ -64,17 +64,24 @@ extension CityVC {
         } else {
             self.dataSource.loadingCities.append(city)
             
-            dataSource.agent.fetchLocalizedWebsites(for: city) { list in
-                print("\n\nINIZIO\n")
-                for site in list.siti {
-                    print(site.urlString)
+            dataSource.agent.fetchLocalizedWebsites(for: city) { listResult in
+                switch listResult {
+                case .success(let list):
+                    print("\n\nINIZIO\n")
+                    for site in list.siti {
+                        print(site.urlString)
+                    }
+                    print("\nFINEEE\n\n")
+                    
+                    self.dataSource.loadingCities.removeAll { $0 == city }
+                    self.dataSource.agent.toggle(city: city)
+                    
+                    self.dataSource.reloadFromLocal()
+                
+                case .failure(let err):
+                    self.errorHandler(err: err)
                 }
-                print("\nFINEEE\n\n")
                 
-                self.dataSource.loadingCities.removeAll { $0 == city }
-                self.dataSource.agent.toggle(city: city)
-                
-                self.dataSource.reloadFromLocal()
             }
         }
     }

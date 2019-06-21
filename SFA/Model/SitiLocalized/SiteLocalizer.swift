@@ -221,12 +221,12 @@ class SiteLocalizer {
     /// - Parameter diocesi: [DiocesiCodable] la diocesi scelta per i siti
     /// - Parameter saveRecords: dice se salvare i siti su Realm. True di default
     /// - Parameter completion: closure che viene eseguita quando si ottengono i siti con successo.
-    public func fetchLocalizedWebsites(for diocesi: DiocesiCodable, saveRecords: Bool = true, completion: @escaping (LocalizedList) -> Void) {
+    public func fetchLocalizedWebsites(for diocesi: DiocesiCodable, saveRecords: Bool = true, completion: @escaping (Result<LocalizedList, Error>) -> Void) {
         let idDiocesi = diocesi.id
         
         let req = BasicRequest(requestType: .localizedSites, args: ["diocesiID" : "\(idDiocesi)"])
-        self.fetchFromServer(saveRecords: saveRecords, req: req) { list in
-            completion(list)
+        self.fetchFromServer(saveRecords: saveRecords, req: req) { listResult in
+            completion(listResult)
         }
     }
 
@@ -235,20 +235,91 @@ class SiteLocalizer {
     /// - Parameter city: [CityCodable] la città scelta per i siti
     /// - Parameter saveRecords: dice se salvare i siti su Realm. True di default
     /// - Parameter completion: closure che viene eseguita quando si ottengono i siti con successo.
-    public func fetchLocalizedWebsites(for city: CityCodable, saveRecords: Bool = true, completion: @escaping (LocalizedList) -> Void) {
+    public func fetchLocalizedWebsites(for city: CityCodable, saveRecords: Bool = true, completion: @escaping (Result<LocalizedList, Error>) -> Void) {
         let idCity = city.id
         
         let req = BasicRequest(requestType: .localizedSites, args: ["cittaID" : "\(idCity)"])
-        self.fetchFromServer(saveRecords: saveRecords, req: req) { list in
-            completion(list)
+        self.fetchFromServer(saveRecords: saveRecords, req: req) { listResult in
+            completion(listResult)
         }
     }
+    
+    
+    private func getLocalSelectedDiocesi() -> [DiocesiCodable] {
+        let realm = try! Realm()
+        return realm.objects(Diocesi.self).filter(NSPredicate(format: "isSelected == YES")).map { DiocesiCodable.initFrom(realmObject: $0) }
+    }
+    
+    private func getLocalSelectedCities() -> [CityCodable] {
+        let realm = try! Realm()
+        return realm.objects(City.self).filter(NSPredicate(format: "isSelected == YES")).map { CityCodable.initFrom(realmObject: $0) }
+    }
+    
+    public func fetchAllWebsites(saveRecords: Bool = true, completion: @escaping (Result<LocalizedList, Error>) -> Void) {
+        let diocesiArray = getLocalSelectedDiocesi()
+        let citiesArray = getLocalSelectedCities()
+
+        var allSites: [SitoObject] = []
+        var error: Error?
+        
+        let group = DispatchGroup()
+
+        for diocesi in diocesiArray {
+            group.enter()
+            self.fetchLocalizedWebsites(for: diocesi) { (result) in
+                switch result {
+                case .success(let list):
+                    allSites.append(contentsOf: list.siti)
+                case .failure(let err):
+                    error = err
+                }
+                group.leave()
+            
+            }
+        }
+        
+        for city in citiesArray {
+            group.enter()
+            self.fetchLocalizedWebsites(for: city) { (result) in
+                switch result {
+                case .success(let list):
+                    allSites.append(contentsOf: list.siti)
+                case .failure(let err):
+                    error = err
+                }
+                group.leave()
+            }
+        }
+        
+        group.enter()
+        self.fetchPreghiereSites { (result) in
+            switch result {
+            case .success(let list):
+                allSites.append(contentsOf: list.siti)
+            case .failure(let err):
+                error = err
+            }
+            group.leave()
+        }
+        
+        group.notify(queue: .main) {
+            guard error == nil else {
+                completion(.failure(error!))
+                return
+            }
+            
+            let list = LocalizedList(siti: allSites)
+            completion(.success(list))
+            
+        }
+    }
+    
     
     /// Otttiene i siti delle preghiere dal server.
     ///
     /// - Parameter saveRecords: dice se salvare i siti su Realm. True di default
     /// - Parameter completion: closure che viene eseguita quando si ottengono i siti con successo.
-    public func fetchPreghiereSites(saveRecords: Bool = true, completion: @escaping (LocalizedList) -> Void) {
+    public func fetchPreghiereSites(saveRecords: Bool = true, completion: @escaping (Result<LocalizedList, Error>) -> Void) {
         let req = BasicRequest(requestType: .preghiere)
         self.fetchFromServer(saveRecords: saveRecords, req: req) { (list) in
             completion(list)
@@ -262,14 +333,15 @@ class SiteLocalizer {
     /// - Parameter saveRecords: dice se salvare i siti su Realm.
     /// - Parameter req: [BasicRequest] la richiesta contenente gli args da mandare al server
     /// - Parameter completion: manda la lista dei siti localizzati ottenuti
-    private func fetchFromServer(saveRecords: Bool, req: BasicRequest, completion: @escaping (LocalizedList) -> Void) {
+    private func fetchFromServer(saveRecords: Bool, req: BasicRequest, completion: @escaping (Result<LocalizedList, Error>) -> Void) {
         let agent = NetworkAgent<NetworkResponse<LocalizedList>>()
         agent.executeNetworkRequest(with: req) { (result) in
             switch result {
             case .success(let localizedResponse):
                 if saveRecords { self.saveLocalizedSitesList(localizedResponse.object) }
-                completion(localizedResponse.object)
-            case .failure(let error): self.errorHandler?(error)
+                completion(.success(localizedResponse.object))
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
     }

@@ -32,6 +32,7 @@ class SitiVC: UITableViewController {
             UIView.animate(withDuration: 0.3, animations: { self.updateTheme() })
         })
         
+        dataSource.errorHandler = self.errorOccurred
         
         tableRefreshControl.addTarget(self, action: #selector(refreshPulled), for: .valueChanged)
         tableView.refreshControl = tableRefreshControl
@@ -52,17 +53,27 @@ class SitiVC: UITableViewController {
     
     func updateOccurred() {
         DispatchQueue.main.async {
+            self.tableView.refreshControl?.endRefreshing()
             self.tableView.reloadData()
         }
     }
     
     @objc private func refreshPulled() {
+        dataSource.updateFromServer()
         tableView.refreshControl?.beginRefreshing()
     }
     
     private func updateTheme() {
         tableView.backgroundColor = Theme.current.tableViewBackground
         tableView.reloadData()
+    }
+    
+    private func errorOccurred(err: Error) {
+        DispatchQueue.main.async {
+            self.tableRefreshControl.endRefreshing()
+        }
+        
+        self.showError(withTitle: "Errore", andMessage: "\(err)")
     }
 }
 
