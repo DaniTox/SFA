@@ -88,7 +88,7 @@ class GioProNetTask: Object {
         
         var stringValue: String {
             switch self {
-            case .none:         return "NULL"
+            case .none:         return "Vuoto"
             case .instagram:    return "Instagram"
             case .whatsapp:     return "WhatsApp"
             case .sport:        return "Sport"

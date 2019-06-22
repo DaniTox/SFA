@@ -63,6 +63,7 @@
 		DB7BEF8D21D0172E007A550E /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF8C21D0172E007A550E /* URLs.swift */; };
 		DB7BEF8F21D01920007A550E /* ToxNetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF8E21D01920007A550E /* ToxNetworkResponse.swift */; };
 		DB7BEF9121D02128007A550E /* ToxNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF9021D02128007A550E /* ToxNetworkRequest.swift */; };
+		DB7F33EA22BD6A9700054567 /* GioTaskTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F33E922BD6A9700054567 /* GioTaskTimeView.swift */; };
 		DB88DBDF21A96E6F00B0699B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBDE21A96E6F00B0699B /* HomeViewController.swift */; };
 		DB88DBE821A975C100B0699B /* SpinerLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBE321A975C100B0699B /* SpinerLayer.swift */; };
 		DB88DBE921A975C100B0699B /* CGRectEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBE421A975C100B0699B /* CGRectEx.swift */; };
@@ -157,8 +158,6 @@
 		DBE6070721F261BD00E10422 /* UIBouncyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE6070621F261BD00E10422 /* UIBouncyButton.swift */; };
 		DBE6070921F27AA200E10422 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE6070821F27AA200E10422 /* WelcomeView.swift */; };
 		DBF13C4322B57D6F00A588EC /* GioProListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF13C4222B57D6F00A588EC /* GioProListCell.swift */; };
-		DBF13C4522B5813A00A588EC /* GioNetListCellDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF13C4422B5813A00A588EC /* GioNetListCellDataSource.swift */; };
-		DBF13C4722B5868C00A588EC /* GioCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF13C4622B5868C00A588EC /* GioCollectionCell.swift */; };
 		DBF3A2AC21DD723B008AE7D5 /* TeenStarListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF3A2AB21DD723B008AE7D5 /* TeenStarListVC.swift */; };
 		DBF3A2B021DD73D0008AE7D5 /* TeenStarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF3A2AF21DD73D0008AE7D5 /* TeenStarModel.swift */; };
 		DBF3A2B221DD81D1008AE7D5 /* TeenStarEditEntryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF3A2B121DD81D1008AE7D5 /* TeenStarEditEntryVC.swift */; };
@@ -239,6 +238,7 @@
 		DB7BEF8C21D0172E007A550E /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		DB7BEF8E21D01920007A550E /* ToxNetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToxNetworkResponse.swift; sourceTree = "<group>"; };
 		DB7BEF9021D02128007A550E /* ToxNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToxNetworkRequest.swift; sourceTree = "<group>"; };
+		DB7F33E922BD6A9700054567 /* GioTaskTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GioTaskTimeView.swift; sourceTree = "<group>"; };
 		DB88DBDE21A96E6F00B0699B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DB88DBE321A975C100B0699B /* SpinerLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinerLayer.swift; sourceTree = "<group>"; };
 		DB88DBE421A975C100B0699B /* CGRectEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectEx.swift; sourceTree = "<group>"; };
@@ -336,8 +336,6 @@
 		DBE6070621F261BD00E10422 /* UIBouncyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBouncyButton.swift; sourceTree = "<group>"; };
 		DBE6070821F27AA200E10422 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		DBF13C4222B57D6F00A588EC /* GioProListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GioProListCell.swift; sourceTree = "<group>"; };
-		DBF13C4422B5813A00A588EC /* GioNetListCellDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GioNetListCellDataSource.swift; sourceTree = "<group>"; };
-		DBF13C4622B5868C00A588EC /* GioCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GioCollectionCell.swift; sourceTree = "<group>"; };
 		DBF3A2AB21DD723B008AE7D5 /* TeenStarListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarListVC.swift; sourceTree = "<group>"; };
 		DBF3A2AF21DD73D0008AE7D5 /* TeenStarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarModel.swift; sourceTree = "<group>"; };
 		DBF3A2B121DD81D1008AE7D5 /* TeenStarEditEntryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarEditEntryVC.swift; sourceTree = "<group>"; };
@@ -940,8 +938,7 @@
 			isa = PBXGroup;
 			children = (
 				DBF13C4222B57D6F00A588EC /* GioProListCell.swift */,
-				DBF13C4422B5813A00A588EC /* GioNetListCellDataSource.swift */,
-				DBF13C4622B5868C00A588EC /* GioCollectionCell.swift */,
+				DB7F33E922BD6A9700054567 /* GioTaskTimeView.swift */,
 			);
 			path = ListCell;
 			sourceTree = "<group>";
@@ -1120,6 +1117,7 @@
 				DB984701227F54940033D12F /* GioProNetCell.swift in Sources */,
 				DB53C78221DFCC3D0001054B /* SettingsVC.swift in Sources */,
 				DBF5C1A7223443870086E9E7 /* Note.swift in Sources */,
+				DB7F33EA22BD6A9700054567 /* GioTaskTimeView.swift in Sources */,
 				DBF5C1A522330D070086E9E7 /* RegolaVita.swift in Sources */,
 				DB53C7AD21E3D8380001054B /* CompagniaDomandaCell.swift in Sources */,
 				DB217D5222188C2D003ED264 /* Coordinator.swift in Sources */,
@@ -1170,7 +1168,6 @@
 				DB53C77121DE75E70001054B /* EmozioneTableViewCell.swift in Sources */,
 				DB217D4F2218557D003ED264 /* GenderBox.swift in Sources */,
 				DBAF3C47219CBF35003083EA /* IQKeyboardReturnKeyHandler.swift in Sources */,
-				DBF13C4522B5813A00A588EC /* GioNetListCellDataSource.swift in Sources */,
 				DB22DA9121C03A9200E6497D /* NoteVC.swift in Sources */,
 				DB88DBE821A975C100B0699B /* SpinerLayer.swift in Sources */,
 				DB217D5422188D9E003ED264 /* OnboardingCoordinator.swift in Sources */,
@@ -1206,7 +1203,6 @@
 				DB4F3BBE21F5CE220040F4C4 /* BasicCell.swift in Sources */,
 				DB61DA1B21B9C834006B308B /* SocialView.swift in Sources */,
 				DB61DA1521B9BA81006B308B /* SitoView.swift in Sources */,
-				DBF13C4722B5868C00A588EC /* GioCollectionCell.swift in Sources */,
 				DB4F3BC321F5F2D90040F4C4 /* ThemedNavigationController.swift in Sources */,
 				DBD2388C22B8221500C9A2D1 /* DiocesiDataSource.swift in Sources */,
 				DB61DA1921B9C81E006B308B /* SocialVC.swift in Sources */,

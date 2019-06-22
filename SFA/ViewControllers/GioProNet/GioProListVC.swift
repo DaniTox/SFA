@@ -74,7 +74,7 @@ class GioProListVC : UITableViewController, DZNEmptyDataSetDelegate {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.width + 60
+        return 250
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

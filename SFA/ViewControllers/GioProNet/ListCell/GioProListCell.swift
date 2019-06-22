@@ -30,8 +30,6 @@ class GioProListCell: UITableViewCell {
         return stack
     }()
     
-    
-    
     var containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -66,6 +64,11 @@ class GioProListCell: UITableViewCell {
     
     func updateView() {
         guard let item = self.gioItem else { return }
+        hStack.arrangedSubviews.forEach {
+            hStack.removeArrangedSubview($0)
+            $0.removeFromSuperview()
+        }
+
         for time in GioProNetTask.GioProTime.allCases {
             let taskView = GioTaskTimeView(time: time, task: item.getTask(at: time).taskType)
             hStack.addArrangedSubview(taskView)
@@ -85,6 +88,10 @@ class GioProListCell: UITableViewCell {
         titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
+        hStack.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
+        hStack.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
+        hStack.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10).isActive = true
+        hStack.topAnchor.constraint(equalTo: titleLabel.bottomAnchor).isActive = true
         
     }
     
