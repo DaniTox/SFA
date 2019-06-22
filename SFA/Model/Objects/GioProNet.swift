@@ -94,7 +94,7 @@ class GioProNetTask: Object {
             case .sport:        return "Sport"
             case .amici:        return "Amici"
             case .notte:        return "Notte"
-            case .libri:        return "Libri"
+            case .libri:        return "Studio"
             }
         }
     }

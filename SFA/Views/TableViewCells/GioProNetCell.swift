@@ -73,7 +73,9 @@ class GioProNetCell: BoldCell {
     private func getButton(index: Int) -> TaskButton {
         let type = GioProNetTask.TaskType.allCases[index]
         let button = TaskButton(taskType: type)
-//        let button = TaskButton(imageNamed: imagesNames[index], taskType: type)
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 10
+
         button.addTarget(self, action: #selector(taskButtonTouched(_:)), for: .touchUpInside)
         return button
     }
