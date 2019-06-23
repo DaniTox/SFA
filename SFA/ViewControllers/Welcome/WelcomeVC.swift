@@ -20,10 +20,51 @@ class WelcomeVC: UIViewController, HasCustomView, OrderedFlowController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Benvenuto in MGS!"
-        rootView.backgroundColor = UIColor.black.lighter(by: 10)
+//        self.title = "Benvenuto in MGS!"
+        rootView.backgroundColor = LightTheme().backgroundColor
         
         rootView.ignoraButton.addTarget(self, action: #selector(ignoraAction(_:)), for: .touchUpInside)
+        
+        
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        rootView.titleLabel.alpha = 0
+        rootView.colorView.alpha = 0
+        rootView.ignoraButton.alpha = 0
+        rootView.descriptionLabel.alpha = 0
+        
+        rootView.titleLabel.center = rootView.center
+        rootView.ignoraButton.center = rootView.center
+        rootView.colorView.center = rootView.center
+        rootView.descriptionLabel.center = rootView.center
+        
+        startAnimation()
+    }
+    
+    func startAnimation() {
+
+        UIView.animate(withDuration: 1, delay: 1, options: UIView.AnimationOptions.curveEaseOut, animations: {
+            self.rootView.titleLabel.frame.y = self.rootView.frame.minY + 30
+            self.rootView.titleLabel.alpha = 1
+            
+            self.rootView.colorView.alpha = 1
+            self.rootView.colorView.center.y = self.rootView.titleLabel.center.y + self.rootView.titleLabel.frame.height * 2
+        }) { _ in
+            UIView.animate(withDuration: 1, delay: 0.1, options: .curveEaseOut, animations: {
+                self.rootView.descriptionLabel.alpha = 1
+                self.rootView.descriptionLabel.center.y = self.rootView.colorView.center.y + self.rootView.colorView.frame.height + self.rootView.descriptionLabel.frame.height / 2
+                
+            }) { _ in
+                UIView.animate(withDuration: 1, delay: 0.1, options: .curveEaseOut, animations: {
+                    self.rootView.ignoraButton.alpha = 1
+                    self.rootView.ignoraButton.frame.center.y = self.rootView.frame.bottom - self.rootView.ignoraButton.frame.height - 20
+                })
+            }
+        }
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {

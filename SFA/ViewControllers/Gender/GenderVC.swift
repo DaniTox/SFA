@@ -22,7 +22,7 @@ class GenderVC: UIViewController, HasCustomView, OrderedFlowController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Sesso"
+        self.title = "Maschio/Femmina"
         
         NotificationCenter.default.addObserver(forName: .updateTheme, object: nil, queue: .main) { (notification) in
             self.updateTheme()
