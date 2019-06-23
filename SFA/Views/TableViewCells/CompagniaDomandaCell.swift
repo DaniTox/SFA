@@ -10,15 +10,22 @@ import UIKit
 import RealmSwift
 
 class CompagniaDomandaCell: UITableViewCell {
+    
 
     public var valueChanged : ((Int) -> Void)?
     public var domanda: VerificaDomanda! {
         didSet {
             guard domanda != nil else { return }
-            mainLabel.text = domanda.domanda
-            if domanda.risposta < 0 { return }
-            slider.value = Float(domanda.risposta)
-            sliderLabel.text = "\(Int(slider.value))"
+            DispatchQueue.main.async {
+                self.mainLabel.text = self.domanda.domanda
+                if self.domanda.risposta < 0 { return }
+                self.slider.value = Float(self.domanda.risposta)
+                self.sliderLabel.text = "\(Int(self.slider.value))"
+                
+                let integerValue = self.domanda.risposta
+                self.slider.setThumbImage(self.getThumbImage(from: integerValue), for: .normal)
+                self.slider.setThumbImage(self.getThumbImage(from: integerValue), for: .highlighted)
+            }
         }
     }
     
@@ -99,7 +106,12 @@ class CompagniaDomandaCell: UITableViewCell {
     @objc private func sliderValueChanged(_ sender: UISlider) {
         sender.value = roundf(sender.value)
         
+        let integerValue = Int(roundf(sender.value))
+        
         self.sliderLabel.text = "\(Int(sender.value))"
+        self.slider.setThumbImage(getThumbImage(from: integerValue), for: .normal)
+        self.slider.setThumbImage(self.getThumbImage(from: integerValue), for: .highlighted)
+        
         self.valueChanged?(Int(sender.value))
         let realm = try! Realm()
         try? realm.write {
@@ -129,6 +141,29 @@ class CompagniaDomandaCell: UITableViewCell {
         sliderStack.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10).isActive = true
         sliderStack.topAnchor.constraint(equalTo: mainLabel.bottomAnchor).isActive = true
     }
+    
+    private func getThumbImage(from integer: Int) -> UIImage? {
+        //🙁 0-1
+        //😐 2-3-4
+        //😌 5-6
+        //😃 7-8
+        //😁 9-10
+        switch integer {
+        case 0, 1:
+            return "🙁".image(with: 30)
+        case 2, 3, 4:
+            return "😐".image(with: 30)
+        case 5, 6:
+            return "😌".image(with: 30)
+        case 7, 8:
+            return "😃".image(with: 30)
+        case 9, 10:
+            return "😁".image(with: 30)
+        default:
+            return "".image()
+        }
+    }
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
