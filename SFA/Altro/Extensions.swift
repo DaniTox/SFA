@@ -277,6 +277,8 @@ extension UIView {
 
 extension UIColor {
     
+    static let darkGreen : UIColor = UIColor.green.darker(by: 20)!
+    
     func lighter(by percentage:CGFloat=30.0) -> UIColor? {
         return self.adjust(by: abs(percentage) )
     }

@@ -30,11 +30,12 @@ class RootAppController : UITabBarController {
     private func fillController() {
         let vc = HomeViewController()
         let nav1 = ThemedNavigationController(rootViewController: vc)
-        nav1.tabBarItem.image = UIImage(named: "verifiche")
+        nav1.tabBarItem.image = #imageLiteral(resourceName: "home")
         self.addChild(nav1)
         
         let vc2 = SitiVC(types: [.materiali, .preghiere])
         let nav2 = ThemedNavigationController(rootViewController: vc2)
+        nav2.tabBarItem.image = #imageLiteral(resourceName: "school_bag")
         vc2.title = "Risorse"
         self.addChild(nav2)
         

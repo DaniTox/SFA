@@ -16,6 +16,7 @@ class HomeItemCell: UICollectionViewCell {
             DispatchQueue.main.async {
                 self.mainLabel.text = item.name
                 self.iconView.image = item.image
+                self.iconView.tintColor = item.color.darker(by: 30)
                 self.backgroundColor = item.color
             }
         }
@@ -36,6 +37,7 @@ class HomeItemCell: UICollectionViewCell {
     lazy var iconView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = UIView.ContentMode.scaleAspectFit
         return imageView
     }()
     
@@ -59,8 +61,8 @@ class HomeItemCell: UICollectionViewCell {
         
         iconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
         iconView.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
-        iconView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.45).isActive = true
-        iconView.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.45).isActive = true
+        iconView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.30).isActive = true
+        iconView.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.30).isActive = true
         
     }
     
