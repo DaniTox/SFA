@@ -57,17 +57,17 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 1
-        case 1:
             return 3
-        case 2:
+        case 1:
             return 5
+//        case 2:
+//            return 5
         default:
             fatalError()
         }
@@ -75,9 +75,9 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
-        case 0:
-            return 130
-        case 1, 2:
+//        case 0:
+//            return 130
+        case 0, 1:
             return 100
         default:
             fatalError()
@@ -101,20 +101,20 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
+//        case 0:
+//            return makeDisclosureCell(with: "Backup (ancora in sviluppo)", in: tableView)
         case 0:
-            return makeDisclosureCell(with: "Backup (ancora in sviluppo)", in: tableView)
-        case 1:
             switch indexPath.row {
             case 0: return makeDisclosureCell(with: "Età", in: tableView)
             case 1: return makeDisclosureCell(with: "Maschio/Femmina", in: tableView)
             case 2: return makeDisclosureCell(with: "Notifiche", in: tableView)
             default: fatalError()
             }
-        case 2:
+        case 1:
             switch indexPath.row {
             case 0: return makeDisclosureCell(with: "Info", in: tableView)
             case 1: return makeThemeSwitchCell(tableView)
-            case 2: return makeDisclosureCell(with: "Città", in: tableView)
+            case 2: return makeDisclosureCell(with: "Diocesi & Città", in: tableView)
             case 3: return makeDisclosureCell(with: "Licenze", in: tableView)
             case 4: return makeDisclosureCell(with: "Debug", in: tableView)
             default: fatalError()
@@ -127,15 +127,15 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.section {
-        case 0: break
-        case 1:
+//        case 0: break
+        case 0:
             switch indexPath.row {
             case 0: navigationController?.pushViewController(UserAgeVC(), animated: true)
             case 1: navigationController?.pushViewController(GenderVC(), animated: true)
             case 2: navigationController?.pushViewController(NotificheVC(), animated: true)
             default: break
             }
-        case 2:
+        case 1:
             switch indexPath.row {
             case 0: navigationController?.pushViewController(InfoVC(), animated: true)
             case 1: break

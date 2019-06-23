@@ -24,7 +24,6 @@ class HomeViewController : UICollectionViewController, UICollectionViewDelegateF
         self.view.backgroundColor = Theme.current.tableViewBackground
         
         let rightButton = UIBarButtonItem(image: #imageLiteral(resourceName: "calendar"), style: .plain, target: self, action: #selector(calendarioButtonTapped))
-//        let rightButton = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(calendarioButtonTapped))
         self.navigationItem.setRightBarButton(rightButton, animated: true)
         
         collectionView.register(HomeItemCell.self, forCellWithReuseIdentifier: "mainCell")

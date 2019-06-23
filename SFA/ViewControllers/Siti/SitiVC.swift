@@ -8,6 +8,7 @@
 
 import UIKit
 import SafariServices
+import DZNEmptyDataSet
 
 class SitiVC: UITableViewController {
     
@@ -42,6 +43,7 @@ class SitiVC: UITableViewController {
         tableView.backgroundColor = Theme.current.tableViewBackground
         tableView.register(SitoCell.self, forCellReuseIdentifier: "sitoCell")
         tableView.dataSource = self.dataSource
+        tableView.emptyDataSetSource = self.dataSource
         
         dataSource.updateHandler = self.updateOccurred
         

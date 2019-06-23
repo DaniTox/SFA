@@ -8,8 +8,9 @@
 
 import UIKit
 import RealmSwift
+import DZNEmptyDataSet
 
-class SitiDataSource : NSObject, UITableViewDataSource {
+class SitiDataSource : NSObject, UITableViewDataSource, DZNEmptyDataSetSource {
     
     public var sites : [SitoObject] = [] {
         didSet {
@@ -69,6 +70,18 @@ class SitiDataSource : NSObject, UITableViewDataSource {
         cell.accessoryType = .disclosureIndicator
         
         return cell
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let str = "Attenzione!"
+        let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]
+        return NSAttributedString(string: str, attributes: attrs)
+    }
+    
+    func description(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        let str = "Attualmente non segui nessuna diocesi o città. Aggiungi la tua diocesi/città dalle Impostazioni per vedere i loro siti web."
+        let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .body)]
+        return NSAttributedString(string: str, attributes: attrs)
     }
     
 }
