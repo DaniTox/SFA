@@ -17,4 +17,6 @@ protocol OrderedFlowCoordinator : Coordinator {
 
 protocol OrderedFlowController where Self: UIViewController {
     var orderingCoordinator : OrderedFlowCoordinator? { get set }
+    
+    var showCurrentValue: Bool { get set }
 }

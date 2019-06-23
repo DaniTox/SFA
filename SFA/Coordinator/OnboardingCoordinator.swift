@@ -26,6 +26,7 @@ class OnboardingCoordinator: NSObject, OrderedFlowCoordinator {
         self.navigationController = navigationController
         super.init()
         self.navigationController.delegate = self
+        navigationController.setNavigationBarHidden(true, animated: false)
     }
     
     func start() {
@@ -41,8 +42,8 @@ class OnboardingCoordinator: NSObject, OrderedFlowCoordinator {
         } else {
             let vc = controllers[currentShowingControllerIndex]
             vc.orderingCoordinator = self
+            vc.showCurrentValue = false
             navigationController.pushViewController(vc, animated: true)
-//            navigationController.navigationItem.backBarButtonItem?.isEnabled = false
         }
     }
     

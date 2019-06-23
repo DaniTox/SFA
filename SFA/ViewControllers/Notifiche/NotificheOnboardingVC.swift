@@ -10,6 +10,7 @@ import UIKit
 
 class NotificheOnBoardingVC : NotificheVC, OrderedFlowController {
     var orderingCoordinator: OrderedFlowCoordinator?
+    var showCurrentValue: Bool = true
     
     lazy var doneButton : UIBouncyButton = {
         let button = UIBouncyButton()

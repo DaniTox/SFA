@@ -16,6 +16,7 @@ class GenderVC: UIViewController, HasCustomView, OrderedFlowController {
         view = CustomView()
     }
     
+    var showCurrentValue: Bool = true
     var orderingCoordinator: OrderedFlowCoordinator?
     var finishAction : (() -> Void)?
     
@@ -31,7 +32,10 @@ class GenderVC: UIViewController, HasCustomView, OrderedFlowController {
         
         rootView.maleButton.addTarget(self, action: #selector(maleButtonTouched), for: .touchUpInside)
         rootView.girlButton.addTarget(self, action: #selector(girlButtonTouched), for: .touchUpInside)
-        checkButton()
+        if self.showCurrentValue {
+            checkButton()
+        }
+        
     }
     
     

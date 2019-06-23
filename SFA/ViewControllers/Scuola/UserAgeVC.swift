@@ -16,6 +16,7 @@ class UserAgeVC: UIViewController, HasCustomView, OrderedFlowController {
         view = CustomView()
     }
     
+    var showCurrentValue: Bool = true
     var orderingCoordinator: OrderedFlowCoordinator?
     var finishAction : (() -> Void)?
     
@@ -31,7 +32,10 @@ class UserAgeVC: UIViewController, HasCustomView, OrderedFlowController {
         rootView.biennioButton.addTarget(self, action: #selector(biennioTouched), for: .touchUpInside)
         rootView.triennioButton.addTarget(self, action: #selector(triennioTouched), for: .touchUpInside)
         
-        checkButton()
+        if showCurrentValue {
+            checkButton()
+        }
+        
     }
 
     func checkButton() {

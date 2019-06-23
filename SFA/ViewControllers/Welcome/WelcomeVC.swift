@@ -15,6 +15,7 @@ class WelcomeVC: UIViewController, HasCustomView, OrderedFlowController {
         view = CustomView()
     }
     
+    var showCurrentValue: Bool = true
     var orderingCoordinator: OrderedFlowCoordinator?
     
     override func viewDidLoad() {
