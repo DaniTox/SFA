@@ -12,10 +12,13 @@ class SocialView: UIView {
 
     var instagranmButton : LocalizedButton = {
         let b = LocalizedButton(category: .instagram)
-        b.setTitle("Instagram", for: .normal)
-        b.backgroundColor = .purple
-        b.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
+//        b.setTitle("Instagram", for: .normal)
+        b.backgroundColor = .clear
+//        b.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         b.translatesAutoresizingMaskIntoConstraints = false
+        
+        b.setImage(#imageLiteral(resourceName: "instagram"), for: .normal)
+        b.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
         
 //        b.layer.masksToBounds = true
         b.layer.cornerRadius = 10
@@ -31,11 +34,14 @@ class SocialView: UIView {
     var facebookButton : LocalizedButton = {
         let b = LocalizedButton(category: .facebook)
         b.translatesAutoresizingMaskIntoConstraints = false
-        b.backgroundColor = .blue
-        b.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
-        b.setTitle("Facebook", for: .normal)
+        b.backgroundColor = .clear
+//        b.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
+//        b.setTitle("Facebook", for: .normal)
         
-//        b.layer.masksToBounds = true
+        
+        b.setImage(#imageLiteral(resourceName: "fb"), for: .normal)
+        b.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
+        
         b.layer.cornerRadius = 10
         
         b.layer.shadowColor = UIColor.black.cgColor
@@ -49,11 +55,14 @@ class SocialView: UIView {
     var youtubeButton : LocalizedButton = {
         let b = LocalizedButton(category: .youtube)
         b.translatesAutoresizingMaskIntoConstraints = false
-        b.backgroundColor = UIColor.red
-        b.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
-        b.setTitle("YouTube", for: .normal)
+        b.backgroundColor = UIColor.clear
+//        b.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
+//        b.setTitle("YouTube", for: .normal)
         
-//        b.layer.masksToBounds = true
+        b.setImage(#imageLiteral(resourceName: "youtube"), for: .normal)
+
+        b.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
+        
         b.layer.cornerRadius = 10
         
         b.layer.shadowColor = UIColor.black.cgColor

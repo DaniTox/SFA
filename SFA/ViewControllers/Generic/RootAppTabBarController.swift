@@ -42,6 +42,7 @@ class RootAppController : UITabBarController {
         
         let vc3 = SocialVC()
         let nav3 = ThemedNavigationController(rootViewController: vc3)
+        nav3.tabBarItem.image = #imageLiteral(resourceName: "social")
         vc3.title = "Social"
         self.addChild(nav3)
         
