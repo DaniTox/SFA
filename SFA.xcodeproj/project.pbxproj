@@ -127,6 +127,7 @@
 		DBAF3C4B219CBF35003083EA /* IQUITextFieldView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF3C3A219CBF35003083EA /* IQUITextFieldView+Additions.swift */; };
 		DBAF3C4C219CBF35003083EA /* IQUIView+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF3C3B219CBF35003083EA /* IQUIView+Hierarchy.swift */; };
 		DBAF3C4D219CBF35003083EA /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF3C3C219CBF35003083EA /* IQNSArray+Sort.swift */; };
+		DBBA7D3D22C02155004C3CE9 /* LicenseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBA7D3C22C02155004C3CE9 /* LicenseVC.swift */; };
 		DBBBDC5021F5016D00C9F54A /* BouncyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBBDC4F21F5016D00C9F54A /* BouncyView.swift */; };
 		DBBE476022AD952500959E45 /* HomeItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBE475F22AD952500959E45 /* HomeItems.swift */; };
 		DBBE476222AD9C0F00959E45 /* HomeViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBE476122AD9C0F00959E45 /* HomeViewDataSource.swift */; };
@@ -304,6 +305,7 @@
 		DBAF3C3A219CBF35003083EA /* IQUITextFieldView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUITextFieldView+Additions.swift"; sourceTree = "<group>"; };
 		DBAF3C3B219CBF35003083EA /* IQUIView+Hierarchy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIView+Hierarchy.swift"; sourceTree = "<group>"; };
 		DBAF3C3C219CBF35003083EA /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQNSArray+Sort.swift"; sourceTree = "<group>"; };
+		DBBA7D3C22C02155004C3CE9 /* LicenseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseVC.swift; sourceTree = "<group>"; };
 		DBBBDC4F21F5016D00C9F54A /* BouncyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncyView.swift; sourceTree = "<group>"; };
 		DBBE475F22AD952500959E45 /* HomeItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItems.swift; sourceTree = "<group>"; };
 		DBBE476122AD9C0F00959E45 /* HomeViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewDataSource.swift; sourceTree = "<group>"; };
@@ -635,6 +637,7 @@
 		DBAF3C1A219C942E003083EA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DBBA7D3B22C020FD004C3CE9 /* License */,
 				DBFFDE8722B840B000C2CDBD /* Città */,
 				DBD2388822B821D100C9A2D1 /* Diocesi */,
 				DBD2388322B81B4300C9A2D1 /* Location */,
@@ -754,6 +757,14 @@
 				DBAF3C3C219CBF35003083EA /* IQNSArray+Sort.swift */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		DBBA7D3B22C020FD004C3CE9 /* License */ = {
+			isa = PBXGroup;
+			children = (
+				DBBA7D3C22C02155004C3CE9 /* LicenseVC.swift */,
+			);
+			path = License;
 			sourceTree = "<group>";
 		};
 		DBC7F4CE2219AC7800C22945 /* Siti */ = {
@@ -1217,6 +1228,7 @@
 				DB53C76F21DE699B0001054B /* Emozione.swift in Sources */,
 				DB19C68121E2877F0020357D /* VerificaCompagniaView.swift in Sources */,
 				DBAF3C24219C9F6A003083EA /* Extensions.swift in Sources */,
+				DBBA7D3D22C02155004C3CE9 /* LicenseVC.swift in Sources */,
 				DBF3A2B021DD73D0008AE7D5 /* TeenStarModel.swift in Sources */,
 				DB323B13223D35FB00116FE3 /* TeenStarListSource.swift in Sources */,
 				DBCF2F4021F7C5050074E0AF /* SitoCell.swift in Sources */,

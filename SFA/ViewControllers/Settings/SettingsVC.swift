@@ -67,7 +67,7 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
         case 1:
             return 3
         case 2:
-            return 4
+            return 5
         default:
             fatalError()
         }
@@ -115,7 +115,8 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
             case 0: return makeDisclosureCell(with: "Info", in: tableView)
             case 1: return makeThemeSwitchCell(tableView)
             case 2: return makeDisclosureCell(with: "Città", in: tableView)
-            case 3: return makeDisclosureCell(with: "Debug", in: tableView)
+            case 3: return makeDisclosureCell(with: "Licenze", in: tableView)
+            case 4: return makeDisclosureCell(with: "Debug", in: tableView)
             default: fatalError()
             }
         default:
@@ -139,7 +140,9 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
             case 0: navigationController?.pushViewController(InfoVC(), animated: true)
             case 1: break
             case 2: navigationController?.pushViewController(LocationVC(), animated: true)
-            case 3: navigationController?.pushViewController(DebugVC(), animated: true)
+            case 3: navigationController?.pushViewController(LicenseVC(), animated: true)
+            case 4: navigationController?.pushViewController(DebugVC(), animated: true)
+            
             default: break
             }
         default: fatalError()
