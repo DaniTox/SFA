@@ -44,6 +44,7 @@ class UserAgeVC: UIViewController, HasCustomView, OrderedFlowController {
             User.currentUser().ageScuola = .medie
         }
         workFinished()
+        rootView.updateView(for: .medie)
     }
     
     @objc private func biennioTouched() {
@@ -52,6 +53,7 @@ class UserAgeVC: UIViewController, HasCustomView, OrderedFlowController {
             User.currentUser().ageScuola = .biennio
         }
         workFinished()
+        rootView.updateView(for: .biennio)
     }
     
     @objc private func triennioTouched() {
@@ -60,6 +62,7 @@ class UserAgeVC: UIViewController, HasCustomView, OrderedFlowController {
             User.currentUser().ageScuola = .triennio
         }
         workFinished()
+        rootView.updateView(for: .triennio)
     }
     
     public func workFinished() {
