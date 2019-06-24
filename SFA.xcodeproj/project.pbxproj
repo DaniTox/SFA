@@ -72,8 +72,6 @@
 		DB88DBEC21A975C100B0699B /* TimerEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBE721A975C100B0699B /* TimerEx.swift */; };
 		DB88DBEE21A97F4400B0699B /* RootAppTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBED21A97F4400B0699B /* RootAppTabBarController.swift */; };
 		DB88DBF721AAF3AD00B0699B /* regolaTriennio.json in Resources */ = {isa = PBXBuildFile; fileRef = DB88DBF621AAF3AD00B0699B /* regolaTriennio.json */; };
-		DB88DBF921AB2BE000B0699B /* DomandeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBF821AB2BE000B0699B /* DomandeVC.swift */; };
-		DB88DBFB21AB2C0D00B0699B /* DomandeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBFA21AB2C0D00B0699B /* DomandeView.swift */; };
 		DB88DBFF21AB315200B0699B /* RegolaCategorieVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DBFE21AB315200B0699B /* RegolaCategorieVC.swift */; };
 		DB88DC0121AB318400B0699B /* RegoleCategorieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB88DC0021AB318400B0699B /* RegoleCategorieView.swift */; };
 		DB8B4E08227D911000AFF716 /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8B4E07227D911000AFF716 /* InfoVC.swift */; };
@@ -248,8 +246,6 @@
 		DB88DBE721A975C100B0699B /* TimerEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerEx.swift; sourceTree = "<group>"; };
 		DB88DBED21A97F4400B0699B /* RootAppTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAppTabBarController.swift; sourceTree = "<group>"; };
 		DB88DBF621AAF3AD00B0699B /* regolaTriennio.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = regolaTriennio.json; sourceTree = "<group>"; };
-		DB88DBF821AB2BE000B0699B /* DomandeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomandeVC.swift; sourceTree = "<group>"; };
-		DB88DBFA21AB2C0D00B0699B /* DomandeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomandeView.swift; sourceTree = "<group>"; };
 		DB88DBFE21AB315200B0699B /* RegolaCategorieVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegolaCategorieVC.swift; sourceTree = "<group>"; };
 		DB88DC0021AB318400B0699B /* RegoleCategorieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegoleCategorieView.swift; sourceTree = "<group>"; };
 		DB8B4E07227D911000AFF716 /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
@@ -549,7 +545,6 @@
 				DBDC3B2E225B9CAE00D019EA /* Riassunto */,
 				DBC7F4D32219AD6000C22945 /* Risposte */,
 				DBC7F4D22219AD4A00C22945 /* Categorie */,
-				DBC7F4D12219AD3700C22945 /* Domande */,
 			);
 			path = RegolaDiVIta;
 			sourceTree = "<group>";
@@ -785,15 +780,6 @@
 				DBD901192235AB9E007F37F0 /* NotesDataSource.swift */,
 			);
 			path = NoteList;
-			sourceTree = "<group>";
-		};
-		DBC7F4D12219AD3700C22945 /* Domande */ = {
-			isa = PBXGroup;
-			children = (
-				DB88DBF821AB2BE000B0699B /* DomandeVC.swift */,
-				DB88DBFA21AB2C0D00B0699B /* DomandeView.swift */,
-			);
-			path = Domande;
 			sourceTree = "<group>";
 		};
 		DBC7F4D22219AD4A00C22945 /* Categorie */ = {
@@ -1143,7 +1129,6 @@
 				DB217D4B2218500B003ED264 /* GenderVCView.swift in Sources */,
 				DB53AB8C21DACA34001961EC /* ColorSliderAlert.swift in Sources */,
 				DBC7F4DF2219AFA900C22945 /* HomeView.swift in Sources */,
-				DB88DBFB21AB2C0D00B0699B /* DomandeView.swift in Sources */,
 				DB5751DE21DA719900F97D25 /* TextEditingBottomBar.swift in Sources */,
 				DB32449422469AD100116FE3 /* TeenStarMaschioCell.swift in Sources */,
 				DB8B4E0A227D912A00AFF716 /* InfoView.swift in Sources */,
@@ -1220,7 +1205,6 @@
 				DBFE97FA21D57CD500E82803 /* NoteModel.swift in Sources */,
 				DB7BEF8F21D01920007A550E /* ToxNetworkResponse.swift in Sources */,
 				DB7BEF8721D006A0007A550E /* KeychainWrapper.swift in Sources */,
-				DB88DBF921AB2BE000B0699B /* DomandeVC.swift in Sources */,
 				DB984703227F5C970033D12F /* TaskButton.swift in Sources */,
 				DBA6378C22BAFF2C00AE5061 /* LocalizedButton.swift in Sources */,
 				DB88DC0121AB318400B0699B /* RegoleCategorieView.swift in Sources */,

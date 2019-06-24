@@ -62,6 +62,10 @@ class NoteVC: UIViewController, HasCustomView {
         rootView.textView.inputAccessoryView = bar
         rootView.textView.attributedText = note.getBody()
         setTitle()
+        
+        if rootView.textView.text.isEmpty {
+            rootView.textView.textColor = UIColor(named: "lightBlue")
+        }
     }
     
     private func setTitle() {

@@ -30,7 +30,9 @@ class EditRispostaView : UIView {
         textView.font = UIFont.preferredFont(forTextStyle: .body)
         textView.layer.borderWidth = 1
         textView.layer.borderColor = Theme.current.backgroundColor.cgColor
-        textView.backgroundColor = UIColor.yellow
+        textView.backgroundColor = UIColor.darkGray
+        textView.textColor = UIColor(named: "lightBlue") 
+        
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.layer.masksToBounds = true
         textView.layer.cornerRadius = 15
