@@ -68,7 +68,7 @@ class GioProNetTask: Object {
         
         var imageName: String? {
             switch self {
-            case .whatsapp:     return "wa_icon"
+            case .whatsapp:     return "whatsapp"
             case .instagram:    return "instagram"
             default: return nil
             }
