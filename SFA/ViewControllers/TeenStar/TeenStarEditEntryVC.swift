@@ -99,8 +99,6 @@ class TeenStarEditEntryVC<T : TeenStarDerivative & Object>: UIViewController, Ha
     }
     
     func femaleHeight(indexPath: IndexPath) -> CGFloat {
-//        if indexPath.section == 0 && indexPath.row == 1 { return EMOZIONE_ROW_HEIGHT }
-//        if indexPath.section == 0 && indexPath.row == 0 { return BASIC_ROW_HEIGHT }
         if indexPath.section == 0 { return BASIC_ROW_HEIGHT }
         else { return 180 }
     }
