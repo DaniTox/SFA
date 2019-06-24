@@ -22,51 +22,35 @@ class TaskButton: UIButton {
         return label
     }()
     
-//    var iconView: UIImageView = {
-//        let view = UIImageView()
-//        view.translatesAutoresizingMaskIntoConstraints = true
-//        return view
-//    }()
-    
-    
-
-    lazy var iconButton : UIButton = {
-        let button = UIButton()
+    lazy var iconView : UIImageView = {
+        let button = UIImageView()
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
-    lazy var fullStack : UIStackView = {
-        let stack = UIStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .vertical
-        stack.distribution = .fillProportionally
-        stack.alignment = .fill
-        stack.spacing = 10
-        return stack
-    }()
+
     
     init(taskType: GioProNetTask.TaskType) {
         self.taskType = taskType
         super.init(frame: .zero)
 
-//
-        fullStack.addArrangedSubview(iconButton)
-        fullStack.addArrangedSubview(descriptionLabel)
-//
-        addSubview(fullStack)
+        addSubview(iconView)
+        addSubview(descriptionLabel)
+    
         
         descriptionLabel.text = taskType.stringValue
+        iconView.contentMode = UIView.ContentMode.scaleAspectFit
+        
         if let emoji = taskType.emoji {
-            iconButton.setTitle(emoji, for: .normal)
-            iconButton.titleLabel?.font = UIFont.systemFont(ofSize: 40)
+            iconView.image = emoji.image(with: 40)
+
         } else {
-            iconButton.setImage((taskType.imageName == nil) ? UIImage() : UIImage(named: taskType.imageName!), for: .normal)
+            let image = (taskType.imageName == nil) ? UIImage() : UIImage(named: taskType.imageName!)
+            iconView.image = image
         }
         
-        iconButton.addTarget(self, action: #selector(emojiTouched), for: .touchUpInside)
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(emojiTouched))
         descriptionLabel.addGestureRecognizer(tapRecognizer)
+        iconView.addGestureRecognizer(tapRecognizer)
     }
     
     @objc private func emojiTouched() {
@@ -78,17 +62,15 @@ class TaskButton: UIButton {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-//        descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-//        descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-//        descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-//        descriptionLabel.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        iconView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        iconView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        iconView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7).isActive = true
+        iconView.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7).isActive = true
         
-        
-        fullStack.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        fullStack.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        fullStack.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        fullStack.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        
+        descriptionLabel.topAnchor.constraint(equalTo: iconView.bottomAnchor).isActive = true
+        descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
     }
     

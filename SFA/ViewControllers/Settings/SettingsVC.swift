@@ -63,9 +63,9 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 3
+            return 4
         case 1:
-            return 5
+            return 4
 //        case 2:
 //            return 5
         default:
@@ -108,15 +108,15 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
             case 0: return makeDisclosureCell(with: "Età", in: tableView)
             case 1: return makeDisclosureCell(with: "Maschio/Femmina", in: tableView)
             case 2: return makeDisclosureCell(with: "Notifiche", in: tableView)
+            case 3: return makeDisclosureCell(with: "Diocesi & Città", in: tableView)
             default: fatalError()
             }
         case 1:
             switch indexPath.row {
             case 0: return makeDisclosureCell(with: "Info", in: tableView)
             case 1: return makeThemeSwitchCell(tableView)
-            case 2: return makeDisclosureCell(with: "Diocesi & Città", in: tableView)
-            case 3: return makeDisclosureCell(with: "Licenze", in: tableView)
-            case 4: return makeDisclosureCell(with: "Debug", in: tableView)
+            case 2: return makeDisclosureCell(with: "Licenze", in: tableView)
+            case 3: return makeDisclosureCell(with: "Debug", in: tableView)
             default: fatalError()
             }
         default:
@@ -133,15 +133,15 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
             case 0: navigationController?.pushViewController(UserAgeVC(), animated: true)
             case 1: navigationController?.pushViewController(GenderVC(), animated: true)
             case 2: navigationController?.pushViewController(NotificheVC(), animated: true)
+            case 3: navigationController?.pushViewController(LocationVC(), animated: true)
             default: break
             }
         case 1:
             switch indexPath.row {
             case 0: navigationController?.pushViewController(InfoVC(), animated: true)
             case 1: break
-            case 2: navigationController?.pushViewController(LocationVC(), animated: true)
-            case 3: navigationController?.pushViewController(LicenseVC(), animated: true)
-            case 4: navigationController?.pushViewController(DebugVC(), animated: true)
+            case 2: navigationController?.pushViewController(LicenseVC(), animated: true)
+            case 3: navigationController?.pushViewController(DebugVC(), animated: true)
             
             default: break
             }
