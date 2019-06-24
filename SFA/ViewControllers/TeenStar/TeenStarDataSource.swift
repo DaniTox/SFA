@@ -214,9 +214,9 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
         case 0:
             switch indexPath.row {
             case 0:
-                return makeHeaderCell(with: "Seleziona la data", in: tableView)
+                return makeHeaderCell(with: "\(currentEntryMemory.date.dayOfWeek()) - \(currentEntryMemory.date.stringValue)", in: tableView)
             case 1:
-                return makeDateCell(in: tableView)
+                return makeHeaderCell(with: "Modifica la data", in: tableView, isDisclosable: true)
             default: fatalError()
             }
         case 1:
