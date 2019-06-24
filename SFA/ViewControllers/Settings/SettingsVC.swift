@@ -114,7 +114,7 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
         case 1:
             switch indexPath.row {
             case 0: return makeDisclosureCell(with: "Info", in: tableView)
-            case 1: return makeThemeSwitchCell(tableView)
+            case 1: return makeDisclosureCell(with: "Tema colori", in: tableView)
             case 2: return makeDisclosureCell(with: "Licenze", in: tableView)
             case 3: return makeDisclosureCell(with: "Debug", in: tableView)
             default: fatalError()
@@ -139,7 +139,7 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
         case 1:
             switch indexPath.row {
             case 0: navigationController?.pushViewController(InfoVC(), animated: true)
-            case 1: break
+            case 1: navigationController?.pushViewController(ColorThemeVC(), animated: true)
             case 2: navigationController?.pushViewController(LicenseVC(), animated: true)
             case 3: navigationController?.pushViewController(DebugVC(), animated: true)
             
