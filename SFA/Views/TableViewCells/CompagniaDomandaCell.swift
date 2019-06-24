@@ -47,7 +47,7 @@ class CompagniaDomandaCell: UITableViewCell {
         slider.maximumValue = 10
         slider.value = 0
         slider.translatesAutoresizingMaskIntoConstraints = false
-        slider.tintColor = .green
+        slider.tintColor = UIColor.green.darker(by: 50)
         return slider
     }()
     
