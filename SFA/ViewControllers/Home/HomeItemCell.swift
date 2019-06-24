@@ -17,7 +17,7 @@ class HomeItemCell: UICollectionViewCell {
                 self.mainLabel.text = item.name
                 self.iconView.image = item.image
                 self.iconView.tintColor = UIColor.white//item.color.darker(by: 30)
-                self.backgroundColor = item.color.withAlphaComponent(0.6)
+                self.backgroundColor = item.color.darker(by: 20)//.withAlphaComponent(0.6)
                 
             }
         }
