@@ -40,29 +40,19 @@ class GioTaskTimeView: UIView {
         return iView
     }()
     
-    var fullStack : UIStackView = {
-        let stack = UIStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .vertical
-        stack.distribution = .fillProportionally
-        stack.alignment = .fill
-        stack.spacing = 10
-        return stack
-    }()
-    
     init(time: GioProNetTask.GioProTime, task: GioProNetTask.TaskType) {
         self.time = time
         self.task = task
         super.init(frame: .zero)
+
+        addSubview(timeLabel)
+        addSubview(imageView)
+        addSubview(descriptionLabel)
         
-        fullStack.addArrangedSubview(timeLabel)
-        fullStack.addArrangedSubview(imageView)
-        fullStack.addArrangedSubview(descriptionLabel)
-        
-        addSubview(fullStack)
         
         timeLabel.text = "\(time.stringValue)"
         descriptionLabel.text = task.stringValue
+        
         if let emoji = task.emoji {
             imageView.image = emoji.image()
         } else {
@@ -77,12 +67,21 @@ class GioTaskTimeView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        fullStack.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        fullStack.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        fullStack.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        fullStack.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        timeLabel.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        timeLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        timeLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        timeLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.25).isActive = true
         
+        imageView.topAnchor.constraint(equalTo: timeLabel.bottomAnchor).isActive = true
+        imageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        imageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true
+        imageView.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true
 
+        
+        descriptionLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
+        descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
