@@ -27,7 +27,7 @@ class DatePickerVC: UIViewController, HasCustomView {
     
     var dateChangedHandler: ((Date) -> Void)
     
-    init(maxDate: Date, dateChangedHandler: @escaping (Date) -> Void) {
+    init(maxDate: Date = Date(), dateChangedHandler: @escaping (Date) -> Void) {
         self.maximumDate = maxDate
         self.dateChangedHandler = dateChangedHandler
         super.init(nibName: nil, bundle: nil)

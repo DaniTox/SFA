@@ -50,6 +50,8 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
     var dateChanged : ((Date) -> Void)?
     var teenStarType : TeenStarType
     
+    var tableView: UITableView?
+    
     let cicloColors: [CicloColor] = Array(CicloTable.colorDescriptions.keys)
 
     init(entry: T) {
@@ -86,6 +88,14 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
         
         let objects = realm.objects(T.self).filter(fullPredicate)
         return objects.count == 0
+    }
+    
+    func dateDidChangeAction(date: Date) {
+        self.currentEntryMemory.date = date
+        DispatchQueue.main.async {
+            self.tableView?.reloadData()
+        }
+        self.dateChanged?(date)
     }
     
     func isEntryDateAvailable() -> Bool {
@@ -165,11 +175,15 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
     }
     
     //called from the tableViewDelegate
-    func cellWasSelected(tableView: UITableView, indexPath: IndexPath) {
+    func cellWasSelected(controller: UIViewController, tableView: UITableView, indexPath: IndexPath) {
         if self.teenStarType == .femmina && indexPath.section == 1 {
             let color = cicloColors[indexPath.row]
             self.currentEntryMemory.ciclo = color
             tableView.reloadData()
+        } else if indexPath.section == 0 && indexPath.row == 1 {
+            let vc = DatePickerVC(maxDate: Date(), dateChangedHandler: self.dateDidChangeAction)
+            vc.currentDate = currentEntryMemory.date
+            controller.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
@@ -178,9 +192,9 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
         case 0:
             switch indexPath.row {
             case 0:
-                return makeHeaderCell(with: "Seleziona la data;", in: tableView)
+                return makeHeaderCell(with: "\(currentEntryMemory.date.dayOfWeek()) - \(currentEntryMemory.date.stringValue)", in: tableView)
             case 1:
-                return makeDateCell(in: tableView)
+                return makeHeaderCell(with: "Modifica la data", in: tableView, isDisclosable: true)
             default: fatalError()
             }
         case 1, 2, 3:
@@ -235,10 +249,17 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
         return cell
     }
     
-    func makeHeaderCell(with text: String, in tableView: UITableView) -> UITableViewCell {
+    func makeHeaderCell(with text: String, in tableView: UITableView, isDisclosable: Bool = false) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: BASIC_CELL_ID) as! BoldCell
         cell.selectionStyle = .none
         cell.mainLabel.text = text
+        
+        if isDisclosable {
+            cell.accessoryType = .disclosureIndicator
+        } else {
+            cell.accessoryType = .none
+        }
+        
         return cell
     }
 }

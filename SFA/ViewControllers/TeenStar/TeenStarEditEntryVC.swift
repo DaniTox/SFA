@@ -55,6 +55,8 @@ class TeenStarEditEntryVC<T : TeenStarDerivative & Object>: UIViewController, Ha
             self.updateTheme()
         }
         
+        dataSource.tableView = self.rootView.tableView
+        
         rootView.tableView.register(BoldCell.self, forCellReuseIdentifier: BASIC_CELL_ID)
         rootView.tableView.register(EmozioneTableViewCell.self, forCellReuseIdentifier: EMOZIONE_CELL_ID)
         rootView.tableView.register(TeenStarFemminaCell.self, forCellReuseIdentifier: CICLO_CELL_ID)
@@ -79,7 +81,7 @@ class TeenStarEditEntryVC<T : TeenStarDerivative & Object>: UIViewController, Ha
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        dataSource.cellWasSelected(tableView: tableView, indexPath: indexPath)
+        dataSource.cellWasSelected(controller: self, tableView: tableView, indexPath: indexPath)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -91,6 +93,7 @@ class TeenStarEditEntryVC<T : TeenStarDerivative & Object>: UIViewController, Ha
     }
     
     func maleHeight(indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 { return BASIC_ROW_HEIGHT }
         if indexPath.row == 0 { return BASIC_ROW_HEIGHT }
         else { return EMOZIONE_ROW_HEIGHT }
     }
