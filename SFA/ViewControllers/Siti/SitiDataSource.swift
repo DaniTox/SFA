@@ -58,15 +58,14 @@ class SitiDataSource : NSObject, UITableViewDataSource, DZNEmptyDataSetSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "sitoCell") as! SitoCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "boldCell") as! BoldCell
         
         let site = self.sites[indexPath.row]
         var nomeSito = site.nome
         if let scuolaType = site.scuolaType {
             nomeSito.append(" (\(scuolaType.stringValue))")
         }
-        cell.nomeSitoLabel.text = nomeSito
-        cell.urlLabel.text = site.urlString
+        cell.mainLabel.text = nomeSito
         cell.accessoryType = .disclosureIndicator
         
         return cell

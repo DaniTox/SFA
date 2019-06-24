@@ -42,6 +42,7 @@ class SitiVC: UITableViewController {
         tableView.separatorStyle = .none
         tableView.backgroundColor = Theme.current.tableViewBackground
         tableView.register(SitoCell.self, forCellReuseIdentifier: "sitoCell")
+        tableView.register(BoldCell.self, forCellReuseIdentifier: "boldCell")
         tableView.dataSource = self.dataSource
         tableView.emptyDataSetSource = self.dataSource
         
@@ -85,7 +86,7 @@ class SitiVC: UITableViewController {
 extension SitiVC {
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 80
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

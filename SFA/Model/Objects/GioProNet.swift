@@ -93,7 +93,7 @@ class GioProNetTask: Object {
             case .whatsapp:     return "WhatsApp"
             case .sport:        return "Sport"
             case .amici:        return "Amici"
-            case .notte:        return "Notte"
+            case .notte:        return "Riposo"
             case .libri:        return "Studio"
             }
         }

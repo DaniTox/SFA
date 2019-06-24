@@ -19,7 +19,7 @@ class LicenseVC: UITableViewController {
         .init(image: #imageLiteral(resourceName: "diary"), title: "Diary by SBTS"),
         .init(image: #imageLiteral(resourceName: "airplane"), title: "Airplane by Shocho"),
         .init(image: #imageLiteral(resourceName: "search"), title: "Magnifying Glass by Phil Goodwin"),
-        .init(image: #imageLiteral(resourceName: "diary"), title: "Home by Taqiyyah"),
+        .init(image: #imageLiteral(resourceName: "home"), title: "Home by Taqiyyah"),
         .init(image: #imageLiteral(resourceName: "weightscale"), title: "Weight Scale by Marco Livolsi"),
         .init(image: #imageLiteral(resourceName: "star"), title: "Star by Mochamad Frans Kurnia"),
         .init(image: #imageLiteral(resourceName: "calendar"), title: "Calendar by Alice Design"),

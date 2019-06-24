@@ -16,8 +16,9 @@ class HomeItemCell: UICollectionViewCell {
             DispatchQueue.main.async {
                 self.mainLabel.text = item.name
                 self.iconView.image = item.image
-                self.iconView.tintColor = item.color.darker(by: 30)
-                self.backgroundColor = item.color
+                self.iconView.tintColor = UIColor.white//item.color.darker(by: 30)
+                self.backgroundColor = item.color.withAlphaComponent(0.7)
+                
             }
         }
     }
@@ -27,7 +28,7 @@ class HomeItemCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .callout)
         label.textColor = UIColor.white
-        label.textAlignment = .left
+        label.textAlignment = .center
         label.text = ""
         label.numberOfLines = 0
         label.adjustsFontSizeToFitWidth = true
@@ -59,7 +60,7 @@ class HomeItemCell: UICollectionViewCell {
         mainLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
         mainLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
-        iconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        iconView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         iconView.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
         iconView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.30).isActive = true
         iconView.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.30).isActive = true
