@@ -32,6 +32,8 @@ class GioProEditorVC: UITableViewController {
         self.tableView.backgroundColor = Theme.current.tableViewBackground
         self.tableView.separatorStyle = .none
         
+        dataSource.tableView = self.tableView
+        
         tableView.register(BoldCell.self, forCellReuseIdentifier: "boldCell")
         tableView.register(GioProNetCell.self, forCellReuseIdentifier: "taskCell")
         tableView.register(DatePickerCell.self, forCellReuseIdentifier: "dateCell")
@@ -57,17 +59,35 @@ class GioProEditorVC: UITableViewController {
 
 extension GioProEditorVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        switch indexPath.section {
+        case 0:
+            switch indexPath.row {
+            case 0: break
+            case 1:
+                let vc = DatePickerVC(maxDate: Date(), dateChangedHandler: dataSource.dateChangedAction)
+                vc.currentDate = gioItem.date
+                navigationController?.pushViewController(vc, animated: true)
+            default: break
+            }
+        default:
+            break
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 1 {
-            if UIDevice.current.deviceType == .pad {
-                return 250
-            } else {
-                return 200
+        switch indexPath.section {
+        case 0:
+            return 80
+        default:
+            switch indexPath.row {
+            case 0: return 80
+            default:
+                if UIDevice.current.deviceType == .pad {
+                    return 250
+                } else {
+                    return 200
+                }
             }
         }
-        else { return 80 }
     }
 }

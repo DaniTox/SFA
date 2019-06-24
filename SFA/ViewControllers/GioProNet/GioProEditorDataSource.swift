@@ -11,6 +11,7 @@ import RealmSwift
 
 class GioProEditorDataSource: NSObject, UITableViewDataSource {
     
+    var tableView: UITableView?
     var gioNetItem: GioProNet
     
     init(item: GioProNet) {
@@ -27,6 +28,16 @@ class GioProEditorDataSource: NSObject, UITableViewDataSource {
         }
     }
     
+    public func dateChangedAction(date: Date) {
+        let realm = try! Realm()
+        try? realm.write {
+            self.gioNetItem.date = date
+        }
+        DispatchQueue.main.async {
+            self.tableView?.reloadData()
+        }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return GioProNetTask.GioProTime.allCases.count + 1
     }
@@ -40,9 +51,9 @@ class GioProEditorDataSource: NSObject, UITableViewDataSource {
         case 0:
             switch indexPath.row {
             case 0:
-                return makeHeaderCell(with: "Seleziona la data", in: tableView)
+                return makeHeaderCell(with: "\(self.gioNetItem.date.dayOfWeek()) - \(self.gioNetItem.date.stringValue)", in: tableView)
             case 1:
-                return makeDateCell(in: tableView)
+                return makeHeaderCell(with: "Modifica la data", in: tableView, isDiscolsable: true)
             default: fatalError()
             }
         case 1, 2, 3, 4, 5, 6, 7:
@@ -81,10 +92,15 @@ class GioProEditorDataSource: NSObject, UITableViewDataSource {
         return cell
     }
     
-    func makeHeaderCell(with text: String, in tableView: UITableView) -> UITableViewCell {
+    func makeHeaderCell(with text: String, in tableView: UITableView, isDiscolsable: Bool = false) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "boldCell") as! BoldCell
         cell.selectionStyle = .none
         cell.mainLabel.text = text
+        if isDiscolsable {
+            cell.accessoryType = .disclosureIndicator
+        } else {
+            cell.accessoryType = .none
+        }
         return cell
     }
 }

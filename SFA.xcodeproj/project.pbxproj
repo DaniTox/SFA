@@ -53,6 +53,8 @@
 		DB61DA1521B9BA81006B308B /* SitoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1421B9BA81006B308B /* SitoView.swift */; };
 		DB61DA1921B9C81E006B308B /* SocialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1821B9C81E006B308B /* SocialVC.swift */; };
 		DB61DA1B21B9C834006B308B /* SocialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB61DA1A21B9C834006B308B /* SocialView.swift */; };
+		DB6414A122C150F20065BD8C /* DatePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6414A022C150F20065BD8C /* DatePickerVC.swift */; };
+		DB6414A522C152EE0065BD8C /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6414A422C152EE0065BD8C /* DatePickerView.swift */; };
 		DB644E4D227513310049CB3B /* RegolaDomandaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB644E4C227513310049CB3B /* RegolaDomandaCell.swift */; };
 		DB75F2EC225D2EE700EB62DF /* RiassuntoRDVDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB75F2EB225D2EE700EB62DF /* RiassuntoRDVDataSource.swift */; };
 		DB75F2EF225D3C0300EB62DF /* DebugVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB75F2EE225D3C0300EB62DF /* DebugVC.swift */; };
@@ -227,6 +229,8 @@
 		DB61DA1421B9BA81006B308B /* SitoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitoView.swift; sourceTree = "<group>"; };
 		DB61DA1821B9C81E006B308B /* SocialVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialVC.swift; sourceTree = "<group>"; };
 		DB61DA1A21B9C834006B308B /* SocialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialView.swift; sourceTree = "<group>"; };
+		DB6414A022C150F20065BD8C /* DatePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerVC.swift; sourceTree = "<group>"; };
+		DB6414A422C152EE0065BD8C /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		DB644E4C227513310049CB3B /* RegolaDomandaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegolaDomandaCell.swift; sourceTree = "<group>"; };
 		DB75F2EB225D2EE700EB62DF /* RiassuntoRDVDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiassuntoRDVDataSource.swift; sourceTree = "<group>"; };
 		DB75F2EE225D3C0300EB62DF /* DebugVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugVC.swift; sourceTree = "<group>"; };
@@ -482,6 +486,15 @@
 			path = Generic;
 			sourceTree = "<group>";
 		};
+		DB64149F22C150DE0065BD8C /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				DB6414A022C150F20065BD8C /* DatePickerVC.swift */,
+				DB6414A422C152EE0065BD8C /* DatePickerView.swift */,
+			);
+			path = DatePicker;
+			sourceTree = "<group>";
+		};
 		DB67643521F634C800651AD8 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -632,6 +645,7 @@
 		DBAF3C1A219C942E003083EA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DB64149F22C150DE0065BD8C /* DatePicker */,
 				DBBA7D3B22C020FD004C3CE9 /* License */,
 				DBFFDE8722B840B000C2CDBD /* Città */,
 				DBD2388822B821D100C9A2D1 /* Diocesi */,
@@ -1134,6 +1148,7 @@
 				DB8B4E0A227D912A00AFF716 /* InfoView.swift in Sources */,
 				DBC7F4CB2219898100C22945 /* UserAgeVC.swift in Sources */,
 				DBC7F4C92218ACAB00C22945 /* OrderedFlowCoordinator.swift in Sources */,
+				DB6414A522C152EE0065BD8C /* DatePickerView.swift in Sources */,
 				DBAF3C40219CBF35003083EA /* IQBarButtonItem.swift in Sources */,
 				DB4F3BC521F5FBC80040F4C4 /* SwitchCell.swift in Sources */,
 				DB323B0C223C4A7C00116FE3 /* VerificaCompagnia.swift in Sources */,
@@ -1170,6 +1185,7 @@
 				DB5751DC21DA651C00F97D25 /* BoldCell.swift in Sources */,
 				DBF3A2B221DD81D1008AE7D5 /* TeenStarEditEntryVC.swift in Sources */,
 				DBF13C4322B57D6F00A588EC /* GioProListCell.swift in Sources */,
+				DB6414A122C150F20065BD8C /* DatePickerVC.swift in Sources */,
 				DB88DBE921A975C100B0699B /* CGRectEx.swift in Sources */,
 				DB88DBEE21A97F4400B0699B /* RootAppTabBarController.swift in Sources */,
 				DBDC3B32225BA88900D019EA /* RiassuntoVC.swift in Sources */,
