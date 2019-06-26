@@ -10,21 +10,19 @@ import UIKit
 import RealmSwift
 import DZNEmptyDataSet
 
-class TeenStarListSource<T : TeenStarDerivative & Object> : NSObject, UITableViewDataSource, DZNEmptyDataSetSource {
-    var entryType: TeenStarType
+class TeenStarMaschioListSource: NSObject, UITableViewDataSource, DZNEmptyDataSetSource {
     
     var errorHandler : ((String) -> Void)? {
         didSet {
             self.model.errorHandler = errorHandler
         }
     }
-    var model : TeenStarModel<T>
-    var weeks : [TeenStarWeek<T>] = []
+    var model : TeenStarModel<TeenStarMaschio>
+    var weeks : [TeenStarWeek<TeenStarMaschio>] = []
     
     var dataLoaded : (() -> Void)?
     
-    init(type: TeenStarType) {
-        self.entryType = type
+    override init() {
         self.model = TeenStarModel()
         super.init()
     }
@@ -34,15 +32,15 @@ class TeenStarListSource<T : TeenStarDerivative & Object> : NSObject, UITableVie
         dataLoaded?()
     }
     
-    func getEntry(at indexPath: IndexPath) -> T {
+    func getEntry(at indexPath: IndexPath) -> TeenStarMaschio {
         return weeks[indexPath.section].tables[indexPath.row]
     }
     
-    func getWeek(at index: Int) -> TeenStarWeek<T> {
+    func getWeek(at index: Int) -> TeenStarWeek<TeenStarMaschio> {
         return self.weeks[index]
     }
     
-    func remove(table: T) {
+    func remove(table: TeenStarMaschio) {
         let realm = try! Realm()
         try? realm.write {
             realm.delete(table)
@@ -59,21 +57,8 @@ class TeenStarListSource<T : TeenStarDerivative & Object> : NSObject, UITableVie
     }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if self.entryType == .femmina {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "femaleCell") as! TeenStarListFemminaCell
-            let entry = self.weeks[indexPath.section].tables[indexPath.row] as! TeenStarFemmina
-            cell.accessoryType = .disclosureIndicator
-            
-            cell.dateLabel.text = "\(entry.date.dayOfWeek()) - \(entry.date.stringValue)"
-            
-            if let cicloTable = entry.cicloTable {
-                cell.set(color: cicloTable.cicloColor)
-            }
-            
-            return cell
-        } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TeenStarMaschioCell
-            let entry = self.weeks[indexPath.section].tables[indexPath.row] as! TeenStarMaschio
+            let entry = self.weeks[indexPath.section].tables[indexPath.row]
             cell.accessoryType = .disclosureIndicator
             
             cell.mainLabel.text = "\(entry.date.dayOfWeek()) - \(entry.date.stringValue)"
@@ -83,7 +68,6 @@ class TeenStarListSource<T : TeenStarDerivative & Object> : NSObject, UITableVie
             }
             
             return cell
-        }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

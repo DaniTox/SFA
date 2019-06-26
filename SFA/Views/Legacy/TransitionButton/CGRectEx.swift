@@ -83,23 +83,23 @@ extension CGRect {
     }
     
     
-    var midX: CGFloat {
-        get {
-            return self.x + self.width / 2
-        }
-        set {
-            self = CGRect(x: newValue - width / 2, y: y, width: width, height: height)
-        }
-    }
-    
-    var midY: CGFloat {
-        get {
-            return self.y + self.height / 2
-        }
-        set {
-            self = CGRect(x: x, y: newValue - height / 2, width: width, height: height)
-        }
-    }
+//    var midX: CGFloat {
+//        get {
+//            return self.x + self.width / 2
+//        }
+//        set {
+//            self = CGRect(x: newValue - width / 2, y: y, width: width, height: height)
+//        }
+//    }
+//    
+//    var midY: CGFloat {
+//        get {
+//            return self.y + self.height / 2
+//        }
+//        set {
+//            self = CGRect(x: x, y: newValue - height / 2, width: width, height: height)
+//        }
+//    }
     
 
     var center: CGPoint {

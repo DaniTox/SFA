@@ -126,14 +126,14 @@ class HomeViewController : UICollectionViewController, UICollectionViewDelegateF
     private func showTeenStarController() {
         let user = User.currentUser()
         if user.gender == .boy {
-            let vc = TeenStarListVC<TeenStarMaschio>(type: .maschio)
+            let vc = TeenStarMaschioListVC()
             navigationController?.pushViewController(vc, animated: true)
         } else if user.gender == .girl {
             if user.ageScuola == .medie {
-                let vc = TeenStarListVC<TeenStarMaschio>(type: .maschio)
+                let vc = TeenStarMaschioListVC()
                 navigationController?.pushViewController(vc, animated: true)
             } else {
-                let vc = TeenStarListVC<TeenStarFemmina>(type: .femmina)
+                let vc = TeenStarFemminaListVC()
                 navigationController?.pushViewController(vc, animated: true)
             }
         }

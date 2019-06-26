@@ -10,13 +10,13 @@ import UIKit
 import DZNEmptyDataSet
 import RealmSwift
 
-class TeenStarListVC<T: TeenStarDerivative & Object>: UITableViewController, DZNEmptyDataSetDelegate {
+class TeenStarMaschioListVC: UITableViewController, DZNEmptyDataSetDelegate {
 
     var themeObserver : NSObjectProtocol!
     
-    var dataSource : TeenStarListSource<T>
-    init(type: TeenStarType) {
-        self.dataSource = TeenStarListSource(type: type)
+    var dataSource = TeenStarMaschioListSource()
+    
+    init() {
         super.init(style: .grouped)
     }
     
@@ -76,13 +76,13 @@ class TeenStarListVC<T: TeenStarDerivative & Object>: UITableViewController, DZN
     }
     
     @objc private func addEntryButtonTapped() {
-        let vc = TeenStarEditEntryVC<T>()
+        let vc = TeenStarEditEntryVC<TeenStarMaschio>()
         navigationController?.pushViewController(vc, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let entry = dataSource.getEntry(at: indexPath)
-        let vc = TeenStarEditEntryVC<T>(table: entry)
+        let vc = TeenStarEditEntryVC<TeenStarMaschio>(table: entry)
         navigationController?.pushViewController(vc, animated: true)
     }
     
