@@ -71,4 +71,18 @@ class TSFAgent {
         }
         return []
     }
+    
+    ///Fetcha da Realm gli item creati nel mese della data che viene passata come arg
+    func fetchItems(using date: Date) -> [TeenStarFemmina] {
+        let range = self.getMonthRange(from: date)
+        let predicate1 = NSPredicate(format: "date >= %@", range.lowerBound as CVarArg)
+        let predicate2 = NSPredicate(format: "date <= %@", range.upperBound as CVarArg)
+        
+        let fullPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, predicate2])
+        
+        let realm = try! Realm()
+        let objects = realm.objects(TeenStarFemmina.self).filter(fullPredicate)
+        return objects.map { $0 }
+    }
+    
 }
