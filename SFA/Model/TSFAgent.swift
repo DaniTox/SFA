@@ -11,6 +11,9 @@ import RealmSwift
 
 class TSFAgent {
     
+    /// Ritorna un range di date che rappresentano i giorni del mese (tutti i giorni del mese) prendendolo dalla data passata come arg
+    /// - Parameter date: la data da cui prendere il mese.
+    /// - Returns range: il range con tutti i giorni del mese
     func getMonthRange(from date: Date) -> ClosedRange<Date> {
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year, .month], from: date)
@@ -30,13 +33,15 @@ class TSFAgent {
         return startOfMonth...finishDate
     }
     
-    
+    /// Ritorna la data del item TS Femmina più lontano nel passato
     public func getFarestDate() -> Date {
         let realm = try! Realm()
         let obj = realm.objects(TeenStarMaschio.self).sorted(byKeyPath: "date", ascending: true).first
         return obj?.date ?? Date()
     }
     
+    ///Ottiene la lista degli anni a partire dall'argomento passato fino a quest'anno
+    /// - L'argomento passato deve avere l'anno <= dell'anno attuale
     public func getYearsList(basedOn date: Date) -> [Int] {
         let calendar = Calendar.current
         
@@ -46,6 +51,10 @@ class TSFAgent {
         return Array(lowerDate...thisYear)
     }
     
+    ///Ottiene la lista dei mesi dell'anno passato come arg.
+    /// - Se è un anno futuro, ritorna un array vuoto
+    /// - Se è uguale all'anno attuale, ritorna tutti i mesi fino a quello attuale
+    /// - Se è minore di quello attuale, ritorna tutti i mesi dell'anno
     public func getMonthsList(for year: Int) -> [Int] {
         let calendar = Calendar.current
         

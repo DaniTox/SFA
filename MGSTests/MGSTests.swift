@@ -120,4 +120,17 @@ class MGSTests: XCTestCase {
         XCTAssert(list3.count == 12)
     }
     
+    func testMonthRange() {
+        let agent = TSFAgent()
+        
+        let date = Date.create(from: "26/06/2019")!
+        
+        let range = agent.getMonthRange(from: date)
+        
+        
+        XCTAssert(range.lowerBound == Date.create(from: "01/06/2019")!)
+        XCTAssert(range.upperBound == Date.create(from: "30/06/2019")!)
+        
+    }
+    
 }
