@@ -11,7 +11,7 @@ import RealmSwift
 
 class TSFAgent {
     
-    static func getMonthRange(from date: Date) -> ClosedRange<Date> {
+    func getMonthRange(from date: Date) -> ClosedRange<Date> {
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year, .month], from: date)
         guard let startOfMonth = calendar.date(from: components) else {
@@ -30,4 +30,36 @@ class TSFAgent {
         return startOfMonth...finishDate
     }
     
+    
+    public func getFarestDate() -> Date {
+        let realm = try! Realm()
+        let obj = realm.objects(TeenStarMaschio.self).sorted(byKeyPath: "date", ascending: true).first
+        return obj?.date ?? Date()
+    }
+    
+    public func getYearsList(basedOn date: Date) -> [Int] {
+        let calendar = Calendar.current
+        
+        let lowerDate = calendar.component(.year, from: date)
+        let thisYear = calendar.component(.year, from: Date())
+
+        return Array(lowerDate...thisYear)
+    }
+    
+    public func getMonthsList(for year: Int) -> [Int] {
+        let calendar = Calendar.current
+        
+        let thisYear = calendar.component(.year, from: Date())
+        if year > thisYear {
+            return []
+        }
+        if year < thisYear {
+            return Array(1...12)
+        }
+        if year == thisYear {
+            let thisMonth = calendar.component(.month, from: Date())
+            return Array(0...thisMonth)
+        }
+        return []
+    }
 }

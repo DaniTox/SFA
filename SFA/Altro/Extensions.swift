@@ -98,6 +98,15 @@ extension UIViewController {
 }
 
 extension Date {
+    
+    static func create(from str: String) -> Date? {
+        let dateF = DateFormatter()
+        dateF.calendar = Calendar.current
+        dateF.dateFormat = "dd/MM/yyyy"
+        
+        return dateF.date(from: str)
+    }
+    
     var yesterday: Date {
         return Calendar.current.date(byAdding: .day, value: -1, to: self)!
     }

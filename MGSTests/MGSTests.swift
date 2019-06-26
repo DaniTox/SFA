@@ -94,5 +94,30 @@ class MGSTests: XCTestCase {
         XCTAssert(fullPath == right1)
     }
     
-
+    func testListYears() {
+        let agent = TSFAgent()
+        let dates = agent.getYearsList(basedOn: Date())
+        
+        XCTAssert(dates.count == 1)
+        
+        let dates2 = agent.getYearsList(basedOn: Date.create(from: "17/10/2000")!)
+        XCTAssert(dates2.count == 20)
+        
+    }
+    
+    func testListMonths() {
+        let agent = TSFAgent()
+        
+        let thisYear = Calendar.current.component(.year, from: Date())
+        
+        let list1 = agent.getMonthsList(for: thisYear)
+        XCTAssert((list1.last ?? 0) ==  Calendar.current.component(.month, from: Date()))
+        
+        let list2 = agent.getMonthsList(for: (thisYear + 1))
+        XCTAssert(list2.isEmpty)
+        
+        let list3 = agent.getMonthsList(for: 2018)
+        XCTAssert(list3.count == 12)
+    }
+    
 }
