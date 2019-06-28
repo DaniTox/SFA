@@ -158,4 +158,15 @@ class MGSTests: XCTestCase {
         XCTAssert(number4.monthString == "")
     }
     
+    func testMonthNumber() {
+        let str = "gennaio"
+        XCTAssert(str.monthInteger == 1)
+        
+        let str2 = "dicembre"
+        XCTAssert(str2.monthInteger == 12)
+        
+        let str3 = "Febbraio"
+        XCTAssert(str3.monthInteger == 2)
+    }
+    
 }
