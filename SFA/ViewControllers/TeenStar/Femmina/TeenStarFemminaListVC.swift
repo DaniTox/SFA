@@ -25,7 +25,9 @@ class TeenStarFemminaListVC: UIViewController, HasCustomView {
         }
         
         rootView.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        rootView.collectionView.register(CalendarCell.self, forCellWithReuseIdentifier: "calendarCell")
         rootView.collectionView.dataSource = dataSource
+        rootView.collectionView.delegate = dataSource
         rootView.collectionView.reloadData()
         
         let (month, year) = TSFAgent.getTodayComponents()
@@ -70,5 +72,8 @@ class TeenStarFemminaListVC: UIViewController, HasCustomView {
         super.viewDidAppear(animated)
         dataSource.refresh()
     }
+ 
+    
     
 }
+

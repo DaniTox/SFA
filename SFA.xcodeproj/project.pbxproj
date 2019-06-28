@@ -158,6 +158,7 @@
 		DBD2388722B81BA400C9A2D1 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD2388622B81BA400C9A2D1 /* LocationView.swift */; };
 		DBD2388A22B821E400C9A2D1 /* DiocesiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD2388922B821E400C9A2D1 /* DiocesiVC.swift */; };
 		DBD2388C22B8221500C9A2D1 /* DiocesiDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD2388B22B8221500C9A2D1 /* DiocesiDataSource.swift */; };
+		DBD86E8722C6D144007C5828 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD86E8622C6D144007C5828 /* CalendarCell.swift */; };
 		DBD9011A2235AB9E007F37F0 /* NotesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD901192235AB9E007F37F0 /* NotesDataSource.swift */; };
 		DBDC3B2D225B988200D019EA /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC3B2C225B988200D019EA /* HeaderView.swift */; };
 		DBDC3B30225B9CC600D019EA /* RiassuntoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC3B2F225B9CC600D019EA /* RiassuntoView.swift */; };
@@ -343,6 +344,7 @@
 		DBD2388622B81BA400C9A2D1 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		DBD2388922B821E400C9A2D1 /* DiocesiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiocesiVC.swift; sourceTree = "<group>"; };
 		DBD2388B22B8221500C9A2D1 /* DiocesiDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiocesiDataSource.swift; sourceTree = "<group>"; };
+		DBD86E8622C6D144007C5828 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		DBD901192235AB9E007F37F0 /* NotesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesDataSource.swift; sourceTree = "<group>"; };
 		DBDC3B2C225B988200D019EA /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		DBDC3B2F225B9CC600D019EA /* RiassuntoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiassuntoView.swift; sourceTree = "<group>"; };
@@ -558,6 +560,7 @@
 				DB84A68522C2592700B2C5AC /* TeenStarFemminaListVC.swift */,
 				DB84A68722C2593400B2C5AC /* TeenStarFeeminaSource.swift */,
 				DB84A68922C290F000B2C5AC /* TSFemminaListView.swift */,
+				DBD86E8622C6D144007C5828 /* CalendarCell.swift */,
 			);
 			path = Femmina;
 			sourceTree = "<group>";
@@ -1265,6 +1268,7 @@
 				DBD2388C22B8221500C9A2D1 /* DiocesiDataSource.swift in Sources */,
 				DB61DA1921B9C81E006B308B /* SocialVC.swift in Sources */,
 				DBFE97FA21D57CD500E82803 /* NoteModel.swift in Sources */,
+				DBD86E8722C6D144007C5828 /* CalendarCell.swift in Sources */,
 				DB7BEF8F21D01920007A550E /* ToxNetworkResponse.swift in Sources */,
 				DB7BEF8721D006A0007A550E /* KeychainWrapper.swift in Sources */,
 				DB984703227F5C970033D12F /* TaskButton.swift in Sources */,

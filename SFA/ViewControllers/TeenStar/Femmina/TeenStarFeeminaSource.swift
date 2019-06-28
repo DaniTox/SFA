@@ -53,7 +53,17 @@ class TeenStarFemminaSource: NSObject, UICollectionViewDataSource, UICollectionV
     var dates: [Date] = []
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: 100, height: 100)
+        let width = collectionView.frame.width
+        let itemWidth = width / 5
+        return .init(width: itemWidth, height: itemWidth)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -61,8 +71,13 @@ class TeenStarFemminaSource: NSObject, UICollectionViewDataSource, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calendarCell", for: indexPath) as! CalendarCell
+        let date = self.dates[indexPath.row]
+        let day = Calendar.current.component(.day, from: date)
+        cell.dayLabel.text = String(day)
         cell.backgroundColor = .red
+        cell.layer.borderWidth = 1
+        cell.layer.borderColor = Theme.current.backgroundColor.cgColor
         return cell
     }
     
