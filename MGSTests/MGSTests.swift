@@ -133,4 +133,29 @@ class MGSTests: XCTestCase {
         
     }
     
+    func testDistanceBetweenRangeDate() {
+        let agent = TSFAgent()
+        let range = agent.getMonthRange(from: Date.create(from: "27/06/2019")!).map { $0 }
+        
+        XCTAssert(range.count == 30)
+        
+        let range2 = agent.getMonthRange(from: Date.create(from: "27/07/2019")!).map { $0 }
+        XCTAssert(range2.count == 31)
+    }
+    
+    func testMonthString() {
+        let number = 1
+        XCTAssert(number.monthString == "gennaio")
+        print(number.monthString)
+        
+        let number2 = 12
+        XCTAssert(number2.monthString == "dicembre")
+        
+        let number3 = 10
+        XCTAssert(number3.monthString == "ottobre")
+        
+        let number4 = 13
+        XCTAssert(number4.monthString == "")
+    }
+    
 }

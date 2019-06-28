@@ -85,4 +85,12 @@ class TSFAgent {
         return objects.map { $0 }
     }
     
+    
+    static func getTodayComponents() -> (Int, Int) {
+        let calendar = Calendar.current
+        let month = calendar.component(.month, from: Date())
+        let year = calendar.component(.year, from: Date())
+        
+        return (month, year)
+    }
 }

@@ -12,8 +12,8 @@ class TeenStarFemminaSource: NSObject, UICollectionViewDataSource, UICollectionV
     
     var selectedMonth: Int = 0 {
         didSet {
-            if selectedMonth == 0 { return }
-            if selectedYear == 0 { return }
+            if selectedMonth <= 0 { return }
+            if selectedYear <= 0 { return }
             let calendar = Calendar.current
             var components = calendar.dateComponents([.month, .year], from: currentDate)
             components.month = selectedMonth
@@ -25,8 +25,8 @@ class TeenStarFemminaSource: NSObject, UICollectionViewDataSource, UICollectionV
     
     var selectedYear: Int = 0 {
         didSet {
-            if selectedYear == 0 { return }
-            if selectedMonth == 0 { return }
+            if selectedYear <= 0 { return }
+            if selectedMonth <= 0 { return }
             
             let calendar = Calendar.current
             var components = calendar.dateComponents([.month, .year], from: currentDate)
@@ -41,6 +41,7 @@ class TeenStarFemminaSource: NSObject, UICollectionViewDataSource, UICollectionV
         didSet {
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
+                self.updateDates()
                 self.fetchItems(for: self.currentDate)
             }
         }
@@ -71,6 +72,17 @@ class TeenStarFemminaSource: NSObject, UICollectionViewDataSource, UICollectionV
         dataChanged?()
     }
     
+    func set(month: Int?, year: Int?) {
+        if let month = month {
+            self.selectedMonth = month
+        }
+        
+        if let year = year {
+            self.selectedYear = year
+        }
+        
+    }
+    
     func setUp() {
         let calendar = Calendar.current
         let date = Date()
@@ -80,4 +92,14 @@ class TeenStarFemminaSource: NSObject, UICollectionViewDataSource, UICollectionV
         selectedMonth = month
         selectedYear = year
     }
+    
+    func updateDates() {
+        let agent = TSFAgent()
+        self.dates = agent.getMonthRange(from: currentDate).map { $0 }
+    }
+    
+    func refresh() {
+        self.fetchItems(for: currentDate)
+    }
+    
 }

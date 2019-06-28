@@ -98,6 +98,64 @@ extension UIViewController {
 }
 
 extension Date {
+    static var monthsIntegers: ClosedRange<Int> {
+        return 1...12
+    }
+}
+
+extension String {
+    var monthInteger: Int {
+        let str = self.lowercased()
+        var calendar = Calendar.current
+        calendar.locale = Locale(identifier: "it")
+        
+        let months = calendar.monthSymbols
+        
+        return (months.firstIndex(of: str) ?? 0) + 1
+    }
+}
+
+extension Int {
+    var monthString: String {
+        var calendar = Calendar.current
+        calendar.locale = Locale(identifier: "it")
+        
+        let symbols = calendar.monthSymbols
+        
+        guard self <= symbols.count else { return "" }
+        return symbols[self - 1]
+    }
+}
+
+
+extension Date: Strideable {
+    
+    public func advanced(by n: Int) -> Date {
+        let calendar = Calendar.current
+        let newDate = calendar.date(byAdding: .day, value: 1, to: self)!
+        return newDate
+    }
+    
+    public func distance(to other: Date) -> Int {
+        return Calendar.current.dateComponents([.day], from: self, to: other).day ?? 0
+    }
+}
+
+//extension ClosedRange where Bound == Date {
+//    func array(advancedBy component: Calendar.Component = .day, value: Int = 1) -> [Date] {
+//        let calendar = Calendar.current
+//        var startingDate = self.lowerBound
+//        var finishDate = self.upperBound
+//
+//        while startingDate <= finishDate {
+//            startingDate = calendar.date(byAdding: .day, value: 1, to: startingDate) ?? finishDate
+//        }
+//
+//        return []
+//    }
+//}
+
+extension Date {
     
     static func create(from str: String) -> Date? {
         let dateF = DateFormatter()
