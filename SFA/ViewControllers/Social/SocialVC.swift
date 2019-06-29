@@ -23,9 +23,9 @@ class SocialVC: UIViewController, HasCustomView {
             self.updateTheme()
         }
 
-        rootView.instagranmButton.controller = self
-        rootView.facebookButton.controller = self
-        rootView.youtubeButton.controller = self
+        rootView.facebookLayer.button.controller = self
+        rootView.instagramLayer.button.controller = self
+        rootView.youtubeLayer.button.controller = self
     }
     
     private func updateTheme() {

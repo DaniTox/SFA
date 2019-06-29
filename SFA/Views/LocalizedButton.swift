@@ -19,12 +19,28 @@ class LocalizedButton: UIBouncyButton {
         self.controller = controller
         super.init(frame: .zero)
         self.addTarget(self, action: #selector(tapped), for: .touchUpInside)
+        self.translatesAutoresizingMaskIntoConstraints = false
+        autoSetImage()
+        
     }
     
     init(category: SitoCategoria) {
         self.categoria = category
         super.init(frame: .zero)
         self.addTarget(self, action: #selector(tapped), for: .touchUpInside)
+        self.translatesAutoresizingMaskIntoConstraints = false
+        autoSetImage()
+    }
+    
+    func autoSetImage() {
+        self.contentMode = UIView.ContentMode.scaleAspectFit
+        
+        switch self.categoria {
+        case .facebook: self.setImage(#imageLiteral(resourceName: "fb"), for: .normal)
+        case .instagram: self.setImage(#imageLiteral(resourceName: "instagram"), for: .normal)
+        case .youtube: self.setImage(#imageLiteral(resourceName: "youtube"), for: .normal)
+        default: break
+        }
     }
     
     func fetchWebsites() -> [SitoObject] {

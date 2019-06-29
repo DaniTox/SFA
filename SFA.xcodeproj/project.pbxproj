@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DB0D49EC21DFF13000887D3B /* SettingsUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D49EB21DFF13000887D3B /* SettingsUserCell.swift */; };
+		DB14AF6522C810B800B9F3B3 /* SocialStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14AF6422C810B800B9F3B3 /* SocialStack.swift */; };
 		DB19C67F21E2870B0020357D /* VerificaCompagniaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB19C67E21E2870B0020357D /* VerificaCompagniaVC.swift */; };
 		DB19C68121E2877F0020357D /* VerificaCompagniaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB19C68021E2877F0020357D /* VerificaCompagniaView.swift */; };
 		DB217D4922184FE0003ED264 /* GenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB217D4822184FE0003ED264 /* GenderVC.swift */; };
@@ -190,6 +191,7 @@
 
 /* Begin PBXFileReference section */
 		DB0D49EB21DFF13000887D3B /* SettingsUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUserCell.swift; sourceTree = "<group>"; };
+		DB14AF6422C810B800B9F3B3 /* SocialStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialStack.swift; sourceTree = "<group>"; };
 		DB19C67E21E2870B0020357D /* VerificaCompagniaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificaCompagniaVC.swift; sourceTree = "<group>"; };
 		DB19C68021E2877F0020357D /* VerificaCompagniaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificaCompagniaView.swift; sourceTree = "<group>"; };
 		DB217D4822184FE0003ED264 /* GenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderVC.swift; sourceTree = "<group>"; };
@@ -875,6 +877,7 @@
 			children = (
 				DB61DA1821B9C81E006B308B /* SocialVC.swift */,
 				DB61DA1A21B9C834006B308B /* SocialView.swift */,
+				DB14AF6422C810B800B9F3B3 /* SocialStack.swift */,
 			);
 			path = Social;
 			sourceTree = "<group>";
@@ -1166,6 +1169,7 @@
 				DB217D4922184FE0003ED264 /* GenderVC.swift in Sources */,
 				DB4F3BBC21F5C34C0040F4C4 /* Themes.swift in Sources */,
 				DBF3A2AC21DD723B008AE7D5 /* TeenStarMaschioListVC.swift in Sources */,
+				DB14AF6522C810B800B9F3B3 /* SocialStack.swift in Sources */,
 				DBD9011A2235AB9E007F37F0 /* NotesDataSource.swift in Sources */,
 				DB9846FD227F31660033D12F /* GioProNet.swift in Sources */,
 				DBD2379E22B6B2A600C9A2D1 /* SiteLocalizer.swift in Sources */,
