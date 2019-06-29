@@ -31,6 +31,17 @@ class SocialView: UIView {
         return b
     }()
     
+    lazy var instagramLabel : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        label.textColor = .white
+        label.textAlignment = .center
+        label.text = "#mgslombardiaemila"
+        label.adjustsFontSizeToFitWidth = true
+        return label
+    }()
+    
     var facebookButton : LocalizedButton = {
         let b = LocalizedButton(category: .facebook)
         b.translatesAutoresizingMaskIntoConstraints = false
@@ -50,6 +61,17 @@ class SocialView: UIView {
         b.layer.shadowRadius = 10
         b.layer.masksToBounds = false
         return b
+    }()
+    
+    lazy var facebookLabel : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        label.textColor = .white
+        label.textAlignment = .center
+        label.text = "Seguici su Facebook!"
+        label.adjustsFontSizeToFitWidth = true
+        return label
     }()
     
     var youtubeButton : LocalizedButton = {
@@ -73,6 +95,17 @@ class SocialView: UIView {
         return b
     }()
     
+    lazy var youtubeLabel : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        label.textColor = .white
+        label.textAlignment = .center
+        label.text = "Guarda i nostri video!"
+        label.adjustsFontSizeToFitWidth = true
+        return label
+    }()
+    
     var stackView : UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -87,9 +120,38 @@ class SocialView: UIView {
         super.init(frame: frame)
         backgroundColor = Theme.current.controllerBackground
 //        backgroundColor = UIColor.black.lighter(by: 10)
-        stackView.addArrangedSubview(facebookButton)
-        stackView.addArrangedSubview(instagranmButton)
-        stackView.addArrangedSubview(youtubeButton)
+        
+        
+        let fbStack = UIStackView()
+        fbStack.alignment = .fill
+        fbStack.axis = .horizontal
+        fbStack.distribution = .fillProportionally
+        fbStack.addArrangedSubview(facebookButton)
+        fbStack.addArrangedSubview(facebookLabel)
+        stackView.addArrangedSubview(fbStack)
+        
+        
+        let igStack = UIStackView()
+        igStack.alignment = .fill
+        igStack.axis = .horizontal
+        igStack.distribution = .fillProportionally
+        igStack.addArrangedSubview(instagranmButton)
+        igStack.addArrangedSubview(instagramLabel)
+        stackView.addArrangedSubview(igStack)
+        
+        
+        let ytStack = UIStackView()
+        ytStack.alignment = .fill
+        ytStack.axis = .horizontal
+        ytStack.distribution = .fillProportionally
+        ytStack.addArrangedSubview(youtubeButton)
+        ytStack.addArrangedSubview(youtubeLabel)
+        stackView.addArrangedSubview(ytStack)
+        
+//        stackView.addArrangedSubview(instagranmButton)
+//
+//        stackView.addArrangedSubview(youtubeButton)
+//
         
         addSubview(stackView)
     }
@@ -99,7 +161,7 @@ class SocialView: UIView {
         
         stackView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         stackView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        stackView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7).isActive = true
+        stackView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.75).isActive = true
         stackView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true
     }
     
