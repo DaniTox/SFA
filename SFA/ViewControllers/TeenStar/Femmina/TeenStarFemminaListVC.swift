@@ -55,6 +55,11 @@ class TeenStarFemminaListVC: UIViewController, HasCustomView {
             alert.addAction(action)
         }
         alert.addAction(UIAlertAction(title: "Annulla", style: .cancel, handler: nil))
+        alert.popoverPresentationController?.sourceView = rootView.monthButton
+        
+        let position = CGPoint(x: rootView.monthButton.bounds.midX, y: rootView.monthButton.bounds.maxY)
+        let rect = CGRect(origin: position, size: .zero)
+        alert.popoverPresentationController?.sourceRect = rect
         self.present(alert, animated: true)
     }
     
@@ -71,6 +76,12 @@ class TeenStarFemminaListVC: UIViewController, HasCustomView {
             alert.addAction(action)
         }
         alert.addAction(UIAlertAction(title: "Annulla", style: .cancel, handler: nil))
+        alert.popoverPresentationController?.sourceView = rootView.yearButton
+        
+        let position = CGPoint(x: rootView.yearButton.bounds.midX, y: rootView.yearButton.bounds.maxY)
+        let rect = CGRect(origin: position, size: .zero)
+        alert.popoverPresentationController?.sourceRect = rect
+        alert.popoverPresentationController?.permittedArrowDirections = .up
         self.present(alert, animated: true)
     }
     

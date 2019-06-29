@@ -50,7 +50,7 @@ class LocalizedButton: UIBouncyButton {
             alert.addAction(UIAlertAction(title: "Annulla", style: .cancel, handler: nil))
             alert.popoverPresentationController?.sourceView = self
             
-            let origin = CGRect(x: self.frame.width / 2, y: self.frame.height / 2, width: 0, height: 0)
+            let origin = CGRect(x: self.bounds.width / 2, y: self.bounds.height / 2, width: 0, height: 0)
             
             
             alert.popoverPresentationController?.sourceRect = origin
