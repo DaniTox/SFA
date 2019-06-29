@@ -23,7 +23,7 @@ class HomeViewController : UICollectionViewController, UICollectionViewDelegateF
         self.title = "Home"
         self.view.backgroundColor = Theme.current.tableViewBackground
         
-        let rightButton = UIBarButtonItem(image: #imageLiteral(resourceName: "calendar"), style: .plain, target: self, action: #selector(calendarioButtonTapped))
+        let rightButton = UIBarButtonItem(image: #imageLiteral(resourceName: "calendar"), style: .plain, target: self, action: #selector(calendarioButtonTapped(_:)))
         self.navigationItem.setRightBarButton(rightButton, animated: true)
         
         collectionView.register(HomeItemCell.self, forCellWithReuseIdentifier: "mainCell")
@@ -76,7 +76,7 @@ class HomeViewController : UICollectionViewController, UICollectionViewDelegateF
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func calendarioButtonTapped() {
+    @objc func calendarioButtonTapped(_ sender: UIBarButtonItem) {
         let agent = SiteLocalizer()
         let sites = agent.fetchLocalWebsites(type: .calendario)
         
@@ -99,9 +99,11 @@ class HomeViewController : UICollectionViewController, UICollectionViewDelegateF
                     }
                 }))
             }
+            alert.addAction(UIAlertAction(title: "Annulla", style: .cancel, handler: nil))
+            alert.popoverPresentationController?.barButtonItem = sender
             self.present(alert, animated: true)
         }
-        
+    
     }
     
     @objc func showRegolaController() {
