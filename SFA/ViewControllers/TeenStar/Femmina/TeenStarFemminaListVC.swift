@@ -24,6 +24,11 @@ class TeenStarFemminaListVC: UIViewController, HasCustomView {
             }
         }
         
+        self.title = "Calendario"
+        
+        dataSource.controller = self
+        
+        rootView.collectionView.backgroundColor = .clear
         rootView.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         rootView.collectionView.register(CalendarCell.self, forCellWithReuseIdentifier: "calendarCell")
         rootView.collectionView.dataSource = dataSource
@@ -65,6 +70,7 @@ class TeenStarFemminaListVC: UIViewController, HasCustomView {
             }
             alert.addAction(action)
         }
+        alert.addAction(UIAlertAction(title: "Annulla", style: .cancel, handler: nil))
         self.present(alert, animated: true)
     }
     
@@ -76,4 +82,5 @@ class TeenStarFemminaListVC: UIViewController, HasCustomView {
     
     
 }
+
 

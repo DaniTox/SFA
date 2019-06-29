@@ -44,6 +44,7 @@ class TSFemminaListView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = Theme.current.tableViewBackground
         
         buttonsStack.addArrangedSubview(monthButton)
         buttonsStack.addArrangedSubview(yearButton)

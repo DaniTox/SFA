@@ -21,19 +21,35 @@ class CalendarCell: UICollectionViewCell {
         return label
     }()
     
+    var circleView: UIView = {
+        let v = UIView()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.layer.masksToBounds = true
+        return v
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        
         addSubview(dayLabel)
+        addSubview(circleView)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        dayLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        dayLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
         dayLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        dayLabel.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        dayLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
         dayLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2).isActive = true
+        
+        circleView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true
+        circleView.widthAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true
+        circleView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        circleView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        
+        circleView.layer.cornerRadius = circleView.frame.width / 2
     }
     
     required init?(coder aDecoder: NSCoder) {

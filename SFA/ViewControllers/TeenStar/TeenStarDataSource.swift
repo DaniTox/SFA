@@ -132,7 +132,7 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
     func femaleRowsModel(section: Int) -> Int {
         switch section {
         case 0:
-            return 2
+            return 1
         case 1:
             return self.cicloColors.count
         default: fatalError()
@@ -215,8 +215,8 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
             switch indexPath.row {
             case 0:
                 return makeHeaderCell(with: "\(currentEntryMemory.date.dayOfWeek()) - \(currentEntryMemory.date.stringValue)", in: tableView)
-            case 1:
-                return makeHeaderCell(with: "Modifica la data", in: tableView, isDisclosable: true)
+//            case 1:
+//                return makeHeaderCell(with: "Modifica la data", in: tableView, isDisclosable: true)
             default: fatalError()
             }
         case 1:

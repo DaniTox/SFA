@@ -18,10 +18,13 @@ class TeenStarEditEntryVC<T : TeenStarDerivative & Object>: UIViewController, Ha
 
     var dataSource : TeenStarDataSource<T>
     
-    init(table : T? = nil) {
+    init(table : T? = nil, date: Date? = nil) {
         var selectedTable : T
         if table == nil {
             selectedTable = T()
+            if let dateSelected = date {
+                selectedTable.date = dateSelected
+            }
         } else {
             selectedTable = table!
         }
@@ -29,15 +32,19 @@ class TeenStarEditEntryVC<T : TeenStarDerivative & Object>: UIViewController, Ha
         self.dataSource = TeenStarDataSource<T>(entry: selectedTable)
         super.init(nibName: nil, bundle: nil)
         
-        dataSource.dateChanged = { [weak self] newDate in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                self.title = "\(newDate.dayOfWeek()) - \(newDate.stringValue)"
-            }
-            
-            if !self.dataSource.isEntryDateAvailable() {
-                self.showError(withTitle: "Errore", andMessage: "Questa data è già stata salvata.")
-            }
+        if table is TeenStarMaschio {
+            dataSource.dateChanged = self.dateChangedAction
+        }
+        
+    }
+    
+    func dateChangedAction(newDate: Date) {
+        DispatchQueue.main.async {
+            self.title = "\(newDate.dayOfWeek()) - \(newDate.stringValue)"
+        }
+        
+        if !self.dataSource.isEntryDateAvailable() {
+            self.showError(withTitle: "Errore", andMessage: "Questa data è già stata salvata.")
         }
     }
     

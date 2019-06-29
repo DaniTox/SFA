@@ -36,7 +36,7 @@ class TSFAgent {
     /// Ritorna la data del item TS Femmina più lontano nel passato
     public func getFarestDate() -> Date {
         let realm = try! Realm()
-        let obj = realm.objects(TeenStarMaschio.self).sorted(byKeyPath: "date", ascending: true).first
+        let obj = realm.objects(TeenStarFemmina.self).sorted(byKeyPath: "date", ascending: true).first
         return obj?.date ?? Date()
     }
     

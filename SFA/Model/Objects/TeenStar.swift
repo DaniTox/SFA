@@ -104,7 +104,7 @@ enum CicloColor : Int, Codable {
     func getViewColor() -> UIColor {
         switch self {
         case .none:
-            return Theme.current.backgroundColor
+            return .clear
         case .rosso:
             return .red
         case .verde:

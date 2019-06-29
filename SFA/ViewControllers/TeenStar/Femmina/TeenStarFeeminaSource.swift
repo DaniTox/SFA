@@ -47,6 +47,7 @@ class TeenStarFemminaSource: NSObject, UICollectionViewDataSource, UICollectionV
         }
     }
     
+    var controller: UIViewController?
     var dataChanged: (() -> Void)?
     
     var allItems: [TeenStarFemmina] = []
@@ -75,9 +76,16 @@ class TeenStarFemminaSource: NSObject, UICollectionViewDataSource, UICollectionV
         let date = self.dates[indexPath.row]
         let day = Calendar.current.component(.day, from: date)
         cell.dayLabel.text = String(day)
-        cell.backgroundColor = .red
+        cell.backgroundColor = .orange
         cell.layer.borderWidth = 1
-        cell.layer.borderColor = Theme.current.backgroundColor.cgColor
+        cell.layer.borderColor = Theme.current.shadowColor.cgColor
+        
+        if let item = self.allItems.first(where: { $0.date == date }) {
+            cell.circleView.backgroundColor = item.cicloTable?.cicloColor.getViewColor()
+        } else {
+            cell.circleView.backgroundColor = .clear
+        }
+        
         return cell
     }
     
@@ -117,4 +125,15 @@ class TeenStarFemminaSource: NSObject, UICollectionViewDataSource, UICollectionV
         self.fetchItems(for: currentDate)
     }
     
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let date = dates[indexPath.row]
+        if let item = allItems.first(where: { $0.date == date }) {
+            let vc = TeenStarEditEntryVC<TeenStarFemmina>(table: item)
+            controller?.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = TeenStarEditEntryVC<TeenStarFemmina>(table: nil, date: date)
+            controller?.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
