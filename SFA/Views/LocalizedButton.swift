@@ -58,7 +58,7 @@ class LocalizedButton: UIBouncyButton {
         } else {
             let alert = UIAlertController(title: "Più opzioni", message: "Scegli il profilo da raggiungere", preferredStyle: .actionSheet)
             for site in sites {
-                let action = UIAlertAction(title: "\(site.profileName ?? "NULL")", style: .default) { (action) in
+                let action = UIAlertAction(title: "\(site.nome)", style: .default) { (action) in
                     self.executeQuery(username: site.profileName)
                 }
                 alert.addAction(action)
