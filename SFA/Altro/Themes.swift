@@ -37,7 +37,7 @@ class LightTheme: ThemeProtocol {
     var textColor : UIColor = UIColor.black
     var cellSubtitleColor: UIColor = UIColor.gray
     var cellTitleColor: UIColor = UIColor.blue
-    var tableHeaderTextColor: UIColor = UIColor.blue
+    var tableHeaderTextColor: UIColor = UIColor(named: "lightBlue")!
 }
 
 class DarkTheme : ThemeProtocol {
@@ -48,5 +48,5 @@ class DarkTheme : ThemeProtocol {
     var textColor: UIColor = UIColor.white
     var cellSubtitleColor: UIColor = UIColor.gray
     var cellTitleColor: UIColor = UIColor.white
-    var tableHeaderTextColor: UIColor = UIColor.yellow
+    var tableHeaderTextColor: UIColor = UIColor(named: "lightBlue")!
 }

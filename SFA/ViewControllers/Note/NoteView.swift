@@ -15,10 +15,10 @@ class NoteView: UIView {
         let view = UITextView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body).withSize(20)
-        view.backgroundColor = UIColor.darkGray
+        view.backgroundColor = Theme.current.backgroundColor
         
         view.layer.cornerRadius = 10
-        view.layer.shadowColor = UIColor.lightGray.cgColor
+        view.layer.shadowColor = Theme.current.shadowColor.cgColor
         view.layer.shadowOffset = CGSize(width: 0, height: 0)
         view.layer.shadowOpacity = 1.0
         view.layer.shadowRadius = 10
@@ -37,7 +37,7 @@ class NoteView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = Theme.current.backgroundColor
+        backgroundColor = Theme.current.controllerBackground
         addSubview(textView)
         //addSubview(bottomBar)
     }

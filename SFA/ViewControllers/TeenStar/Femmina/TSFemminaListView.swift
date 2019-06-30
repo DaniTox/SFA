@@ -20,6 +20,7 @@ class TSFemminaListView: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("", for: .normal)
+        button.setTitleColor(Theme.current.textColor, for: .normal)
         button.backgroundColor = Theme.current.backgroundColor
         button.layer.cornerRadius = 10
         button.layer.masksToBounds = true
@@ -30,6 +31,7 @@ class TSFemminaListView: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("", for: .normal)
+        button.setTitleColor(Theme.current.textColor, for: .normal)
         button.backgroundColor = Theme.current.backgroundColor
         button.layer.cornerRadius = 10
         button.layer.masksToBounds = true

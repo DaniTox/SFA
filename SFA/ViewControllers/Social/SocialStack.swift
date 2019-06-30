@@ -39,6 +39,10 @@ class SocialStack: UIView {
         default:
             break
         }
+        
+        NotificationCenter.default.addObserver(forName: .updateTheme, object: nil, queue: .main) { (_) in
+            self.descriptionLabel.textColor = Theme.current.textColor
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

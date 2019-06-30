@@ -16,7 +16,7 @@ class LocationVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Diocesi & città"
+        self.title = "Provincia & città"
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         tableView.backgroundColor = Theme.current.tableViewBackground

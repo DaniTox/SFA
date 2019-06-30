@@ -30,19 +30,25 @@ class EditRispostaView : UIView {
         textView.font = UIFont.preferredFont(forTextStyle: .body)
         textView.layer.borderWidth = 1
         textView.layer.borderColor = Theme.current.backgroundColor.cgColor
-        textView.backgroundColor = UIColor.darkGray
-        textView.textColor = UIColor(named: "lightBlue") 
+        textView.backgroundColor = Theme.current.backgroundColor
+        textView.textColor = Theme.current.textColor
         
         textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.layer.masksToBounds = true
+//        textView.layer.masksToBounds = true
         textView.layer.cornerRadius = 15
+        
+        textView.layer.shadowColor = Theme.current.shadowColor.cgColor
+        textView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        textView.layer.shadowOpacity = 1.0
+        textView.layer.shadowRadius = 10
+        textView.layer.masksToBounds = false
         return textView
     }()
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = Theme.current.tableViewBackground
+        backgroundColor = Theme.current.controllerBackground
         addSubview(domandaLabel)
         addSubview(textView)
     }
@@ -55,8 +61,8 @@ class EditRispostaView : UIView {
         domandaLabel.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
         textView.topAnchor.constraint(equalTo: domandaLabel.bottomAnchor, constant: 10).isActive = true
-        textView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
-        textView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5).isActive = true
+        textView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        textView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
         textView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
     }
     

@@ -108,7 +108,7 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
             case 0: return makeDisclosureCell(with: "Età", in: tableView)
             case 1: return makeDisclosureCell(with: "Maschio/Femmina", in: tableView)
             case 2: return makeDisclosureCell(with: "Notifiche", in: tableView)
-            case 3: return makeDisclosureCell(with: "Diocesi & Città", in: tableView)
+            case 3: return makeDisclosureCell(with: "Provincia & Città", in: tableView)
             default: fatalError()
             }
         case 1:

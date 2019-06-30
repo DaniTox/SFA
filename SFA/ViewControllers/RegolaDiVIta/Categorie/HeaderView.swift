@@ -14,7 +14,7 @@ class HeaderView : UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 30)
-        label.textColor = Theme.current.tableHeaderTextColor
+        label.textColor = Theme.current.textColor
         label.textAlignment = .center
         label.numberOfLines = 0
         label.adjustsFontSizeToFitWidth = true
