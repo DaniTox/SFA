@@ -25,7 +25,7 @@ class DebugVC : UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -39,6 +39,8 @@ class DebugVC : UITableViewController {
             cell.mainLabel.text = "Resetta 'Il mio percorso formativo'"
         case 3:
             cell.mainLabel.text = "Resetta GioProNet"
+        case 4:
+            cell.mainLabel.text = "Mostra onboarding del primo avvio"
         default:
             break
         }
@@ -76,6 +78,9 @@ class DebugVC : UITableViewController {
                 realm.delete(realm.objects(GioProNetTask.self))
             }
             self.showError(withTitle: "Completato", andMessage: "GioProNet resettato")
+        case 4:
+            isAlreadyLaunched = false
+            self.showError(withTitle: "Completato", andMessage: "Al prossimo avvio dell'app ricomparirà l'onboarding iniziale")
         default:
             break
         }

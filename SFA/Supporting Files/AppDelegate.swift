@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        if !isAlreadyLaunched {
+        if isAlreadyLaunched {
             window?.rootViewController = RootAppController()
             window?.makeKeyAndVisible()
         } else {
@@ -39,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             onboardingCoordinator.terminateAction = { 
                 DispatchQueue.main.async {
                     nav.dismiss(animated: true, completion: nil)
+                    isAlreadyLaunched = true
                 }
             }
             

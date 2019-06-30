@@ -64,12 +64,12 @@ class TSFemminaListView: UIView {
         
         buttonsStack.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         buttonsStack.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.6).isActive = true
-        buttonsStack.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30).isActive = true
+        buttonsStack.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 15).isActive = true
         buttonsStack.heightAnchor.constraint(equalToConstant: 70).isActive = true
         
         collectionView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        collectionView.topAnchor.constraint(equalTo: buttonsStack.bottomAnchor, constant: 20).isActive = true
+        collectionView.topAnchor.constraint(equalTo: buttonsStack.bottomAnchor, constant: 15).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
     }

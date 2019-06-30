@@ -41,7 +41,7 @@ extension LocationVC {
         cell?.textLabel?.textColor = Theme.current.textColor
         
         switch indexPath.row {
-        case 0: cell?.textLabel?.text = "Diocesi"
+        case 0: cell?.textLabel?.text = "Provincia"
         case 1: cell?.textLabel?.text = "Città"
         default: break
         }

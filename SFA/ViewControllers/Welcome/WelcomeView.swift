@@ -35,11 +35,18 @@ class WelcomeView: UIView {
         return label
     }()
     
-    var colorView: UIView = {
-        let c = UIView()
-        c.backgroundColor = .orange
-        c.layer.masksToBounds = true
+    var colorView: UIImageView = {
+        let c = UIImageView()
+        c.contentMode = UIView.ContentMode.scaleAspectFit
+//        c.layer.masksToBounds = true
         c.layer.cornerRadius = 10
+        
+        c.layer.shadowColor = LightTheme().shadowColor.cgColor
+        c.layer.shadowOffset = CGSize(width: 0, height: 0)
+        c.layer.shadowOpacity = 1.0
+        c.layer.shadowRadius = 10
+        c.layer.masksToBounds = false
+
         return c
     }()
     
@@ -66,6 +73,8 @@ class WelcomeView: UIView {
         addSubview(ignoraButton)
         addSubview(colorView)
         addSubview(descriptionLabel)
+        
+        colorView.image = #imageLiteral(resourceName: "igio")
     }
     
     override func didMoveToSuperview() {
