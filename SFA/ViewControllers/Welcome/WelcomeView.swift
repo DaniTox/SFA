@@ -53,14 +53,17 @@ class WelcomeView: UIView {
     lazy var descriptionLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.boldSystemFont(ofSize: 30)
+        label.font = UIFont.preferredFont(forTextStyle: .subheadline).withSize(25)
         label.textColor = .black
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.text = ""
-        for i in 0..<5 {
-            label.text = label.text?.appending("Descrizione App\n")
-        }
+        label.text = """
+        La vita dei giovani affronta oggi una nuova sfida: interagire con un mondo reale e virtuale in cui si addentrano da soli come in un continente sconosciuto (Papa Francesco).
+        Con iGio, vi diamo la #bussola!
+        """
+//        for i in 0..<5 {
+//            label.text = label.text?.appending("Descrizione App\n")
+//        }
         
         label.adjustsFontSizeToFitWidth = true
         return label
