@@ -54,22 +54,22 @@ class GioProNetTask: Object {
     enum TaskType: Int, Codable, CaseIterable {
         case none = 0
         case whatsapp = 1
-        case instagram = 2
+        case gaming = 2
         case amici = 3
         case libri = 4
         case sport = 5
-        case notte = 6
+        case riposo = 6
         
         static var allCases: [TaskType] {
             return [
-                .whatsapp, .instagram, .amici, .libri, .sport, .notte
+                .whatsapp, .gaming, .amici, .libri, .sport, .riposo
             ]
         }
         
         var imageName: String? {
             switch self {
             case .whatsapp:     return "whatsapp"
-            case .instagram:    return "instagram"
+            case .gaming:    return "instagram"
             default: return nil
             }
         }
@@ -78,23 +78,23 @@ class GioProNetTask: Object {
             switch self {
             case .none:         return "NULL"
             case .whatsapp:     return nil
-            case .instagram:    return nil
+            case .gaming:       return "🎮"
             case .amici:        return "👫"
             case .libri:        return "📚"
             case .sport:        return "⚽️"
-            case .notte:        return "🌝"
+            case .riposo:       return "🛌"
             }
         }
         
         var stringValue: String {
             switch self {
             case .none:         return "Vuoto"
-            case .instagram:    return "Instagram"
-            case .whatsapp:     return "WhatsApp"
-            case .sport:        return "Sport"
-            case .amici:        return "Amici"
-            case .notte:        return "Riposo"
-            case .libri:        return "Studio"
+            case .gaming:       return "Web e Gaming"
+            case .whatsapp:     return "Chat e Social"
+            case .sport:        return "Sport e hobby"
+            case .amici:        return "Amici e Famiglia"
+            case .riposo:        return "Riposo"
+            case .libri:        return "Dovere quotidiano"
             }
         }
     }
