@@ -15,10 +15,11 @@ class SocialStack: UIView {
     lazy var descriptionLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.textColor = Theme.current.textColor
         label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
+//        label.numberOfLines = 0
         return label
     }()
     
@@ -33,9 +34,9 @@ class SocialStack: UIView {
         addSubview(descriptionLabel)
         
         switch categoria {
-        case .facebook: descriptionLabel.text = "Seguici su Facebook!"
-        case .instagram: descriptionLabel.text = "#mgslombardiaemilia"
-        case .youtube: descriptionLabel.text = "Guarda i nostri video!"
+        case .facebook: descriptionLabel.text = "  Ti aspettiamo nella community!"
+        case .instagram: descriptionLabel.text = "  #igio condividiamo il meglio"
+        case .youtube: descriptionLabel.text = "Iscriviti ai nostri canali"
         default:
             break
         }
