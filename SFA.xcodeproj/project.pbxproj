@@ -30,6 +30,7 @@
 		DB323B15223D521300116FE3 /* SitoWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB323B14223D521300116FE3 /* SitoWeb.swift */; };
 		DB32449422469AD100116FE3 /* TeenStarMaschioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB32449322469AD100116FE3 /* TeenStarMaschioCell.swift */; };
 		DB325EE121D5033C009ADEFC /* RotationLogicNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */; };
+		DB3481E622CD57220091870F /* OneSignal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB3481E522CD57220091870F /* OneSignal.framework */; };
 		DB4DAC552260FFF700730B2A /* regolaBiennio.json in Resources */ = {isa = PBXBuildFile; fileRef = DB4DAC542260FFF700730B2A /* regolaBiennio.json */; };
 		DB4DAC59226124B300730B2A /* regolaMedie.json in Resources */ = {isa = PBXBuildFile; fileRef = DB4DAC58226124B300730B2A /* regolaMedie.json */; };
 		DB4DFBC72272662000FAF396 /* verificaBiennio.json in Resources */ = {isa = PBXBuildFile; fileRef = DB4DFBC62272662000FAF396 /* verificaBiennio.json */; };
@@ -212,6 +213,7 @@
 		DB323B14223D521300116FE3 /* SitoWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitoWeb.swift; sourceTree = "<group>"; };
 		DB32449322469AD100116FE3 /* TeenStarMaschioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarMaschioCell.swift; sourceTree = "<group>"; };
 		DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationLogicNavigationController.swift; sourceTree = "<group>"; };
+		DB3481E522CD57220091870F /* OneSignal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OneSignal.framework; path = Frameworks/Carthage/Build/iOS/OneSignal.framework; sourceTree = "<group>"; };
 		DB4DAC542260FFF700730B2A /* regolaBiennio.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = regolaBiennio.json; sourceTree = "<group>"; };
 		DB4DAC58226124B300730B2A /* regolaMedie.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = regolaMedie.json; sourceTree = "<group>"; };
 		DB4DFBC62272662000FAF396 /* verificaBiennio.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = verificaBiennio.json; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 				DB8B8614224AA5A000C58055 /* RealmSwift.framework in Frameworks */,
 				DB8B8615224AA5A000C58055 /* Realm.framework in Frameworks */,
 				DB8B860B224AA5A000C58055 /* DZNEmptyDataSet.framework in Frameworks */,
+				DB3481E622CD57220091870F /* OneSignal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,6 +623,7 @@
 		DB8EC01321EE4447003B2A81 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DB3481E522CD57220091870F /* OneSignal.framework */,
 				DB8B860C224AA5A000C58055 /* ColorSlider.framework */,
 				DB8B860E224AA5A000C58055 /* QuickLayout.framework */,
 				DB8B8610224AA5A000C58055 /* Realm.framework */,
