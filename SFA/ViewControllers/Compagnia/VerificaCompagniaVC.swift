@@ -46,7 +46,7 @@ class VerificaCompagniaVC: UIViewController, HasCustomView {
         super.viewWillDisappear(animated)
         let realm = try! Realm()
         try? realm.write {
-            realm.add(dataSource.verifica, update: true)
+            realm.add(dataSource.verifica, update: .modified)
         }
     }
     

@@ -89,7 +89,7 @@ class NoteVC: UIViewController, HasCustomView {
         try? realm.write {
             note.title = title
             note.setBody(attributedString: rootView.textView.attributedText)
-            realm.add(note, update: true)
+            realm.add(note, update: .modified)
         }
     }
     

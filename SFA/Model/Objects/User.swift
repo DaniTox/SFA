@@ -61,7 +61,7 @@ class User : Object {
         } else {
             let newUser = User()
             try? realm.write {
-                realm.add(newUser, update: true)
+                realm.add(newUser, update: .modified)
             }
             return newUser
         }

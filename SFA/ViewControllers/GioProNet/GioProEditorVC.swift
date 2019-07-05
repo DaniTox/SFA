@@ -51,7 +51,7 @@ class GioProEditorVC: UITableViewController {
             
         if !self.gioItem.isConsideredEmpty && GioProNetAgent.isDateAvailable(for: self.gioItem) {
             try? realm.write {
-                realm.add(gioItem, update: true)
+                realm.add(gioItem, update: .modified)
             }
         }
     }

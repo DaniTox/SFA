@@ -121,7 +121,7 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
                 }
             }
             
-            realm.add(entry, update: true)
+            realm.add(entry, update: .modified)
         }
     }
     

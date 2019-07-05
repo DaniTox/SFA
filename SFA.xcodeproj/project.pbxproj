@@ -1138,6 +1138,7 @@
 				"$(SRCROOT)/Frameworks/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Frameworks/Carthage/Build/iOS/QuickLayout.framework",
 				"$(SRCROOT)/Frameworks/Carthage/Build/iOS/SwiftEntryKit.framework",
+				"$(SRCROOT)/Frameworks/Carthage/Build/iOS/OneSignal.framework",
 			);
 			outputFileListPaths = (
 			);
