@@ -214,6 +214,7 @@
 		DB32449322469AD100116FE3 /* TeenStarMaschioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarMaschioCell.swift; sourceTree = "<group>"; };
 		DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationLogicNavigationController.swift; sourceTree = "<group>"; };
 		DB3481E522CD57220091870F /* OneSignal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OneSignal.framework; path = Frameworks/Carthage/Build/iOS/OneSignal.framework; sourceTree = "<group>"; };
+		DB4439B722CFD11B00E26785 /* MGS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MGS.entitlements; sourceTree = "<group>"; };
 		DB4DAC542260FFF700730B2A /* regolaBiennio.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = regolaBiennio.json; sourceTree = "<group>"; };
 		DB4DAC58226124B300730B2A /* regolaMedie.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = regolaMedie.json; sourceTree = "<group>"; };
 		DB4DFBC62272662000FAF396 /* verificaBiennio.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = verificaBiennio.json; sourceTree = "<group>"; };
@@ -649,6 +650,7 @@
 		DBAF3BF5219C9019003083EA = {
 			isa = PBXGroup;
 			children = (
+				DB4439B722CFD11B00E26785 /* MGS.entitlements */,
 				DBAF3C00219C9019003083EA /* SFA */,
 				DBD2386422B7FAF400C9A2D1 /* MGSTests */,
 				DBAF3BFF219C9019003083EA /* Products */,
@@ -1068,6 +1070,11 @@
 					DBAF3BFD219C9019003083EA = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1020;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					DBD2386222B7FAF400C9A2D1 = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -1458,6 +1465,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MGS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R779A64KR9;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1482,6 +1490,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MGS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R779A64KR9;
 				FRAMEWORK_SEARCH_PATHS = (

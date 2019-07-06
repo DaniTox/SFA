@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import RealmSwift
+import OneSignal
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +26,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         })
         Realm.Configuration.defaultConfiguration = realmConfig
+        
+        
+        RegolaFetcherModel.shared.createIfNotPresent()
+        
+        let model = CompagniaAgent()
+        model.createIfNotPresent()
+        
+        let realm = try! Realm()
+        print(realm.configuration.fileURL ?? "")
+        
+        
+        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
+        
+        // Replace 'YOUR_APP_ID' with your OneSignal App ID.
+        OneSignal.initWithLaunchOptions(launchOptions,
+                                        appId: "269e5246-0a06-437b-b375-bb40932edbaa",
+                                        handleNotificationAction: nil,
+                                        settings: onesignalInitSettings)
+        
+        OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification;
+        
+        // Recommend moving the below line to prompt for push after informing the user about
+        //   how your app will use them.
+        OneSignal.promptForPushNotifications(userResponse: { accepted in
+            print("User accepted notifications: \(accepted)")
+        })
+        
+        
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
@@ -48,19 +77,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             homeVC.present(onboardingCoordinator.navigationController, animated: true)
             onboardingCoordinator.start()
         }
-        
-        
-        
-        
-        
-        
-        RegolaFetcherModel.shared.createIfNotPresent()
-        
-        let model = CompagniaAgent()
-        model.createIfNotPresent()
-        
-        let realm = try! Realm()
-        print(realm.configuration.fileURL ?? "")
         
         
         
