@@ -61,6 +61,8 @@
 		DB6414A822C1648B0065BD8C /* ColorThemeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6414A722C1648B0065BD8C /* ColorThemeVC.swift */; };
 		DB6414AA22C170480065BD8C /* ColorThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6414A922C170480065BD8C /* ColorThemeView.swift */; };
 		DB644E4D227513310049CB3B /* RegolaDomandaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB644E4C227513310049CB3B /* RegolaDomandaCell.swift */; };
+		DB6CDEFE22D29C0B007BF001 /* Notifiche.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6CDEFD22D29C0B007BF001 /* Notifiche.swift */; };
+		DB6CDF0022D2A02D007BF001 /* NotificheDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6CDEFF22D2A02D007BF001 /* NotificheDataSource.swift */; };
 		DB75F2EC225D2EE700EB62DF /* RiassuntoRDVDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB75F2EB225D2EE700EB62DF /* RiassuntoRDVDataSource.swift */; };
 		DB75F2EF225D3C0300EB62DF /* DebugVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB75F2EE225D3C0300EB62DF /* DebugVC.swift */; };
 		DB7BEF8621D006A0007A550E /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF8421D006A0007A550E /* KeychainItemAccessibility.swift */; };
@@ -259,6 +261,8 @@
 		DB6414A722C1648B0065BD8C /* ColorThemeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemeVC.swift; sourceTree = "<group>"; };
 		DB6414A922C170480065BD8C /* ColorThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemeView.swift; sourceTree = "<group>"; };
 		DB644E4C227513310049CB3B /* RegolaDomandaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegolaDomandaCell.swift; sourceTree = "<group>"; };
+		DB6CDEFD22D29C0B007BF001 /* Notifiche.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifiche.swift; sourceTree = "<group>"; };
+		DB6CDEFF22D2A02D007BF001 /* NotificheDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificheDataSource.swift; sourceTree = "<group>"; };
 		DB75F2EB225D2EE700EB62DF /* RiassuntoRDVDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiassuntoRDVDataSource.swift; sourceTree = "<group>"; };
 		DB75F2EE225D3C0300EB62DF /* DebugVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugVC.swift; sourceTree = "<group>"; };
 		DB7BEF8421D006A0007A550E /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
@@ -428,6 +432,7 @@
 				DB323B0E223C56BB00116FE3 /* TeenStar.swift */,
 				DB323B14223D521300116FE3 /* SitoWeb.swift */,
 				DB9846FC227F31660033D12F /* GioProNet.swift */,
+				DB6CDEFD22D29C0B007BF001 /* Notifiche.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -943,6 +948,7 @@
 			children = (
 				DBAAE2B221A5C53700211CBF /* NotificheVC.swift */,
 				DBC7F4DB2219AEC500C22945 /* NotificheOnboardingVC.swift */,
+				DB6CDEFF22D2A02D007BF001 /* NotificheDataSource.swift */,
 			);
 			path = Notifiche;
 			sourceTree = "<group>";
@@ -1239,6 +1245,7 @@
 				DB7BEF8B21D01670007A550E /* NetworkAgent.swift in Sources */,
 				DBCE9ED021EFB247005B286A /* VerificaCompagniaDataSource.swift in Sources */,
 				DB53C78021DFCBF90001054B /* SettingsView.swift in Sources */,
+				DB6CDEFE22D29C0B007BF001 /* Notifiche.swift in Sources */,
 				DBD2388722B81BA400C9A2D1 /* LocationView.swift in Sources */,
 				DB88DBEC21A975C100B0699B /* TimerEx.swift in Sources */,
 				DBDC3B30225B9CC600D019EA /* RiassuntoView.swift in Sources */,
@@ -1287,6 +1294,7 @@
 				DB61DA1321B5B9ED006B308B /* RegolaFetcherModel.swift in Sources */,
 				DBAF3C43219CBF35003083EA /* IQInvocation.swift in Sources */,
 				DBFFDE8B22B840F200C2CDBD /* CityDataSource.swift in Sources */,
+				DB6CDF0022D2A02D007BF001 /* NotificheDataSource.swift in Sources */,
 				DB2C316121AC87580009EC14 /* EditRispostaView.swift in Sources */,
 				DBDC3B2D225B988200D019EA /* HeaderView.swift in Sources */,
 				DBAF3C0A219C9019003083EA /* SFA.xcdatamodeld in Sources */,
