@@ -169,4 +169,12 @@ class MGSTests: XCTestCase {
         XCTAssert(str3.monthInteger == 2)
     }
     
+    func testNotificheEncode() {
+        
+        let notifiche : [Notifiche.NotificheType] = [.angeloCustode, .consigliDB]
+        let encodedValue = Notifiche.encode(notifiche: Set<Notifiche.NotificheType>(notifiche))
+        XCTAssert(encodedValue == 10)
+        
+    }
+    
 }

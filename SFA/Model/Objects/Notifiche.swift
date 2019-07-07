@@ -35,7 +35,7 @@ class Notifiche {
         
     }
     
-    private static func encode(notifiche: Set<NotificheType>) -> UInt {
+    public static func encode(notifiche: Set<NotificheType>) -> UInt {
         if notifiche.isEmpty { return 0 }
         
         var base: UInt = 0
@@ -46,7 +46,7 @@ class Notifiche {
         return base
     }
     
-    private static func decode(integer: UInt) -> Set<NotificheType> {
+    public static func decode(integer: UInt) -> Set<NotificheType> {
         if integer <= 0 { return [] }
         
         var notifiche: Set<NotificheType> = []

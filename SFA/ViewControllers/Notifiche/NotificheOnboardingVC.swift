@@ -40,7 +40,7 @@ class NotificheOnBoardingVC : NotificheVC, OrderedFlowController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let tableHeight = tableView.frame.height
-        let cellHeight = tableHeight / CGFloat(notifiche.count + 2)
+        let cellHeight = tableHeight / CGFloat(Notifiche.NotificheType.allCases.count + 2)
         return cellHeight
     }
     

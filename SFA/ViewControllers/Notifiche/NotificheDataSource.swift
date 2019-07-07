@@ -41,7 +41,7 @@ class NotificheDataSource: NSObject, UITableViewDataSource {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
             cell.textLabel?.text = notifiche[indexPath.row].stringValue
-            cell.textLabel?.textColor = areNotificheAllowed ? .white :  UIColor.gray
+            cell.textLabel?.textColor = areNotificheAllowed ? Theme.current.textColor : .gray
             
             cell.accessoryType = Notifiche.activeNotifiche.contains(notifica) ? .checkmark : .none
             
