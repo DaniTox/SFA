@@ -190,6 +190,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		DBF18F4522D0C0A1007F6462 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		DB0D49EB21DFF13000887D3B /* SettingsUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUserCell.swift; sourceTree = "<group>"; };
 		DB14AF6422C810B800B9F3B3 /* SocialStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialStack.swift; sourceTree = "<group>"; };
@@ -1029,6 +1042,7 @@
 				DBAF3BFB219C9019003083EA /* Frameworks */,
 				DBAF3BFC219C9019003083EA /* Resources */,
 				DB8EC01621EE4475003B2A81 /* ShellScript */,
+				DBF18F4522D0C0A1007F6462 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
