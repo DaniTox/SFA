@@ -138,7 +138,7 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
         case 1:
             switch indexPath.row {
             case 0: navigationController?.pushViewController(InfoVC(), animated: true)
-            case 1: navigationController?.pushViewController(NotificheVC(), animated: true)
+            case 1: navigationController?.pushViewController(NotificheVC(style: .grouped), animated: true)
             case 2: navigationController?.pushViewController(ColorThemeVC(), animated: true)
             case 3: navigationController?.pushViewController(LicenseVC(), animated: true)
             case 4: navigationController?.pushViewController(DebugVC(), animated: true)

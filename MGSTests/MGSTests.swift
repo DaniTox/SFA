@@ -175,6 +175,9 @@ class MGSTests: XCTestCase {
         let encodedValue = Notifiche.encode(notifiche: Set<Notifiche.NotificheType>(notifiche))
         XCTAssert(encodedValue == 10)
         
+        let newNotifiche = Notifiche.decode(integer: encodedValue)
+        XCTAssert(newNotifiche.sorted(by: {$0.rawValue > $1.rawValue }) == notifiche.sorted(by: {$0.rawValue > $1.rawValue }))
+        
     }
     
 }

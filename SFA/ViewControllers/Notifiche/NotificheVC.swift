@@ -17,8 +17,11 @@ class NotificheVC: UITableViewController {
         super.viewDidLoad()
         self.title = "Notifiche"
         
+        self.view.backgroundColor = Theme.current.tableViewBackground
+        
         tableView.allowsMultipleSelection = true
-        tableView.backgroundColor = UIColor.black.lighter(by: 10)
+        tableView.backgroundColor = Theme.current.tableViewBackground
+        tableView.register(BoldCell.self, forCellReuseIdentifier: "boldCell")
         tableView.register(SwitchCell.self, forCellReuseIdentifier: "switchCell")
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.tableFooterView = UIView()
@@ -34,6 +37,10 @@ class NotificheVC: UITableViewController {
 }
 
 extension NotificheVC {
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {

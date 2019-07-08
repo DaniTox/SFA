@@ -39,9 +39,10 @@ class NotificheDataSource: NSObject, UITableViewDataSource {
         case 1:
             let notifica = self.notifiche[indexPath.row]
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-            cell.textLabel?.text = notifiche[indexPath.row].stringValue
-            cell.textLabel?.textColor = areNotificheAllowed ? Theme.current.textColor : .gray
+            let cell = tableView.dequeueReusableCell(withIdentifier: "boldCell") as! BoldCell
+
+            cell.mainLabel.text = notifiche[indexPath.row].stringValue
+            cell.mainLabel.textColor = areNotificheAllowed ? Theme.current.textColor : .gray
             
             cell.accessoryType = Notifiche.activeNotifiche.contains(notifica) ? .checkmark : .none
             
@@ -50,11 +51,11 @@ class NotificheDataSource: NSObject, UITableViewDataSource {
         }
         
     }
-
     
     func makeSwitchCell(in tableView: UITableView) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "switchCell") as! SwitchCell
         cell.mainLabel.text = "Attiva le notifiche"
+        cell.accessoryType = .none
         cell.cellSwitch.isOn = self.areNotificheAllowed
         cell.cellSwitch.addTarget(self, action: #selector(switchChanged(_:)), for: .valueChanged)
         return cell
@@ -62,6 +63,14 @@ class NotificheDataSource: NSObject, UITableViewDataSource {
     
     @objc private func switchChanged(_ sender: UISwitch) {
         self.areNotificheAllowed = sender.isOn
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0: return nil
+        case 1: return "Seleziona le categorie"
+        default: return nil
+        }
     }
     
 }
