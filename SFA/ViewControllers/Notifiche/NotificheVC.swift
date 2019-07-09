@@ -46,7 +46,7 @@ extension NotificheVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 1:
-            if Notifiche.areNotificheActive { break }
+            if !Notifiche.areNotificheActive { break }
             
             let notifica = dataSource.notifiche[indexPath.row]
             if Notifiche.activeNotifiche.contains(notifica) {

@@ -14,11 +14,12 @@ class NotificheDataSource: NSObject, UITableViewDataSource {
     var controller: UIViewController?
     var tableView: UITableView!
     var notifiche = Notifiche.NotificheType.allCases
-    var areNotificheActive : Bool {
-        get {
-            return Notifiche.areNotificheActive
-        } set {
-            Notifiche.areNotificheActive = newValue
+    var areNotificheActive : Bool = Notifiche.areNotificheActive {
+        didSet {
+            Notifiche.areNotificheActive = areNotificheActive
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
     
