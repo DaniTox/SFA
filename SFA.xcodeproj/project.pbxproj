@@ -429,10 +429,10 @@
 				DBF5C1A422330D070086E9E7 /* RegolaVita.swift */,
 				DBF5C1A6223443870086E9E7 /* Note.swift */,
 				DB323B0B223C4A7C00116FE3 /* VerificaCompagnia.swift */,
+				DB6CDEFD22D29C0B007BF001 /* Notifiche.swift */,
 				DB323B0E223C56BB00116FE3 /* TeenStar.swift */,
 				DB323B14223D521300116FE3 /* SitoWeb.swift */,
 				DB9846FC227F31660033D12F /* GioProNet.swift */,
-				DB6CDEFD22D29C0B007BF001 /* Notifiche.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";

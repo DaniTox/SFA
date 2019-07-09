@@ -27,6 +27,7 @@ class NotificheVC: UITableViewController {
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
         
+        dataSource.controller = self
         dataSource.tableView = self.tableView
         tableView.dataSource = dataSource
         tableView.delegate = self
@@ -45,7 +46,7 @@ extension NotificheVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 1:
-            if !dataSource.areNotificheAllowed { break }
+            if Notifiche.areNotificheActive { break }
             
             let notifica = dataSource.notifiche[indexPath.row]
             if Notifiche.activeNotifiche.contains(notifica) {

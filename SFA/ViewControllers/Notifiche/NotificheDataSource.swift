@@ -7,16 +7,18 @@
 //
 
 import UIKit
+import UserNotifications
 
 class NotificheDataSource: NSObject, UITableViewDataSource {
     
+    var controller: UIViewController?
     var tableView: UITableView!
     var notifiche = Notifiche.NotificheType.allCases
-    var areNotificheAllowed: Bool = false {
-        didSet {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+    var areNotificheActive : Bool {
+        get {
+            return Notifiche.areNotificheActive
+        } set {
+            Notifiche.areNotificheActive = newValue
         }
     }
     
@@ -42,7 +44,7 @@ class NotificheDataSource: NSObject, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "boldCell") as! BoldCell
 
             cell.mainLabel.text = notifiche[indexPath.row].stringValue
-            cell.mainLabel.textColor = areNotificheAllowed ? Theme.current.textColor : .gray
+            cell.mainLabel.textColor = areNotificheActive ? Theme.current.textColor : .gray
             
             cell.accessoryType = Notifiche.activeNotifiche.contains(notifica) ? .checkmark : .none
             
@@ -56,13 +58,27 @@ class NotificheDataSource: NSObject, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "switchCell") as! SwitchCell
         cell.mainLabel.text = "Attiva le notifiche"
         cell.accessoryType = .none
-        cell.cellSwitch.isOn = self.areNotificheAllowed
+        cell.cellSwitch.isOn = self.areNotificheActive
         cell.cellSwitch.addTarget(self, action: #selector(switchChanged(_:)), for: .valueChanged)
         return cell
     }
     
     @objc private func switchChanged(_ sender: UISwitch) {
-        self.areNotificheAllowed = sender.isOn
+        self.areNotificheActive = sender.isOn
+        
+        if sender.isOn {
+            UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+                switch settings.authorizationStatus {
+                case .authorized, .provisional: Notifiche.subscribeToActiveNotifications()
+                case .denied: self.showNotifSettingsAlert()
+                case .notDetermined: Notifiche.requestAuthorization()
+                @unknown default: break
+                }
+            }
+        } else {
+            Notifiche.unsubscribeToAllNotifications()
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -71,6 +87,15 @@ class NotificheDataSource: NSObject, UITableViewDataSource {
         case 1: return "Seleziona le categorie"
         default: return nil
         }
+    }
+    
+    private func showNotifSettingsAlert() {
+        let alert = UIAlertController(title: "Attenzione", message: "In passato non hai dato l'autorizzazione ad iGio di mandarti le notifiche. Per questo motivo, devi riattivarl dalle impostazioni del telefono.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Apri Impostazioni", style: .default, handler: { (_) in
+            Notifiche.openSettings()
+        }))
+        alert.addAction(UIAlertAction(title: "Annulla", style: .cancel, handler: nil))
+        self.controller?.present(alert, animated: true)
     }
     
 }

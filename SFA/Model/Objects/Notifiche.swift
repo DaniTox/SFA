@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import OneSignal
+
 
 class Notifiche {
     
@@ -31,6 +33,15 @@ class Notifiche {
         
         static func getString(from type: NotificheType) -> String {
             return type.stringValue
+        }
+        
+        public var tagKey: String {
+            switch self {
+            case .eventiMGS: return "eventiMGS"
+            case .consigliDB: return "consigliDB"
+            case .sacramenti: return "sacramenti"
+            case .angeloCustode: return "missioneAC"
+            }
         }
         
     }
@@ -72,6 +83,63 @@ class Notifiche {
         } set {
             let integer = Notifiche.encode(notifiche: newValue)
             UserDefaults.standard.set(integer, forKey: "notificheRawValue")
+        }
+    }
+    
+    static var areNotificheActive: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "areNotificheActive")
+        } set {
+            UserDefaults.standard.set(newValue, forKey: "areNotificheActive")
+        }
+    }
+    
+    static var userDismissedNotifications: Bool {
+        let status: OSPermissionSubscriptionState = OneSignal.getPermissionSubscriptionState()
+        return status.subscriptionStatus.subscribed
+    }
+    
+    static func requestAuthorization() {
+        OneSignal.promptForPushNotifications { (accepted) in
+            OneSignal.setSubscription(true)
+        }
+    }
+    
+    static func subscribeToActiveNotifications() {
+        var tags: [AnyHashable: Any] = [:]
+        
+        let activeNotifiche = Notifiche.activeNotifiche
+        
+        for type in Notifiche.NotificheType.allCases {
+            let key = type.tagKey
+            let value = activeNotifiche.contains(type) ? "1" : "0"
+            
+            tags[key] = value
+        }
+        
+        OneSignal.sendTags(tags)
+    }
+    
+    static func unsubscribeToAllNotifications() {
+        var tags: [AnyHashable: Any] = [:]
+    
+        for type in Notifiche.NotificheType.allCases {
+            let key = type.tagKey
+            tags[key] = "0"
+        }
+        
+        OneSignal.sendTags(tags)
+    }
+    
+    static func openSettings() {
+        OneSignal.presentAppSettings()
+    }
+    
+    static func updateStatus() {
+        if Notifiche.areNotificheActive {
+            Notifiche.subscribeToActiveNotifications()
+        } else {
+            Notifiche.unsubscribeToAllNotifications()
         }
     }
 }
