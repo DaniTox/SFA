@@ -34,6 +34,9 @@ class NotificheVC: UITableViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        Notifiche.updateStatus()
+    }
     
 }
 
@@ -55,6 +58,7 @@ extension NotificheVC {
                 Notifiche.activeNotifiche.insert(notifica)
             }
             
+            Notifiche.updateStatus()
             tableView.reloadData()
         default: break
         }
