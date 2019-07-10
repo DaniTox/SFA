@@ -51,24 +51,36 @@ class WelcomeVC: UIViewController, HasCustomView, OrderedFlowController {
     
     func startAnimation() {
 
-        UIView.animate(withDuration: 1, delay: 1, options: UIView.AnimationOptions.curveEaseOut, animations: {
-            self.rootView.titleLabel.frame.y = self.rootView.frame.minY + 30
-            self.rootView.titleLabel.alpha = 1
-            
-            self.rootView.colorView.alpha = 1
-            self.rootView.colorView.center.y = self.rootView.titleLabel.center.y + self.rootView.titleLabel.frame.height * 2
-        }) { _ in
-            UIView.animate(withDuration: 1, delay: 0.1, options: .curveEaseOut, animations: {
-                self.rootView.descriptionLabel.alpha = 1
-                self.rootView.descriptionLabel.center.y = self.rootView.colorView.center.y + self.rootView.colorView.frame.height + self.rootView.descriptionLabel.frame.height / 2
-                
-            }) { _ in
-                UIView.animate(withDuration: 1, delay: 0.1, options: .curveEaseOut, animations: {
-                    self.rootView.ignoraButton.alpha = 1
-                    self.rootView.ignoraButton.frame.center.y = self.rootView.frame.bottom - self.rootView.ignoraButton.frame.height - 20
-                })
-            }
+        rootView.allConstraints.forEach { $0.isActive = true }
+        
+        UIView.animate(withDuration: 3) {
+            [
+                self.rootView.titleLabel,
+                self.rootView.colorView,
+                self.rootView.descriptionLabel,
+                self.rootView.ignoraButton
+                ].forEach { $0.alpha = 1 }
+            self.view.layoutIfNeeded()
         }
+        
+//        UIView.animate(withDuration: 1, delay: 1, options: UIView.AnimationOptions.curveEaseOut, animations: {
+//            self.rootView.titleLabel.frame.y = self.rootView.frame.minY + 30
+//            self.rootView.titleLabel.alpha = 1
+//
+//            self.rootView.colorView.alpha = 1
+//            self.rootView.colorView.center.y = self.rootView.titleLabel.center.y + self.rootView.titleLabel.frame.height * 2
+//        }) { _ in
+//            UIView.animate(withDuration: 1, delay: 0.1, options: .curveEaseOut, animations: {
+//                self.rootView.descriptionLabel.alpha = 1
+//                self.rootView.descriptionLabel.center.y = self.rootView.colorView.center.y + self.rootView.colorView.frame.height + self.rootView.descriptionLabel.frame.height / 2
+//
+//            }) { _ in
+//                UIView.animate(withDuration: 1, delay: 0.1, options: .curveEaseOut, animations: {
+//                    self.rootView.ignoraButton.alpha = 1
+//                    self.rootView.ignoraButton.frame.center.y = self.rootView.frame.bottom - self.rootView.ignoraButton.frame.height - 20
+//                })
+//            }
+//        }
         
     }
     
