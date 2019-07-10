@@ -27,6 +27,7 @@ class OnboardingCoordinator: NSObject, OrderedFlowCoordinator {
         super.init()
         self.navigationController.delegate = self
         navigationController.setNavigationBarHidden(true, animated: false)
+        navigationController.navigationBar.prefersLargeTitles = false
     }
     
     func start() {
@@ -35,7 +36,8 @@ class OnboardingCoordinator: NSObject, OrderedFlowCoordinator {
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func next() {
+    func next(from vc: UIViewController) {
+        currentShowingControllerIndex = controllers.firstIndex(where: {$0 == vc}) ?? 0
         currentShowingControllerIndex += 1
         if currentShowingControllerIndex >= controllers.count {
             end()

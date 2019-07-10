@@ -36,6 +36,15 @@ class UserAgeVC: UIViewController, HasCustomView, OrderedFlowController {
             checkButton()
         }
         
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if orderingCoordinator != nil {
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            self.navigationItem.setHidesBackButton(false, animated: true)
+        }
     }
 
     func checkButton() {
@@ -70,7 +79,7 @@ class UserAgeVC: UIViewController, HasCustomView, OrderedFlowController {
     }
     
     public func workFinished() {
-        orderingCoordinator?.next()
+        orderingCoordinator?.next(from: self)
         finishAction?()
     }
     

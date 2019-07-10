@@ -29,6 +29,11 @@ class WelcomeVC: UIViewController, HasCustomView, OrderedFlowController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         rootView.titleLabel.alpha = 0
@@ -72,6 +77,6 @@ class WelcomeVC: UIViewController, HasCustomView, OrderedFlowController {
     }
     
     @objc func ignoraAction(_ sender: UIButton) {
-        orderingCoordinator?.next()
+        orderingCoordinator?.next(from: self)
     }
 }

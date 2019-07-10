@@ -36,8 +36,16 @@ class GenderVC: UIViewController, HasCustomView, OrderedFlowController {
             checkButton()
         }
         
+        self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if orderingCoordinator != nil {
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            self.navigationItem.setHidesBackButton(true, animated: false)
+        }
+    }
     
     func checkButton() {
         self.rootView.updateView(for: User.currentUser().gender)
@@ -63,7 +71,7 @@ class GenderVC: UIViewController, HasCustomView, OrderedFlowController {
     }
     
     func workFinished() {
-        orderingCoordinator?.next()
+        orderingCoordinator?.next(from: self)
         finishAction?()
         checkButton()
     }

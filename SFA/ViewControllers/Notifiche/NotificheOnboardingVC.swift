@@ -28,6 +28,15 @@ class NotificheOnBoardingVC : NotificheVC, OrderedFlowController {
         super.viewDidLoad()
         view.addSubview(doneButton)
         doneButton.addTarget(self, action: #selector(doneAction), for: .touchUpInside)
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if orderingCoordinator != nil {
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            self.navigationItem.setHidesBackButton(false, animated: true)
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -45,7 +54,7 @@ class NotificheOnBoardingVC : NotificheVC, OrderedFlowController {
     }
     
     @objc func doneAction() {
-        orderingCoordinator?.next()
+        orderingCoordinator?.next(from: self)
     }
     
 }

@@ -52,7 +52,7 @@ class ColorThemeVC: UIViewController, HasCustomView, OrderedFlowController {
     }
     
     func workFinished() {
-        orderingCoordinator?.next()
+        orderingCoordinator?.next(from: self)
         finishAction?()
         checkButton()
     }
