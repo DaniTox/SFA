@@ -9,7 +9,11 @@
 import UIKit
 import UserNotifications
 
-class NotificheVC: UITableViewController {
+class NotificheVC: UITableViewController, OrderedFlowController {
+
+    var orderingCoordinator: OrderedFlowCoordinator?
+    var showCurrentValue: Bool = true
+    
     
     let dataSource = NotificheDataSource()
     
@@ -31,7 +35,23 @@ class NotificheVC: UITableViewController {
         dataSource.tableView = self.tableView
         tableView.dataSource = dataSource
         tableView.delegate = self
+     
+        if orderingCoordinator != nil {
+            let button = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(nextPressed(_:)))
+            self.navigationItem.setRightBarButton(button, animated: true)
+        }
         
+        
+        NotificationCenter.default.addObserver(forName: .updateTheme, object: nil, queue: .main) { (_) in
+            self.tableView.reloadData()
+            self.tableView.backgroundColor = Theme.current.tableViewBackground
+            self.view.backgroundColor = Theme.current.tableViewBackground
+        }
+        
+    }
+    
+    @objc private func nextPressed(_ sender: UIBarButtonItem) {
+        orderingCoordinator?.next(from: self)
     }
     
     override func viewDidAppear(_ animated: Bool) {

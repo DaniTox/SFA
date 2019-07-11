@@ -17,7 +17,8 @@ class OnboardingCoordinator: NSObject, OrderedFlowCoordinator {
         WelcomeVC(),
         GenderVC(),
         UserAgeVC(),
-        NotificheOnBoardingVC()
+        ColorThemeVC(),
+        NotificheVC(style: .grouped)
     ]
 
     var terminateAction : ( () -> Void )?

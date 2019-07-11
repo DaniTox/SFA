@@ -108,7 +108,6 @@
 		DB9A19C121D514A900C05755 /* NoteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9A19C021D514A900C05755 /* NoteListView.swift */; };
 		DBA6378C22BAFF2C00AE5061 /* LocalizedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6378B22BAFF2C00AE5061 /* LocalizedButton.swift */; };
 		DBAAE2AD21A5ACCF00211CBF /* WelcomeVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBAAE2AC21A5ACCF00211CBF /* WelcomeVC.storyboard */; };
-		DBAAE2AF21A5B3B000211CBF /* WelcomePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAAE2AE21A5B3B000211CBF /* WelcomePageVC.swift */; };
 		DBAAE2B121A5C3FA00211CBF /* NotificheVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBAAE2B021A5C3FA00211CBF /* NotificheVC.storyboard */; };
 		DBAAE2B321A5C53700211CBF /* NotificheVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAAE2B221A5C53700211CBF /* NotificheVC.swift */; };
 		DBAAE2BB21A5D26800211CBF /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAAE2BA21A5D26800211CBF /* WelcomeVC.swift */; };
@@ -147,7 +146,6 @@
 		DBC7F4C92218ACAB00C22945 /* OrderedFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4C82218ACAB00C22945 /* OrderedFlowCoordinator.swift */; };
 		DBC7F4CB2219898100C22945 /* UserAgeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4CA2219898100C22945 /* UserAgeVC.swift */; };
 		DBC7F4CD22198A0A00C22945 /* UserAgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4CC22198A0A00C22945 /* UserAgeView.swift */; };
-		DBC7F4DC2219AEC500C22945 /* NotificheOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4DB2219AEC500C22945 /* NotificheOnboardingVC.swift */; };
 		DBC7F4DF2219AFA900C22945 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC7F4DE2219AFA900C22945 /* HomeView.swift */; };
 		DBCE9ED021EFB247005B286A /* VerificaCompagniaDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE9ECF21EFB247005B286A /* VerificaCompagniaDataSource.swift */; };
 		DBCF2F3A21F79E410074E0AF /* SitiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF2F3921F79E410074E0AF /* SitiVC.swift */; };
@@ -1195,7 +1193,6 @@
 				DB8B8617224D1E7300C58055 /* DatePickerCell.swift in Sources */,
 				DB7BEF8D21D0172E007A550E /* URLs.swift in Sources */,
 				DBD2388A22B821E400C9A2D1 /* DiocesiVC.swift in Sources */,
-				DBC7F4DC2219AEC500C22945 /* NotificheOnboardingVC.swift in Sources */,
 				DBF3A2B421DD81F5008AE7D5 /* TeenStarEditEntryView.swift in Sources */,
 				DBAF3C4D219CBF35003083EA /* IQNSArray+Sort.swift in Sources */,
 				DB217D4922184FE0003ED264 /* GenderVC.swift in Sources */,
@@ -1236,7 +1233,6 @@
 				DBC7F4CD22198A0A00C22945 /* UserAgeView.swift in Sources */,
 				DBAF3C4B219CBF35003083EA /* IQUITextFieldView+Additions.swift in Sources */,
 				DB88DBEB21A975C100B0699B /* FadeTransition.swift in Sources */,
-				DBAAE2AF21A5B3B000211CBF /* WelcomePageVC.swift in Sources */,
 				DB291CC822C3E35400B4743C /* CGRectEx.swift in Sources */,
 				DBCF2F3E21F7BC410074E0AF /* SitiDataSource.swift in Sources */,
 				DBE6070721F261BD00E10422 /* UIBouncyButton.swift in Sources */,
