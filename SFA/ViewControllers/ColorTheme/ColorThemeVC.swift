@@ -48,7 +48,7 @@ class ColorThemeVC: UIViewController, HasCustomView, OrderedFlowController {
         updateTheme()
         
         workFinished()
-        rootView.updateView()
+        
     }
     
     func workFinished() {
@@ -58,6 +58,7 @@ class ColorThemeVC: UIViewController, HasCustomView, OrderedFlowController {
     }
     
     private func updateTheme() {
-        rootView.backgroundColor = Theme.current.controllerBackground
+        rootView.updateView()
+        
     }
 }

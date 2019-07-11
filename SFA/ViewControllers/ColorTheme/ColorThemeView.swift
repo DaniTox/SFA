@@ -102,8 +102,11 @@ class ColorThemeView: UIView {
     }
     
     func updateView() {
+        self.backgroundColor = Theme.current.controllerBackground
         [darkThemeButton, lightThemeButton].forEach { $0.backgroundColor = Theme.current.backgroundColor }
         [darkThemeButton, lightThemeButton].forEach { $0.setTitleColor(Theme.current.textColor, for: .normal)}
+        [darkThemeButton, lightThemeButton].forEach { $0.layer.shadowColor = Theme.current.shadowColor.cgColor }
+        
         titleLabel.textColor = Theme.current.textColor
         
         if Theme.current is DarkTheme {

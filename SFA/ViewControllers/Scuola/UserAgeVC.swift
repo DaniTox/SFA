@@ -84,7 +84,7 @@ class UserAgeVC: UIViewController, HasCustomView, OrderedFlowController {
     }
     
     private func updateTheme() {
-        rootView.backgroundColor = Theme.current.tableViewBackground
+        rootView.backgroundColor = Theme.current.controllerBackground
     }
     
     

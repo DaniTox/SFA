@@ -101,7 +101,7 @@ class UserAgeView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = Theme.current.tableViewBackground
+        backgroundColor = Theme.current.controllerBackground
         
         boxesStack.addArrangedSubview(medieButton)
         boxesStack.addArrangedSubview(biennioButton)
