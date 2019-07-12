@@ -18,7 +18,9 @@ class LocationVC: UITableViewController {
         super.viewDidLoad()
         self.title = "Provincia & città"
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(BoldCell.self, forCellReuseIdentifier: "boldCell")
         
+        tableView.separatorStyle = .none
         tableView.backgroundColor = Theme.current.tableViewBackground
     }
     
@@ -30,23 +32,27 @@ class LocationVC: UITableViewController {
 
 extension LocationVC {
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        cell?.backgroundColor = Theme.current.backgroundColor
-        cell?.accessoryType = .disclosureIndicator
-        cell?.textLabel?.textColor = Theme.current.textColor
+        let cell = tableView.dequeueReusableCell(withIdentifier: "boldCell") as! BoldCell
+//        cell.backgroundColor = Theme.current.backgroundColor
+        cell.accessoryType = .disclosureIndicator
+//        cell.mainLabel.textColor = Theme.current.textColor
         
         switch indexPath.row {
-        case 0: cell?.textLabel?.text = "Provincia"
-        case 1: cell?.textLabel?.text = "Città"
+        case 0: cell.mainLabel.text = "Provincia"
+        case 1: cell.mainLabel.text = "Città"
         default: break
         }
         
-        return cell!
+        return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
