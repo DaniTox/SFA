@@ -22,6 +22,7 @@ class CityVC: UITableViewController {
         cRefreshControl.addTarget(self, action: #selector(refreshed), for: .valueChanged)
         tableView.refreshControl = cRefreshControl
         
+        tableView.separatorStyle = .none
         tableView.dataSource = dataSource
         tableView.backgroundColor = Theme.current.tableViewBackground
         tableView.tableFooterView = UIView()
@@ -54,6 +55,7 @@ class CityVC: UITableViewController {
 }
 
 extension CityVC {
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let city = dataSource.allCities[indexPath.row]
         
@@ -84,5 +86,9 @@ extension CityVC {
                 
             }
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75
     }
 }

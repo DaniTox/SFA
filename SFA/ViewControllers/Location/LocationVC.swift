@@ -42,9 +42,7 @@ extension LocationVC {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "boldCell") as! BoldCell
-//        cell.backgroundColor = Theme.current.backgroundColor
         cell.accessoryType = .disclosureIndicator
-//        cell.mainLabel.textColor = Theme.current.textColor
         
         switch indexPath.row {
         case 0: cell.mainLabel.text = "Provincia"

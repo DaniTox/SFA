@@ -22,6 +22,7 @@ class DiocesiVC: UITableViewController {
         cRefreshControl.addTarget(self, action: #selector(refreshed), for: .valueChanged)
         tableView.refreshControl = cRefreshControl
         
+        tableView.separatorStyle = .none
         tableView.dataSource = dataSource
         tableView.backgroundColor = Theme.current.tableViewBackground
         tableView.tableFooterView = UIView()
