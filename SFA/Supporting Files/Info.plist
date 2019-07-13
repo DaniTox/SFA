@@ -14,12 +14,12 @@
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
-	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>10</string>
+	<string>10.1</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fb</string>
@@ -45,6 +45,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>La tua posizione è necessaria per il funzionamento delle notifiche push tramite la libreria OneSignal. Noi di iGio non utilizzeremo mai la tua posizione.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>La tua posizione è necessaria per il funzionamento delle notifiche push tramite la libreria OneSignal. Noi di iGio non utilizzeremo mai la tua posizione.</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
