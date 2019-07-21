@@ -27,9 +27,10 @@ extension ToxNetworkRequest {
 enum RequestType: String, Codable {
     case preghiere = "preghiere"
     case materiali = "materiali"
+    case locations = "locations"
     case diocesi = "diocesi"
     case cities = "citta"
-    case localizedSites = "localized_sites"
+    case localizedSites = "resources"
 }
 
 /// Struttura di una richiesta. Contiene solo la requestType che è la path del server.

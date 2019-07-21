@@ -18,7 +18,7 @@ class NetworkAgent<Response: Decodable> {
     public func executeNetworkRequest<RequestType : ToxNetworkRequest> (with toxRequest: RequestType, responseCompletion: @escaping (Result<Response, ToxException>) -> Void)  {
         
         let pathComponent = toxRequest.requestType.rawValue
-        var urlString: String = "\(URLs.mainUrl)/\(pathComponent)"
+        var urlString: String = "\(URLs.mainUrl)/\(pathComponent).php"
         
         if let args = toxRequest.args {
             urlString = NetworkAgent.getFullPath(from: urlString, with: args)

@@ -18,22 +18,9 @@ class MGSTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testGetDiocesi() {
-        let semaphore = DispatchSemaphore(value: 1)
-        
-        let siteLocalizer = SiteLocalizer()
-        siteLocalizer.getDiocesi(saveRecords: false) { (diocesi) in
-            print(diocesi.count)
-            XCTAssert(diocesi.count > 0)
-            semaphore.signal()
-        }
-        semaphore.wait()
-        
-    }
     
-    func testGetCities() {
-        var arr: [CityCodable] = []
+    func testGetLocations() {
+        var arr: [LocationCodable] = []
         
         let siteLocalizer = SiteLocalizer()
         let expect = self.expectation(description: "Fetching")
@@ -42,8 +29,8 @@ class MGSTests: XCTestCase {
             XCTFail("SiteLocalizer ha ritornato un errore: \(err)")
         }
         
-        siteLocalizer.getCitta(saveRecords: false) { (cities) in
-            arr = cities
+        siteLocalizer.getLocations(of: .diocesi, saveRecords: false) { (locations) in
+            arr = locations
             expect.fulfill()
         }
         

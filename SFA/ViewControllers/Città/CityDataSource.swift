@@ -11,7 +11,7 @@ import RealmSwift
 
 class CityDataSource: NSObject, UITableViewDataSource {
     
-    var allCities: [CityCodable] = [] {
+    var allCities: [LocationCodable] = [] {
         didSet {
             if allCities.isEmpty { return }
             self.updateHandler?()
@@ -19,7 +19,7 @@ class CityDataSource: NSObject, UITableViewDataSource {
     }
     
     var tableView: UITableView?
-    var loadingCities: [CityCodable] = [] {
+    var loadingCities: [LocationCodable] = [] {
         didSet {
             DispatchQueue.main.async {
                 self.tableView?.reloadData()
@@ -40,13 +40,13 @@ class CityDataSource: NSObject, UITableViewDataSource {
     
     func load() {
         allCities.removeAll(keepingCapacity: true)
-        agent.getCitta(saveRecords: true) { codableCities in
-            self.allCities = self.agent.updateFromLocal(cities: codableCities)
+        agent.getLocations(of: .city, saveRecords: true) { codableCities in
+            self.allCities = self.agent.updateFromLocal(locations: codableCities)
         }
     }
     
     func reloadFromLocal() {
-        self.allCities = agent.fetchLocalCities()
+        self.allCities = agent.fetchLocalLocations(of: .city)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

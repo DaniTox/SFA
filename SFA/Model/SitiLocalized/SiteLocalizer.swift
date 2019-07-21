@@ -14,18 +14,20 @@ class SiteLocalizer {
     var errorHandler: ((Error) -> Void)?
 
     
-    /// Ottiene la lista delle diocesi dal server in modo asyncrono.
+    /// Ottiene la lista delle location (diocesi o città) dal server in modo asyncrono.
     ///
+    /// - Parameter type: indica quale location si vuole ricevere
     /// - Parameter saveRecords: se true, salva le diocesi in realm altrimenti no. True di default
     /// - Parameter completion: handler che ritorna le diocesi ottenute
-    func getDiocesi(saveRecords: Bool = true, completion: (([DiocesiCodable]) -> Void)? = nil) {
-        let request = BasicRequest(requestType: .diocesi)
+    func getLocations(of type: LocationType, saveRecords: Bool = true, completion: (([LocationCodable]) -> Void)? = nil) {
+        var request = BasicRequest(requestType: .locations)
+        request.args = ["type": "\(type.rawValue)"]
         
-        let networkAgent = NetworkAgent<[DiocesiCodable]>()
+        let networkAgent = NetworkAgent<[LocationCodable]>()
         networkAgent.executeNetworkRequest(with: request) { (result) in
             switch result {
             case .success(let diocesi):
-                if saveRecords { self.save(diocesi: diocesi) }
+                if saveRecords { self.save(locations: diocesi) }
                 completion?(diocesi)
             case .failure(let err):
                 self.errorHandler?(err)
@@ -33,119 +35,55 @@ class SiteLocalizer {
         }
     }
     
-    /// Ottiene la lista delle città dal server in modo asyncrono.
-    ///
-    /// - Parameter saveRecords: se true, salva le città in realm altrimenti no. True di default
-    /// - Parameter completion: handler che ritorna le città ottenute
-    func getCitta(saveRecords: Bool = true, completion: (([CityCodable]) -> Void)? = nil) {
-        let request = BasicRequest(requestType: .cities)
-        
-        let networkAgent = NetworkAgent<[CityCodable]>()
-        networkAgent.executeNetworkRequest(with: request) { (result) in
-            switch result {
-            case .success(let cities):
-                if saveRecords { self.save(cities: cities) }
-                completion?(cities)
-            case .failure(let err):
-                self.errorHandler?(err)
-            }
-        }
-    }
     
-    /// Aggiorna le diocesi che gli vengono passate prendendo i dati da Realm e le restituisce indietro
+    /// Aggiorna le locations che gli vengono passate prendendo i dati da Realm e le restituisce indietro
     ///
-    /// - Parameter diocesis: [DiocesiCodable] - la lista delle diocesi non aggiornate
+    /// - Parameter diocesis: [LocationCodable] - la lista delle locations non aggiornate
     /// - Return type - Ritorna indietro i dati aggiornati
-    func updateFromLocal(diocesis: [DiocesiCodable]) -> [DiocesiCodable] {
+    func updateFromLocal(locations: [LocationCodable]) -> [LocationCodable] {
         let realm = try! Realm()
-        var allDiocesi : [DiocesiCodable] = []
+        var allLocations : [LocationCodable] = []
         
-        diocesis.forEach {
-            let savedObj = realm.objects(Diocesi.self).filter(NSPredicate(format: "id == %d", $0.id)).first
+        locations.forEach {
+            let savedObj = realm.objects(Location.self).filter(NSPredicate(format: "id == %d", $0.id)).first
             
             var newObj = $0
             newObj.isSelected = savedObj?.isSelected ?? false
-            allDiocesi.append(newObj)
+            allLocations.append(newObj)
         }
         
-        return allDiocesi
+        return allLocations
     }
     
     
-    /// Aggiorna le città che gli vengono passate prendendo i dati da Realm e le restituisce indietro
-    ///
-    /// - Parameter diocesis: [CityCodable] - la lista delle città non aggiornate
-    /// - Return type - Ritorna indietro i dati aggiornati
-    func updateFromLocal(cities: [CityCodable]) -> [CityCodable] {
-        let realm = try! Realm()
-        var allCities : [CityCodable] = []
-        
-        cities.forEach {
-            let savedObj = realm.objects(City.self).filter(NSPredicate(format: "id == %d", $0.id)).first
-            
-            var newObj = $0
-            newObj.isSelected = savedObj?.isSelected ?? false
-            allCities.append(newObj)
-        }
-        
-        return allCities
-    }
-    
-    
-    /// Aggiorna le diocesi salvate in Realm: aggiunge quelle nuove ed elimina quelle che non servono più.
+    /// Aggiorna le locations salvate in Realm: aggiunge quelle nuove ed elimina quelle che non servono più.
     ///
     /// - Parameter diocesi: lista delle diocesi che ottieni dal server (quindi in formato Codable)
-    private func save(diocesi: [DiocesiCodable]) {
+    private func save(locations: [LocationCodable]) {
         let realm = try! Realm()
         realm.beginWrite()
         
-        for codable in diocesi {
-            if let savedObject = realm.object(ofType: Diocesi.self, forPrimaryKey: codable.id) {
+        for codable in locations {
+            if let savedObject = realm.object(ofType: Location.self, forPrimaryKey: codable.id) {
                 savedObject.name = codable.name
             } else {
-                let newObject = Diocesi.initWith(codable: codable)
+                let newObject = Location.initWith(codable: codable)
                 realm.add(newObject)
             }
         }
         
-        let currentSavedIDs = realm.objects(Diocesi.self).map { $0.id }
-        let newIDs = diocesi.map { $0.id }
+        let currentSavedIDs = realm.objects(Location.self).map { $0.id }
+        let newIDs = locations.map { $0.id }
         
         let filtered = newIDs.filter { !currentSavedIDs.contains($0) }
         
-        let objectsToRemove = filtered.compactMap { realm.object(ofType: Diocesi.self, forPrimaryKey: $0) }
+        let objectsToRemove = filtered.compactMap { realm.object(ofType: Location.self, forPrimaryKey: $0) }
         realm.delete(objectsToRemove)
         
         try? realm.commitWrite()
     }
     
-    /// Aggiorna le città salvate in Realm: aggiunge quelle nuove ed elimina quelle che non servono più.
-    ///
-    /// - Parameter cities: lista delle città che ottieni dal server (quindi in formato Codable)
-    private func save(cities: [CityCodable]) {
-        let realm = try! Realm()
-        realm.beginWrite()
-        
-        for codable in cities {
-            if let savedObject = realm.object(ofType: City.self, forPrimaryKey: codable.id) {
-                savedObject.name = codable.name
-            } else {
-                let newObject = City.initWith(codable: codable)
-                realm.add(newObject)
-            }
-        }
-        
-        let currentSavedIDs = realm.objects(City.self).map { $0.id }
-        let newIDs = cities.map { $0.id }
-        
-        let filtered = newIDs.filter { !currentSavedIDs.contains($0) }
-        
-        let objectsToRemove = filtered.compactMap { realm.object(ofType: City.self, forPrimaryKey: $0) }
-        realm.delete(objectsToRemove)
-        
-        try? realm.commitWrite()
-    }
-    
+
     /// Ottiene i siti dal Realm locale in base alla categoria passata com arg
     ///
     /// - Parameter type: SitoCategoria - il tipo di siti da ottenere
@@ -157,33 +95,19 @@ class SiteLocalizer {
     }
     
     /// Ottiene tutte le diocesi da Realm, le trasforma in codable e le ritorna
-    public func fetchLocalDiocesi() -> [DiocesiCodable] {
+    /// - Parameter type: LocationType - il tipo di location da ottenere
+    public func fetchLocalLocations(of type: LocationType) -> [LocationCodable] {
         let realm = try! Realm()
         
-        let objects = realm.objects(Diocesi.self).map { $0 }
-        var allDiocesiCodable: [DiocesiCodable] = []
+        let objects = realm.objects(Location.self).filter(NSPredicate(format: "_type == %d", type.rawValue)).map { $0 }
+        var allDiocesiCodable: [LocationCodable] = []
         
         objects.forEach {
-            let newCodable = DiocesiCodable(id: $0.id, name: $0.name, isSelected: $0.isSelected)
+            let newCodable = LocationCodable(id: $0.id, name: $0.name, type: type, isSelected: $0.isSelected)
             allDiocesiCodable.append(newCodable)
         }
         
         return allDiocesiCodable
-    }
-    
-    /// Ottiene tutte le città da Realm, le trasforma in codable e le ritorna
-    public func fetchLocalCities() -> [CityCodable] {
-        let realm = try! Realm()
-        
-        let objects = realm.objects(City.self).map { $0 }
-        var allCitiesCodable: [CityCodable] = []
-        
-        objects.forEach {
-            let newCodable = CityCodable(id: $0.id, name: $0.name, diocesiID: $0.diocesi.first?.id ?? -1, isSelected: $0.isSelected)
-            allCitiesCodable.append(newCodable)
-        }
-        
-        return allCitiesCodable
     }
     
     
@@ -195,86 +119,60 @@ class SiteLocalizer {
         }
     }
     
-    /// Rimuove da Realm tutti i siti di una certa diocesi
-    public func removeSites(for obj: DiocesiCodable) {
+    /// Rimuove da Realm tutti i siti di una certa location
+    public func removeSites(for obj: LocationCodable) {
         let realm = try! Realm()
-        let objects = realm.objects(SitoWeb.self).filter(NSPredicate(format: "diocesi.id == %d", obj.id))
+        let objects = realm.objects(SitoWeb.self).filter(NSPredicate(format: "location.id == %d", obj.id))
         
         try? realm.write {
             realm.delete(objects)
         }
     }
-    
-    /// Rimuove da Realm tutti i siti di una certa città
-    public func removeSites(for obj: CityCodable) {
-        let realm = try! Realm()
-        let objects = realm.objects(SitoWeb.self).filter(NSPredicate(format: "city.id == %d", obj.id))
-        
-        try? realm.write {
-            realm.delete(objects)
-        }
-    }
-    
     
     /// Otttiene i siti custom dal server in base alla diocesi
     ///
     /// - Parameter diocesi: [DiocesiCodable] la diocesi scelta per i siti
     /// - Parameter saveRecords: dice se salvare i siti su Realm. True di default
     /// - Parameter completion: closure che viene eseguita quando si ottengono i siti con successo.
-    public func fetchLocalizedWebsites(for diocesi: DiocesiCodable, saveRecords: Bool = true, completion: @escaping (Result<LocalizedList, Error>) -> Void) {
-        let idDiocesi = diocesi.id
+    public func fetchLocalizedWebsites(for location: LocationCodable, saveRecords: Bool = true, completion: @escaping (Result<LocalizedList, Error>) -> Void) {
+        let locationID = location.id
         
-        let req = BasicRequest(requestType: .localizedSites, args: ["diocesiID" : "\(idDiocesi)"])
-        self.fetchFromServer(saveRecords: saveRecords, req: req) { listResult in
-            completion(listResult)
-        }
-    }
-
-    /// Otttiene i siti custom dal server in base alla città
-    ///
-    /// - Parameter city: [CityCodable] la città scelta per i siti
-    /// - Parameter saveRecords: dice se salvare i siti su Realm. True di default
-    /// - Parameter completion: closure che viene eseguita quando si ottengono i siti con successo.
-    public func fetchLocalizedWebsites(for city: CityCodable, saveRecords: Bool = true, completion: @escaping (Result<LocalizedList, Error>) -> Void) {
-        let idCity = city.id
-        
-        let req = BasicRequest(requestType: .localizedSites, args: ["cittaID" : "\(idCity)"])
+        let req = BasicRequest(requestType: .localizedSites, args: ["locationID" : "\(locationID)"])
         self.fetchFromServer(saveRecords: saveRecords, req: req) { listResult in
             completion(listResult)
         }
     }
     
-    /// Ottiene tutte le diocesi salvate su Realm che l'utente ha scelto di seguire (isSelected == true)
-    private func getLocalSelectedDiocesi() -> [DiocesiCodable] {
+    /// Ottiene tutte le location salvate di un certo tipo su Realm che l'utente ha scelto di seguire (isSelected == true)
+    private func getLocalSelectedLocation(of type: LocationType) -> [LocationCodable] {
         let realm = try! Realm()
-        return realm.objects(Diocesi.self).filter(NSPredicate(format: "isSelected == YES")).map { DiocesiCodable.initFrom(realmObject: $0) }
+        return realm.objects(Location.self).filter(NSPredicate(format: "_type == %d", type.rawValue)).filter(NSPredicate(format: "isSelected == YES")).map { LocationCodable.initFrom(realmObject: $0) }
     }
     
-    /// Ottiene tutte le città salvate su Realm che l'utente ha scelto di seguire (isSelected == true)
-    private func getLocalSelectedCities() -> [CityCodable] {
+    /// Ottiene tutte le location salvate su Realm che l'utente ha scelto di seguire (isSelected == true)
+    private func getAllLocalSelectedLocations() -> [LocationCodable] {
         let realm = try! Realm()
-        return realm.objects(City.self).filter(NSPredicate(format: "isSelected == YES")).map { CityCodable.initFrom(realmObject: $0) }
+        return realm.objects(Location.self).filter(NSPredicate(format: "isSelected == YES")).map { LocationCodable.initFrom(realmObject: $0) }
     }
-    
     
     /// Aggiorna dal server tutti i siti in base alle diocesi/città selezionate, aggiungendo i siti preghiere e ritornando il risultato nella completionHandler. La completion può contenere o la lista di tutti i siti scaricati o eventuale errore
     /// - Parameter saveRecords: se true, salva i siti scaricati su Realm. true di default.
     /// - Parameter completion: handler che riporta o eventuali siti scaricati o errore
     public func fetchAllWebsites(saveRecords: Bool = true, completion: @escaping (Result<LocalizedList, Error>) -> Void) {
-        let diocesiArray = getLocalSelectedDiocesi()
-        let citiesArray = getLocalSelectedCities()
+        let locations = getAllLocalSelectedLocations()
 
-        var allSites: [SitoObject] = []
+        var allSites: Set<SitoObject> = []
         var error: Error?
         
         let group = DispatchGroup()
 
-        for diocesi in diocesiArray {
+        for location in locations {
             group.enter()
-            self.fetchLocalizedWebsites(for: diocesi) { (result) in
+            self.fetchLocalizedWebsites(for: location) { (result) in
                 switch result {
                 case .success(let list):
-                    allSites.append(contentsOf: list.siti)
+                    allSites.formUnion(list.siti)
+//                    allSites.append(contentsOf: list.siti)
                 case .failure(let err):
                     error = err
                 }
@@ -283,29 +181,6 @@ class SiteLocalizer {
             }
         }
         
-        for city in citiesArray {
-            group.enter()
-            self.fetchLocalizedWebsites(for: city) { (result) in
-                switch result {
-                case .success(let list):
-                    allSites.append(contentsOf: list.siti)
-                case .failure(let err):
-                    error = err
-                }
-                group.leave()
-            }
-        }
-        
-        group.enter()
-        self.fetchPreghiereSites { (result) in
-            switch result {
-            case .success(let list):
-                allSites.append(contentsOf: list.siti)
-            case .failure(let err):
-                error = err
-            }
-            group.leave()
-        }
         
         group.notify(queue: .main) {
             guard error == nil else {
@@ -313,7 +188,7 @@ class SiteLocalizer {
                 return
             }
             
-            let list = LocalizedList(siti: allSites)
+            let list = LocalizedList(siti: Array(allSites).sorted(by: { $0.type.rawValue < $1.type.rawValue }))
             completion(.success(list))
             
         }
@@ -324,7 +199,9 @@ class SiteLocalizer {
     ///
     /// - Parameter saveRecords: dice se salvare i siti su Realm. True di default
     /// - Parameter completion: closure che viene eseguita quando si ottengono i siti con successo.
+    @available(*, deprecated)
     public func fetchPreghiereSites(saveRecords: Bool = true, completion: @escaping (Result<LocalizedList, Error>) -> Void) {
+        print("Non dovrebbe servire più perchè l'API nel server ritorna in automatico anche le preghiere quando si richiedono gli altri siti")
         let req = BasicRequest(requestType: .preghiere)
         self.fetchFromServer(saveRecords: saveRecords, req: req) { (list) in
             completion(list)
@@ -339,12 +216,12 @@ class SiteLocalizer {
     /// - Parameter req: [BasicRequest] la richiesta contenente gli args da mandare al server
     /// - Parameter completion: manda la lista dei siti localizzati ottenuti
     private func fetchFromServer(saveRecords: Bool, req: BasicRequest, completion: @escaping (Result<LocalizedList, Error>) -> Void) {
-        let agent = NetworkAgent<NetworkResponse<LocalizedList>>()
+        let agent = NetworkAgent<LocalizedList>()
         agent.executeNetworkRequest(with: req) { (result) in
             switch result {
             case .success(let localizedResponse):
-                if saveRecords { self.saveLocalizedSitesList(localizedResponse.object) }
-                completion(.success(localizedResponse.object))
+                if saveRecords { self.saveLocalizedSitesList(localizedResponse/*.object*/) }
+                completion(.success(localizedResponse/*.object*/))
             case .failure(let error):
                 completion(.failure(error))
             }
@@ -370,25 +247,15 @@ class SiteLocalizer {
         try? realm.commitWrite()
     }
     
-    /// Salva nel database lo stato della diocesi passata come parametro
-    /// - Parameter diocesi: La diocesi di cui bisogna aggiornare lo stato su Realm
-    public func toggle(diocesi: DiocesiCodable) {
+    /// Salva nel database lo stato della location passata come parametro
+    /// - Parameter location: La location di cui bisogna aggiornare lo stato su Realm
+    public func toggle(location: LocationCodable) {
         let realm = try! Realm()
-        if let savedDiocesi = realm.objects(Diocesi.self).filter(NSPredicate(format: "id == %d", diocesi.id)).first {
+        if let savedLocation = realm.objects(Location.self).filter(NSPredicate(format: "id == %d", location.id)).first {
             try! realm.write {
-                savedDiocesi.isSelected.toggle()
+                savedLocation.isSelected.toggle()
             }
         }
     }
     
-    /// Salva nel database lo stato della città passata come parametro
-    /// - Parameter city: La città di cui bisogna aggiornare lo stato su Realm
-    public func toggle(city: CityCodable) {
-        let realm = try! Realm()
-        if let savedDiocesi = realm.objects(City.self).filter(NSPredicate(format: "id == %d", city.id)).first {
-            try! realm.write {
-                savedDiocesi.isSelected.toggle()
-            }
-        }
-    }
 }

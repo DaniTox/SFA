@@ -61,7 +61,7 @@ extension DiocesiVC {
         if diocesi.isSelected {
             
             self.dataSource.agent.removeSites(for: diocesi)
-            self.dataSource.agent.toggle(diocesi: diocesi)
+            self.dataSource.agent.toggle(location: diocesi)
             self.dataSource.reloadFromLocal()
             
         } else {
@@ -74,7 +74,7 @@ extension DiocesiVC {
             dataSource.agent.fetchLocalizedWebsites(for: diocesi) { (list) in
                 
                 self.dataSource.loadingDiocesi.removeAll { $0 == diocesi }
-                self.dataSource.agent.toggle(diocesi: diocesi)
+                self.dataSource.agent.toggle(location: diocesi)
                 
                 self.dataSource.reloadFromLocal()
 

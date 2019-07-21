@@ -11,7 +11,7 @@ import RealmSwift
 
 class DiocesiDataSource: NSObject, UITableViewDataSource {
     
-    var allDiocesi: [DiocesiCodable] = [] {
+    var allDiocesi: [LocationCodable] = [] {
         didSet {
             if allDiocesi.isEmpty { return }
             self.updateHandler?()
@@ -19,7 +19,7 @@ class DiocesiDataSource: NSObject, UITableViewDataSource {
     }
     
     var tableView: UITableView?
-    var loadingDiocesi: [DiocesiCodable] = [] {
+    var loadingDiocesi: [LocationCodable] = [] {
         didSet {
             DispatchQueue.main.async {
                 self.tableView?.reloadData()
@@ -39,13 +39,13 @@ class DiocesiDataSource: NSObject, UITableViewDataSource {
     
     func load() {
         allDiocesi.removeAll(keepingCapacity: true)
-        agent.getDiocesi(saveRecords: true) { diocesiCodable in
-            self.allDiocesi = self.agent.updateFromLocal(diocesis: diocesiCodable)
+        agent.getLocations(of: .diocesi, saveRecords: true) { diocesiCodable in
+            self.allDiocesi = self.agent.updateFromLocal(locations: diocesiCodable)
         }
     }
     
     func reloadFromLocal() {
-        self.allDiocesi =  agent.fetchLocalDiocesi()
+        self.allDiocesi = agent.fetchLocalLocations(of: .diocesi)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

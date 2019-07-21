@@ -61,7 +61,7 @@ extension CityVC {
         
         if city.isSelected {
             self.dataSource.agent.removeSites(for: city)
-            self.dataSource.agent.toggle(city: city)
+            self.dataSource.agent.toggle(location: city)
             self.dataSource.reloadFromLocal()
         } else {
             self.dataSource.loadingCities.append(city)
@@ -76,7 +76,7 @@ extension CityVC {
                     print("\nFINEEE\n\n")
                     
                     self.dataSource.loadingCities.removeAll { $0 == city }
-                    self.dataSource.agent.toggle(city: city)
+                    self.dataSource.agent.toggle(location: city)
                     
                     self.dataSource.reloadFromLocal()
                 

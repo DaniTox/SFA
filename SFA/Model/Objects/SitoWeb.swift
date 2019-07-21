@@ -9,41 +9,26 @@
 import Foundation
 import RealmSwift
 
-class Diocesi: Object {
+class Location: Object {
     @objc dynamic var id = 0
     @objc dynamic var name = ""
     @objc dynamic var isSelected: Bool = false
-    let cities = List<City>()
+    @objc dynamic private var _type: Int = 0
     
-    static func initWith(codable: DiocesiCodable) -> Diocesi {
-        let diocesi = Diocesi()
-        diocesi.id = codable.id
-        diocesi.name = codable.name
-        return diocesi
+    static func initWith(codable: LocationCodable) -> Location {
+        let location = Location()
+        location.id = codable.id
+        location.name = codable.name
+        location.type = codable.type
+        return location
     }
     
-    override static func primaryKey() -> String {
-        return "id"
-    }
-}
-
-class City: Object {
-    @objc dynamic var id = 0
-    @objc dynamic var name = ""
-    @objc dynamic var isSelected: Bool = false
-    let diocesi = LinkingObjects(fromType: Diocesi.self, property: "cities")
-    
-    static func initWith(codable: CityCodable) -> City {
-        let city = City()
-        city.id = codable.id
-        city.name = codable.name
-        
-        let realm = try! Realm()
-        let diocesis = realm.objects(Diocesi.self).filter(NSPredicate(format: "id == %d", codable.diocesiID))
-        if let diocesi = diocesis.first {
-            diocesi.cities.append(city)
+    var type: LocationType {
+        get {
+            return LocationType(rawValue: self._type)!
+        } set {
+            self._type = newValue.rawValue
         }
-        return city
     }
     
     override static func primaryKey() -> String {
@@ -60,8 +45,7 @@ class SitoWeb : Object {
     @objc private dynamic var scuolaTypeRaw = 0
     @objc private dynamic var _categoria = 0
     
-    @objc dynamic var diocesi: Diocesi? = nil
-    @objc dynamic var city: City? = nil
+    @objc dynamic var location: Location? = nil
     
     static func initFrom(codable: SitoObject) -> SitoWeb {
         let newSite = SitoWeb()
@@ -83,11 +67,8 @@ class SitoWeb : Object {
         self.scuolaType = codable.scuolaType
         self.urlString = codable.urlString
         
-        if let cityID = codable.cittaID {
-            self.city = realm.objects(City.self).filter(NSPredicate(format: "id == %d", cityID)).first
-        }
-        if let diocesiID = codable.diocesiID {
-            self.diocesi = realm.objects(Diocesi.self).filter(NSPredicate(format: "id == %d", diocesiID)).first
+        if let locationID = codable.locationID {
+            self.location = realm.objects(Location.self).filter(NSPredicate(format: "id == %d", locationID)).first
         }
     }
     
@@ -144,7 +125,7 @@ enum SitoCategoria: Int, Codable {
     case calendario = 6
 }
 
-struct SitoObject : Codable {
+struct SitoObject : Codable, Hashable, Equatable {
     var id: Int
     var nome : String
     var urlString : String
@@ -152,8 +133,7 @@ struct SitoObject : Codable {
     var type: SitoCategoria
     var scuolaType: ScuolaType?
     
-    var diocesiID: Int?
-    var cittaID: Int?
+    var locationID: Int?
     
     var profileName: String? {
         let availableCategories : [SitoCategoria] = [.facebook, .instagram, .youtube]
@@ -167,59 +147,55 @@ struct SitoObject : Codable {
         set { urlString = newValue?.absoluteString ?? "" }
     }
     
+    
+    static func == (lhs: SitoObject, rhs: SitoObject) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.id)
+    }
+    
     //probabilemnte inutili
     var descrizione : String?
     var order : Int?
     
     enum CodingKeys: String, CodingKey {
-        case id, urlString, type, scuolaType, diocesiID, cittaID, descrizione, order
+        case id, urlString, type, scuolaType, locationID, descrizione, order
         case nome = "name"
     }
     
     static func initFrom(obj: SitoWeb) -> SitoObject {
         let newCodable = SitoObject(id: obj.id, nome: obj.nome,
                                     urlString: obj.urlString, type: obj.categoria,
-                                    scuolaType: obj.scuolaType, diocesiID: obj.diocesi?.id,
-                                    cittaID: obj.city?.id, descrizione: obj.descrizione,
+                                    scuolaType: obj.scuolaType, locationID: obj.location?.id, descrizione: obj.descrizione,
                                     order: obj.order)
         return newCodable
     }
 }
 
-struct DiocesiCodable: Codable, Equatable {
+struct LocationCodable: Codable, Equatable {
     var id: Int
     var name: String
+    var type: LocationType
     
     var isSelected: Bool = false
     
-    static func initFrom(realmObject: Diocesi) -> DiocesiCodable {
-        return DiocesiCodable(id: realmObject.id, name: realmObject.name, isSelected: realmObject.isSelected)
+    static func initFrom(realmObject: Location) -> LocationCodable {
+        return LocationCodable(id: realmObject.id, name: realmObject.name, type: realmObject.type, isSelected: realmObject.isSelected)
     }
     
     enum CodingKeys: String, CodingKey {
-        case id, name
+        case id, name, type
     }
 }
-
-struct CityCodable: Codable, Equatable {
-    var id: Int
-    var name: String
-    var diocesiID: Int
-    
-    var isSelected: Bool = false
-    
-    static func initFrom(realmObject: City) -> CityCodable {
-        let diocesiID = realmObject.diocesi.first?.id ?? -1
-        return CityCodable(id: realmObject.id, name: realmObject.name, diocesiID: diocesiID, isSelected: realmObject.isSelected)
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case id, name, diocesiID
-    }
-}
-
 
 /// Struttura che si ottiene dal server. Contiene la lista dei siti e social in base alla città/diocesi scelta
 struct LocalizedList: Codable {
     var siti: [SitoObject]
+}
+
+enum LocationType: Int, Codable {
+    case diocesi = 1
+    case city = 2
 }
