@@ -20,6 +20,8 @@ class VerificaCompagniaVC: UIViewController, HasCustomView {
     var dataSource : VerificaCompagniaDataSource
     
     init(type: ScuolaType) {
+        let model = CompagniaAgent()
+        model.createIfNotPresent()
         self.dataSource = VerificaCompagniaDataSource(scuolaType: type)
         super.init(nibName: nil, bundle: nil)
     }

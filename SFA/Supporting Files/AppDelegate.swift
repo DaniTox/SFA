@@ -28,13 +28,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Realm.Configuration.defaultConfiguration = realmConfig
         
         
-        RegolaFetcherModel.shared.createIfNotPresent()
+//        RegolaFetcherModel.shared.createIfNotPresent()
         
-        let model = CompagniaAgent()
-        model.createIfNotPresent()
+//        let model = CompagniaAgent()
+//        model.createIfNotPresent()
         
-        let realm = try! Realm()
-        print(realm.configuration.fileURL ?? "")
+//        let realm = try! Realm()
+//        print(realm.configuration.fileURL ?? "")
         
         
         let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]

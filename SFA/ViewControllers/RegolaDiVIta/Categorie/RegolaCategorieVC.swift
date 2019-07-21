@@ -22,6 +22,7 @@ class RegolaCategorieVC: UIViewController, HasCustomView {
     
     init(regolaType: ScuolaType) {
         super.init(nibName: nil, bundle: nil)
+        RegolaFetcherModel.shared.createIfNotPresent()
         self.regola = regolaFetcherModel.getRegola(type: regolaType)
     }
     

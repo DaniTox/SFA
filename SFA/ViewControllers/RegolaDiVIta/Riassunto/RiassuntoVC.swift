@@ -14,6 +14,7 @@ class RiassuntoVC : UITableViewController {
     var regolaType: ScuolaType
     
     init(style: UITableView.Style, regolaType: ScuolaType) {
+        RegolaFetcherModel.shared.createIfNotPresent()
         self.regolaType = regolaType
         self.dataSource = RiassuntoDataSource(regolaType: regolaType)
         super.init(style: style)
