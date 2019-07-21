@@ -131,13 +131,16 @@ class SiteLocalizer {
     
     /// Otttiene i siti custom dal server in base alla diocesi
     ///
-    /// - Parameter diocesi: [DiocesiCodable] la diocesi scelta per i siti
+    /// - Parameter location: [LocationCodable] la diocesi scelta per i siti. Se nil, recupererà solo le preghiere
     /// - Parameter saveRecords: dice se salvare i siti su Realm. True di default
     /// - Parameter completion: closure che viene eseguita quando si ottengono i siti con successo.
-    public func fetchLocalizedWebsites(for location: LocationCodable, saveRecords: Bool = true, completion: @escaping (Result<LocalizedList, Error>) -> Void) {
-        let locationID = location.id
+    public func fetchLocalizedWebsites(for location: LocationCodable? = nil, saveRecords: Bool = true, completion: @escaping (Result<LocalizedList, Error>) -> Void) {
+        var req = BasicRequest(requestType: .localizedSites)
         
-        let req = BasicRequest(requestType: .localizedSites, args: ["locationID" : "\(locationID)"])
+        if let locationID = location?.id {
+            req = BasicRequest(requestType: .localizedSites, args: ["locationID" : "\(locationID)"])
+        }
+        
         self.fetchFromServer(saveRecords: saveRecords, req: req) { listResult in
             completion(listResult)
         }
@@ -166,18 +169,31 @@ class SiteLocalizer {
         
         let group = DispatchGroup()
 
-        for location in locations {
+        if locations.isEmpty {
             group.enter()
-            self.fetchLocalizedWebsites(for: location) { (result) in
+            self.fetchLocalizedWebsites { result in
                 switch result {
                 case .success(let list):
                     allSites.formUnion(list.siti)
-//                    allSites.append(contentsOf: list.siti)
                 case .failure(let err):
                     error = err
                 }
                 group.leave()
-            
+            }
+        } else {
+            for location in locations {
+                group.enter()
+                self.fetchLocalizedWebsites(for: location) { (result) in
+                    switch result {
+                    case .success(let list):
+                        allSites.formUnion(list.siti)
+                    //                    allSites.append(contentsOf: list.siti)
+                    case .failure(let err):
+                        error = err
+                    }
+                    group.leave()
+                    
+                }
             }
         }
         
