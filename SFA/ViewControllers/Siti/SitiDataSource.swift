@@ -24,6 +24,8 @@ class SitiDataSource : NSObject, UITableViewDataSource, DZNEmptyDataSetSource {
     
     var errorHandler: ((Error) -> Void)?
     
+    var hasAlreadyRequestedSitesWhileEmpty = false
+    
     init(categorie: [SitoCategoria]) {
         self.categorie = categorie
         super.init()

@@ -26,7 +26,7 @@ class Notifiche {
             switch self {
             case .eventiMGS: return "Eventi MGS"
             case .consigliDB: return "Consigli di Don Bosco"
-            case .sacramenti: return "Promemoria sacramenti"
+            case .sacramenti: return "Promemoria di vita spirituale"
             case .angeloCustode: return "Missione dell'angelo custode"
             }
         }

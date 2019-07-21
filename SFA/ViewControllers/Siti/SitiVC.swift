@@ -55,6 +55,11 @@ class SitiVC: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         dataSource.fetchLocalWebsistes()
+        //Da tenere commentata per ora finchè non si saprà se questa funzione è necessaria.
+//        if dataSource.sites.isEmpty && !dataSource.hasAlreadyRequestedSitesWhileEmpty {
+//            refreshPulled()
+//            dataSource.hasAlreadyRequestedSitesWhileEmpty = true
+//        }
     }
     
     func updateOccurred() {
