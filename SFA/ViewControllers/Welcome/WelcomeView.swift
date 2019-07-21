@@ -30,7 +30,7 @@ class WelcomeView: UIView {
         label.font = UIFont.boldSystemFont(ofSize: 30)
         label.textColor = .black
         label.textAlignment = .center
-        label.text = "Benvenuto in MGS!"
+        label.text = "Benvenuto in iGio!"
         label.adjustsFontSizeToFitWidth = true
         return label
     }()
