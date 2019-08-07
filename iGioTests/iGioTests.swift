@@ -6,7 +6,7 @@
 //  Copyright © 2019 Dani Tox. All rights reserved.
 //
 
-@testable import MGS
+@testable import iGio
 import XCTest
 
 class MGSTests: XCTestCase {

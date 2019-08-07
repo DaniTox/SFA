@@ -154,7 +154,7 @@
 		DBCF2F4021F7C5050074E0AF /* SitoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF2F3F21F7C5050074E0AF /* SitoCell.swift */; };
 		DBD1E21B22BA8E2C00C64B44 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD1E21A22BA8E2C00C64B44 /* LocationCell.swift */; };
 		DBD2379E22B6B2A600C9A2D1 /* SiteLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD2379D22B6B2A600C9A2D1 /* SiteLocalizer.swift */; };
-		DBD2386622B7FAF400C9A2D1 /* MGSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD2386522B7FAF400C9A2D1 /* MGSTests.swift */; };
+		DBD2386622B7FAF400C9A2D1 /* iGioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD2386522B7FAF400C9A2D1 /* iGioTests.swift */; };
 		DBD2387F22B7FB5400C9A2D1 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8B860F224AA5A000C58055 /* RealmSwift.framework */; };
 		DBD2388522B81B7700C9A2D1 /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD2388422B81B7700C9A2D1 /* LocationVC.swift */; };
 		DBD2388722B81BA400C9A2D1 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD2388622B81BA400C9A2D1 /* LocationView.swift */; };
@@ -310,7 +310,7 @@
 		DBAAE2B221A5C53700211CBF /* NotificheVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificheVC.swift; sourceTree = "<group>"; };
 		DBAAE2BA21A5D26800211CBF /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		DBAAE2BC21A5E9DA00211CBF /* CircularThings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularThings.swift; sourceTree = "<group>"; };
-		DBAF3BFE219C9019003083EA /* MGS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBAF3BFE219C9019003083EA /* iGio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iGio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBAF3C01219C9019003083EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBAF3C09219C9019003083EA /* SFA.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SFA.xcdatamodel; sourceTree = "<group>"; };
 		DBAF3C0B219C901B003083EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -355,8 +355,8 @@
 		DBCF2F3F21F7C5050074E0AF /* SitoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitoCell.swift; sourceTree = "<group>"; };
 		DBD1E21A22BA8E2C00C64B44 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		DBD2379D22B6B2A600C9A2D1 /* SiteLocalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteLocalizer.swift; sourceTree = "<group>"; };
-		DBD2386322B7FAF400C9A2D1 /* MGSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MGSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DBD2386522B7FAF400C9A2D1 /* MGSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGSTests.swift; sourceTree = "<group>"; };
+		DBD2386322B7FAF400C9A2D1 /* iGioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iGioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBD2386522B7FAF400C9A2D1 /* iGioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iGioTests.swift; sourceTree = "<group>"; };
 		DBD2386722B7FAF400C9A2D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBD2388422B81B7700C9A2D1 /* LocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationVC.swift; sourceTree = "<group>"; };
 		DBD2388622B81BA400C9A2D1 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
@@ -657,8 +657,8 @@
 			isa = PBXGroup;
 			children = (
 				DB4439B722CFD11B00E26785 /* MGS.entitlements */,
-				DBAF3C00219C9019003083EA /* SFA */,
-				DBD2386422B7FAF400C9A2D1 /* MGSTests */,
+				DBAF3C00219C9019003083EA /* iGio */,
+				DBD2386422B7FAF400C9A2D1 /* iGioTests */,
 				DBAF3BFF219C9019003083EA /* Products */,
 				DB8EC01321EE4447003B2A81 /* Frameworks */,
 			);
@@ -667,13 +667,13 @@
 		DBAF3BFF219C9019003083EA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DBAF3BFE219C9019003083EA /* MGS.app */,
-				DBD2386322B7FAF400C9A2D1 /* MGSTests.xctest */,
+				DBAF3BFE219C9019003083EA /* iGio.app */,
+				DBD2386322B7FAF400C9A2D1 /* iGioTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DBAF3C00219C9019003083EA /* SFA */ = {
+		DBAF3C00219C9019003083EA /* iGio */ = {
 			isa = PBXGroup;
 			children = (
 				DB217D5022188AD6003ED264 /* Coordinator */,
@@ -683,7 +683,7 @@
 				DBAF3C1A219C942E003083EA /* ViewControllers */,
 				DBAF3C17219C9058003083EA /* Supporting Files */,
 			);
-			path = SFA;
+			path = iGio;
 			sourceTree = "<group>";
 		};
 		DBAF3C17219C9058003083EA /* Supporting Files */ = {
@@ -966,13 +966,13 @@
 			path = SitiLocalized;
 			sourceTree = "<group>";
 		};
-		DBD2386422B7FAF400C9A2D1 /* MGSTests */ = {
+		DBD2386422B7FAF400C9A2D1 /* iGioTests */ = {
 			isa = PBXGroup;
 			children = (
-				DBD2386522B7FAF400C9A2D1 /* MGSTests.swift */,
+				DBD2386522B7FAF400C9A2D1 /* iGioTests.swift */,
 				DBD2386722B7FAF400C9A2D1 /* Info.plist */,
 			);
-			path = MGSTests;
+			path = iGioTests;
 			sourceTree = "<group>";
 		};
 		DBD2388322B81B4300C9A2D1 /* Location */ = {
@@ -1026,9 +1026,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DBAF3BFD219C9019003083EA /* MGS */ = {
+		DBAF3BFD219C9019003083EA /* iGio */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DBAF3C13219C901B003083EA /* Build configuration list for PBXNativeTarget "MGS" */;
+			buildConfigurationList = DBAF3C13219C901B003083EA /* Build configuration list for PBXNativeTarget "iGio" */;
 			buildPhases = (
 				DBAF3BFA219C9019003083EA /* Sources */,
 				DBAF3BFB219C9019003083EA /* Frameworks */,
@@ -1040,14 +1040,14 @@
 			);
 			dependencies = (
 			);
-			name = MGS;
+			name = iGio;
 			productName = SFA;
-			productReference = DBAF3BFE219C9019003083EA /* MGS.app */;
+			productReference = DBAF3BFE219C9019003083EA /* iGio.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DBD2386222B7FAF400C9A2D1 /* MGSTests */ = {
+		DBD2386222B7FAF400C9A2D1 /* iGioTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DBD2386A22B7FAF400C9A2D1 /* Build configuration list for PBXNativeTarget "MGSTests" */;
+			buildConfigurationList = DBD2386A22B7FAF400C9A2D1 /* Build configuration list for PBXNativeTarget "iGioTests" */;
 			buildPhases = (
 				DBD2385F22B7FAF400C9A2D1 /* Sources */,
 				DBD2386022B7FAF400C9A2D1 /* Frameworks */,
@@ -1058,9 +1058,9 @@
 			dependencies = (
 				DBD2386922B7FAF400C9A2D1 /* PBXTargetDependency */,
 			);
-			name = MGSTests;
+			name = iGioTests;
 			productName = MGSTests;
-			productReference = DBD2386322B7FAF400C9A2D1 /* MGSTests.xctest */;
+			productReference = DBD2386322B7FAF400C9A2D1 /* iGioTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -1088,7 +1088,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DBAF3BF9219C9019003083EA /* Build configuration list for PBXProject "SFA" */;
+			buildConfigurationList = DBAF3BF9219C9019003083EA /* Build configuration list for PBXProject "iGio" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -1101,8 +1101,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DBAF3BFD219C9019003083EA /* MGS */,
-				DBD2386222B7FAF400C9A2D1 /* MGSTests */,
+				DBAF3BFD219C9019003083EA /* iGio */,
+				DBD2386222B7FAF400C9A2D1 /* iGioTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1325,7 +1325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBD2386622B7FAF400C9A2D1 /* MGSTests.swift in Sources */,
+				DBD2386622B7FAF400C9A2D1 /* iGioTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1334,7 +1334,7 @@
 /* Begin PBXTargetDependency section */
 		DBD2386922B7FAF400C9A2D1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DBAF3BFD219C9019003083EA /* MGS */;
+			target = DBAF3BFD219C9019003083EA /* iGio */;
 			targetProxy = DBD2386822B7FAF400C9A2D1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1479,7 +1479,7 @@
 					"$(PROJECT_DIR)/Frameworks",
 					"$(PROJECT_DIR)/Frameworks/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/SFA/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/iGio/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1504,7 +1504,7 @@
 					"$(PROJECT_DIR)/Frameworks",
 					"$(PROJECT_DIR)/Frameworks/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/SFA/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/iGio/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1527,7 +1527,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = MGSTests/Info.plist;
+				INFOPLIST_FILE = iGioTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1538,7 +1538,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MGS.app/MGS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iGio.app/iGio";
 			};
 			name = Debug;
 		};
@@ -1552,7 +1552,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = MGSTests/Info.plist;
+				INFOPLIST_FILE = iGioTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1563,14 +1563,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MGS.app/MGS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iGio.app/iGio";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DBAF3BF9219C9019003083EA /* Build configuration list for PBXProject "SFA" */ = {
+		DBAF3BF9219C9019003083EA /* Build configuration list for PBXProject "iGio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DBAF3C11219C901B003083EA /* Debug */,
@@ -1579,7 +1579,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DBAF3C13219C901B003083EA /* Build configuration list for PBXNativeTarget "MGS" */ = {
+		DBAF3C13219C901B003083EA /* Build configuration list for PBXNativeTarget "iGio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DBAF3C14219C901B003083EA /* Debug */,
@@ -1588,7 +1588,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DBD2386A22B7FAF400C9A2D1 /* Build configuration list for PBXNativeTarget "MGSTests" */ = {
+		DBD2386A22B7FAF400C9A2D1 /* Build configuration list for PBXNativeTarget "iGioTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DBD2386B22B7FAF400C9A2D1 /* Debug */,
