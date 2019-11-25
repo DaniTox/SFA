@@ -21,7 +21,7 @@ class TeenStarModel<T: TeenStarDerivative & Object> {
         let dateFrom = calendar.startOfDay(for: Date())
         let dateTo = calendar.date(byAdding: .day, value: 1, to: dateFrom)!
         
-        let fromPredicate = NSPredicate(format: "date > %@", dateFrom as NSDate)
+        let fromPredicate = NSPredicate(format: "date >= %@", dateFrom as NSDate)
         let toPredicate = NSPredicate(format: "date < %@", dateTo as NSDate)
         let fullPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [fromPredicate, toPredicate])
         
