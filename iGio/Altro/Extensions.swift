@@ -128,7 +128,7 @@ extension Int {
 }
 
 
-extension Date: Strideable {
+extension Date {
     
     public func advanced(by n: Int) -> Date {
         let calendar = Calendar.current

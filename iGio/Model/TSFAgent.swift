@@ -33,6 +33,38 @@ class TSFAgent {
         return startOfMonth...finishDate
     }
     
+    public func getMonthRangeCollection(from date: Date) -> [Date] {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month], from: date)
+        guard let startOfMonth = calendar.date(from: components) else {
+            return []
+        }
+        
+        var componentsToAdd = DateComponents()
+        componentsToAdd.month = 1
+        componentsToAdd.day = -1
+        
+        guard let finishDate = calendar.date(byAdding: componentsToAdd, to: startOfMonth)
+            else {
+                return []
+        }
+        
+        // Formatter for printing the date, adjust it according to your needs:
+        let fmt = DateFormatter()
+        fmt.dateFormat = "dd/MM/yyyy"
+
+        var tempDate = startOfMonth
+        var buffer = [Date]()
+        
+        while tempDate <= finishDate {
+            print(fmt.string(from: tempDate))
+            buffer.append(tempDate)
+            tempDate = calendar.date(byAdding: .day, value: 1, to: tempDate)!
+        }
+        
+        return buffer
+    }
+    
     /// Ritorna la data del item TS Femmina più lontano nel passato
     public func getFarestDate() -> Date {
         let realm = try! Realm()

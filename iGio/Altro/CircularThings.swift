@@ -17,7 +17,7 @@ class CircularView: UIView {
             return self.layer.cornerRadius
         } set {
             self.layer.masksToBounds = true
-            self.layer.cornerRadius = cornerRadius
+            self.layer.cornerRadius = newValue
         }
     }
 }

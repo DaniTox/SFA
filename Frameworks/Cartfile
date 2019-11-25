@@ -2,4 +2,4 @@ github "gizmosachin/ColorSlider" == 4.3
 github "dzenbot/DZNEmptyDataSet"
 github "realm/realm-cocoa"
 github "huri000/SwiftEntryKit" == 0.8.9
-github "OneSignal/OneSignal-iOS-SDK"
+github "OneSignal/OneSignal-iOS-SDK" == 2.11.2

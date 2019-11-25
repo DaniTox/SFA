@@ -118,7 +118,7 @@ class TeenStarFemminaSource: NSObject, UICollectionViewDataSource, UICollectionV
     
     func updateDates() {
         let agent = TSFAgent()
-        self.dates = agent.getMonthRange(from: currentDate).map { $0 }
+        self.dates = agent.getMonthRangeCollection(from: currentDate)
     }
     
     func refresh() {
