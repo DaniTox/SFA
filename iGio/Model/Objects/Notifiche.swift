@@ -24,7 +24,7 @@ class Notifiche {
         
         public var stringValue: String {
             switch self {
-            case .eventiMGS: return "Eventi MGS"
+            case .eventiMGS: return "Eventi MGS ILE"
             case .consigliDB: return "Consigli di Don Bosco"
             case .sacramenti: return "Promemoria di vita spirituale"
             case .angeloCustode: return "Missione dell'angelo custode"
