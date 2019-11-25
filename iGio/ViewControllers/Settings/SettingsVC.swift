@@ -65,9 +65,11 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
         case 0:
             return 3
         case 1:
-            return 5
-//        case 2:
-//            return 5
+            if #available(iOS 13, *) {
+                return 4
+            } else {
+                return 5
+            }
         default:
             fatalError()
         }
@@ -75,8 +77,6 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
-//        case 0:
-//            return 130
         case 0, 1:
             return 100
         default:
@@ -111,14 +111,25 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
             default: fatalError()
             }
         case 1:
-            switch indexPath.row {
-            case 0: return makeDisclosureCell(with: "Info", in: tableView)
-            case 1: return makeDisclosureCell(with: "Notifiche", in: tableView)
-            case 2: return makeDisclosureCell(with: "Tema colori", in: tableView)
-            case 3: return makeDisclosureCell(with: "Licenze", in: tableView)
-            case 4: return makeDisclosureCell(with: "Debug", in: tableView)
-            default: fatalError()
+            if #available(iOS 13, *) {
+                switch indexPath.row {
+                case 0: return makeDisclosureCell(with: "Info", in: tableView)
+                case 1: return makeDisclosureCell(with: "Notifiche", in: tableView)
+                case 2: return makeDisclosureCell(with: "Licenze", in: tableView)
+                case 3: return makeDisclosureCell(with: "Debug", in: tableView)
+                default: fatalError()
+                }
+            } else {
+                switch indexPath.row {
+                case 0: return makeDisclosureCell(with: "Info", in: tableView)
+                case 1: return makeDisclosureCell(with: "Notifiche", in: tableView)
+                case 2: return makeDisclosureCell(with: "Tema colori", in: tableView)
+                case 3: return makeDisclosureCell(with: "Licenze", in: tableView)
+                case 4: return makeDisclosureCell(with: "Debug", in: tableView)
+                default: fatalError()
+                }
             }
+            
         default:
             fatalError()
         }
@@ -136,15 +147,27 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
             default: break
             }
         case 1:
-            switch indexPath.row {
-            case 0: navigationController?.pushViewController(InfoVC(), animated: true)
-            case 1: navigationController?.pushViewController(NotificheVC(style: .grouped), animated: true)
-            case 2: navigationController?.pushViewController(ColorThemeVC(), animated: true)
-            case 3: navigationController?.pushViewController(LicenseVC(), animated: true)
-            case 4: navigationController?.pushViewController(DebugVC(), animated: true)
-            
-            default: break
+            if #available(iOS 13, *) {
+                switch indexPath.row {
+                case 0: navigationController?.pushViewController(InfoVC(), animated: true)
+                case 1: navigationController?.pushViewController(NotificheVC(style: .grouped), animated: true)
+                case 2: navigationController?.pushViewController(LicenseVC(), animated: true)
+                case 3: navigationController?.pushViewController(DebugVC(), animated: true)
+                
+                default: break
+                }
+            } else {
+                switch indexPath.row {
+                case 0: navigationController?.pushViewController(InfoVC(), animated: true)
+                case 1: navigationController?.pushViewController(NotificheVC(style: .grouped), animated: true)
+                case 2: navigationController?.pushViewController(ColorThemeVC(), animated: true)
+                case 3: navigationController?.pushViewController(LicenseVC(), animated: true)
+                case 4: navigationController?.pushViewController(DebugVC(), animated: true)
+                
+                default: break
+                }
             }
+            
         default: fatalError()
         }
     }
