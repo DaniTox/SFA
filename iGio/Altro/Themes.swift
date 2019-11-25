@@ -50,3 +50,15 @@ class DarkTheme : ThemeProtocol {
     var cellTitleColor: UIColor = UIColor.white
     var tableHeaderTextColor: UIColor = UIColor(named: "lightBlue")!
 }
+
+@available(iOS 13, *)
+class DynamicTheme: ThemeProtocol {
+    var tableViewBackground: UIColor = UIColor.systemBackground
+    var controllerBackground: UIColor = UIColor.systemBackground
+    var backgroundColor: UIColor = UIColor(named: "cellColor")!
+    var shadowColor: UIColor = UIColor.clear
+    var textColor: UIColor = UIColor.label
+    var cellSubtitleColor: UIColor = UIColor.secondaryLabel
+    var cellTitleColor: UIColor = UIColor.label
+    var tableHeaderTextColor: UIColor = UIColor(named: "lightBlue")!
+}

@@ -22,7 +22,10 @@ class ThemedNavigationController: UINavigationController {
     }
     
     func updateTheme() {
-        self.navigationBar.barStyle = (Theme.current is LightTheme) ? .default : .black
+        if #available(iOS 13, *) {} else {
+            self.navigationBar.barStyle = (Theme.current is LightTheme) ? .default : .black
+        }
+        
     }
 
 }

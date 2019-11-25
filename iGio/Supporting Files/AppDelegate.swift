@@ -17,7 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        Theme.current = (theme == "dark") ? DarkTheme() : LightTheme()
+        
+        if #available(iOS 13, *) {
+            Theme.current = DynamicTheme()
+        } else {
+            Theme.current = (theme == "dark") ? DarkTheme() : LightTheme()
+        }
+        
         
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = false
@@ -74,6 +80,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             window?.rootViewController = homeVC
             window?.makeKeyAndVisible()
+            
+            onboardingCoordinator.navigationController.modalPresentationStyle = .fullScreen
             homeVC.present(onboardingCoordinator.navigationController, animated: true)
             onboardingCoordinator.start()
         }

@@ -9,7 +9,7 @@
 import UIKit
 import SafariServices
 
-class RootAppController : UITabBarController {
+class RootAppController<Nav: UINavigationController> : UITabBarController {
     
     var indexController : Int = 0
     
@@ -24,7 +24,10 @@ class RootAppController : UITabBarController {
     }
     
     private func updateTheme() {
-        self.tabBar.barStyle = (Theme.current is LightTheme) ? .default : .black
+        if #available(iOS 13, *) {} else {
+            self.tabBar.barStyle = (Theme.current is LightTheme) ? .default : .black
+        }
+        
     }
     
     private func fillController() {
