@@ -22,7 +22,7 @@ class WelcomeVC: UIViewController, HasCustomView, OrderedFlowController {
         super.viewDidLoad()
 //        self.title = "Benvenuto in MGS!"
         if #available(iOS 13, *) {
-            rootView.backgroundColor = Theme.current.backgroundColor
+            rootView.backgroundColor = Theme.current.controllerBackground
         } else {
             rootView.backgroundColor = LightTheme().backgroundColor
         }

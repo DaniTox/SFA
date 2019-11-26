@@ -16,8 +16,13 @@ class WelcomeView: UIView {
         button.setTitle("Inizia", for: .normal)
         //        button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
-        button.backgroundColor = .red
-        button.setTitleColor(.black, for: .normal)
+        if #available(iOS 13, *) {
+            button.backgroundColor = .systemRed
+            button.setTitleColor(.label, for: .normal)
+        } else {
+            button.backgroundColor = .red
+            button.setTitleColor(.black, for: .normal)
+        }
         
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 10
@@ -28,7 +33,12 @@ class WelcomeView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 30)
-        label.textColor = .black
+        if #available(iOS 13, *) {
+            label.textColor = .label
+        } else {
+            label.textColor = .black
+        }
+        
         label.textAlignment = .center
         label.text = "Benvenuto in iGio!"
         label.adjustsFontSizeToFitWidth = true
@@ -55,7 +65,12 @@ class WelcomeView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .subheadline).withSize(25)
-        label.textColor = .black
+        if #available(iOS 13, *) {
+            label.textColor = .label
+        } else {
+            label.textColor = .black
+        }
+        
         label.textAlignment = .center
         label.numberOfLines = 0
         label.text = """
