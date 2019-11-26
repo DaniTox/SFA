@@ -10,6 +10,8 @@ import UIKit
 
 class SwitchCell : BoldCell {
     
+    var intValue: Int = -1
+    
     lazy var cellSwitch : UISwitch = {
         let sw = UISwitch()
         sw.translatesAutoresizingMaskIntoConstraints = false

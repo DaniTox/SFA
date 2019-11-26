@@ -42,17 +42,37 @@ class NotificheDataSource: NSObject, UITableViewDataSource {
         case 1:
             let notifica = self.notifiche[indexPath.row]
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "boldCell") as! BoldCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "switchCell") as! SwitchCell
 
             cell.mainLabel.text = notifiche[indexPath.row].stringValue
             cell.mainLabel.textColor = areNotificheActive ? Theme.current.textColor : .gray
             
-            cell.accessoryType = Notifiche.activeNotifiche.contains(notifica) ? .checkmark : .none
+            cell.cellSwitch.isOn = Notifiche.activeNotifiche.contains(notifica)
+            
+            cell.cellSwitch.tag = indexPath.row
+            cell.cellSwitch.addTarget(self, action: #selector(notificheTypeSwitchChangedValue(sender:)), for: .valueChanged)
+            cell.accessoryType = .none
             
             return cell
         default: fatalError()
         }
         
+    }
+    
+    @objc private func notificheTypeSwitchChangedValue(sender: UISwitch) {
+        let tempNotifica = notifiche[sender.tag]
+        print("\(tempNotifica.stringValue) --> isOn: \(sender.isOn)")
+        
+        if !Notifiche.areNotificheActive { return }
+        
+        let notifica = self.notifiche[sender.tag]
+        if Notifiche.activeNotifiche.contains(notifica) {
+            Notifiche.activeNotifiche.remove(notifica)
+        } else {
+            Notifiche.activeNotifiche.insert(notifica)
+        }
+        
+        Notifiche.updateStatus()
     }
     
     func makeSwitchCell(in tableView: UITableView) -> UITableViewCell {
