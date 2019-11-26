@@ -18,7 +18,7 @@ class TeenStarEditEntryVC<T : TeenStarDerivative & Object>: UIViewController, Ha
 
     var dataSource : TeenStarDataSource<T>
     
-    init(table : T? = nil, date: Date? = nil) {
+    init(table : T? = nil, date: Date? = nil, isNewEntry: Bool = false) {
         var selectedTable : T
         if table == nil {
             selectedTable = T()
@@ -29,7 +29,7 @@ class TeenStarEditEntryVC<T : TeenStarDerivative & Object>: UIViewController, Ha
             selectedTable = table!
         }
         
-        self.dataSource = TeenStarDataSource<T>(entry: selectedTable)
+        self.dataSource = TeenStarDataSource<T>(entry: selectedTable, isNewEntry: isNewEntry)
         super.init(nibName: nil, bundle: nil)
         
         if table is TeenStarMaschio {
@@ -40,12 +40,12 @@ class TeenStarEditEntryVC<T : TeenStarDerivative & Object>: UIViewController, Ha
     
     func dateChangedAction(newDate: Date) {
         DispatchQueue.main.async {
-            self.title = "\(newDate.dayOfWeek()) - \(newDate.stringValue)"
+            self.title = "\(newDate.stringValue)"
         }
         
-        if !self.dataSource.isEntryDateAvailable() {
-            self.showError(withTitle: "Errore", andMessage: "Questa data è già stata salvata.")
-        }
+//        if !self.dataSource.isEntryDateAvailable() {
+//            self.showError(withTitle: "Errore", andMessage: "Questa data è già stata salvata.")
+//        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -77,9 +77,7 @@ class TeenStarEditEntryVC<T : TeenStarDerivative & Object>: UIViewController, Ha
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if dataSource.isEntryDateAvailable() {
-            dataSource.saveTeenStarTable()
-        }
+        dataSource.saveTeenStarTable()
     }
     
     private func updateTheme() {

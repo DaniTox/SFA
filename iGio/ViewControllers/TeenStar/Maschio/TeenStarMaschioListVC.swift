@@ -76,7 +76,7 @@ class TeenStarMaschioListVC: UITableViewController, DZNEmptyDataSetDelegate {
     }
     
     @objc private func addEntryButtonTapped() {
-        let vc = TeenStarEditEntryVC<TeenStarMaschio>()
+        let vc = TeenStarEditEntryVC<TeenStarMaschio>(isNewEntry: true)
         navigationController?.pushViewController(vc, animated: true)
     }
     

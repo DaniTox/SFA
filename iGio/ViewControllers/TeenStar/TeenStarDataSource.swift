@@ -56,7 +56,7 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
     
     let cicloColors: [CicloColor] = Array(CicloTable.colorDescriptions.keys)
 
-    init(entry: T) {
+    init(entry: T, isNewEntry: Bool = false) {
         self.entry = entry
         self.currentEntryMemory = TSMemory()
         self.teenStarType = (entry is TeenStarFemmina) ? .femmina : .maschio
@@ -75,6 +75,8 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
         }
         
         currentEntryMemory.date = entry.date.startOfDay
+        
+        self.isEntryCreatedNow = isNewEntry
     }
     
     private func isDateAvailable(_ date: Date) -> Bool {
@@ -108,28 +110,32 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
         
         let isDateSelectedAvailable = self.isDateAvailable(currentEntryMemory.date.startOfDay)
         
+        if currentEntryMemory.sentimento8 == Emozione.none && currentEntryMemory.sentimento14 == Emozione.none && currentEntryMemory.sentimento8 == Emozione.none {
+          return
+        }
         
         if (isDateSelectedAvailable || isDateSelectedAvailable == false && isEntryCreatedNow == false) {
             let realm = try! Realm()
-            try? realm.write {
-                entry.date = self.currentEntryMemory.date
-                
-                if let femminaEntry = entry as? TeenStarFemmina, let cicloColor = self.currentEntryMemory.ciclo {
-                    femminaEntry.cicloTable?.cicloColor = cicloColor
-                } else if let maschioEntry = entry as? TeenStarMaschio {
-                    if let emozione8 = self.currentEntryMemory.sentimento8 {
-                        maschioEntry.sentimentiTable?.sentimentoOre8 = emozione8
-                    }
-                    if let emozione14 = self.currentEntryMemory.sentimento14 {
-                        maschioEntry.sentimentiTable?.sentimentoOre14 = emozione14
-                    }
-                    if let emozione20 = self.currentEntryMemory.sentimento20 {
-                        maschioEntry.sentimentiTable?.sentimentoOre20 = emozione20
-                    }
+            realm.beginWrite()
+            entry.date = self.currentEntryMemory.date
+            
+            if let femminaEntry = entry as? TeenStarFemmina, let cicloColor = self.currentEntryMemory.ciclo {
+                femminaEntry.cicloTable?.cicloColor = cicloColor
+            } else if let maschioEntry = entry as? TeenStarMaschio {
+                if let emozione8 = self.currentEntryMemory.sentimento8 {
+                    maschioEntry.sentimentiTable?.sentimentoOre8 = emozione8
                 }
-                
-                realm.add(entry, update: .modified)
+                if let emozione14 = self.currentEntryMemory.sentimento14 {
+                    maschioEntry.sentimentiTable?.sentimentoOre14 = emozione14
+                }
+                if let emozione20 = self.currentEntryMemory.sentimento20 {
+                    maschioEntry.sentimentiTable?.sentimentoOre20 = emozione20
+                }
             }
+            
+            realm.add(entry, update: .modified)
+            try? realm.commitWrite()
+            
         }
     }
     
