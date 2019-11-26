@@ -87,7 +87,7 @@ class TeenStarDataSource<T: TeenStarDerivative & Object> : NSObject, UITableView
         let dateTo = calendar.date(byAdding: .day, value: 1, to: dateFrom)!
         
         let fromPredicate = NSPredicate(format: "date >= %@", dateFrom as NSDate)
-        let toPredicate = NSPredicate(format: "date <= %@", dateTo as NSDate)
+        let toPredicate = NSPredicate(format: "date < %@", dateTo as NSDate)
         let fullPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [fromPredicate, toPredicate])
         
         let objects = realm.objects(T.self).filter(fullPredicate)
