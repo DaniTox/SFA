@@ -13,13 +13,13 @@ class OnboardingCoordinator: NSObject, OrderedFlowCoordinator {
     var navigationController: UINavigationController
     
     var currentShowingControllerIndex : Int = 0
-    var controllers : [OrderedFlowController] = [
-        WelcomeVC(),
-        GenderVC(),
-        UserAgeVC(),
-        ColorThemeVC(),
-        NotificheVC(style: .grouped)
-    ]
+    var controllers : [OrderedFlowController] = {
+        if #available(iOS 13, *) {
+            return [WelcomeVC(), GenderVC(), UserAgeVC(), NotificheVC(style: .grouped) ]
+        } else {
+            return [WelcomeVC(), GenderVC(), UserAgeVC(), ColorThemeVC(), NotificheVC(style: .grouped) ]
+        }
+    }()
 
     var terminateAction : ( () -> Void )?
     

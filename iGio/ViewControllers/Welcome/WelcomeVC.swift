@@ -21,7 +21,12 @@ class WelcomeVC: UIViewController, HasCustomView, OrderedFlowController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.title = "Benvenuto in MGS!"
-        rootView.backgroundColor = LightTheme().backgroundColor
+        if #available(iOS 13, *) {
+            rootView.backgroundColor = Theme.current.backgroundColor
+        } else {
+            rootView.backgroundColor = LightTheme().backgroundColor
+        }
+        
         
         rootView.ignoraButton.addTarget(self, action: #selector(ignoraAction(_:)), for: .touchUpInside)
         
