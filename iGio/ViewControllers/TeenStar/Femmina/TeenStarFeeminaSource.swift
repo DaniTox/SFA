@@ -76,15 +76,26 @@ class TeenStarFemminaSource: NSObject, UICollectionViewDataSource, UICollectionV
         let date = self.dates[indexPath.row]
         let day = Calendar.current.component(.day, from: date)
         cell.dayLabel.text = String(day)
-        cell.backgroundColor = .orange
-        cell.layer.borderWidth = 1
-        cell.layer.borderColor = Theme.current.shadowColor.cgColor
+        
+        if #available(iOS 13, *) {
+            cell.backgroundColor = Theme.current.backgroundColor
+            cell.dayLabel.textColor = Theme.current.cellTitleColor
+            cell.layer.borderWidth = 1
+            cell.layer.borderColor = Theme.current.shadowColor.cgColor
+        } else {
+            cell.backgroundColor = .orange
+            cell.layer.borderWidth = 1
+            cell.layer.borderColor = Theme.current.shadowColor.cgColor
+        }
+        
+        
         
         if let item = self.allItems.first(where: { $0.date == date }) {
             cell.circleView.backgroundColor = item.cicloTable?.cicloColor.getViewColor()
         } else {
             cell.circleView.backgroundColor = .clear
         }
+        cell.circleView.layer.cornerRadius = cell.circleView.frame.width / 2
         
         return cell
     }
