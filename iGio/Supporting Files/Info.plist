@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>10.1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fb</string>
@@ -33,6 +33,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>La tua posizione è necessaria per il funzionamento delle notifiche push tramite la libreria OneSignal. Noi di iGio non utilizzeremo mai la tua posizione.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>La tua posizione è necessaria per il funzionamento delle notifiche push tramite la libreria OneSignal. Noi di iGio non utilizzeremo mai la tua posizione.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -45,10 +49,6 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>La tua posizione è necessaria per il funzionamento delle notifiche push tramite la libreria OneSignal. Noi di iGio non utilizzeremo mai la tua posizione.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>La tua posizione è necessaria per il funzionamento delle notifiche push tramite la libreria OneSignal. Noi di iGio non utilizzeremo mai la tua posizione.</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
