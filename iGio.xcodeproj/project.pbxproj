@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -68,10 +68,6 @@
 		DB7BEF8621D006A0007A550E /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF8421D006A0007A550E /* KeychainItemAccessibility.swift */; };
 		DB7BEF8721D006A0007A550E /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF8521D006A0007A550E /* KeychainWrapper.swift */; };
 		DB7BEF8921D01442007A550E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF8821D01442007A550E /* User.swift */; };
-		DB7BEF8B21D01670007A550E /* NetworkAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF8A21D01670007A550E /* NetworkAgent.swift */; };
-		DB7BEF8D21D0172E007A550E /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF8C21D0172E007A550E /* URLs.swift */; };
-		DB7BEF8F21D01920007A550E /* ToxNetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF8E21D01920007A550E /* ToxNetworkResponse.swift */; };
-		DB7BEF9121D02128007A550E /* ToxNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BEF9021D02128007A550E /* ToxNetworkRequest.swift */; };
 		DB7F33EA22BD6A9700054567 /* GioTaskTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F33E922BD6A9700054567 /* GioTaskTimeView.swift */; };
 		DB84A68622C2592700B2C5AC /* TeenStarFemminaListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB84A68522C2592700B2C5AC /* TeenStarFemminaListVC.swift */; };
 		DB84A68822C2593400B2C5AC /* TeenStarFeeminaSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB84A68722C2593400B2C5AC /* TeenStarFeeminaSource.swift */; };
@@ -175,6 +171,8 @@
 		DBF5C1A522330D070086E9E7 /* RegolaVita.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5C1A422330D070086E9E7 /* RegolaVita.swift */; };
 		DBF5C1A7223443870086E9E7 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF5C1A6223443870086E9E7 /* Note.swift */; };
 		DBFA57442279CFC100D60E8E /* TeenStarFemminaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFA57432279CFC100D60E8E /* TeenStarFemminaCell.swift */; };
+		DBFB2F1823AC22A2001027D3 /* DXNetworkManager in Frameworks */ = {isa = PBXBuildFile; productRef = DBFB2F1723AC22A2001027D3 /* DXNetworkManager */; };
+		DBFB2F1A23AC234B001027D3 /* AppURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFB2F1923AC234B001027D3 /* AppURLs.swift */; };
 		DBFE97FA21D57CD500E82803 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFE97F921D57CD500E82803 /* NoteModel.swift */; };
 		DBFFDE8922B840CE00C2CDBD /* CityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFFDE8822B840CE00C2CDBD /* CityVC.swift */; };
 		DBFFDE8B22B840F200C2CDBD /* CityDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFFDE8A22B840F200C2CDBD /* CityDataSource.swift */; };
@@ -266,10 +264,6 @@
 		DB7BEF8421D006A0007A550E /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
 		DB7BEF8521D006A0007A550E /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		DB7BEF8821D01442007A550E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		DB7BEF8A21D01670007A550E /* NetworkAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAgent.swift; sourceTree = "<group>"; };
-		DB7BEF8C21D0172E007A550E /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
-		DB7BEF8E21D01920007A550E /* ToxNetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToxNetworkResponse.swift; sourceTree = "<group>"; };
-		DB7BEF9021D02128007A550E /* ToxNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToxNetworkRequest.swift; sourceTree = "<group>"; };
 		DB7F33E922BD6A9700054567 /* GioTaskTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GioTaskTimeView.swift; sourceTree = "<group>"; };
 		DB84A68522C2592700B2C5AC /* TeenStarFemminaListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarFemminaListVC.swift; sourceTree = "<group>"; };
 		DB84A68722C2593400B2C5AC /* TeenStarFeeminaSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarFeeminaSource.swift; sourceTree = "<group>"; };
@@ -377,6 +371,7 @@
 		DBF5C1A422330D070086E9E7 /* RegolaVita.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegolaVita.swift; sourceTree = "<group>"; };
 		DBF5C1A6223443870086E9E7 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		DBFA57432279CFC100D60E8E /* TeenStarFemminaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeenStarFemminaCell.swift; sourceTree = "<group>"; };
+		DBFB2F1923AC234B001027D3 /* AppURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppURLs.swift; sourceTree = "<group>"; };
 		DBFE97F921D57CD500E82803 /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		DBFFDE8822B840CE00C2CDBD /* CityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityVC.swift; sourceTree = "<group>"; };
 		DBFFDE8A22B840F200C2CDBD /* CityDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDataSource.swift; sourceTree = "<group>"; };
@@ -388,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB8B8611224AA5A000C58055 /* ColorSlider.framework in Frameworks */,
+				DBFB2F1823AC22A2001027D3 /* DXNetworkManager in Frameworks */,
 				DB8B8612224AA5A000C58055 /* SwiftEntryKit.framework in Frameworks */,
 				DB8B8613224AA5A000C58055 /* QuickLayout.framework in Frameworks */,
 				DB8B8614224AA5A000C58055 /* RealmSwift.framework in Frameworks */,
@@ -533,9 +529,6 @@
 		DB67643521F634C800651AD8 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				DB7BEF8A21D01670007A550E /* NetworkAgent.swift */,
-				DB7BEF8E21D01920007A550E /* ToxNetworkResponse.swift */,
-				DB7BEF9021D02128007A550E /* ToxNetworkRequest.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -597,13 +590,13 @@
 				DB67643521F634C800651AD8 /* Network */,
 				DBCE9ECE21EFB227005B286A /* Data Sources */,
 				DB61DA1221B5B9ED006B308B /* RegolaFetcherModel.swift */,
-				DB7BEF8C21D0172E007A550E /* URLs.swift */,
 				DBFE97F921D57CD500E82803 /* NoteModel.swift */,
 				DBF3A2AF21DD73D0008AE7D5 /* TeenStarModel.swift */,
 				DB53C76E21DE699B0001054B /* Emozione.swift */,
 				DB53C78521E0F7E40001054B /* CompagniaAgent.swift */,
 				DB9846FE227F39E80033D12F /* GioProNetAgent.swift */,
 				DB84A68B22C2D2C300B2C5AC /* TSFAgent.swift */,
+				DBFB2F1923AC234B001027D3 /* AppURLs.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1041,6 +1034,9 @@
 			dependencies = (
 			);
 			name = iGio;
+			packageProductDependencies = (
+				DBFB2F1723AC22A2001027D3 /* DXNetworkManager */,
+			);
 			productName = SFA;
 			productReference = DBAF3BFE219C9019003083EA /* iGio.app */;
 			productType = "com.apple.product-type.application";
@@ -1097,6 +1093,9 @@
 				Base,
 			);
 			mainGroup = DBAF3BF5219C9019003083EA;
+			packageReferences = (
+				DBFB2F1623AC22A2001027D3 /* XCRemoteSwiftPackageReference "DXNetworkManager" */,
+			);
 			productRefGroup = DBAF3BFF219C9019003083EA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1179,7 +1178,6 @@
 				DB323B15223D521300116FE3 /* SitoWeb.swift in Sources */,
 				DB53C78621E0F7E40001054B /* CompagniaAgent.swift in Sources */,
 				DB8B8617224D1E7300C58055 /* DatePickerCell.swift in Sources */,
-				DB7BEF8D21D0172E007A550E /* URLs.swift in Sources */,
 				DBD2388A22B821E400C9A2D1 /* DiocesiVC.swift in Sources */,
 				DBF3A2B421DD81F5008AE7D5 /* TeenStarEditEntryView.swift in Sources */,
 				DBAF3C4D219CBF35003083EA /* IQNSArray+Sort.swift in Sources */,
@@ -1215,6 +1213,7 @@
 				DBC7F4CB2219898100C22945 /* UserAgeVC.swift in Sources */,
 				DBC7F4C92218ACAB00C22945 /* OrderedFlowCoordinator.swift in Sources */,
 				DB6414A522C152EE0065BD8C /* DatePickerView.swift in Sources */,
+				DBFB2F1A23AC234B001027D3 /* AppURLs.swift in Sources */,
 				DBAF3C40219CBF35003083EA /* IQBarButtonItem.swift in Sources */,
 				DB4F3BC521F5FBC80040F4C4 /* SwitchCell.swift in Sources */,
 				DB323B0C223C4A7C00116FE3 /* VerificaCompagnia.swift in Sources */,
@@ -1226,7 +1225,6 @@
 				DBE6070721F261BD00E10422 /* UIBouncyButton.swift in Sources */,
 				DB53C77921DEC57E0001054B /* CicloColorCollectionCell.swift in Sources */,
 				DBFA57442279CFC100D60E8E /* TeenStarFemminaCell.swift in Sources */,
-				DB7BEF8B21D01670007A550E /* NetworkAgent.swift in Sources */,
 				DBCE9ED021EFB247005B286A /* VerificaCompagniaDataSource.swift in Sources */,
 				DB53C78021DFCBF90001054B /* SettingsView.swift in Sources */,
 				DB6CDEFE22D29C0B007BF001 /* Notifiche.swift in Sources */,
@@ -1291,7 +1289,6 @@
 				DB61DA1921B9C81E006B308B /* SocialVC.swift in Sources */,
 				DBFE97FA21D57CD500E82803 /* NoteModel.swift in Sources */,
 				DBD86E8722C6D144007C5828 /* CalendarCell.swift in Sources */,
-				DB7BEF8F21D01920007A550E /* ToxNetworkResponse.swift in Sources */,
 				DB7BEF8721D006A0007A550E /* KeychainWrapper.swift in Sources */,
 				DB984703227F5C970033D12F /* TaskButton.swift in Sources */,
 				DBA6378C22BAFF2C00AE5061 /* LocalizedButton.swift in Sources */,
@@ -1311,7 +1308,6 @@
 				DB323B11223C645800116FE3 /* TeenStarDataSource.swift in Sources */,
 				DB5751E821DA808000F97D25 /* SizeSliderAlert.swift in Sources */,
 				DBE6070921F27AA200E10422 /* WelcomeView.swift in Sources */,
-				DB7BEF9121D02128007A550E /* ToxNetworkRequest.swift in Sources */,
 				DB9846FB227F30590033D12F /* GioProEditorDataSource.swift in Sources */,
 				DB75F2EF225D3C0300EB62DF /* DebugVC.swift in Sources */,
 				DB7BEF8621D006A0007A550E /* KeychainItemAccessibility.swift in Sources */,
@@ -1600,6 +1596,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DBFB2F1623AC22A2001027D3 /* XCRemoteSwiftPackageReference "DXNetworkManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DaniTox/DXNetworkManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DBFB2F1723AC22A2001027D3 /* DXNetworkManager */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBFB2F1623AC22A2001027D3 /* XCRemoteSwiftPackageReference "DXNetworkManager" */;
+			productName = DXNetworkManager;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		DBAF3C08219C9019003083EA /* SFA.xcdatamodeld */ = {

@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 import SafariServices
+import DXNetworkManager
 
 class HomeViewController : UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
@@ -81,7 +82,7 @@ class HomeViewController : UICollectionViewController, UICollectionViewDelegateF
         let sites = agent.fetchLocalWebsites(type: .calendario)
         
         if sites.isEmpty {
-            guard let url = URL(string: "\(URLs.calendarioURL)") else { return }
+            guard let url = URL(string: "\(AppURL.calendario)") else { return }
             let vc = SFSafariViewController(url: url)
             present(vc, animated: true)
         } else if sites.count == 1 {
