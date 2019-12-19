@@ -526,13 +526,6 @@
 			path = ColorTheme;
 			sourceTree = "<group>";
 		};
-		DB67643521F634C800651AD8 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
 		DB75F2ED225D3BF000EB62DF /* Debug */ = {
 			isa = PBXGroup;
 			children = (
@@ -587,7 +580,6 @@
 			children = (
 				DB323B0D223C558700116FE3 /* Objects */,
 				DBD2379C22B6B28200C9A2D1 /* SitiLocalized */,
-				DB67643521F634C800651AD8 /* Network */,
 				DBCE9ECE21EFB227005B286A /* Data Sources */,
 				DB61DA1221B5B9ED006B308B /* RegolaFetcherModel.swift */,
 				DBFE97F921D57CD500E82803 /* NoteModel.swift */,

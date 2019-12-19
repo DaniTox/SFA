@@ -21,7 +21,7 @@ class SiteLocalizer {
     /// - Parameter saveRecords: se true, salva le diocesi in realm altrimenti no. True di default
     /// - Parameter completion: handler che ritorna le diocesi ottenute
     func getLocations(of type: LocationType, saveRecords: Bool = true, completion: (([LocationCodable]) -> Void)? = nil) {
-        var request = BasicRequest(requestType: .locations)
+        var request = BasicRequest(requestType: RequestType.locations.rawValue)
         request.args = ["type": "\(type.rawValue)"]
         
         let networkAgent = NetworkAgent<[LocationCodable]>()
@@ -136,10 +136,10 @@ class SiteLocalizer {
     /// - Parameter saveRecords: dice se salvare i siti su Realm. True di default
     /// - Parameter completion: closure che viene eseguita quando si ottengono i siti con successo.
     public func fetchLocalizedWebsites(for location: LocationCodable? = nil, saveRecords: Bool = true, completion: @escaping (Result<LocalizedList, Error>) -> Void) {
-        var req = BasicRequest(requestType: .localizedSites)
+        var req = BasicRequest(requestType: RequestType.localizedSites.rawValue)
         
         if let locationID = location?.id {
-            req = BasicRequest(requestType: .localizedSites, args: ["locationID" : "\(locationID)"])
+            req = BasicRequest(requestType: RequestType.localizedSites.rawValue, args: ["locationID" : "\(locationID)"])
         }
         
         self.fetchFromServer(saveRecords: saveRecords, req: req) { listResult in
@@ -219,7 +219,7 @@ class SiteLocalizer {
     @available(*, deprecated)
     public func fetchPreghiereSites(saveRecords: Bool = true, completion: @escaping (Result<LocalizedList, Error>) -> Void) {
         print("Non dovrebbe servire più perchè l'API nel server ritorna in automatico anche le preghiere quando si richiedono gli altri siti")
-        let req = BasicRequest(requestType: .preghiere)
+        let req = BasicRequest(requestType: RequestType.preghiere.rawValue)
         self.fetchFromServer(saveRecords: saveRecords, req: req) { (list) in
             completion(list)
         }

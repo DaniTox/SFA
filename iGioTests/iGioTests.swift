@@ -8,6 +8,7 @@
 
 @testable import iGio
 import XCTest
+import DXNetworkManager
 
 class MGSTests: XCTestCase {
 
@@ -19,26 +20,26 @@ class MGSTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    func testGetLocations() {
-        var arr: [LocationCodable] = []
-        
-        let siteLocalizer = SiteLocalizer()
-        let expect = self.expectation(description: "Fetching")
-        
-        siteLocalizer.errorHandler = { err in
-            XCTFail("SiteLocalizer ha ritornato un errore: \(err)")
-        }
-        
-        siteLocalizer.getLocations(of: .diocesi, saveRecords: false) { (locations) in
-            arr = locations
-            expect.fulfill()
-        }
-        
-        waitForExpectations(timeout: 5, handler: nil)
-        
-        print(arr.count)
-        XCTAssert(arr.count > 0)
-    }
+//    func testGetLocations() {
+//        var arr: [LocationCodable] = []
+//        
+//        let siteLocalizer = SiteLocalizer()
+//        let expect = self.expectation(description: "Fetching")
+//        
+//        siteLocalizer.errorHandler = { err in
+//            XCTFail("SiteLocalizer ha ritornato un errore: \(err)")
+//        }
+//        
+//        siteLocalizer.getLocations(of: .diocesi, saveRecords: false) { (locations) in
+//            arr = locations
+//            expect.fulfill()
+//        }
+//        
+//        waitForExpectations(timeout: 5, handler: nil)
+//        
+//        print(arr.count)
+//        XCTAssert(arr.count > 0)
+//    }
 
     func testPathGen() {
         let baseUrl: String = "http://localhost:5000/example"
@@ -120,16 +121,16 @@ class MGSTests: XCTestCase {
         
     }
     
-    func testDistanceBetweenRangeDate() {
-        let agent = TSFAgent()
-        let range = agent.getMonthRange(from: Date.create(from: "27/06/2019")!).map { $0 }
-        
-        XCTAssert(range.count == 30)
-        
-        let range2 = agent.getMonthRange(from: Date.create(from: "27/07/2019")!).map { $0 }
-        XCTAssert(range2.count == 31)
-    }
-    
+//    func testDistanceBetweenRangeDate() {
+//        let agent = TSFAgent()
+//        let range = agent.getMonthRange(from: Date.create(from: "27/06/2019")!).map { $0 }
+//        
+//        XCTAssert(range.count == 30)
+//        
+//        let range2 = agent.getMonthRange(from: Date.create(from: "27/07/2019")!).map { $0 }
+//        XCTAssert(range2.count == 31)
+//    }
+//    
     func testMonthString() {
         let number = 1
         XCTAssert(number.monthString == "gennaio")

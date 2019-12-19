@@ -8,6 +8,21 @@
 
 import Foundation
 
+/// Liste dei tipi di richieste
+///
+/// - preghiere
+/// - materiali
+/// - diocesi
+/// - cities
+public enum RequestType: String, Codable {
+    case preghiere = "preghiere"
+    case materiali = "materiali"
+    case locations = "locations"
+    case diocesi = "diocesi"
+    case cities = "citta"
+    case localizedSites = "resources"
+}
+
 struct AppURL {
     static let calendario = "http://www.mgslombardiaemilia.it/calendario"
 }
