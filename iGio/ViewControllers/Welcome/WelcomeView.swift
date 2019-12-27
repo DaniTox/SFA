@@ -96,7 +96,7 @@ class WelcomeView: UIView {
         addSubview(colorView)
         addSubview(descriptionLabel)
         
-        colorView.image = #imageLiteral(resourceName: "igio")
+        colorView.image = #imageLiteral(resourceName: "igio_icon_circular")
         
         [titleLabel, ignoraButton, colorView, descriptionLabel].forEach { $0.alpha = 0 }
         
