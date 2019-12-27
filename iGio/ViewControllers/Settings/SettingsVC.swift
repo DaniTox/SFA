@@ -65,11 +65,19 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
         case 0:
             return 3
         case 1:
+            #if DEBUG
             if #available(iOS 13, *) {
                 return 4
             } else {
                 return 5
             }
+            #else
+            if #available(iOS 13, *) {
+                return 3
+            } else {
+                return 4
+            }
+            #endif
         default:
             fatalError()
         }
@@ -111,6 +119,7 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
             default: fatalError()
             }
         case 1:
+            #if DEBUG
             if #available(iOS 13, *) {
                 switch indexPath.row {
                 case 0: return makeDisclosureCell(with: "Info", in: tableView)
@@ -129,6 +138,24 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
                 default: fatalError()
                 }
             }
+            #else
+            if #available(iOS 13, *) {
+                switch indexPath.row {
+                case 0: return makeDisclosureCell(with: "Info", in: tableView)
+                case 1: return makeDisclosureCell(with: "Notifiche", in: tableView)
+                case 2: return makeDisclosureCell(with: "Licenze", in: tableView)
+                default: fatalError()
+                }
+            } else {
+                switch indexPath.row {
+                case 0: return makeDisclosureCell(with: "Info", in: tableView)
+                case 1: return makeDisclosureCell(with: "Notifiche", in: tableView)
+                case 2: return makeDisclosureCell(with: "Tema colori", in: tableView)
+                case 3: return makeDisclosureCell(with: "Licenze", in: tableView)
+                default: fatalError()
+                }
+            }
+            #endif
             
         default:
             fatalError()
@@ -147,6 +174,7 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
             default: break
             }
         case 1:
+            #if DEBUG
             if #available(iOS 13, *) {
                 switch indexPath.row {
                 case 0: navigationController?.pushViewController(InfoVC(), animated: true)
@@ -167,7 +195,26 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
                 default: break
                 }
             }
-            
+            #else
+            if #available(iOS 13, *) {
+                switch indexPath.row {
+                case 0: navigationController?.pushViewController(InfoVC(), animated: true)
+                case 1: navigationController?.pushViewController(NotificheVC(style: .grouped), animated: true)
+                case 2: navigationController?.pushViewController(LicenseVC(), animated: true)
+                
+                default: break
+                }
+            } else {
+                switch indexPath.row {
+                case 0: navigationController?.pushViewController(InfoVC(), animated: true)
+                case 1: navigationController?.pushViewController(NotificheVC(style: .grouped), animated: true)
+                case 2: navigationController?.pushViewController(ColorThemeVC(), animated: true)
+                case 3: navigationController?.pushViewController(LicenseVC(), animated: true)
+                
+                default: break
+                }
+            }
+            #endif
         default: fatalError()
         }
     }
