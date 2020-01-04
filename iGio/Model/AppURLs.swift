@@ -27,7 +27,7 @@ struct AppURL {
     #if DEBUG
     static let hostname = "http://192.168.1.5/iGio-Server"
     #else
-    static let hostname = "https://danitoxserver.ddns.net/iGio-Server"
+    static let hostname = "http://igioapp.altervista.org/iGio-Server"
     #endif
     static let calendario = "http://www.mgslombardiaemilia.it/calendario"
 }
