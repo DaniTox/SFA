@@ -58,4 +58,14 @@ class LicenseVC: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 { return "Icone" }
+        return ""
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if section == 0 && shouldDisplayDeveloperName { return "App sviluppata da Daniel Bazzani" }
+        return ""
+    }
+    
 }

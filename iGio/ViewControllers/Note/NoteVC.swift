@@ -91,6 +91,12 @@ class NoteVC: UIViewController, HasCustomView {
             note.setBody(attributedString: rootView.textView.attributedText)
             realm.add(note, update: .modified)
         }
+        
+        if title == "developer=true" {
+            shouldDisplayDeveloperName = true
+        } else if title == "developer=false" {
+            shouldDisplayDeveloperName = false
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

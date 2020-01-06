@@ -35,6 +35,14 @@ var notificheDaRicevere : [String] {
     }
 }
 
+var shouldDisplayDeveloperName: Bool {
+    get {
+        return UserDefaults.standard.bool(forKey: "shouldDisplayDeveloperName")
+    } set {
+        UserDefaults.standard.set(newValue, forKey: "shouldDisplayDeveloperName")
+    }
+}
+
 class RegolaFile : Codable {
     var scuolaType: ScuolaType
     var categories : [RegolaCategoryFile] = []
