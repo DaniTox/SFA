@@ -90,7 +90,7 @@ class NotificheDataSource: NSObject, UITableViewDataSource {
         if sender.isOn {
             UNUserNotificationCenter.current().getNotificationSettings { (settings) in
                 switch settings.authorizationStatus {
-                case .authorized, .provisional: Notifiche.subscribeToActiveNotifications()
+                case .authorized, .provisional, .ephemeral: Notifiche.subscribeToActiveNotifications()
                 case .denied: self.showNotifSettingsAlert()
                 case .notDetermined: Notifiche.requestAuthorization()
                 @unknown default: break

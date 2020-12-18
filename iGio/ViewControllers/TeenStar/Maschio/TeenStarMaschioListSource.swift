@@ -84,7 +84,7 @@ class TeenStarMaschioListSource: NSObject, UITableViewDataSource, DZNEmptyDataSe
         }
     }
     
-    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
         let str = "TeenSTAR"
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]
         return NSAttributedString(string: str, attributes: attrs)

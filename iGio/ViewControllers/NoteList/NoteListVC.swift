@@ -82,7 +82,7 @@ extension NoteListVC : DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
         let str = "Diario"
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]
         return NSAttributedString(string: str, attributes: attrs)
@@ -94,11 +94,11 @@ extension NoteListVC : DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
         return NSAttributedString(string: str, attributes: attrs)
     }
     
-    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControl.State) -> NSAttributedString! {
+    func buttonTitle(forEmptyDataSet scrollView: UIScrollView, for state: UIControl.State) -> NSAttributedString? {
         return NSAttributedString(string: "Crea")
     }
     
-    func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
+    func emptyDataSet(_ scrollView: UIScrollView, didTap button: UIButton) {
         addButtonPressed()
     }
     

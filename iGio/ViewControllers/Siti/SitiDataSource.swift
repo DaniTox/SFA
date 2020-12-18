@@ -73,7 +73,7 @@ class SitiDataSource : NSObject, UITableViewDataSource, DZNEmptyDataSetSource {
         return cell
     }
     
-    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
         let str = "Attenzione!"
         let attrs = [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .headline)]
         return NSAttributedString(string: str, attributes: attrs)
