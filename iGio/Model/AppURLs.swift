@@ -25,7 +25,7 @@ public enum RequestType: String, Codable {
 
 struct AppURL {
     #if DEBUG
-    static let hostname = "http://192.168.1.5/iGio-Server"
+    static let hostname = "http://igioapp.altervista.org/iGio-Server"
     #else
     static let hostname = "http://igioapp.altervista.org/iGio-Server"
     #endif

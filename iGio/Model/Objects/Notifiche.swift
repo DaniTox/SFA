@@ -8,7 +8,7 @@
 
 import Foundation
 import OneSignal
-
+import UIKit.UIApplication
 
 class Notifiche {
     
@@ -95,14 +95,13 @@ class Notifiche {
     }
     
     static var userDismissedNotifications: Bool {
-        let status: OSPermissionSubscriptionState = OneSignal.getPermissionSubscriptionState()
-        return status.subscriptionStatus.subscribed
+        OneSignal.getDeviceState()?.isSubscribed ?? false
     }
     
     static func requestAuthorization() {
-        OneSignal.promptForPushNotifications { (accepted) in
-            OneSignal.setSubscription(true)
-        }
+        OneSignal.promptForPushNotifications(userResponse: { (accepted) in
+            
+        }, fallbackToSettings: true)
     }
     
     static func subscribeToActiveNotifications() {
@@ -132,7 +131,10 @@ class Notifiche {
     }
     
     static func openSettings() {
-        OneSignal.presentAppSettings()
+        guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
     }
     
     static func updateStatus() {

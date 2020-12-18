@@ -43,15 +43,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        print(realm.configuration.fileURL ?? "")
         
         
-        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
+//        let onesignalInitSettings = [kOSSettingsKeyAutoPrompt: false]
         
         // Replace 'YOUR_APP_ID' with your OneSignal App ID.
-        OneSignal.initWithLaunchOptions(launchOptions,
-                                        appId: "12f00e07-ae2d-45a2-9ff0-17cdbedd864b",
-                                        handleNotificationAction: nil,
-                                        settings: onesignalInitSettings)
+        OneSignal.initWithLaunchOptions(launchOptions)
+        OneSignal.setAppId("12f00e07-ae2d-45a2-9ff0-17cdbedd864b")
         
-        OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification;
+//        OneSignal.inFocusDisplayType = OSNotificationDisplayType.notification;
         
         // Recommend moving the below line to prompt for push after informing the user about
         //   how your app will use them.

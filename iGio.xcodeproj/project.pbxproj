@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44BCBF03258B52AA00286AC8 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 44BCBF02258B52AA00286AC8 /* RealmSwift */; };
+		44BCBF05258B52AA00286AC8 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 44BCBF04258B52AA00286AC8 /* Realm */; };
+		44BCBF0F258CCF5500286AC8 /* SwiftEntryKit in Frameworks */ = {isa = PBXBuildFile; productRef = 44BCBF0E258CCF5500286AC8 /* SwiftEntryKit */; };
+		44BCBF14258CD01D00286AC8 /* DZNEmptyDataSet in Frameworks */ = {isa = PBXBuildFile; productRef = 44BCBF13258CD01D00286AC8 /* DZNEmptyDataSet */; };
+		44BCBF19258CDA9100286AC8 /* ColorSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 44BCBF18258CDA9100286AC8 /* ColorSlider */; };
+		44CDD58F258D6AA6008DB300 /* OneSignal in Frameworks */ = {isa = PBXBuildFile; productRef = 44CDD58E258D6AA6008DB300 /* OneSignal */; };
 		DB0D49EC21DFF13000887D3B /* SettingsUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D49EB21DFF13000887D3B /* SettingsUserCell.swift */; };
 		DB14AF6522C810B800B9F3B3 /* SocialStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14AF6422C810B800B9F3B3 /* SocialStack.swift */; };
 		DB19C67F21E2870B0020357D /* VerificaCompagniaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB19C67E21E2870B0020357D /* VerificaCompagniaVC.swift */; };
@@ -30,7 +36,6 @@
 		DB323B15223D521300116FE3 /* SitoWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB323B14223D521300116FE3 /* SitoWeb.swift */; };
 		DB32449422469AD100116FE3 /* TeenStarMaschioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB32449322469AD100116FE3 /* TeenStarMaschioCell.swift */; };
 		DB325EE121D5033C009ADEFC /* RotationLogicNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB325EE021D5033C009ADEFC /* RotationLogicNavigationController.swift */; };
-		DB3481E622CD57220091870F /* OneSignal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB3481E522CD57220091870F /* OneSignal.framework */; };
 		DB4DAC552260FFF700730B2A /* regolaBiennio.json in Resources */ = {isa = PBXBuildFile; fileRef = DB4DAC542260FFF700730B2A /* regolaBiennio.json */; };
 		DB4DAC59226124B300730B2A /* regolaMedie.json in Resources */ = {isa = PBXBuildFile; fileRef = DB4DAC58226124B300730B2A /* regolaMedie.json */; };
 		DB4DFBC72272662000FAF396 /* verificaBiennio.json in Resources */ = {isa = PBXBuildFile; fileRef = DB4DFBC62272662000FAF396 /* verificaBiennio.json */; };
@@ -85,12 +90,6 @@
 		DB8B4E08227D911000AFF716 /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8B4E07227D911000AFF716 /* InfoVC.swift */; };
 		DB8B4E0A227D912A00AFF716 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8B4E09227D912A00AFF716 /* InfoView.swift */; };
 		DB8B4E0C227D962E00AFF716 /* welcomeText.rtf in Resources */ = {isa = PBXBuildFile; fileRef = DB8B4E0B227D962E00AFF716 /* welcomeText.rtf */; };
-		DB8B860B224AA5A000C58055 /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC7F4E12219B8DE00C22945 /* DZNEmptyDataSet.framework */; };
-		DB8B8611224AA5A000C58055 /* ColorSlider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8B860C224AA5A000C58055 /* ColorSlider.framework */; };
-		DB8B8612224AA5A000C58055 /* SwiftEntryKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8B860D224AA5A000C58055 /* SwiftEntryKit.framework */; };
-		DB8B8613224AA5A000C58055 /* QuickLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8B860E224AA5A000C58055 /* QuickLayout.framework */; };
-		DB8B8614224AA5A000C58055 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8B860F224AA5A000C58055 /* RealmSwift.framework */; };
-		DB8B8615224AA5A000C58055 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8B8610224AA5A000C58055 /* Realm.framework */; };
 		DB8B8617224D1E7300C58055 /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8B8616224D1E7300C58055 /* DatePickerCell.swift */; };
 		DB9846F5227F2FBC0033D12F /* GioProListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9846F4227F2FBC0033D12F /* GioProListVC.swift */; };
 		DB9846F7227F2FD50033D12F /* GioProEditorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9846F6227F2FD50033D12F /* GioProEditorVC.swift */; };
@@ -382,14 +381,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB8B8611224AA5A000C58055 /* ColorSlider.framework in Frameworks */,
 				DBFB2F1823AC22A2001027D3 /* DXNetworkManager in Frameworks */,
-				DB8B8612224AA5A000C58055 /* SwiftEntryKit.framework in Frameworks */,
-				DB8B8613224AA5A000C58055 /* QuickLayout.framework in Frameworks */,
-				DB8B8614224AA5A000C58055 /* RealmSwift.framework in Frameworks */,
-				DB8B8615224AA5A000C58055 /* Realm.framework in Frameworks */,
-				DB8B860B224AA5A000C58055 /* DZNEmptyDataSet.framework in Frameworks */,
-				DB3481E622CD57220091870F /* OneSignal.framework in Frameworks */,
+				44BCBF03258B52AA00286AC8 /* RealmSwift in Frameworks */,
+				44BCBF05258B52AA00286AC8 /* Realm in Frameworks */,
+				44BCBF0F258CCF5500286AC8 /* SwiftEntryKit in Frameworks */,
+				44CDD58F258D6AA6008DB300 /* OneSignal in Frameworks */,
+				44BCBF19258CDA9100286AC8 /* ColorSlider in Frameworks */,
+				44BCBF14258CD01D00286AC8 /* DZNEmptyDataSet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1018,7 +1016,6 @@
 				DBAF3BFA219C9019003083EA /* Sources */,
 				DBAF3BFB219C9019003083EA /* Frameworks */,
 				DBAF3BFC219C9019003083EA /* Resources */,
-				DB8EC01621EE4475003B2A81 /* ShellScript */,
 				DBF18F4522D0C0A1007F6462 /* Embed App Extensions */,
 			);
 			buildRules = (
@@ -1028,6 +1025,12 @@
 			name = iGio;
 			packageProductDependencies = (
 				DBFB2F1723AC22A2001027D3 /* DXNetworkManager */,
+				44BCBF02258B52AA00286AC8 /* RealmSwift */,
+				44BCBF04258B52AA00286AC8 /* Realm */,
+				44BCBF0E258CCF5500286AC8 /* SwiftEntryKit */,
+				44BCBF13258CD01D00286AC8 /* DZNEmptyDataSet */,
+				44BCBF18258CDA9100286AC8 /* ColorSlider */,
+				44CDD58E258D6AA6008DB300 /* OneSignal */,
 			);
 			productName = SFA;
 			productReference = DBAF3BFE219C9019003083EA /* iGio.app */;
@@ -1087,6 +1090,11 @@
 			mainGroup = DBAF3BF5219C9019003083EA;
 			packageReferences = (
 				DBFB2F1623AC22A2001027D3 /* XCRemoteSwiftPackageReference "DXNetworkManager" */,
+				44BCBF01258B52AA00286AC8 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				44BCBF0D258CCF5500286AC8 /* XCRemoteSwiftPackageReference "SwiftEntryKit" */,
+				44BCBF12258CD01D00286AC8 /* XCRemoteSwiftPackageReference "DZNEmptyDataSet" */,
+				44BCBF17258CDA9100286AC8 /* XCRemoteSwiftPackageReference "ColorSlider" */,
+				44CDD58D258D6AA6008DB300 /* XCRemoteSwiftPackageReference "OneSignal-iOS-SDK" */,
 			);
 			productRefGroup = DBAF3BFF219C9019003083EA /* Products */;
 			projectDirPath = "";
@@ -1126,33 +1134,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		DB8EC01621EE4475003B2A81 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Frameworks/Carthage/Build/iOS/ColorSlider.framework",
-				"$(SRCROOT)/Frameworks/Carthage/Build/iOS/DZNEmptyDataSet.framework",
-				"$(SRCROOT)/Frameworks/Carthage/Build/iOS/RealmSwift.framework",
-				"$(SRCROOT)/Frameworks/Carthage/Build/iOS/Realm.framework",
-				"$(SRCROOT)/Frameworks/Carthage/Build/iOS/QuickLayout.framework",
-				"$(SRCROOT)/Frameworks/Carthage/Build/iOS/SwiftEntryKit.framework",
-				"$(SRCROOT)/Frameworks/Carthage/Build/iOS/OneSignal.framework",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DBAF3BFA219C9019003083EA /* Sources */ = {
@@ -1460,13 +1441,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MGS.entitlements;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = B4GPL3WMR5;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
-					"$(PROJECT_DIR)/Frameworks/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/iGio/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1474,9 +1455,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.salesiani-ile.igio";
+				PRODUCT_BUNDLE_IDENTIFIER = com.danxnu.igio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = iGio_Provisioning_Profile;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1487,13 +1468,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MGS.entitlements;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = B4GPL3WMR5;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
-					"$(PROJECT_DIR)/Frameworks/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/iGio/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1501,9 +1482,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.salesiani-ile.igio";
+				PRODUCT_BUNDLE_IDENTIFIER = com.danxnu.igio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = iGio_Provisioning_Profile;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1592,6 +1573,46 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		44BCBF01258B52AA00286AC8 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.5.0;
+			};
+		};
+		44BCBF0D258CCF5500286AC8 /* XCRemoteSwiftPackageReference "SwiftEntryKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/huri000/SwiftEntryKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.6;
+			};
+		};
+		44BCBF12258CD01D00286AC8 /* XCRemoteSwiftPackageReference "DZNEmptyDataSet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dzenbot/DZNEmptyDataSet";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		44BCBF17258CDA9100286AC8 /* XCRemoteSwiftPackageReference "ColorSlider" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danXNU/ColorSlider";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		44CDD58D258D6AA6008DB300 /* XCRemoteSwiftPackageReference "OneSignal-iOS-SDK" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OneSignal/OneSignal-iOS-SDK";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.1;
+			};
+		};
 		DBFB2F1623AC22A2001027D3 /* XCRemoteSwiftPackageReference "DXNetworkManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/DaniTox/DXNetworkManager.git";
@@ -1603,6 +1624,36 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		44BCBF02258B52AA00286AC8 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44BCBF01258B52AA00286AC8 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+		44BCBF04258B52AA00286AC8 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44BCBF01258B52AA00286AC8 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		44BCBF0E258CCF5500286AC8 /* SwiftEntryKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44BCBF0D258CCF5500286AC8 /* XCRemoteSwiftPackageReference "SwiftEntryKit" */;
+			productName = SwiftEntryKit;
+		};
+		44BCBF13258CD01D00286AC8 /* DZNEmptyDataSet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44BCBF12258CD01D00286AC8 /* XCRemoteSwiftPackageReference "DZNEmptyDataSet" */;
+			productName = DZNEmptyDataSet;
+		};
+		44BCBF18258CDA9100286AC8 /* ColorSlider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44BCBF17258CDA9100286AC8 /* XCRemoteSwiftPackageReference "ColorSlider" */;
+			productName = ColorSlider;
+		};
+		44CDD58E258D6AA6008DB300 /* OneSignal */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44CDD58D258D6AA6008DB300 /* XCRemoteSwiftPackageReference "OneSignal-iOS-SDK" */;
+			productName = OneSignal;
+		};
 		DBFB2F1723AC22A2001027D3 /* DXNetworkManager */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DBFB2F1623AC22A2001027D3 /* XCRemoteSwiftPackageReference "DXNetworkManager" */;

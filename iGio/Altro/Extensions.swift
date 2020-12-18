@@ -45,7 +45,7 @@ extension UIViewController {
     func showError(withTitle title: String, andMessage message : String) {
         DispatchQueue.main.async {
             var attributes = EKAttributes.topNote
-            attributes.entryBackground = .color(color: .red)
+            attributes.entryBackground = .color(color: EKColor.init(.red))
             attributes.popBehavior = .animated(animation: .init(translate: .init(duration: 0.3), scale: .init(from: 1, to: 0.7, duration: 0.7)))
             attributes.displayDuration = 3.5
 

@@ -29,7 +29,7 @@ class ColorSliderAlert: UIView {
     }()
     
     lazy var colorSlider : ColorSlider = {
-        let slider = ColorSlider(orientation: Orientation.horizontal)
+        let slider = ColorSlider(orientation: Orientation.horizontal, previewSide: .top)
         slider.translatesAutoresizingMaskIntoConstraints = false
         return slider
     }()
