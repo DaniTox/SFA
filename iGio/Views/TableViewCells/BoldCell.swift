@@ -50,12 +50,8 @@ class BoldCell: UITableViewCell {
         selectionStyle = .none
         containerView.addSubview(mainLabel)
         containerView.addSubview(rightBottomLabel)
-        if UIDevice.current.deviceType == .pad {
-            contentView.addSubview(containerView)
-        } else {
-            addSubview(containerView)
-        }
         
+        contentView.addSubview(containerView)
     }
     
     override func layoutSubviews() {
