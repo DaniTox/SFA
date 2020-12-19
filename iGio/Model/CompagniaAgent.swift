@@ -17,6 +17,20 @@ class CompagniaAgent {
         case triennio = "verificaTriennio"
     }
     
+    public func convertRealmToJSON() {
+        let realm = try! Realm()
+        
+        var risposteFile = CompagniaRisposteFile()
+        
+        for type in ScuolaType.allCases {
+            let allRegole = realm.objects(VerificaCompagnia.self).filter(NSPredicate(format: "scuolaTypeID == %d", type.rawValue))
+            if allRegole.isEmpty { continue }
+            guard let firstRegola = allRegole.first else { continue }
+            
+            
+        }
+    }
+    
     public func createIfNotPresent() {
         let realm = try! Realm()
         
@@ -82,4 +96,8 @@ class CompagniaFile : Codable {
 class CompagniaCategoriaFile : Codable {
     var nome : String
     var domande : [String]
+}
+
+class CompagniaRisposteFile: Codable {
+    var risposte: [ScuolaType : [String]] = [:]
 }

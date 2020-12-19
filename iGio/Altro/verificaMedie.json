@@ -1,62 +1,149 @@
 {
-    "scuolaType" : 1,
-	"categorie" : [
-		{
-			"nome" : "Presenza e partecipazione; impegno e interesse; cura della Casa",
-			"domande" : [
-                "Ho saputo rispettare gli orari e i tempi stabiliti?",
-                "Ho avvertito impegno e interesse per il percorso e le attività proposte?",
-                "Ho saputo accettare la ripartizione del lavoro e le attività specifiche assegnatemi?",
-                "Ho utilizzato in modo appropriato le risorse (materiali, attrezzature e strumenti, documenti, spazi, strutture)?",
-                "Ho mantenuto uno stile educato e rispettoso di persone e ambienti?"
-			]
-        }, 
+    "schoolType": 1,
+    "categorie": [
         {
-            "nome" : "Equilibrio tra le esperienze formative e le esigenze scolastiche",
-            "domande" : [
-                "Sono riuscito a confrontarmi e a interagire con i responsabili dei settori per ottenere consigli e pareri? Ho avuto timore di parlare con salesiani, educatori e professori? Sono stato sincero nel colloquio? Ho usato la scusa delle attività formative per manipolare compiti e verifiche?",
-                "Ho usato criteri trasparenti, stabili e coerenti nello scegliere le priorità da seguire?",
-                "Ho saputo comunicare le mie decisioni ai responsabili tempestivamente? L’ho fatto di persona o via social? Sono stato sincero o ho detto scuse? Ho atteso di essere sollecitato o ho preso io l’iniziativa di confrontarmi?",
-                "Sono stato capace di fare scelte alla luce di motivazioni profonde?"
+            "name": "Presenza e partecipazione; impegno e interesse; cura della Casa",
+            "id": "2dd2c249-614b-44ac-8044-8a1bbfcc4ad6",
+            "domande": [
+                {
+                    "id": "65a92f55-7974-481c-9c84-468a22549d0a",
+                    "str": "Ho saputo rispettare gli orari e i tempi stabiliti?"
+                },
+                {
+                    "id": "71a8d304-b770-4f7b-a2be-cde813d0d73a",
+                    "str": "Ho avvertito impegno e interesse per il percorso e le attività proposte?"
+                },
+                {
+                    "id": "19260c17-e42f-4699-9e9c-03a1af4ef456",
+                    "str": "Ho saputo accettare la ripartizione del lavoro e le attività specifiche assegnatemi?"
+                },
+                {
+                    "id": "01573b18-dd91-4cab-a987-6adc00f06c79",
+                    "str": "Ho utilizzato in modo appropriato le risorse (materiali, attrezzature e strumenti, documenti, spazi, strutture)?"
+                },
+                {
+                    "id": "c02666ce-257b-403a-8962-2d3389caad8a",
+                    "str": "Ho mantenuto uno stile educato e rispettoso di persone e ambienti?"
+                }
             ]
         },
         {
-            "nome" : "Crescita nella proposta formativa",
-            "domande" : [
-                "Sono consapevole del percorso formativo in cui sono stato coinvolto? Saprei verificarne lo sviluppo e chiedere aiuto nel caso qualche passaggio mi fosse poco chiaro?",
-                "Mi sento capace di usare le conoscenze e competenze in modo autonomo e creativo? Ciò che ho appreso nella formazione mi è tornato utile nel quotidiano o nelle varie attività formative?",
-                "Nelle scelte quotidiane riesco ad essere coerente con la formazione ricevuta? Ho saputo fare scelte di coraggio per testimoniare tale formazione?"
+            "name": "Equilibrio tra le esperienze formative e le esigenze scolastiche",
+            "id": "2dd48d3a-8bb5-48a2-9bb9-4369b1404359",
+            "domande": [
+                {
+                    "id": "a2657ec0-6c97-487d-8449-59d9a106442f",
+                    "str": "Sono riuscito a confrontarmi e a interagire con i responsabili dei settori per ottenere consigli e pareri? Ho avuto timore di parlare con salesiani, educatori e professori? Sono stato sincero nel colloquio? Ho usato la scusa delle attività formative per manipolare compiti e verifiche?"
+                },
+                {
+                    "id": "5a0d1f8b-33e2-4ba0-8863-40c5fb3bb343",
+                    "str": "Ho usato criteri trasparenti, stabili e coerenti nello scegliere le priorità da seguire?"
+                },
+                {
+                    "id": "93d317bf-0243-4fcf-b282-298f2d3da59f",
+                    "str": "Ho saputo comunicare le mie decisioni ai responsabili tempestivamente? L’ho fatto di persona o via social? Sono stato sincero o ho detto scuse? Ho atteso di essere sollecitato o ho preso io l’iniziativa di confrontarmi?"
+                },
+                {
+                    "id": "393d1ce9-4935-4c1e-a776-2199144c9285",
+                    "str": "Sono stato capace di fare scelte alla luce di motivazioni profonde?"
+                }
             ]
         },
         {
-            "nome" : "Impegno comunitario e vita di gruppo",
-            "domande" : [
-                "Mi sono trovato a mio agio con il resto della Compagnia o mi sono sentito isolato e fuori posto?",
-                "Ho saputo esprimere il mio contributo nel gruppo, rispettando idee e apporti degli altri soci della Compagnia?",
-                "Sono riuscito a coltivare relazioni positive con i soci della Compagnia anche al di fuori dai momenti di attività programmata?",
-                "Ho saputo mostrarmi accogliente coi nuovi soci della Compagnia? Sono riuscito a coinvolgerne di altri?"
+            "name": "Crescita nella proposta formativa",
+            "id": "944c62bb-aef4-4e95-bca2-062b6f82e506",
+            "domande": [
+                {
+                    "id": "94f4f283-ee10-41d5-9d1a-8ead6246a85c",
+                    "str": "Sono consapevole del percorso formativo in cui sono stato coinvolto? Saprei verificarne lo sviluppo e chiedere aiuto nel caso qualche passaggio mi fosse poco chiaro?"
+                },
+                {
+                    "id": "9f9ecd24-d0ab-45ce-9033-ae9b2ccb2c98",
+                    "str": "Mi sento capace di usare le conoscenze e competenze in modo autonomo e creativo? Ciò che ho appreso nella formazione mi è tornato utile nel quotidiano o nelle varie attività formative?"
+                },
+                {
+                    "id": "ce5ee983-f318-4db8-8dd3-041e726033db",
+                    "str": "Nelle scelte quotidiane riesco ad essere coerente con la formazione ricevuta? Ho saputo fare scelte di coraggio per testimoniare tale formazione?"
+                }
             ]
         },
         {
-            "nome" : "Disponibilità al servizio per gli altri",
-            "domande" : [
-                "Mi sono reso disponibile a svolgere lavori e servizi su indicazione dei responsabili?",
-                "Mi sono accorto dei bisogni dell’ambiente? Me ne sono fatto carico?",
-                "Ho preso l’iniziativa per andare in aiuto di situazioni o bisogni imprevisti?",
-                "Ho avuto lo spirito di iniziativa per informarmi sui bisogni della Compagnia e dell’ambiente?"
+            "name": "Impegno comunitario e vita di gruppo",
+            "id": "001aae63-ef8b-4b88-9503-b0ed80a0306a",
+            "domande": [
+                {
+                    "id": "b245f261-f814-43a0-b27e-deaa88fba414",
+                    "str": "Mi sono trovato a mio agio con il resto della Compagnia o mi sono sentito isolato e fuori posto?"
+                },
+                {
+                    "id": "38af4c29-9d23-4490-8b1b-754c6d8497b9",
+                    "str": "Ho saputo esprimere il mio contributo nel gruppo, rispettando idee e apporti degli altri soci della Compagnia?"
+                },
+                {
+                    "id": "9da459a7-afcd-4eba-a7b4-0ead6f400f36",
+                    "str": "Sono riuscito a coltivare relazioni positive con i soci della Compagnia anche al di fuori dai momenti di attività programmata?"
+                },
+                {
+                    "id": "aeabd0db-720d-4d9c-b87a-c94a2086282c",
+                    "str": "Ho saputo mostrarmi accogliente coi nuovi soci della Compagnia? Sono riuscito a coinvolgerne di altri?"
+                }
             ]
         },
         {
-            "nome" : "Autonomia e spirito di iniziativa secondo lo stile salesiano di d. Bosco",
-            "domande" : [
-                "Inizio a condividere e padroneggiare ragionamenti e prospettive tipiche dello stile salesiano?",
-                "Riesco ad accettare consegne extra e piccoli compiti di responsabilità verso i più giovani, in continuità con il percorso di formazione ricevuto?",
-                "So accorgermi e preoccuparmi delle necessità dell’ambiente e delle persone attorno a me, soprattutto dei giovani più in difficoltà?",
-                "Ho saputo offrirmi per sgravare impegni altrui o per avviare nuove esperienze, assumendomene la responsabilità in dialogo con i referenti educatori e salesiani?",
-                "Riesco a mettere a disposizione tempi, spazi e risorse personali per la causa salesiana?",
-                "Sto crescendo nel confronto personale con i sacerdoti e i consacrati salesiani della Casa?",
-                "Mi sono mai interrogato circa lo spazio e il senso da concedere nella mia vita agli elementi del carisma salesiano? Cosa a che fare con me il carisma salesiano? In che modo mi tocca la vocazione salesiana?"
+            "name": "Disponibilità al servizio per gli altri",
+            "id": "1261d715-0b19-4ae0-bf36-ef49c5e844fa",
+            "domande": [
+                {
+                    "id": "ef80b3b5-2c23-457c-b5e6-05d714d628fa",
+                    "str": "Mi sono reso disponibile a svolgere lavori e servizi su indicazione dei responsabili?"
+                },
+                {
+                    "id": "fac30b31-59a6-4f23-9f3c-be21ec0d4034",
+                    "str": "Mi sono accorto dei bisogni dell’ambiente? Me ne sono fatto carico?"
+                },
+                {
+                    "id": "64c0ee8e-0bea-4664-a83a-c9ae56d18b14",
+                    "str": "Ho preso l’iniziativa per andare in aiuto di situazioni o bisogni imprevisti?"
+                },
+                {
+                    "id": "ffd206f4-b6b5-4b54-bc45-d1ffcf5d7b79",
+                    "str": "Ho avuto lo spirito di iniziativa per informarmi sui bisogni della Compagnia e dell’ambiente?"
+                }
+            ]
+        },
+        {
+            "name": "Autonomia e spirito di iniziativa secondo lo stile salesiano di d. Bosco",
+            "id": "2cf3329a-83a0-4330-b159-1b8bf3d507bd",
+            "domande": [
+                {
+                    "id": "4adb4a42-d79d-4d4a-958b-984300b5734b",
+                    "str": "Inizio a condividere e padroneggiare ragionamenti e prospettive tipiche dello stile salesiano?"
+                },
+                {
+                    "id": "75e71817-bac6-4cab-94b3-14cb0b55484f",
+                    "str": "Riesco ad accettare consegne extra e piccoli compiti di responsabilità verso i più giovani, in continuità con il percorso di formazione ricevuto?"
+                },
+                {
+                    "id": "7b880b57-5631-4854-9251-1b3d1cc9ea9f",
+                    "str": "So accorgermi e preoccuparmi delle necessità dell’ambiente e delle persone attorno a me, soprattutto dei giovani più in difficoltà?"
+                },
+                {
+                    "id": "8ce49d3c-eabb-4c77-a834-46c207710395",
+                    "str": "Ho saputo offrirmi per sgravare impegni altrui o per avviare nuove esperienze, assumendomene la responsabilità in dialogo con i referenti educatori e salesiani?"
+                },
+                {
+                    "id": "23f28ee3-1048-4d69-b4ed-afa9395a627e",
+                    "str": "Riesco a mettere a disposizione tempi, spazi e risorse personali per la causa salesiana?"
+                },
+                {
+                    "id": "e2a35d5b-8d9d-43d3-8f05-ff415755e21b",
+                    "str": "Sto crescendo nel confronto personale con i sacerdoti e i consacrati salesiani della Casa?"
+                },
+                {
+                    "id": "a62802b6-266b-4398-9e82-b9985a04953a",
+                    "str": "Mi sono mai interrogato circa lo spazio e il senso da concedere nella mia vita agli elementi del carisma salesiano? Cosa a che fare con me il carisma salesiano? In che modo mi tocca la vocazione salesiana?"
+                }
             ]
         }
-	] 
+    ]
 }

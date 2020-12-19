@@ -15,6 +15,14 @@ let GENDER_KEY = "gender"
 let GRADOSCUOLA_KEY = "gradoScuola"
 
 
+var isRealmToJSONConversionDone: Bool {
+    get {
+        return UserDefaults.standard.bool(forKey: "isRealmToJSONConversionDone")
+    } set {
+        UserDefaults.standard.set(newValue, forKey: "isRealmToJSONConversionDone")
+    }
+}
+
 var isAlreadyLaunched : Bool {
     get {
         return UserDefaults.standard.bool(forKey: IS_FIRST_LAUNCH)
