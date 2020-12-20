@@ -15,11 +15,11 @@ let GENDER_KEY = "gender"
 let GRADOSCUOLA_KEY = "gradoScuola"
 
 
-var isRealmToJSONConversionDone: Bool {
+var isVerificaRealmToJSONConversionDone: Bool {
     get {
-        return UserDefaults.standard.bool(forKey: "isRealmToJSONConversionDone")
+        return UserDefaults.standard.bool(forKey: "isVerificaRealmToJSONConversionDone")
     } set {
-        UserDefaults.standard.set(newValue, forKey: "isRealmToJSONConversionDone")
+        UserDefaults.standard.set(newValue, forKey: "isVerificaRealmToJSONConversionDone")
     }
 }
 

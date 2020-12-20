@@ -10,21 +10,25 @@ import UIKit
 import RealmSwift
 
 class CompagniaDomandaCell: UITableViewCell {
-    
 
     public var valueChanged : ((Int) -> Void)?
-    public var domanda: VerificaDomanda! {
+    public var domanda: CompagniaDomandeFile.CompagniaDomanda! {
         didSet {
             guard domanda != nil else { return }
             DispatchQueue.main.async {
-                self.mainLabel.text = self.domanda.domanda
-                if self.domanda.risposta < 0 { return }
-                self.slider.value = Float(self.domanda.risposta)
+                self.mainLabel.text = self.domanda.str
+            }
+        }
+    }
+    public var risposta: Int! {
+        didSet {
+            if risposta < 0 { return }
+            DispatchQueue.main.async {
+                self.slider.value = Float(self.risposta)
                 self.sliderLabel.text = "\(Int(self.slider.value))"
                 
-                let integerValue = self.domanda.risposta
-                self.slider.setThumbImage(self.getThumbImage(from: integerValue), for: .normal)
-                self.slider.setThumbImage(self.getThumbImage(from: integerValue), for: .highlighted)
+                self.slider.setThumbImage(self.getThumbImage(from: self.risposta), for: .normal)
+                self.slider.setThumbImage(self.getThumbImage(from: self.risposta), for: .highlighted)
             }
         }
     }
@@ -113,10 +117,10 @@ class CompagniaDomandaCell: UITableViewCell {
         self.slider.setThumbImage(self.getThumbImage(from: integerValue), for: .highlighted)
         
         self.valueChanged?(Int(sender.value))
-        let realm = try! Realm()
-        try? realm.write {
-            self.domanda.risposta = Int(sender.value)
-        }
+//        let realm = try! Realm()
+//        try? realm.write {
+//            self.domanda.risposta = Int(sender.value)
+//        }
     }
     
     override func layoutSubviews() {

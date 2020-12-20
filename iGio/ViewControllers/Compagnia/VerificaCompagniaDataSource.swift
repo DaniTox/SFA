@@ -16,43 +16,47 @@ import RealmSwift
 
 class VerificaCompagniaDataSource : NSObject, UITableViewDataSource {
     
-    public var verifica : VerificaCompagnia
+    private var domandeFile: CompagniaDomandeFile
+    private var risposteFile: CompagniaRisposteFile
+    
     private var model : CompagniaAgent
-    
-    private var storage = List<VerificaCategoria>()
-    
+        
     init(scuolaType: ScuolaType) {
         self.model = CompagniaAgent()
-        self.verifica = model.getLatestVerifica(of: scuolaType)!
-        
-        self.storage = self.verifica.categorie
+        self.domandeFile = CompagniaDomandeFile.get(for: scuolaType)!
+        self.risposteFile = CompagniaRisposteFile.get(for: scuolaType)
     }
     
-    func getCategoria(at index: Int) -> VerificaCategoria {
-        return self.storage[index]
+    func getCategoria(at index: Int) -> CompagniaDomandeFile.CompagniaCategoriaFile {
+        return domandeFile.categorie[index]
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storage[section].domande.count
+        return domandeFile.categorie[section].domande.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return storage.count
+        return domandeFile.categorie.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? CompagniaDomandaCell
         cell?.accessoryType = .none
-        let domanda = storage[indexPath.section].domande[indexPath.row]
+        
+        let domanda = self.domandeFile.categorie[indexPath.section].domande[indexPath.row]
         cell?.domanda = domanda
+        
+        if let risposta = self.risposteFile.risposte[domanda.id] {
+            cell?.risposta = risposta
+        }
+        
         cell?.layoutIfNeeded()
         cell?.updateConstraintsIfNeeded()
         return cell!
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let categorie = self.verifica.categorie
-        return categorie[section].name
+        self.domandeFile.categorie[section].name        
     }
     
 }

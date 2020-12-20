@@ -27,30 +27,30 @@ class VerificaCompagnia : Object {
         }
     }
     
-    static func create(from file: CompagniaFile) -> VerificaCompagnia {
-        //creo una verifica vuota in CoreData
-        let verifica = VerificaCompagnia()
-        verifica.scuolaType = file.scuolaType
-        
-        //per ogni categoria che c'è nel file, la creo in CoreData e la aggiungo alla verifica in CoreData
-        for categoria in file.categorie {
-            let cdCategoria = VerificaCategoria()
-            cdCategoria.name = categoria.nome
-            
-            //per ogni domanda nel file, creo una domanda CoreData e la aggiungo alla categoria CoreData
-            for domandaString in categoria.domande {
-                let cdDomanda = VerificaDomanda()
-                cdDomanda.domanda = domandaString
-                
-                cdCategoria.domande.append(cdDomanda)
-            }
-            
-            //qua aggiungo la categoria alla verifica come detto in precedenza
-            verifica.categorie.append(cdCategoria)
-        }
-        
-        return verifica
-    }
+//    static func create(from file: CompagniaDomandeFile) -> VerificaCompagnia {
+//        //creo una verifica vuota in CoreData
+//        let verifica = VerificaCompagnia()
+//        verifica.scuolaType = file.scuolaType
+//        
+//        //per ogni categoria che c'è nel file, la creo in CoreData e la aggiungo alla verifica in CoreData
+//        for categoria in file.categorie {
+//            let cdCategoria = VerificaCategoria()
+//            cdCategoria.name = categoria.name
+//            
+//            //per ogni domanda nel file, creo una domanda CoreData e la aggiungo alla categoria CoreData
+//            for domandaString in categoria.domande {
+//                let cdDomanda = VerificaDomanda()
+//                cdDomanda.domanda = domandaString
+//                
+//                cdCategoria.domande.append(cdDomanda)
+//            }
+//            
+//            //qua aggiungo la categoria alla verifica come detto in precedenza
+//            verifica.categorie.append(cdCategoria)
+//        }
+//        
+//        return verifica
+//    }
 }
 
 class VerificaCategoria : Object {

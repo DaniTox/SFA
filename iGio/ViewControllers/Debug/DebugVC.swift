@@ -68,7 +68,7 @@ class DebugVC : UITableViewController {
         case 2:
             let agent = CompagniaAgent()
             agent.removeAll()
-            agent.createIfNotPresent()
+//            agent.createIfNotPresent()
             
             self.showError(withTitle: "Completato", andMessage: "Percorso formativo resettato")
         case 3:
