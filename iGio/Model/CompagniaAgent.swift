@@ -67,19 +67,7 @@ class CompagniaAgent {
             realm.delete(allObjects)
         }
     }
-    
-    public func getLatestVerifica(of type: ScuolaType) -> VerificaCompagnia? {
-        let realm = try! Realm()
-        
-        let verifiche = realm.objects(VerificaCompagnia.self).filter(NSPredicate(format: "scuolaTypeID == %d", type.rawValue))
-        if let verifica = verifiche.first {
-            return verifica
-        } else {
-            print("Errore verifica database")
-        }
-        return nil
-    }
-    
+
 }
 
 class CompagniaDomandeFile : Codable {
