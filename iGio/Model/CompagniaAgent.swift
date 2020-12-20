@@ -19,9 +19,9 @@ class CompagniaAgent {
     
     func getFileName(for type: ScuolaType) -> String {
         switch type {
-        case .medie: return "verificaMedia"
+        case .medie: return "verificaMedie"
         case .biennio: return "verificaBiennio"
-        case .triennio: return "verificheTriennio"
+        case .triennio: return "verificaTriennio"
         }
     }
     
@@ -58,30 +58,7 @@ class CompagniaAgent {
             
             try? json.write(to: newURL)
         }
-        
-//        isVerificaRealmToJSONConversionDone = true
     }
-    
-//    public func createIfNotPresent() {
-//        let realm = try! Realm()
-//        
-//        for type in ScuolaType.allCases {
-//            let allRegole = realm.objects(VerificaCompagnia.self).filter(NSPredicate(format: "scuolaTypeID == %d", type.rawValue))
-//            if allRegole.count < 1 {
-//                var fileName: VerificaFileNames
-//                switch type {
-//                case .medie:
-//                    fileName = .medie
-//                case .biennio:
-//                    fileName = .biennio
-//                case .triennio:
-//                    fileName = .triennio
-//                }
-//                createCompagniaModel(fileName: fileName.rawValue)
-//            }
-//        }
-//
-//    }
     
     public func removeAll() {
         let realm = try! Realm()
@@ -91,19 +68,6 @@ class CompagniaAgent {
         }
     }
     
-//    private func createCompagniaModel(fileName: String) {
-//        let path = Bundle.main.path(forResource: fileName, ofType: "json")!
-//        let data = try! Data(contentsOf: URL(fileURLWithPath: path))
-//        let compagniaFile = try! JSONDecoder().decode(CompagniaDomandeFile.self, from: data)
-//
-//        let newCompagnia = VerificaCompagnia.create(from: compagniaFile)
-//        let realm = try! Realm()
-//        try? realm.write {
-//            realm.add(newCompagnia)
-//        }
-//    }
-    
-
     public func getLatestVerifica(of type: ScuolaType) -> VerificaCompagnia? {
         let realm = try! Realm()
         
@@ -138,14 +102,7 @@ class CompagniaDomandeFile : Codable {
         let model = CompagniaAgent()
         guard let url = Bundle.main.url(forResource: model.getFileName(for: type), withExtension: "json") else { return nil }
         guard let data = try? Data(contentsOf: url) else { return nil }
-        do {
-            let obj = try JSONDecoder().decode(CompagniaDomandeFile.self, from: data)
-            return obj
-        } catch {
-            fatalError("\(error)")
-        }
-        
-        
+        return try? JSONDecoder().decode(CompagniaDomandeFile.self, from: data)
     }
 }
 
@@ -153,14 +110,16 @@ class CompagniaRisposteFile: Codable {
     var risposte: [UUID : Int] = [:]
     
     static func get(for type: ScuolaType) -> CompagniaRisposteFile {
-        let model = CompagniaAgent()
+        let url = FileManager.getVerificaDirectory(for: type)
         
-        let urls = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)
-        let appURL = urls.first!.appendingPathComponent("Verifica")
-        let risposteURL = appURL.appendingPathComponent("risposte_\(model.getFileName(for: type)).json")
-        
-        guard let data = try? Data(contentsOf: risposteURL) else { return CompagniaRisposteFile() }
+        guard let data = try? Data(contentsOf: url) else { return CompagniaRisposteFile() }
         guard let obj = try? JSONDecoder().decode(CompagniaRisposteFile.self, from: data) else { return CompagniaRisposteFile() }
         return obj
+    }
+    
+    func save(for type: ScuolaType) {
+        let url = FileManager.getVerificaDirectory(for: type)
+        guard let data = try? JSONEncoder().encode(self) else { return }
+        try? data.write(to: url)
     }
 }

@@ -17,7 +17,7 @@ import RealmSwift
 class VerificaCompagniaDataSource : NSObject, UITableViewDataSource {
     
     private var domandeFile: CompagniaDomandeFile
-    private var risposteFile: CompagniaRisposteFile
+    public var risposteFile: CompagniaRisposteFile
     
     private var model : CompagniaAgent
         
@@ -48,6 +48,10 @@ class VerificaCompagniaDataSource : NSObject, UITableViewDataSource {
         
         if let risposta = self.risposteFile.risposte[domanda.id] {
             cell?.risposta = risposta
+        }
+        
+        cell?.valueChanged = { [weak self] newValue in
+            self?.risposteFile.risposte[domanda.id] = newValue
         }
         
         cell?.layoutIfNeeded()

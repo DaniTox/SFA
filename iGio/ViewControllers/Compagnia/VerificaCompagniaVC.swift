@@ -18,15 +18,17 @@ class VerificaCompagniaVC: UIViewController, HasCustomView {
     
     var model : CompagniaAgent = CompagniaAgent()
     var dataSource : VerificaCompagniaDataSource
+    var schoolType: ScuolaType
     
     init(type: ScuolaType) {
+        self.schoolType = type
         let model = CompagniaAgent()
         
         if isVerificaRealmToJSONConversionDone == false {
             model.convertRealmToJSON()
+            isVerificaRealmToJSONConversionDone = true
         }
         
-//        model.createIfNotPresent()
         self.dataSource = VerificaCompagniaDataSource(scuolaType: type)
         super.init(nibName: nil, bundle: nil)
     }
@@ -51,11 +53,7 @@ class VerificaCompagniaVC: UIViewController, HasCustomView {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        #warning("Save the new verifica to the json file (overwrite)")
-//        let realm = try! Realm()
-//        try? realm.write {
-//            realm.add(dataSource.verifica, update: .modified)
-//        }
+        dataSource.risposteFile.save(for: schoolType)
     }
     
 }

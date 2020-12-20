@@ -16,6 +16,7 @@
 		44CDD5AB258E52B5008DB300 /* verificaTriennio.json in Resources */ = {isa = PBXBuildFile; fileRef = 44CDD5A8258E52B5008DB300 /* verificaTriennio.json */; };
 		44CDD5AC258E52B5008DB300 /* verificaBiennio.json in Resources */ = {isa = PBXBuildFile; fileRef = 44CDD5A9258E52B5008DB300 /* verificaBiennio.json */; };
 		44CDD5AD258E52B5008DB300 /* verificaMedie.json in Resources */ = {isa = PBXBuildFile; fileRef = 44CDD5AA258E52B5008DB300 /* verificaMedie.json */; };
+		44CDD5B9258F79DB008DB300 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDD5B8258F79DB008DB300 /* FileManager+Extension.swift */; };
 		DB0D49EC21DFF13000887D3B /* SettingsUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D49EB21DFF13000887D3B /* SettingsUserCell.swift */; };
 		DB14AF6522C810B800B9F3B3 /* SocialStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14AF6422C810B800B9F3B3 /* SocialStack.swift */; };
 		DB19C67F21E2870B0020357D /* VerificaCompagniaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB19C67E21E2870B0020357D /* VerificaCompagniaVC.swift */; };
@@ -204,6 +205,7 @@
 		44CDD5A8258E52B5008DB300 /* verificaTriennio.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = verificaTriennio.json; sourceTree = "<group>"; };
 		44CDD5A9258E52B5008DB300 /* verificaBiennio.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = verificaBiennio.json; sourceTree = "<group>"; };
 		44CDD5AA258E52B5008DB300 /* verificaMedie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = verificaMedie.json; sourceTree = "<group>"; };
+		44CDD5B8258F79DB008DB300 /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
 		DB0D49EB21DFF13000887D3B /* SettingsUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUserCell.swift; sourceTree = "<group>"; };
 		DB14AF6422C810B800B9F3B3 /* SocialStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialStack.swift; sourceTree = "<group>"; };
 		DB19C67E21E2870B0020357D /* VerificaCompagniaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificaCompagniaVC.swift; sourceTree = "<group>"; };
@@ -740,6 +742,7 @@
 				DBAF3C23219C9F6A003083EA /* Extensions.swift */,
 				DBAAE2BC21A5E9DA00211CBF /* CircularThings.swift */,
 				DB4F3BBB21F5C34C0040F4C4 /* Themes.swift */,
+				44CDD5B8258F79DB008DB300 /* FileManager+Extension.swift */,
 			);
 			path = Altro;
 			sourceTree = "<group>";
@@ -1149,6 +1152,7 @@
 				DB88DBDF21A96E6F00B0699B /* HomeViewController.swift in Sources */,
 				DB9846F5227F2FBC0033D12F /* GioProListVC.swift in Sources */,
 				DB323B15223D521300116FE3 /* SitoWeb.swift in Sources */,
+				44CDD5B9258F79DB008DB300 /* FileManager+Extension.swift in Sources */,
 				DB53C78621E0F7E40001054B /* CompagniaAgent.swift in Sources */,
 				DB8B8617224D1E7300C58055 /* DatePickerCell.swift in Sources */,
 				DBD2388A22B821E400C9A2D1 /* DiocesiVC.swift in Sources */,
