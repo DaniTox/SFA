@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 import SafariServices
 import DXNetworkManager
+import SwiftUI
 
 class HomeViewController : UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
@@ -69,6 +70,7 @@ class HomeViewController : UICollectionViewController, UICollectionViewDelegateF
         case 4: showVerificaCompagniaController()
         case 5: showRegolaController()
         case 6: showRegolaController()
+        case 7: showAngeloCustode()
         default: break
         }
     }
@@ -105,6 +107,26 @@ class HomeViewController : UICollectionViewController, UICollectionViewDelegateF
             self.present(alert, animated: true)
         }
     
+    }
+    
+    @objc func showAngeloCustode() {
+        switch User.currentUser().ageScuola {
+        case .medie:
+            break
+        default:
+            if #available(iOS 14, *) {
+                let view = NavigationView { AngeloView(donePressed: dismissPresentedVC) }
+                let vc = UIHostingController(rootView: view)
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    private func dismissPresentedVC() {
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     @objc func showRegolaController() {

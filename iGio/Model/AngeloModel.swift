@@ -26,10 +26,16 @@ struct AngeloDomandeFile: Codable {
     
 }
 
-class AngeloRisposteFile: Codable {
-    var risposte: [UUID: String] = [:]
+@available(iOS 13, *)
+class AngeloRisposteFile: Codable, ObservableObject {
+    private(set) var risposte: [UUID: String] = [:]
     var paroleChecked: [UUID: Bool] = [:]
     var preghieraParola: String = ""
+    
+    func set(risposta: String, forID domandaID: UUID) {
+        self.risposte[domandaID] = risposta
+        objectWillChange.send()
+    }
     
     static func get() -> AngeloRisposteFile? {
         let fileName = "risposte_angelo.json"
@@ -46,6 +52,6 @@ class AngeloRisposteFile: Codable {
         let url = FileManager.angeloDirectory.appendingPathComponent(fileName)
         
         guard let data = try? JSONEncoder().encode(self) else { return }
-        try? data.write(to: url)        
+        try? data.write(to: url)
     }
 }

@@ -25,6 +25,7 @@ let allHomeItems: [HomeItem] = [
     HomeItem(idNumber: 3, name: "Agenda dell'allegria e della santità", image: #imageLiteral(resourceName: "airplane"), color: .darkGreen, allowedAge: [.medie], allowedGenders: UserGender.allCases), //✅
     HomeItem(idNumber: 4, name: "Il mio percorso formativo", image: #imageLiteral(resourceName: "search"), color: .orange, allowedAge: [.medie, .biennio, .triennio], allowedGenders: UserGender.allCases), //✅
     HomeItem(idNumber: 5, name: "Il progetto delle 3S", image: #imageLiteral(resourceName: "airplane"), color: .darkGreen, allowedAge: [.biennio], allowedGenders: UserGender.allCases), //✅
-    HomeItem(idNumber: 6, name: "Regola di Vita", image: #imageLiteral(resourceName: "airplane"), color: .darkGreen, allowedAge: [.triennio], allowedGenders: UserGender.allCases) //✅
+    HomeItem(idNumber: 6, name: "Regola di Vita", image: #imageLiteral(resourceName: "airplane"), color: .darkGreen, allowedAge: [.triennio], allowedGenders: UserGender.allCases), //✅
+    HomeItem(idNumber: 7, name: "Angelo Custode", image: UIImage(named: "angel"), color: .purple, allowedAge: ScuolaType.allCases, allowedGenders: UserGender.allCases)
 ]
 
