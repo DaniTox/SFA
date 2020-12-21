@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 
+//Compagnia è il vecchio nome per Percorso Formativo
 class CompagniaAgent {
     
     enum VerificaFileNames: String, CaseIterable {
