@@ -20,4 +20,13 @@ extension FileManager {
         
         return appURL.appendingPathComponent(fileName)
     }
+    
+    static var angeloDirectory: URL {
+        let urls = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)
+        let appURL = urls.first!.appendingPathComponent("Angelo")
+        
+        try? FileManager.default.createDirectory(at: appURL, withIntermediateDirectories: true, attributes: nil)
+        
+        return appURL
+    }
 }
