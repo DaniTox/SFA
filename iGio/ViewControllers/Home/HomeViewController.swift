@@ -115,7 +115,7 @@ class HomeViewController : UICollectionViewController, UICollectionViewDelegateF
             break
         default:
             if #available(iOS 14, *) {
-                let view = NavigationView { AngeloView(donePressed: dismissPresentedVC) }
+                let view = NavigationView { AngeloView(donePressed: dismissPresentedVC) }.navigationViewStyle(StackNavigationViewStyle())
                 let vc = UIHostingController(rootView: view)
                 vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
