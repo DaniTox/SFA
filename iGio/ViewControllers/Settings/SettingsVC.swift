@@ -28,6 +28,10 @@ class SettingsVC: UIViewController, HasCustomView {
         rootView.tableView.register(SwitchCell.self, forCellReuseIdentifier: "switchCell")
         rootView.tableView.delegate = self
         rootView.tableView.dataSource = self
+    
+        if #available(iOS 14, *) {
+            rootView.tableView.register(AgeCell.self, forCellReuseIdentifier: "ageCell")
+        }
     }
     
     deinit {
@@ -92,6 +96,13 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    @available(iOS 14, *)
+    fileprivate func makeAgeCellWithMenu(in tableView: UITableView) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ageCell") as! AgeCell
+        cell.mainLabel.text = "Età"
+        return cell
+    }
+    
     fileprivate func makeDisclosureCell(with text: String, in tableView: UITableView) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "boldCell") as! BoldCell
         cell.mainLabel.text = text
@@ -113,7 +124,9 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
 //            return makeDisclosureCell(with: "Backup (ancora in sviluppo)", in: tableView)
         case 0:
             switch indexPath.row {
-            case 0: return makeDisclosureCell(with: "Età", in: tableView)
+            case 0:
+                if #available(iOS 14, *) { return makeAgeCellWithMenu(in: tableView)}
+                return makeDisclosureCell(with: "Età", in: tableView)
             case 1: return makeDisclosureCell(with: "Maschio/Femmina", in: tableView)
             case 2: return makeDisclosureCell(with: "Provincia & Città", in: tableView)
             default: fatalError()
@@ -168,7 +181,9 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
 //        case 0: break
         case 0:
             switch indexPath.row {
-            case 0: navigationController?.pushViewController(UserAgeVC(), animated: true)
+            case 0:
+                if #available(iOS 14, *) { break }
+                navigationController?.pushViewController(UserAgeVC(), animated: true)
             case 1: navigationController?.pushViewController(GenderVC(), animated: true)
             case 2: navigationController?.pushViewController(LocationVC(), animated: true)
             default: break
