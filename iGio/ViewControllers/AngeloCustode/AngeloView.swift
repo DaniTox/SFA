@@ -26,7 +26,7 @@ struct AngeloView: View {
                                         Text(model.risposteFile.risposte[domanda.id] ?? "Nessuna risposta")
                                             .foregroundColor(.secondary)
                                         Spacer()
-                                    }                                    
+                                    }
                                 }
                             }
                         }
@@ -57,6 +57,7 @@ struct AngeloView: View {
             ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
                 Button("Fine") {
                     donePressed()
+                    self.model.save()
                     self.model.stopObservingChanges()
                 }
             }

@@ -34,6 +34,10 @@ class AngeloAgent: ObservableObject {
         }
     }
     
+    func save() {
+        risposteFile.save()
+    }
+    
     func stopObservingChanges() {
         self.risposteChangesObserver?.cancel()
         self.risposteChangesObserver = nil
