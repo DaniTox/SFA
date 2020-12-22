@@ -22,8 +22,11 @@ struct AngeloView: View {
                         ForEach(model.domandeFile.domande, id: \.id) { domanda in
                             NavigationLink(destination: getDestinationView(for: domanda)) {
                                 GroupBox(label: Text(domanda.str).foregroundColor(.primary)) {
-                                    Text(model.risposteFile.risposte[domanda.id] ?? "Nessuna risposta")
-                                        .foregroundColor(.secondary)
+                                    HStack {
+                                        Text(model.risposteFile.risposte[domanda.id] ?? "Nessuna risposta")
+                                            .foregroundColor(.secondary)
+                                        Spacer()
+                                    }                                    
                                 }
                             }
                         }
@@ -41,6 +44,9 @@ struct AngeloView: View {
                     }
                 }
                 
+                Section(header: Text("Preghiera finale").bold().font(.title)) {
+                    Text(self.model.preghiera)
+                }
                 
             }
             .padding(.horizontal)

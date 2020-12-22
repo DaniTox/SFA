@@ -22,6 +22,7 @@
 		44CDD61725914227008DB300 /* AngeloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDD61625914227008DB300 /* AngeloView.swift */; };
 		44CDD61D25914DA8008DB300 /* AngeloEditRisposta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDD61C25914DA8008DB300 /* AngeloEditRisposta.swift */; };
 		44CDD62125914DC4008DB300 /* AngeloAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDD62025914DC4008DB300 /* AngeloAgent.swift */; };
+		44CDD62525921DEC008DB300 /* preghiera_angelo_custode.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44CDD62425921DEC008DB300 /* preghiera_angelo_custode.txt */; };
 		DB0D49EC21DFF13000887D3B /* SettingsUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D49EB21DFF13000887D3B /* SettingsUserCell.swift */; };
 		DB14AF6522C810B800B9F3B3 /* SocialStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14AF6422C810B800B9F3B3 /* SocialStack.swift */; };
 		DB19C67F21E2870B0020357D /* VerificaCompagniaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB19C67E21E2870B0020357D /* VerificaCompagniaVC.swift */; };
@@ -216,6 +217,7 @@
 		44CDD61625914227008DB300 /* AngeloView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngeloView.swift; sourceTree = "<group>"; };
 		44CDD61C25914DA8008DB300 /* AngeloEditRisposta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngeloEditRisposta.swift; sourceTree = "<group>"; };
 		44CDD62025914DC4008DB300 /* AngeloAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngeloAgent.swift; sourceTree = "<group>"; };
+		44CDD62425921DEC008DB300 /* preghiera_angelo_custode.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = preghiera_angelo_custode.txt; sourceTree = "<group>"; };
 		DB0D49EB21DFF13000887D3B /* SettingsUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUserCell.swift; sourceTree = "<group>"; };
 		DB14AF6422C810B800B9F3B3 /* SocialStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialStack.swift; sourceTree = "<group>"; };
 		DB19C67E21E2870B0020357D /* VerificaCompagniaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificaCompagniaVC.swift; sourceTree = "<group>"; };
@@ -766,6 +768,7 @@
 				DBAAE2BC21A5E9DA00211CBF /* CircularThings.swift */,
 				DB4F3BBB21F5C34C0040F4C4 /* Themes.swift */,
 				44CDD5B8258F79DB008DB300 /* FileManager+Extension.swift */,
+				44CDD62425921DEC008DB300 /* preghiera_angelo_custode.txt */,
 			);
 			path = Altro;
 			sourceTree = "<group>";
@@ -1147,6 +1150,7 @@
 				44CDD60C258FCB79008DB300 /* angelo_custode.json in Resources */,
 				DB88DBF721AAF3AD00B0699B /* regolaTriennio.json in Resources */,
 				DB4DAC59226124B300730B2A /* regolaMedie.json in Resources */,
+				44CDD62525921DEC008DB300 /* preghiera_angelo_custode.txt in Resources */,
 				44CDD5AD258E52B5008DB300 /* verificaMedie.json in Resources */,
 				DBAF3C0C219C901B003083EA /* Assets.xcassets in Resources */,
 				DBAF3C46219CBF35003083EA /* IQKeyboardManager.bundle in Resources */,

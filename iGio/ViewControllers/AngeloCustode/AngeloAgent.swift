@@ -15,11 +15,19 @@ class AngeloAgent: ObservableObject {
     var domandeFile: AngeloDomandeFile
     var risposteFile: AngeloRisposteFile
     
+    var preghiera: String = ""
+    
     var risposteChangesObserver: AnyCancellable?
     
     init() {
         domandeFile = AngeloDomandeFile.get()
         risposteFile = AngeloRisposteFile.get() ?? AngeloRisposteFile()
+        
+        let preghieraUrl = Bundle.main.url(forResource: "preghiera_angelo_custode", withExtension: "txt")!
+        if let data = try? Data(contentsOf: preghieraUrl) {
+            preghiera = String(data: data, encoding: .utf8) ?? ""
+        }
+        
         
         risposteChangesObserver = risposteFile.objectWillChange.sink {
             self.objectWillChange.send()
