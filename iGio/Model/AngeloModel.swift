@@ -32,6 +32,11 @@ class AngeloRisposteFile: Codable, ObservableObject {
     var paroleChecked: [UUID: Bool] = [:]
     var preghieraParola: String = ""
     
+    func set(parolaChecked: Bool, forParolaID parolaID: UUID) {
+        self.paroleChecked[parolaID] = parolaChecked
+        objectWillChange.send()
+    }
+    
     func set(risposta: String, forID domandaID: UUID) {
         self.risposte[domandaID] = risposta
         objectWillChange.send()
