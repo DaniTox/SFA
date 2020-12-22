@@ -25,6 +25,7 @@
 		44CDD62525921DEC008DB300 /* preghiera_angelo_custode.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44CDD62425921DEC008DB300 /* preghiera_angelo_custode.txt */; };
 		44CDD6292592A412008DB300 /* AngeloMedieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDD6282592A412008DB300 /* AngeloMedieView.swift */; };
 		44CDD62D2592A9C6008DB300 /* AgeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDD62C2592A9C6008DB300 /* AgeCell.swift */; };
+		44CDD6312592AFC5008DB300 /* GenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CDD6302592AFC5008DB300 /* GenderCell.swift */; };
 		DB0D49EC21DFF13000887D3B /* SettingsUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0D49EB21DFF13000887D3B /* SettingsUserCell.swift */; };
 		DB14AF6522C810B800B9F3B3 /* SocialStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14AF6422C810B800B9F3B3 /* SocialStack.swift */; };
 		DB19C67F21E2870B0020357D /* VerificaCompagniaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB19C67E21E2870B0020357D /* VerificaCompagniaVC.swift */; };
@@ -222,6 +223,7 @@
 		44CDD62425921DEC008DB300 /* preghiera_angelo_custode.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = preghiera_angelo_custode.txt; sourceTree = "<group>"; };
 		44CDD6282592A412008DB300 /* AngeloMedieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngeloMedieView.swift; sourceTree = "<group>"; };
 		44CDD62C2592A9C6008DB300 /* AgeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeCell.swift; sourceTree = "<group>"; };
+		44CDD6302592AFC5008DB300 /* GenderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCell.swift; sourceTree = "<group>"; };
 		DB0D49EB21DFF13000887D3B /* SettingsUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUserCell.swift; sourceTree = "<group>"; };
 		DB14AF6422C810B800B9F3B3 /* SocialStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialStack.swift; sourceTree = "<group>"; };
 		DB19C67E21E2870B0020357D /* VerificaCompagniaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificaCompagniaVC.swift; sourceTree = "<group>"; };
@@ -474,6 +476,7 @@
 				DB32449322469AD100116FE3 /* TeenStarMaschioCell.swift */,
 				DB984700227F54940033D12F /* GioProNetCell.swift */,
 				44CDD62C2592A9C6008DB300 /* AgeCell.swift */,
+				44CDD6302592AFC5008DB300 /* GenderCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -1184,6 +1187,7 @@
 				DBAF3C4C219CBF35003083EA /* IQUIView+Hierarchy.swift in Sources */,
 				DBAF3C02219C9019003083EA /* AppDelegate.swift in Sources */,
 				DB88DBDF21A96E6F00B0699B /* HomeViewController.swift in Sources */,
+				44CDD6312592AFC5008DB300 /* GenderCell.swift in Sources */,
 				DB9846F5227F2FBC0033D12F /* GioProListVC.swift in Sources */,
 				DB323B15223D521300116FE3 /* SitoWeb.swift in Sources */,
 				44CDD5B9258F79DB008DB300 /* FileManager+Extension.swift in Sources */,

@@ -80,6 +80,13 @@ enum UserGender : Int, Codable, CaseIterable {
     case boy = 0
     case girl = 1
     
+    var stringValue: String {
+        switch self {
+        case .boy: return "Maschio"
+        case .girl: return "Femmina"
+        }
+    }
+    
     static func getGenderFrom(str: String) -> UserGender {
         if str == "Maschio" {
             return UserGender.boy

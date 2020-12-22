@@ -30,6 +30,7 @@ class SettingsVC: UIViewController, HasCustomView {
         rootView.tableView.dataSource = self
     
         if #available(iOS 14, *) {
+            rootView.tableView.register(GenderCell.self, forCellReuseIdentifier: "genderCell")
             rootView.tableView.register(AgeCell.self, forCellReuseIdentifier: "ageCell")
         }
     }
@@ -103,6 +104,13 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    @available(iOS 14, *)
+    fileprivate func makeGenderCellWithMenu(in tableView: UITableView) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "genderCell") as! GenderCell
+        cell.mainLabel.text = "Maschio/Femmina"
+        return cell
+    }
+    
     fileprivate func makeDisclosureCell(with text: String, in tableView: UITableView) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "boldCell") as! BoldCell
         cell.mainLabel.text = text
@@ -127,7 +135,9 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
             case 0:
                 if #available(iOS 14, *) { return makeAgeCellWithMenu(in: tableView)}
                 return makeDisclosureCell(with: "Età", in: tableView)
-            case 1: return makeDisclosureCell(with: "Maschio/Femmina", in: tableView)
+            case 1:
+                if #available(iOS 14, *) { return makeGenderCellWithMenu(in: tableView)}
+                return makeDisclosureCell(with: "Maschio/Femmina", in: tableView)
             case 2: return makeDisclosureCell(with: "Provincia & Città", in: tableView)
             default: fatalError()
             }
@@ -184,7 +194,9 @@ extension SettingsVC : UITableViewDelegate, UITableViewDataSource {
             case 0:
                 if #available(iOS 14, *) { break }
                 navigationController?.pushViewController(UserAgeVC(), animated: true)
-            case 1: navigationController?.pushViewController(GenderVC(), animated: true)
+            case 1:
+                if #available(iOS 14, *) { break }
+                navigationController?.pushViewController(GenderVC(), animated: true)
             case 2: navigationController?.pushViewController(LocationVC(), animated: true)
             default: break
             }
