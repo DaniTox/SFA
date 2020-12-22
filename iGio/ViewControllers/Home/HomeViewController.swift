@@ -110,11 +110,14 @@ class HomeViewController : UICollectionViewController, UICollectionViewDelegateF
     }
     
     @objc func showAngeloCustode() {
-        switch User.currentUser().ageScuola {
-        case .medie:
-            break
-        default:
-            if #available(iOS 14, *) {
+        if #available(iOS 14, *) {
+            switch User.currentUser().ageScuola {
+            case .medie:
+                let view = NavigationView { AngeloMedieView(doneAction: dismissPresentedVC) }.navigationViewStyle(StackNavigationViewStyle())
+                let vc = UIHostingController(rootView: view)
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+            default:
                 let view = NavigationView { AngeloView(donePressed: dismissPresentedVC) }.navigationViewStyle(StackNavigationViewStyle())
                 let vc = UIHostingController(rootView: view)
                 vc.modalPresentationStyle = .fullScreen
