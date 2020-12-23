@@ -111,12 +111,14 @@ class NotificheDataSource: NSObject, UITableViewDataSource {
     }
     
     private func showNotifSettingsAlert() {
-        let alert = UIAlertController(title: "Attenzione", message: "In passato non hai dato l'autorizzazione ad iGio di mandarti le notifiche. Per questo motivo, devi riattivarl dalle impostazioni del telefono.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Apri Impostazioni", style: .default, handler: { (_) in
-            Notifiche.openSettings()
-        }))
-        alert.addAction(UIAlertAction(title: "Annulla", style: .cancel, handler: nil))
-        self.controller?.present(alert, animated: true)
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Attenzione", message: "In passato non hai dato l'autorizzazione ad iGio di mandarti le notifiche. Per questo motivo, devi riattivarl dalle impostazioni del telefono.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Apri Impostazioni", style: .default, handler: { (_) in
+                Notifiche.openSettings()
+            }))
+            alert.addAction(UIAlertAction(title: "Annulla", style: .cancel, handler: nil))
+            self.controller?.present(alert, animated: true)
+        }        
     }
     
 }
