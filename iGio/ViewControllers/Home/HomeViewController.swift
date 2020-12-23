@@ -111,7 +111,7 @@ class HomeViewController : UICollectionViewController, UICollectionViewDelegateF
     
     @objc func showAngeloCustode() {
         if #available(iOS 14, *) {
-            switch User.currentUser().ageScuola {
+            switch GioUser.currentUser().scuolaType {
             case .medie:
                 let view = NavigationView { AngeloMedieView(doneAction: dismissPresentedVC) }.navigationViewStyle(StackNavigationViewStyle())
                 let vc = UIHostingController(rootView: view)
@@ -133,7 +133,7 @@ class HomeViewController : UICollectionViewController, UICollectionViewDelegateF
     }
     
     @objc func showRegolaController() {
-        switch User.currentUser().ageScuola {
+        switch GioUser.currentUser().scuolaType {
         case .medie:
             let vc = RegolaCategorieVC(regolaType: .medie)
             navigationController?.pushViewController(vc, animated: true)
@@ -152,12 +152,12 @@ class HomeViewController : UICollectionViewController, UICollectionViewDelegateF
     }
     
     private func showTeenStarController() {
-        let user = User.currentUser()
+        let user = GioUser.currentUser()
         if user.gender == .boy {
             let vc = TeenStarMaschioListVC()
             navigationController?.pushViewController(vc, animated: true)
         } else if user.gender == .girl {
-            if user.ageScuola == .medie {
+            if user.scuolaType == .medie {
                 let vc = TeenStarMaschioListVC()
                 navigationController?.pushViewController(vc, animated: true)
             } else {
@@ -173,7 +173,7 @@ class HomeViewController : UICollectionViewController, UICollectionViewDelegateF
     }
     
     @objc private func showVerificaCompagniaController() {
-        let ageScuola = User.currentUser().ageScuola
+        let ageScuola = GioUser.currentUser().scuolaType
         let vc = VerificaCompagniaVC(type: ageScuola)
         navigationController?.pushViewController(vc, animated: true)
     }

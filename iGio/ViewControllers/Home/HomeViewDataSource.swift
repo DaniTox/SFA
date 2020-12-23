@@ -13,8 +13,8 @@ class HomeViewDataSource: NSObject, UICollectionViewDataSource {
     var items: [HomeItem] = []
     
     func update() {
-        let user = User.currentUser()
-        self.items = allHomeItems.filter { $0.allowedAge.contains(user.ageScuola) && $0.allowedGenders.contains(user.gender) }
+        let user = GioUser.currentUser()
+        self.items = allHomeItems.filter { $0.allowedAge.contains(user.scuolaType) && $0.allowedGenders.contains(user.gender) }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -13,7 +13,7 @@ import RealmSwift
 class GenderCell: BoldCell {
     var genderButton: UIButton = {
         let b = UIButton()
-        b.setTitle(User.currentUser().gender.stringValue, for: .normal)
+        b.setTitle(GioUser.currentUser().gender.stringValue, for: .normal)
         b.setTitleColor(Theme.current.textColor, for: .normal)
         b.layer.cornerRadius = 5
         b.layer.borderWidth = 1
@@ -45,11 +45,7 @@ class GenderCell: BoldCell {
     
     private func update(gender: UserGender) {
         DispatchQueue.main.async {
-            let realm = try! Realm()
-            try? realm.write {
-                User.currentUser().gender = gender
-            }
-            
+            GioUser.currentUser().gender = gender
             
             self.genderButton.setTitle(gender.stringValue, for: .normal)
         }

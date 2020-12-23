@@ -48,32 +48,23 @@ class UserAgeVC: UIViewController, HasCustomView, OrderedFlowController {
     }
 
     func checkButton() {
-        self.rootView.updateView(for: User.currentUser().ageScuola)
+        self.rootView.updateView(for: GioUser.currentUser().scuolaType)
     }
     
     @objc private func medieTouched() {
-        let realm = try! Realm()
-        try? realm.write {
-            User.currentUser().ageScuola = .medie
-        }
+        GioUser.currentUser().scuolaType = .medie
         workFinished()
         rootView.updateView(for: .medie)
     }
     
     @objc private func biennioTouched() {
-        let realm = try! Realm()
-        try? realm.write {
-            User.currentUser().ageScuola = .biennio
-        }
+        GioUser.currentUser().scuolaType = .biennio
         workFinished()
         rootView.updateView(for: .biennio)
     }
     
     @objc private func triennioTouched() {
-        let realm = try! Realm()
-        try? realm.write {
-            User.currentUser().ageScuola = .triennio
-        }
+        GioUser.currentUser().scuolaType = .triennio        
         workFinished()
         rootView.updateView(for: .triennio)
     }

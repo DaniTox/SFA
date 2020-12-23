@@ -29,4 +29,13 @@ extension FileManager {
         
         return appURL
     }
+    
+    static var userDirectory: URL {
+        let urls = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)
+        let appURL = urls.first!.appendingPathComponent("User")
+        
+        try? FileManager.default.createDirectory(at: appURL, withIntermediateDirectories: true, attributes: nil)
+        
+        return appURL.appendingPathComponent("user.json")
+    }
 }

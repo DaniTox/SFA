@@ -14,6 +14,13 @@ let THEME_KEY = "theme"
 let GENDER_KEY = "gender"
 let GRADOSCUOLA_KEY = "gradoScuola"
 
+var isUserConvertedToJSON: Bool {
+    get {
+        UserDefaults.standard.bool(forKey: "isUserConvertedToJSON")
+    } set {
+        UserDefaults.standard.set(newValue, forKey: "isUserConvertedToJSON")
+    }
+}
 
 var isVerificaRealmToJSONConversionDone: Bool {
     get {

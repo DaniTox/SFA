@@ -48,24 +48,19 @@ class GenderVC: UIViewController, HasCustomView, OrderedFlowController {
     }
     
     func checkButton() {
-        self.rootView.updateView(for: User.currentUser().gender)
+        self.rootView.updateView(for: GioUser.currentUser().gender)
     }
     
     @objc private func maleButtonTouched() {
-        let realm = try! Realm()
-        try? realm.write {
-            User.currentUser().gender = .boy
-        }
+        GioUser.currentUser().gender = .boy
         
         workFinished()
         rootView.updateView(for: .boy)
     }
     
     @objc private func girlButtonTouched() {
-        let realm = try! Realm()
-        try? realm.write {
-            User.currentUser().gender = .girl
-        }
+        GioUser.currentUser().gender = .girl
+        
         workFinished()
         rootView.updateView(for: .girl)
     }

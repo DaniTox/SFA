@@ -117,7 +117,7 @@ class HomeView : UIView {
     }
     
     func updateRDVTitle() {
-        switch User.currentUser().ageScuola {
+        switch GioUser.currentUser().scuolaType {
         case .medie:
             regolaButton.setTitle("Agenda dell'allegria e della santità", for: .normal)
         case .biennio:

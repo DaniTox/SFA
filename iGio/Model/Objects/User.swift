@@ -35,16 +35,59 @@ enum ScuolaType : Int, Codable, CaseIterable {
     }
 }
 
+class GioUser: Codable, CustomStringConvertible {
+    var id: UUID = UUID() { didSet { save() }}
+    var gender: UserGender = .boy { didSet { save() }}
+    var scuolaType: ScuolaType = .medie { didSet { save() }}
+    var apnsToken: String = "" { didSet { save() }}
+    
+    func save() {
+        let url = FileManager.userDirectory
+        guard let data = try? JSONEncoder().encode(self) else { return }
+        try? data.write(to: url)
+    }
+    
+    static func currentUser() -> GioUser {
+        if isUserConvertedToJSON {
+            let userDir = FileManager.userDirectory
+            guard let data = try? Data(contentsOf: userDir) else { return GioUser() }
+            guard let user = try? JSONDecoder().decode(GioUser.self, from: data) else { return GioUser() }
+            
+            return user
+        } else {
+            //convert and return
+            let oldStyleUser = User.currentUser()
+            
+            let newStyleUser = GioUser()
+            newStyleUser.id = UUID(uuidString: oldStyleUser.id) ?? UUID()
+            newStyleUser.gender = oldStyleUser.gender
+            newStyleUser.scuolaType = ScuolaType(rawValue: oldStyleUser.scuolaRawValue) ?? .medie
+            newStyleUser.apnsToken = oldStyleUser.apnsToken
+            
+            isUserConvertedToJSON = true
+            
+            newStyleUser.save()
+            
+            return newStyleUser
+        }
+    }
+    
+    var description: String {
+        String("age: \(self.scuolaType.stringValue), gender: \(self.gender.stringValue), apns: \(self.apnsToken), id: \(self.id.uuidString)")
+    }
+}
+
+//this class is temporary. After all users will switch to the new version that doesn't use Realm, it will be deleted
 class User : Object {
     @objc dynamic var id = UUID().uuidString
     @objc dynamic var genderRawValue = 0
     @objc dynamic var scuolaRawValue = 1
     @objc dynamic var apnsToken : String = ""
-    
+
     override static func primaryKey() -> String? {
         return "id"
     }
-    
+
     var gender : UserGender {
         get {
             return UserGender(rawValue: genderRawValue)!
@@ -52,7 +95,7 @@ class User : Object {
             genderRawValue = newValue.rawValue
         }
     }
-    
+
     var ageScuola : ScuolaType {
         get {
             return ScuolaType(rawValue: scuolaRawValue)!
@@ -60,7 +103,7 @@ class User : Object {
             scuolaRawValue = newValue.rawValue
         }
     }
-    
+
     static func currentUser() -> User {
         let realm = try! Realm()
         let users = realm.objects(User.self)

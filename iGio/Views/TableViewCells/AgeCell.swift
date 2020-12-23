@@ -13,7 +13,7 @@ import RealmSwift
 class AgeCell: BoldCell {
     var ageButton: UIButton = {
         let b = UIButton()
-        b.setTitle(User.currentUser().ageScuola.settingsString, for: .normal)
+        b.setTitle(GioUser.currentUser().scuolaType.settingsString, for: .normal)
         b.setTitleColor(Theme.current.textColor, for: .normal)
         b.layer.cornerRadius = 5
         b.layer.borderWidth = 1
@@ -48,10 +48,7 @@ class AgeCell: BoldCell {
     
     private func update(age: ScuolaType) {
         DispatchQueue.main.async {
-            let realm = try! Realm()
-            try? realm.write {
-                User.currentUser().ageScuola = age
-            }
+            GioUser.currentUser().scuolaType = age
             
             
             self.ageButton.setTitle(age.settingsString, for: .normal)
