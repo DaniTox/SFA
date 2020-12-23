@@ -58,7 +58,7 @@ class GenderCell: BoldCell {
             genderButton.centerYAnchor.constraint(equalTo: self.containerView.centerYAnchor),
             genderButton.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -20),
             genderButton.heightAnchor.constraint(equalTo: self.containerView.heightAnchor, multiplier: 0.5),
-            genderButton.widthAnchor.constraint(equalToConstant: 200)
+            genderButton.widthAnchor.constraint(equalToConstant: 100)
         ])
         
     }

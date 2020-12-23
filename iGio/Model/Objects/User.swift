@@ -24,9 +24,9 @@ enum ScuolaType : Int, Codable, CaseIterable {
     
     var settingsString: String {
         switch self {
-        case .medie: return "11-14 (Medie)"
-        case .biennio: return "14-16 (Biennio)"
-        case .triennio: return "16-19 (Triennio)"
+        case .medie: return "Medie"
+        case .biennio: return "Biennio"
+        case .triennio: return "Triennio"
         }       
     }
     

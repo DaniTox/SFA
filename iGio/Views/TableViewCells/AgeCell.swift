@@ -62,7 +62,7 @@ class AgeCell: BoldCell {
             ageButton.centerYAnchor.constraint(equalTo: self.containerView.centerYAnchor),
             ageButton.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -20),
             ageButton.heightAnchor.constraint(equalTo: self.containerView.heightAnchor, multiplier: 0.5),
-            ageButton.widthAnchor.constraint(equalToConstant: 200)
+            ageButton.widthAnchor.constraint(equalToConstant: 100)
         ])
         
     }
