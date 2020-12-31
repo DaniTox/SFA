@@ -110,6 +110,9 @@ class HomeViewController : UICollectionViewController, UICollectionViewDelegateF
     }
     
     @objc func showAngeloCustode() {
+        IQKeyboardManager.shared.enable = false
+        IQKeyboardManager.shared.enableAutoToolbar = false
+        
         if #available(iOS 14, *) {
             switch GioUser.currentUser().scuolaType {
             case .medie:
@@ -129,6 +132,8 @@ class HomeViewController : UICollectionViewController, UICollectionViewDelegateF
     private func dismissPresentedVC() {
         DispatchQueue.main.async {
             self.dismiss(animated: true, completion: nil)
+            IQKeyboardManager.shared.enable = true
+            IQKeyboardManager.shared.enableAutoToolbar = false
         }
     }
     
