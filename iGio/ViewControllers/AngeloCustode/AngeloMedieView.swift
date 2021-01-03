@@ -60,10 +60,22 @@ struct AngeloMedieView: View {
 extension AngeloMedieView {
     var domande: [String: String] {
         [
-            "PREGARE": "Pregare per il mio Cliente è un gesto di carità molto alto, posso farlo anche se non lo conosco ancora bene, anche a distanza e anche se la timidezza mi frena ancora un po’. Se prego per lui, lo conosco in una luce nuova e sarò più pronto ad incontrarlo nella quotidianità.",
-            "GIOCARE": "Giocare insieme è un modo per superare la timidezza, conoscerci e aiutarlo a fare gruppo con altri amici.",
-            "RACCONTARE": "Raccontare qualcosa di bello che ho fatto e chiedere a lui di raccontare a me qualcosa è un modo per approfondire il nostro legame e darci buoni consigli e buoni esempi.",
-            "CORREGGERE": "Talvolta il mio Cliente avrà bisogno di essere corretto e aiutato a far proprio l’atteggiamento che anche io ho appreso nella casa di Don Bosco."
+            "PREGARE": """
+Pregare per il mio Cliente è un gesto di carità molto alto, posso farlo anche se non lo conosco ancora bene, anche a distanza e anche se la timidezza mi frena ancora un po’. Se prego per lui, lo conosco in una luce nuova e sarò più pronto ad incontrarlo nella quotidianità.
+Prego per il mio Cliente?
+""",
+            "GIOCARE": """
+Giocare insieme è un modo per superare la timidezza, conoscerci e aiutarlo a fare gruppo con altri amici.
+Gioco con il mio Cliente?
+""",
+            "RACCONTARE": """
+Raccontare qualcosa di bello che ho fatto e chiedere a lui di raccontare a me qualcosa è un modo per approfondire il nostro legame e darci buoni consigli e buoni esempi.
+Racconto al mio Cliente?
+""",
+            "CORREGGERE": """
+Talvolta il mio Cliente avrà bisogno di essere corretto e aiutato a far proprio l’atteggiamento che anche io ho appreso nella casa di Don Bosco.
+Correggo il mio Cliente?
+"""
         ]
     }
 }
