@@ -11,6 +11,8 @@ import SwiftUI
 @available(iOS 14, *)
 struct AngeloMedieView: View {
     
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    
     @StateObject var agent = AngeloMedieAgent()
     var doneAction: () -> Void
     
@@ -29,6 +31,7 @@ struct AngeloMedieView: View {
                             EmojiSlider(value: binding(for: key))
                             Text("\(Int(agent.getValue(forKey: key)))")                            
                         }
+                        .padding(.horizontal, horizontalSizeClass == .compact ? 0 : 30)
                     }
                 }
             }
