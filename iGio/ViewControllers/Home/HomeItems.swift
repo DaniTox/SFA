@@ -28,7 +28,7 @@ let allHomeItems: [HomeItem] = [
     HomeItem(idNumber: 6, name: "Regola di Vita", image: #imageLiteral(resourceName: "airplane"), color: .darkGreen, allowedAge: [.triennio], allowedGenders: UserGender.allCases), //✅
     HomeItem(idNumber: 7, name: "Angelo Custode",
              image: UIImage(named: "angel"),
-             color: UIColor(red: 0, green: 1, blue: 1, alpha: 1),
+             color: UIColor.yellow,
              allowedAge: ScuolaType.allCases, allowedGenders: UserGender.allCases)
 ]
 

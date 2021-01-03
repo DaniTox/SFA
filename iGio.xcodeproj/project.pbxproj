@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4427511225A222DA005AD97E /* AngeloMedieAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4427511125A222DA005AD97E /* AngeloMedieAgent.swift */; };
+		4427511625A249C4005AD97E /* EmojiSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4427511525A249C4005AD97E /* EmojiSlider.swift */; };
 		44BCBF03258B52AA00286AC8 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 44BCBF02258B52AA00286AC8 /* RealmSwift */; };
 		44BCBF05258B52AA00286AC8 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 44BCBF04258B52AA00286AC8 /* Realm */; };
 		44BCBF0F258CCF5500286AC8 /* SwiftEntryKit in Frameworks */ = {isa = PBXBuildFile; productRef = 44BCBF0E258CCF5500286AC8 /* SwiftEntryKit */; };
@@ -211,6 +213,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4427511125A222DA005AD97E /* AngeloMedieAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngeloMedieAgent.swift; sourceTree = "<group>"; };
+		4427511525A249C4005AD97E /* EmojiSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiSlider.swift; sourceTree = "<group>"; };
 		44CDD5A8258E52B5008DB300 /* verificaTriennio.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = verificaTriennio.json; sourceTree = "<group>"; };
 		44CDD5A9258E52B5008DB300 /* verificaBiennio.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = verificaBiennio.json; sourceTree = "<group>"; };
 		44CDD5AA258E52B5008DB300 /* verificaMedie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = verificaMedie.json; sourceTree = "<group>"; };
@@ -429,6 +433,7 @@
 				44CDD61C25914DA8008DB300 /* AngeloEditRisposta.swift */,
 				44CDD62025914DC4008DB300 /* AngeloAgent.swift */,
 				44CDD6282592A412008DB300 /* AngeloMedieView.swift */,
+				4427511125A222DA005AD97E /* AngeloMedieAgent.swift */,
 			);
 			path = AngeloCustode;
 			sourceTree = "<group>";
@@ -504,6 +509,7 @@
 				DBBBDC4F21F5016D00C9F54A /* BouncyView.swift */,
 				DB217D4C22185124003ED264 /* UIBox.swift */,
 				DB217D4E2218557D003ED264 /* GenderBox.swift */,
+				4427511525A249C4005AD97E /* EmojiSlider.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -1262,6 +1268,7 @@
 				DB53C77121DE75E70001054B /* EmozioneTableViewCell.swift in Sources */,
 				DB217D4F2218557D003ED264 /* GenderBox.swift in Sources */,
 				DBAF3C47219CBF35003083EA /* IQKeyboardReturnKeyHandler.swift in Sources */,
+				4427511625A249C4005AD97E /* EmojiSlider.swift in Sources */,
 				DB22DA9121C03A9200E6497D /* NoteVC.swift in Sources */,
 				DB88DBE821A975C100B0699B /* SpinerLayer.swift in Sources */,
 				DB217D5422188D9E003ED264 /* OnboardingCoordinator.swift in Sources */,
@@ -1282,6 +1289,7 @@
 				DBAF3C42219CBF35003083EA /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				DBBE476022AD952500959E45 /* HomeItems.swift in Sources */,
 				DBAF3C19219C9203003083EA /* Costanti.swift in Sources */,
+				4427511225A222DA005AD97E /* AngeloMedieAgent.swift in Sources */,
 				DBAF3C3E219CBF35003083EA /* IQPreviousNextView.swift in Sources */,
 				DB7BEF8921D01442007A550E /* User.swift in Sources */,
 				DB323B0F223C56BB00116FE3 /* TeenStar.swift in Sources */,
