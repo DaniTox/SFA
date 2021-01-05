@@ -26,7 +26,11 @@ struct AngeloMedieView: View {
                 ForEach(keys, id: \.self) { key in
                     VStack {
                         Text(key).bold()
-                        Text(domande[key]!)
+                        HStack {
+                            Text(domande[key]!)
+                            Spacer()
+                        }
+                        
                         HStack {
                             EmojiSlider(value: binding(for: key))
                             Text("\(Int(agent.getValue(forKey: key)))")                            
@@ -73,7 +77,7 @@ Gioco con il mio Cliente?
 """,
             "RACCONTARE": """
 Raccontare qualcosa di bello che ho fatto e chiedere a lui di raccontare a me qualcosa è un modo per approfondire il nostro legame e darci buoni consigli e buoni esempi.
-Racconto al mio Cliente?
+Parlo con il mio Cliente?
 """,
             "CORREGGERE": """
 Talvolta il mio Cliente avrà bisogno di essere corretto e aiutato a far proprio l’atteggiamento che anche io ho appreso nella casa di Don Bosco.
