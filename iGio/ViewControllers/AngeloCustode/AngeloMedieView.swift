@@ -28,6 +28,7 @@ struct AngeloMedieView: View {
                         Text(key).bold()
                         HStack {
                             Text(domande[key]!)
+                                .fixedSize(horizontal: false, vertical: true)
                             Spacer()
                         }
                         
@@ -81,7 +82,7 @@ Parlo con il mio Cliente?
 """,
             "CORREGGERE": """
 Talvolta il mio Cliente avrà bisogno di essere corretto e aiutato a far proprio l’atteggiamento che anche io ho appreso nella casa di Don Bosco.
-Correggo il mio Cliente?
+So correggere con dolcezza?
 """
         ]
     }

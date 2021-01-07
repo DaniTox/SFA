@@ -1501,7 +1501,7 @@
 				CODE_SIGN_ENTITLEMENTS = MGS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = R779A64KR9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1529,7 +1529,7 @@
 				CODE_SIGN_ENTITLEMENTS = MGS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = R779A64KR9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
